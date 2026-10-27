@@ -284,6 +284,42 @@
     });
   }
 
+  // ---------------------------------------------------------------- pasted link or ISRC
+  // Turns whatever was pasted into either {type:'isrc'} or a tidy {type:'link'} that Spot On Track's search understands.
+  function normalizeLink(input) {
+    var raw = String(input || '').trim();
+    if (!raw) return { error: 'Paste a Spotify track link or an ISRC.' };
+    var compact = raw.replace(/[\s-]/g, '').toUpperCase();
+    if (/^[A-Z]{2}[A-Z0-9]{3}\d{7}$/.test(compact)) return { type: 'isrc', value: compact };
+    var m = /^spotify:track:([A-Za-z0-9]{22})$/.exec(raw);
+    if (m) return { type: 'link', value: 'https://open.spotify.com/track/' + m[1] };
+    var u;
+    try { u = new URL(/^https?:\/\//i.test(raw) ? raw : 'https://' + raw); } catch (e) { u = null; }
+    var generic = 'Paste a Spotify, Apple Music, Deezer or Shazam track link, or an ISRC.';
+    if (!u || !u.hostname || u.hostname.indexOf('.') < 0) return { error: generic };
+    var host = u.hostname.replace(/^www\./, '').toLowerCase();
+    if (host === 'open.spotify.com') {
+      m = /\/track\/([A-Za-z0-9]{22})/.exec(u.pathname);
+      if (m) return { type: 'link', value: 'https://open.spotify.com/track/' + m[1] };
+      return { error: 'That Spotify link is not a track. In Spotify use Share, then Copy Song Link.' };
+    }
+    if (host === 'music.apple.com') {
+      var i = u.searchParams.get('i');
+      return { type: 'link', value: 'https://music.apple.com' + u.pathname + (i ? '?i=' + i : '') };
+    }
+    if (host === 'deezer.com') {
+      m = /\/track\/(\d+)/.exec(u.pathname);
+      if (m) return { type: 'link', value: 'https://www.deezer.com/track/' + m[1] };
+      return { error: 'That Deezer link is not a track link.' };
+    }
+    if (host === 'shazam.com') {
+      m = /\/(?:track|song)\/(\d+)/.exec(u.pathname);
+      if (m) return { type: 'link', value: 'https://www.shazam.com/song/' + m[1] };
+      return { error: 'That Shazam link is not a track link.' };
+    }
+    return { error: generic };
+  }
+
   // ---------------------------------------------------------------- build a record context
   function buildContext(entry, histRec, manualEntries, registry, today) {
     var meta = (histRec && histRec.meta) || {};
@@ -325,6 +361,6 @@
     weeklyTable: weeklyTable, seriesSum: seriesSum, pctChange: pctChange,
     chartLabel: chartLabel, chartMoves: chartMoves, bestChartMove: bestChartMove,
     pickHeadline: pickHeadline, supportBullet: supportBullet, buildPitch: buildPitch, followUps: followUps,
-    buildContext: buildContext, nameList: nameList
+    buildContext: buildContext, nameList: nameList, normalizeLink: normalizeLink
   };
 }));
