@@ -292,6 +292,70 @@
     return { subject: subject, body: body, label: label, bullets: bullets, framing: data.map(function (d) { return d.framing; }), missingLink: link === '[link]' };
   }
 
+  // ---------------------------------------------------------------- daily monitoring: trajectory and what changed
+  // Trajectory compares the latest 7 days of data with the 7 days before, ending on the newest day Spot On Track has.
+  // Accelerating is +10% or more, declining is -10% or worse, anything between is plateauing.
+  function latestDate(series) {
+    var m = null;
+    (series || []).forEach(function (r) { var d = parseDate(r.date); if (d != null && r.daily != null && (m == null || d > m)) m = d; });
+    return m;
+  }
+  function trendOf(series) {
+    var L = latestDate(series);
+    if (L == null) return { state: 'nodata', pct: null, last7: null, prev7: null, latest: null };
+    var cur = seriesSum(series, L - 6 * DAY, L), prev = seriesSum(series, L - 13 * DAY, L - 7 * DAY);
+    var out = { state: 'early', pct: null, last7: cur ? cur.sum : null, prev7: prev ? prev.sum : null, latest: L, days: cur ? cur.days : 0 };
+    if (!cur || !prev || cur.days < 5 || prev.days < 5) return out;
+    out.pct = pctChange(cur.sum / cur.days, prev.sum / prev.days);
+    if (out.pct == null) return out;
+    out.state = out.pct >= 10 ? 'accelerating' : (out.pct <= -10 ? 'declining' : 'plateauing');
+    return out;
+  }
+  function placementEvents(ctx) {
+    var ev = [];
+    editorialOnly(ctx.placements).forEach(function (p) {
+      var adds = (p.spans || []).map(function (sp) { return parseDate(sp.added_at); }).filter(function (d) { return d != null; });
+      var rems = (p.spans || []).map(function (sp) { return parseDate(sp.removed_at); }).filter(function (d) { return d != null; });
+      if (adds.length) ev.push({ type: 'added', date: Math.min.apply(null, adds), name: p.name || '(unnamed)', dsp: p.dsp });
+      if (!activeNow(p) && rems.length) ev.push({ type: 'removed', date: Math.max.apply(null, rems), name: p.name || '(unnamed)', dsp: p.dsp });
+    });
+    return ev.sort(function (a, b) { return b.date - a.date; });
+  }
+  function monitor(ctx) {
+    var t = ctx.today != null ? ctx.today : Date.now();
+    var tr = trendOf(ctx.streams), sh = trendOf(ctx.shazams);
+    var ev = placementEvents(ctx), since = t - 6 * DAY;
+    var recent = ev.filter(function (e) { return e.date >= since && e.date <= t; });
+    var adds7 = recent.filter(function (e) { return e.type === 'added'; }), rem7 = recent.filter(function (e) { return e.type === 'removed'; });
+    var live = editorialOnly(ctx.placements).filter(activeNow).length;
+    var moves = chartMoves(ctx.charts).sort(function (a, b) { return a.position - b.position; });
+    var days = (ctx.streams || []).map(function (r) { return { date: parseDate(r.date), value: r.daily }; }).filter(function (r) { return r.date != null && r.value != null; }).sort(function (a, b) { return a.date - b.date; });
+    var sentences = [];
+    if (tr.state === 'accelerating') sentences.push('Spotify streams are up ' + tr.pct + '% on the previous 7 days.');
+    else if (tr.state === 'declining') sentences.push('Spotify streams are down ' + (-tr.pct) + '% on the previous 7 days.');
+    else if (tr.state === 'plateauing') sentences.push('Spotify streams are steady against the previous 7 days (' + (tr.pct >= 0 ? '+' : '') + tr.pct + '%).');
+    else if (tr.state === 'early') sentences.push('Too early to call a trend. Not enough days of data yet.');
+    if (adds7.length) sentences.push(adds7.length + ' editorial add' + (adds7.length > 1 ? 's' : '') + ' in the last 7 days: ' + adds7.slice(0, 3).map(function (e) { return e.name + ' (' + DSP_LABEL[e.dsp] + ')'; }).join(', ') + (adds7.length > 3 ? ' +' + (adds7.length - 3) + ' more' : '') + '.');
+    if (rem7.length) sentences.push(rem7.length + ' removed in the last 7 days: ' + rem7.slice(0, 3).map(function (e) { return e.name + ' (' + DSP_LABEL[e.dsp] + ')'; }).join(', ') + '.');
+    return {
+      trend: tr, shazam: sh, live: live, adds7: adds7, rem7: rem7, events: ev,
+      chart: moves.length ? chartText(moves[0]) : null,
+      spark: days.slice(-28).map(function (d) { return d.value; }),
+      days: days, latest: tr.latest, sentences: sentences,
+      worth: adds7.length > 0 || (tr.state === 'accelerating' && tr.pct >= 15)
+    };
+  }
+  // Everything that changed across all records in the last N days, newest first.
+  function changeFeed(ctxs, today, nDays) {
+    var out = [];
+    ctxs.forEach(function (ctx) {
+      placementEvents(ctx).forEach(function (e) {
+        if (e.date >= today - (nDays - 1) * DAY && e.date <= today) out.push(Object.assign({ isrc: ctx.isrc, artist: ctx.artist, track: ctx.track }, e));
+      });
+    });
+    return out.sort(function (a, b) { return b.date - a.date || String(a.name).localeCompare(String(b.name)); });
+  }
+
   // ---------------------------------------------------------------- campaign highlights (for Matt to read, not to paste)
   function chartText(m) {
     var move = m.isNew ? 'new entry' : (m.delta > 0 ? 'up ' + m.delta : (m.delta < 0 ? 'down ' + (-m.delta) : 'steady'));
@@ -482,7 +546,7 @@
     effectivePlacements: effectivePlacements, editorialOnly: editorialOnly, needsTagging: needsTagging,
     weeklyTable: weeklyTable, seriesSum: seriesSum, pctChange: pctChange,
     chartLabel: chartLabel, chartMoves: chartMoves, bestChartMove: bestChartMove,
-    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
+    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, monitor: monitor, trendOf: trendOf, changeFeed: changeFeed, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
     buildContext: buildContext, nameList: nameList, normalizeLink: normalizeLink
   };
 }));
