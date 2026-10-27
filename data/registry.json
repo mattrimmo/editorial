@@ -135,6 +135,10 @@
   "apple:pl.92020e0c78874f008afb85762fffb0a4": {
    "kind": "independent",
    "name": "ZENITH"
+  },
+  "deezer:1902101402": {
+   "kind": "editorial",
+   "name": "Electronic Hits"
   }
  }
 }
