@@ -139,6 +139,10 @@
   "deezer:1902101402": {
    "kind": "editorial",
    "name": "Electronic Hits"
+  },
+  "deezer:1478649355": {
+   "kind": "editorial",
+   "name": "Les nouveaut&eacute;s du vendredi"
   }
  }
 }
