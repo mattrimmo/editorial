@@ -1,18 +1,18 @@
 {
  "name": "tracked.json",
  "path": "data/tracked.json",
- "sha": "85f19ef6f6e3213fe5782f4e752786b03b298f70",
- "size": 18,
+ "sha": "40a13546bee7629b7faaa168bc4eba3d5b36e5c3",
+ "size": 1151,
  "url": "https://api.github.com/repos/mattrimmo/editorial/contents/data/tracked.json?ref=main",
  "html_url": "https://github.com/mattrimmo/editorial/blob/main/data/tracked.json",
- "git_url": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/85f19ef6f6e3213fe5782f4e752786b03b298f70",
+ "git_url": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/40a13546bee7629b7faaa168bc4eba3d5b36e5c3",
  "download_url": "https://raw.githubusercontent.com/mattrimmo/editorial/main/data/tracked.json",
  "type": "file",
- "content": "ewogInRyYWNrcyI6IFtdCn0K\n",
+ "content": "ewogIm5hbWUiOiAidHJhY2tlZC5qc29uIiwKICJwYXRoIjogImRhdGEvdHJh\nY2tlZC5qc29uIiwKICJzaGEiOiAiODVmMTllZjZmNmUzMjEzZmU1NzgyZjRl\nNzUyNzg2YjAzYjI5OGY3MCIsCiAic2l6ZSI6IDE4LAogInVybCI6ICJodHRw\nczovL2FwaS5naXRodWIuY29tL3JlcG9zL21hdHRyaW1tby9lZGl0b3JpYWwv\nY29udGVudHMvZGF0YS90cmFja2VkLmpzb24/cmVmPW1haW4iLAogImh0bWxf\ndXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9tYXR0cmltbW8vZWRpdG9yaWFs\nL2Jsb2IvbWFpbi9kYXRhL3RyYWNrZWQuanNvbiIsCiAiZ2l0X3VybCI6ICJo\ndHRwczovL2FwaS5naXRodWIuY29tL3JlcG9zL21hdHRyaW1tby9lZGl0b3Jp\nYWwvZ2l0L2Jsb2JzLzg1ZjE5ZWY2ZjZlMzIxM2ZlNTc4MmY0ZTc1Mjc4NmIw\nM2IyOThmNzAiLAogImRvd25sb2FkX3VybCI6ICJodHRwczovL3Jhdy5naXRo\ndWJ1c2VyY29udGVudC5jb20vbWF0dHJpbW1vL2VkaXRvcmlhbC9tYWluL2Rh\ndGEvdHJhY2tlZC5qc29uIiwKICJ0eXBlIjogImZpbGUiLAogImNvbnRlbnQi\nOiAiZXdvZ0luUnlZV05yY3lJNklGdGRDbjBLXG4iLAogImVuY29kaW5nIjog\nImJhc2U2NCIsCiAiX2xpbmtzIjogewogICJzZWxmIjogImh0dHBzOi8vYXBp\nLmdpdGh1Yi5jb20vcmVwb3MvbWF0dHJpbW1vL2VkaXRvcmlhbC9jb250ZW50\ncy9kYXRhL3RyYWNrZWQuanNvbj9yZWY9bWFpbiIsCiAgImdpdCI6ICJodHRw\nczovL2FwaS5naXRodWIuY29tL3JlcG9zL21hdHRyaW1tby9lZGl0b3JpYWwv\nZ2l0L2Jsb2JzLzg1ZjE5ZWY2ZjZlMzIxM2ZlNTc4MmY0ZTc1Mjc4NmIwM2Iy\nOThmNzAiLAogICJodG1sIjogImh0dHBzOi8vZ2l0aHViLmNvbS9tYXR0cmlt\nbW8vZWRpdG9yaWFsL2Jsb2IvbWFpbi9kYXRhL3RyYWNrZWQuanNvbiIKIH0s\nCiAidHJhY2tzIjogWwogIHsKICAgImFydGlzdCI6ICIiLAogICAidHJhY2si\nOiAiIiwKICAgImhvb2siOiAiIiwKICAgImxpbmtzIjoge30sCiAgICJhZGRl\nZCI6ICIyMDI2LTEwLTI3IiwKICAgImtleSI6ICJodHRwczovL29wZW4uc3Bv\ndGlmeS5jb20vdHJhY2svNDlmcXRSMmdjWlh2SlJRTmJ3ckdrVSIsCiAgICJs\naW5rIjogImh0dHBzOi8vb3Blbi5zcG90aWZ5LmNvbS90cmFjay80OWZxdFIy\nZ2NaWHZKUlFOYndyR2tVIgogIH0KIF0KfQo=\n",
  "encoding": "base64",
  "_links": {
   "self": "https://api.github.com/repos/mattrimmo/editorial/contents/data/tracked.json?ref=main",
-  "git": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/85f19ef6f6e3213fe5782f4e752786b03b298f70",
+  "git": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/40a13546bee7629b7faaa168bc4eba3d5b36e5c3",
   "html": "https://github.com/mattrimmo/editorial/blob/main/data/tracked.json"
  },
  "tracks": [
@@ -22,8 +22,8 @@
    "hook": "",
    "links": {},
    "added": "2026-10-27",
-   "key": "https://open.spotify.com/track/49fqtR2gcZXvJRQNbwrGkU",
-   "link": "https://open.spotify.com/track/49fqtR2gcZXvJRQNbwrGkU"
+   "key": "https://open.spotify.com/track/6mIJjux1hULMfWdGeqcszc",
+   "link": "https://open.spotify.com/track/6mIJjux1hULMfWdGeqcszc"
   }
  ]
 }
