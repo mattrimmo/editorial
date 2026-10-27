@@ -2,7 +2,11 @@
 """
 Editorial Pitch Pack - sync script.
 
-For every ISRC in data/tracked.json this pulls, from Spot On Track only:
+Records in data/tracked.json can be added by ISRC or by a track link (Spotify, Apple,
+Deezer or Shazam). Links are matched to an ISRC through Spot On Track's free track search
+and the result is kept in data/resolved.json, so no ISRC ever needs to be looked up by hand.
+
+For every record this pulls, from Spot On Track only:
   * track metadata (artist, title, release date, DSP links)
   * playlist placements (current AND removed, with added/removed dates) on
     Spotify, Apple Music and Deezer
@@ -38,6 +42,7 @@ DATA = os.path.join(REPO_ROOT, "data")
 TRACKED_FP = os.path.join(DATA, "tracked.json")
 HISTORY_FP = os.path.join(DATA, "history.json")
 REGISTRY_FP = os.path.join(DATA, "registry.json")
+RESOLVED_FP = os.path.join(DATA, "resolved.json")
 
 SOT_KEY = os.environ.get("SOT_API_KEY", "")
 SOT_BASE = os.environ.get("SOT_BASE", "https://www.spotontrack.com/api/v1")
@@ -247,6 +252,53 @@ def chart_rows(rows, keys):
     return [{k: r.get(k) for k in keys} for r in rows or []]
 
 
+# ------------------------------------------------------------------ link -> ISRC
+def entry_key(entry):
+    """The link (already tidied by the page) that identifies a record added without an ISRC."""
+    return (entry.get("key") or entry.get("link") or "").strip()
+
+
+def effective_isrc(entry, resolved):
+    isrc = (entry.get("isrc") or "").strip()
+    if isrc:
+        return isrc
+    return ((resolved.get(entry_key(entry)) or {}).get("isrc") or "").strip()
+
+
+def resolve_links(tracked, resolved, only):
+    """Match records added by link to an ISRC using Spot On Track's track search.
+    The search endpoint does not count toward the entity quota. Failures are stored so the
+    page can say so, and are retried on the next run."""
+    changed = False
+    for entry in tracked.get("tracks", []):
+        if (entry.get("isrc") or "").strip():
+            continue
+        key = entry_key(entry)
+        if not key or (resolved.get(key) or {}).get("isrc"):
+            continue
+        if only and key != only:
+            continue
+        now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        print(f"Matching link {key}")
+        try:
+            rows = sot_get("/tracks", {"query": key}) or []
+        except SotError as e:
+            resolved[key] = {"error": f"Search failed: {e}", "tried_at": now}
+            changed = True
+            print("  ERROR", e)
+            continue
+        hit = next((r for r in rows if isinstance(r, dict) and r.get("isrc")), None)
+        if hit:
+            resolved[key] = {"isrc": hit["isrc"].strip(), "name": hit.get("name"),
+                             "release_date": hit.get("release_date"), "resolved_at": now}
+            print(f"  -> {hit['isrc']} ({hit.get('name')})")
+        else:
+            resolved[key] = {"error": "No match found on Spot On Track for this link. Paste the ISRC instead.", "tried_at": now}
+            print("  no match")
+        changed = True
+    return changed
+
+
 # ------------------------------------------------------------------ one record
 def sync_record(entry, prior, registry):
     isrc = entry["isrc"].strip()
@@ -327,15 +379,27 @@ def main():
         sys.exit(1)
     tracked = load_json(TRACKED_FP, {"tracks": []}) or {"tracks": []}
     registry = (load_json(REGISTRY_FP, {"playlists": {}}) or {}).get("playlists", {})
+    resolved_doc = load_json(RESOLVED_FP, {"entries": {}}) or {"entries": {}}
+    resolved = resolved_doc.setdefault("entries", {})
     history = load_json(HISTORY_FP, {"generated_at": None, "records": {}}) or {}
     history.setdefault("records", {})
 
-    only = os.environ.get("ONLY_ISRC", "").strip().upper()
+    only = os.environ.get("ONLY_ISRC", "").strip()
+    if resolve_links(tracked, resolved, only):
+        save_json(RESOLVED_FP, resolved_doc)
+
     ok = failed = 0
+    seen = set()
     for entry in tracked.get("tracks", []):
-        isrc = (entry.get("isrc") or "").strip()
-        if not isrc or (only and isrc.upper() != only):
+        isrc = effective_isrc(entry, resolved)
+        if not isrc:
+            continue  # link not matched yet, the page shows why
+        if isrc in seen:
+            continue  # same record added twice (by link and by ISRC)
+        seen.add(isrc)
+        if only and only.upper() != isrc.upper() and only != entry_key(entry):
             continue
+        entry = dict(entry, isrc=isrc)
         print(f"Syncing {entry.get('artist') or '?'} - {entry.get('track') or '?'} ({isrc})")
         try:
             rec = sync_record(entry, history["records"].get(isrc), registry)
@@ -355,8 +419,8 @@ def main():
         save_json(HISTORY_FP, history)  # checkpoint after each record
 
     # drop history for records no longer tracked
-    live = {(t.get("isrc") or "").strip() for t in tracked.get("tracks", [])}
     if not only:
+        live = {effective_isrc(t, resolved) for t in tracked.get("tracks", [])}
         history["records"] = {k: v for k, v in history["records"].items() if k in live}
     history["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     save_json(HISTORY_FP, history)
