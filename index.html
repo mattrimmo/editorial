@@ -149,7 +149,7 @@ tr.live td{background:rgba(53,217,117,.05)}
 .hl-pick{display:flex;align-items:center;gap:10px;justify-content:flex-end;margin:-8px 0 16px}
 .hl-pick label{margin:0}
 .hl-pick select{width:auto;min-width:240px}
-.hero{background:var(--panel);border-left:4px solid var(--signal);border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:32px}
+.pick-group{margin:0 0 16px}.pick-group h3{margin:0 0 6px;font-size:14px;color:var(--muted);font-weight:600}.pick-row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line,#2a332d)}.pick-row label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:15px;line-height:1.4}.pick-row input{margin-top:3px}.lead-list{margin:0;padding-left:20px;font-size:16px;line-height:1.6}.hero{background:var(--panel);border-left:4px solid var(--signal);border-radius:0 12px 12px 0;padding:20px 24px;margin-bottom:32px}
 .hero h2{margin:0 0 6px;color:var(--muted);font-size:14px;font-weight:500}
 .hero-text{font-size:24px;line-height:1.3;font-weight:700;margin:0;max-width:34ch}
 .hero-more{margin:12px 0 0;font-size:14px}
@@ -666,30 +666,48 @@ a.mrow:hover{background:var(--panel)}
     return '<div class="section"><div class="traj-head"><h2 style="margin:0">Trajectory</h2>' + trendBadge(mon.trend, true) + '</div>' +
       (mon.sentences.length ? '<p class="traj-text">' + mon.sentences.map(esc).join(' ') + '</p>' : '') + shz + trendChart(mon) + '</div>';
   }
+  function pickSection(ctx) {
+    var gs = C.allBullets(ctx);
+    if (!gs.length) return '';
+    return '<div class="section"><div class="traj-head"><h2 style="margin:0">Everything you could say</h2><button class="btn small" data-act="copyPicked">Copy ticked</button></div>' +
+      '<p class="muted" style="margin:6px 0 12px;font-size:14px">Every true, positive point for this record. Tick the ones you want, or copy one with its button. Declines are never listed.</p>' +
+      gs.map(function (g) {
+        return '<div class="pick-group"><h3>' + esc(g.title) + '</h3>' + g.items.map(function (t) {
+          return '<div class="pick-row"><label><input type="checkbox" class="pk" data-t="' + esc(t) + '"> <span>' + esc(t) + '</span></label><button class="btn small ghost" data-act="copyOne" data-t="' + esc(t) + '">Copy</button></div>';
+        }).join('') + '</div>';
+      }).join('') + '</div>';
+  }
+  function leadSection(ctx) {
+    var ls = C.leadStats(ctx);
+    if (!ls.length) return '';
+    var top = ls.slice(0, 4);
+    return '<div class="section"><h2>Best numbers to lead with</h2><p class="muted" style="margin:0 0 10px;font-size:14px">Strongest true figures first. Streams usually dip after launch week, so these look at lift since playlist adds, milestones, and totals rather than week on week.</p><ul class="lead-list">' +
+      top.map(function (x) { return '<li>' + esc(x.text) + '</li>'; }).join('') + '</ul></div>';
+  }
   function tabHighlights(ctx) {
     if (ctx.release == null) return '<div class="callout"><span>This record has no release date yet, so there are no weeks to summarise. It arrives with the next refresh, or set one under Details.</span></div>';
-    var n = state.ui.hl[ctx.isrc] || ctx.defaultWeek, hl = C.highlights(ctx, n), st = hl.streams;
+    var n = state.ui.hl[ctx.isrc] || 'latest', hl = C.highlights(ctx, n), st = hl.streams, wl = hl.rolling ? 'Latest 7 days' : 'Week ' + n;
     var up = function (p) { return p == null ? '' : ' <span class="' + (p >= 0 ? 'add' : 'rem') + '" style="font-size:14px">' + (p >= 0 ? '+' : '') + p + '%</span>'; };
-    var picker = '<div class="hl-pick"><label for="h_week">Showing</label><select id="h_week">' + weekOptions(ctx, n) + '</select></div>';
-    var hero = '<div class="hero"><h2>Top thing in week ' + n + '</h2>' +
-      (hl.top ? '<p class="hero-text">' + esc(hl.top.text) + '</p>' : '<p class="hero-text muted">Nothing stands out yet in week ' + n + '. Streams and platforms are below.</p>') +
-      (hl.others.length ? '<p class="muted hero-more">Also in week ' + n + ': ' + hl.others.map(function (o) { return esc(o.text); }).join('. ') + '.</p>' : '') + '</div>';
+    var picker = '<div class="hl-pick"><label for="h_week">Showing</label><select id="h_week"><option value="latest"' + (n === 'latest' ? ' selected' : '') + '>Latest 7 days' + (st.latest ? ' (to ' + C.fmtShort(st.latest) + ')' : '') + '</option>' + weekOptions(ctx, n) + '</select></div>';
+    var hero = '<div class="hero"><h2>Top thing in ' + hl.label + '</h2>' +
+      (hl.top ? '<p class="hero-text">' + esc(hl.top.text) + '</p>' : '<p class="hero-text muted">Nothing stands out yet in ' + hl.label + '. Streams and platforms are below.</p>') +
+      (hl.others.length ? '<p class="muted hero-more">Also in ' + hl.label + ': ' + hl.others.map(function (o) { return esc(o.text); }).join('. ') + '.</p>' : '') + '</div>';
     var tiles = '<div class="tiles tiles4">' +
       '<div class="tile"><div class="v num">' + (st.total != null ? C.fmtNum(st.total) : '-') + '</div><div class="l">Spotify streams since release</div></div>' +
-      '<div class="tile"><div class="v num">' + (st.week != null ? C.fmtNum(st.week) : '-') + up(st.pct) + '</div><div class="l">Week ' + n + (st.partial ? ' so far' : '') + (st.pct != null ? ', daily average vs last week' : '') + '</div></div>' +
+      '<div class="tile"><div class="v num">' + (st.week != null ? C.fmtNum(st.week) : '-') + up(st.pct) + '</div><div class="l">' + wl + (st.partial ? ' so far' : '') + (st.pct != null ? ', daily average vs ' + (hl.rolling ? 'the 7 days before' : 'last week') : '') + '</div></div>' +
       '<div class="tile"><div class="v num">' + (st.best ? C.fmtNum(st.best.value) : '-') + '</div><div class="l">Best day' + (st.best ? ', ' + C.fmtShort(st.best.date) : '') + '</div></div>' +
-      '<div class="tile"><div class="v num">' + (st.shazams != null ? C.fmtNum(st.shazams) : '-') + up(st.shazamPct) + '</div><div class="l">Shazams in week ' + n + '</div></div></div>';
+      '<div class="tile"><div class="v num">' + (st.shazams != null ? C.fmtNum(st.shazams) : '-') + up(st.shazamPct) + '</div><div class="l">Shazams, ' + hl.label + '</div></div></div>';
     var bars = '';
     var cards = hl.dsps.length ? '<div class="dsp-grid">' + hl.dsps.map(function (d) {
       var bits = '';
       if (d.key !== 'shazam') {
-        bits += '<div class="dsp-main">' + (d.liveCount ? '<b class="num">' + d.liveCount + '</b> editorial playlist' + (d.liveCount === 1 ? '' : 's') + ' live' : '<span class="muted">No editorial playlists yet</span>') + (d.addedCount ? ' <span class="add">+' + d.addedCount + ' in week ' + n + '</span>' : '') + '</div>';
+        bits += '<div class="dsp-main">' + (d.liveCount ? '<b class="num">' + d.liveCount + '</b> editorial playlist' + (d.liveCount === 1 ? '' : 's') + ' live' : '<span class="muted">No editorial playlists yet</span>') + (d.addedCount ? ' <span class="add">+' + d.addedCount + ' ' + (hl.rolling ? 'this week' : 'in week ' + n) + '</span>' : '') + '</div>';
         if (d.liveNames.length) bits += '<div class="chips" style="margin-top:8px">' + d.liveNames.slice(0, 6).map(function (nm) { return '<span class="chip">' + esc(nm) + '</span>'; }).join('') + (d.liveNames.length > 6 ? '<span class="chip muted">+' + (d.liveNames.length - 6) + ' more</span>' : '') + '</div>';
       }
       if (d.chart) bits += '<div class="dsp-chart">' + esc(d.chart) + (d.chartMore ? ' <span class="muted">and ' + d.chartMore + ' more</span>' : '') + '</div>';
       return '<div class="dsp-card"><h3>' + esc(d.label) + '</h3>' + bits + '</div>';
     }).join('') + '</div>' : '<div class="empty" style="padding:32px"><p style="margin:0">No editorial playlists or chart positions yet.</p></div>';
-    return trajectorySection(ctx) + picker + hero + '<div class="section"><h2>Streams</h2>' + tiles + '</div><div class="section"><h2>By platform</h2>' + cards + '</div>';
+    return trajectorySection(ctx) + pickSection(ctx) + picker + hero + '<div class="section"><h2>Streams</h2>' + tiles + '</div><div class="section"><h2>By platform</h2>' + cards + '</div>';
   }
 
   function tabPitch(ctx) {
@@ -933,6 +951,8 @@ a.mrow:hover{background:var(--panel)}
     },
     sync: function () { return triggerSync(''); },
     pdsp: function (el) { var ctx = ctxFor(state.ui.rec); if (!ctx) return; var s = pitchState(ctx); s.dsp = el.dataset.dsp; s.followUp = null; render(); },
+    copyOne: function (el) { copy(el.getAttribute('data-t')); },
+    copyPicked: function () { var t = Array.prototype.map.call(document.querySelectorAll('.pk:checked'), function (c) { return '- ' + c.getAttribute('data-t'); }); if (!t.length) { toast('Tick at least one point first', true); return; } copy(t.join('\n')); },
     copySubj: function () { copy($('#p_subj').value); },
     copyBody: function () { copy($('#p_body').value); },
     toggleLog: function () { state.ui.logOpen = !state.ui.logOpen; render(); },
@@ -1057,7 +1077,7 @@ a.mrow:hover{background:var(--panel)}
   }
   document.addEventListener('change', function (ev) {
     if (ev.target && ev.target.id === 'm_sort') { state.ui.sort = ev.target.value; render(); return; }
-    if (ev.target && ev.target.id === 'h_week') { state.ui.hl[state.ui.rec] = parseInt(ev.target.value, 10); render(); }
+    if (ev.target && ev.target.id === 'h_week') { state.ui.hl[state.ui.rec] = ev.target.value === 'latest' ? 'latest' : parseInt(ev.target.value, 10); render(); }
   });
   document.addEventListener('input', pitchInput);
   document.addEventListener('change', pitchInput);
