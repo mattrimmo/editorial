@@ -693,7 +693,7 @@ a.mrow:hover{background:var(--panel)}
       (hl.top ? '<p class="hero-text">' + esc(hl.top.text) + '</p>' : '<p class="hero-text muted">Nothing stands out yet in ' + hl.label + '. Streams and platforms are below.</p>') +
       (hl.others.length ? '<p class="muted hero-more">Also in ' + hl.label + ': ' + hl.others.map(function (o) { return esc(o.text); }).join('. ') + '.</p>' : '') + '</div>';
     var tiles = '<div class="tiles tiles4">' +
-      '<div class="tile"><div class="v num">' + (st.total != null ? C.fmtNum(st.total) : '-') + '</div><div class="l">Spotify streams since release</div></div>' +
+      '<div class="tile"><div class="v num">' + (st.total != null ? C.fmtNum(st.total) : '-') + '</div><div class="l">Spotify streams in total</div></div>' +
       '<div class="tile"><div class="v num">' + (st.week != null ? C.fmtNum(st.week) : '-') + up(st.pct) + '</div><div class="l">' + wl + (st.partial ? ' so far' : '') + (st.pct != null ? ', daily average vs ' + (hl.rolling ? 'the 7 days before' : 'last week') : '') + '</div></div>' +
       '<div class="tile"><div class="v num">' + (st.best ? C.fmtNum(st.best.value) : '-') + '</div><div class="l">Best day' + (st.best ? ', ' + C.fmtShort(st.best.date) : '') + '</div></div>' +
       '<div class="tile"><div class="v num">' + (st.shazams != null ? C.fmtNum(st.shazams) : '-') + up(st.shazamPct) + '</div><div class="l">Shazams, ' + hl.label + '</div></div></div>';
