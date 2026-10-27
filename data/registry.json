@@ -1,3 +1,24 @@
 {
- "playlists": {}
+ "name": "registry.json",
+ "path": "data/registry.json",
+ "sha": "015029dc7e468c29a852146bba9b0179d54cd7f7",
+ "size": 21,
+ "url": "https://api.github.com/repos/mattrimmo/editorial/contents/data/registry.json?ref=main",
+ "html_url": "https://github.com/mattrimmo/editorial/blob/main/data/registry.json",
+ "git_url": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/015029dc7e468c29a852146bba9b0179d54cd7f7",
+ "download_url": "https://raw.githubusercontent.com/mattrimmo/editorial/main/data/registry.json",
+ "type": "file",
+ "content": "ewogInBsYXlsaXN0cyI6IHt9Cn0K\n",
+ "encoding": "base64",
+ "_links": {
+  "self": "https://api.github.com/repos/mattrimmo/editorial/contents/data/registry.json?ref=main",
+  "git": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/015029dc7e468c29a852146bba9b0179d54cd7f7",
+  "html": "https://github.com/mattrimmo/editorial/blob/main/data/registry.json"
+ },
+ "playlists": {
+  "deezer:6922574764": {
+   "kind": "independent",
+   "name": "Tomorrowland Official House"
+  }
+ }
 }
