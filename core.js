@@ -292,6 +292,72 @@
     return { subject: subject, body: body, label: label, bullets: bullets, framing: data.map(function (d) { return d.framing; }), missingLink: link === '[link]' };
   }
 
+  // ---------------------------------------------------------------- campaign highlights (for Matt to read, not to paste)
+  function chartText(m) {
+    var move = m.isNew ? 'new entry' : (m.delta > 0 ? 'up ' + m.delta : (m.delta < 0 ? 'down ' + (-m.delta) : 'steady'));
+    return m.label + ' #' + m.position + ' (' + move + ')';
+  }
+  function highlights(ctx, n) {
+    var rel = ctx.release, t = ctx.today != null ? ctx.today : Date.now();
+    var out = { week: n, hasRelease: rel != null, streams: null, top: null, others: [], dsps: [] };
+    if (rel == null) return out;
+    var s = weekStart(rel, n), eFull = weekEnd(rel, n), e = Math.min(eFull, t);
+    var complete = eFull <= t;
+
+    // streams
+    var total = seriesSum(ctx.streams, rel, e), cur = seriesSum(ctx.streams, s, e);
+    var prev = n >= 2 ? seriesSum(ctx.streams, weekStart(rel, n - 1), weekEnd(rel, n - 1)) : null;
+    var avg = cur ? cur.sum / cur.days : null, avgPrev = prev ? prev.sum / prev.days : null;
+    var pct = avg != null && avgPrev != null && cur.days >= 3 ? pctChange(avg, avgPrev) : null;
+    var best = null;
+    (ctx.streams || []).forEach(function (r) {
+      var d = parseDate(r.date);
+      if (d != null && d >= rel && d <= e && r.daily != null && (!best || r.daily > best.value)) best = { date: d, value: r.daily };
+    });
+    var zc = seriesSum(ctx.shazams, s, e), zp = n >= 2 ? seriesSum(ctx.shazams, weekStart(rel, n - 1), weekEnd(rel, n - 1)) : null;
+    var zpct = zc && zp && zc.days >= 3 ? pctChange(zc.sum / zc.days, zp.sum / zp.days) : null;
+    var days = [];
+    (ctx.streams || []).forEach(function (r) { var d = parseDate(r.date); if (d != null && d >= rel && d <= e && r.daily != null) days.push({ date: d, value: r.daily, inWeek: d >= s }); });
+    out.streams = {
+      total: total ? total.sum : null, week: cur ? cur.sum : null, weekDays: cur ? cur.days : 0, partial: !complete,
+      pct: pct, prevWeek: prev ? prev.sum : null, best: best, bestInWeek: !!(best && best.date >= s),
+      shazams: zc ? zc.sum : null, shazamPct: zpct, daily: days.slice(-28)
+    };
+
+    // platform cards
+    var ed = editorialOnly(ctx.placements);
+    var moves = chartMoves(ctx.charts);
+    var cards = DSPS.map(function (d) { return { key: d.key, label: d.label }; }).concat([{ key: 'shazam', label: 'Shazam' }]);
+    cards.forEach(function (d) {
+      var live = bigFirst(ed.filter(function (p) { return p.dsp === d.key && activeNow(p); }));
+      var added = bigFirst(newEditorialIn(ctx.placements, s, e).filter(function (p) { return p.dsp === d.key; }));
+      var mv = moves.filter(function (m) { return m.dsp === d.key; }).sort(function (a, b) { return a.position - b.position; });
+      if (!live.length && !added.length && !mv.length) return;
+      out.dsps.push({
+        key: d.key, label: d.label, liveCount: live.length, liveNames: live.map(function (p) { return p.name || '(unnamed)'; }),
+        addedCount: added.length, addedNames: added.map(function (p) { return p.name || '(unnamed)'; }),
+        chart: mv.length ? chartText(mv[0]) : null, chartMore: Math.max(0, mv.length - 1)
+      });
+    });
+
+    // the top thing that happened this week, ranked: editorial adds, chart move, stream growth, best day, Shazams
+    var cand = [];
+    bigFirst(newEditorialIn(ctx.placements, s, e)).forEach(function (p) {
+      var rg = activeRegions(p).slice(0, 3).join(', ');
+      cand.push({ kind: 'editorial', text: 'Added to ' + (p.name || '(unnamed)') + ' on ' + DSP_LABEL[p.dsp] + (rg ? ' (' + rg + ')' : '') });
+    });
+    if (n >= ctx.defaultWeek) {
+      var chart = bestChartMove(ctx.charts);
+      if (chart) cand.push({ kind: 'chart', text: chart.text });
+    }
+    if (pct != null && pct >= 10) cand.push({ kind: 'streams', text: 'Spotify streams up ' + pct + '% on last week (daily average ' + fmtNum(avg) + ')' });
+    if (best && best.date >= s && n >= 2 && best.value > 0) cand.push({ kind: 'bestday', text: 'Best day yet: ' + fmtNum(best.value) + ' Spotify streams on ' + fmtShort(best.date) });
+    if (zpct != null && zpct >= 10) cand.push({ kind: 'shazam', text: 'Shazams up ' + zpct + '% on last week' });
+    out.top = cand[0] || null;
+    out.others = cand.slice(1);
+    return out;
+  }
+
   // ---------------------------------------------------------------- several records in one email
   // Each record gets a compact block (three bullets at most, hook kept) so a 3 or 4 record email stays short.
   function shortTitle(ctx) { return (ctx.artist || 'Artist') + ' - ' + (ctx.track || 'Track'); }
@@ -416,7 +482,7 @@
     effectivePlacements: effectivePlacements, editorialOnly: editorialOnly, needsTagging: needsTagging,
     weeklyTable: weeklyTable, seriesSum: seriesSum, pctChange: pctChange,
     chartLabel: chartLabel, chartMoves: chartMoves, bestChartMove: bestChartMove,
-    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
+    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
     buildContext: buildContext, nameList: nameList, normalizeLink: normalizeLink
   };
 }));
