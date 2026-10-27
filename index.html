@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editorial Pitch Pack</title>
+<style>
+:root{
+  --bg:#0a0e0c; --panel:#121915; --panel2:#18211c; --line:#243029; --text:#e8efe9; --dim:#8a9a90;
+  --green:#2bd96b; --green-d:#168a44; --amber:#f2b94b; --red:#ff6b6b; --radius:12px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--green)}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,14,12,.94);backdrop-filter:blur(6px);z-index:5}
+h1{font-size:18px;margin:0;letter-spacing:.2px}
+h1 span{color:var(--green)}
+.sub{color:var(--dim);font-size:12px}
+main{max-width:1180px;margin:0 auto;padding:20px 24px 80px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.tab{background:var(--panel);border:1px solid var(--line);color:var(--dim);padding:8px 14px;border-radius:999px;cursor:pointer;font:inherit}
+.tab.on{color:#04120a;background:var(--green);border-color:var(--green);font-weight:600}
+.badge{display:inline-block;min-width:18px;padding:0 6px;border-radius:999px;background:var(--amber);color:#201400;font-size:11px;font-weight:700;margin-left:6px;text-align:center}
+button,.btn{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:7px 12px}
+button:hover{border-color:var(--green)}
+button.pri{background:var(--green);color:#04120a;border-color:var(--green);font-weight:600}
+button.ghost{background:transparent}
+button.sm{padding:3px 9px;font-size:12px}
+button:disabled{opacity:.5;cursor:default}
+input,select,textarea{font:inherit;color:var(--text);background:#0d1310;border:1px solid var(--line);border-radius:8px;padding:7px 10px;width:100%}
+textarea{resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.5}
+label{display:block;color:var(--dim);font-size:12px;margin:0 0 4px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.row>div{flex:1 1 180px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+.rec{margin-bottom:12px}
+.rec-head{display:flex;gap:14px;align-items:center;padding:14px;cursor:pointer}
+.art{width:56px;height:56px;border-radius:8px;background:#0d1310;object-fit:cover;flex:none;border:1px solid var(--line)}
+.rec-title{font-weight:600;font-size:15px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{background:#0d1310;border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:12px;color:var(--dim)}
+.chip.g{color:var(--green);border-color:var(--green-d)}
+.chip.a{color:var(--amber);border-color:#6b5320}
+.chip.r{color:var(--red);border-color:#6b2a2a}
+.grow{flex:1;min-width:0}
+.wk{margin-left:auto;text-align:right;color:var(--dim);font-size:12px;white-space:nowrap}
+.wk b{display:block;color:var(--text);font-size:15px}
+.detail{border-top:1px solid var(--line);padding:16px;display:grid;gap:18px}
+h3{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--dim)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--dim);font-weight:600;font-size:12px}
+td .d{color:var(--dim);font-size:11px}
+td.z{color:#3b4a41}
+tr.cur td{background:rgba(43,217,107,.06)}
+.pl{display:flex;gap:10px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.pl img{width:34px;height:34px;border-radius:6px;object-fit:cover;background:#0d1310}
+.pl .n{flex:1;min-width:0}
+.pl .n div:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pl .m{color:var(--dim);font-size:12px}
+.dsp-chips{display:flex;gap:6px;flex-wrap:wrap}
+.dsp-chip{padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);cursor:pointer;color:var(--dim)}
+.dsp-chip.on{background:var(--green);color:#04120a;border-color:var(--green);font-weight:600}
+.note{color:var(--dim);font-size:12px;margin-top:6px}
+.note.warn{color:var(--amber)}
+.empty{color:var(--dim);padding:30px;text-align:center}
+.banner{background:#2a1d0a;border:1px solid #6b5320;color:var(--amber);padding:10px 14px;border-radius:10px;margin-bottom:14px}
+.fu td{font-size:13px}
+.fu .cell{cursor:pointer;border-radius:8px;padding:3px 8px;display:inline-block}
+.fu .cell.new{background:rgba(43,217,107,.14);color:var(--green)}
+.fu .cell.nev{background:rgba(242,185,75,.12);color:var(--amber)}
+.fu .cell.ok{color:#4a5a50}
+.settings{position:relative}
+.settings-pop[hidden]{display:none}
+.settings-pop{position:absolute;right:0;top:40px;width:min(380px,90vw);background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:10px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--panel2);border:1px solid var(--green-d);color:var(--text);padding:10px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20;max-width:90vw}
+#toast.show{opacity:1}
+#toast.err{border-color:#7a2d2d;color:#ffb4b4}
+.tagrow{display:flex;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.tagrow:last-child{border-bottom:0}
+.tagrow .btns{display:flex;gap:6px;flex:none}
+@media(max-width:640px){main{padding:14px 12px 80px}header{padding:12px}.wk{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Editorial <span>Pitch Pack</span></h1>
+    <div class="sub" id="synced">Loading...</div>
+  </div>
+  <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+    <button class="pri" data-act="sync" id="syncBtn">Check live now</button>
+    <div class="settings">
+      <button type="button" class="ghost" data-act="toggleSettings">Settings</button>
+      <div class="settings-pop" id="settingsPop" hidden>
+        <div><label>GitHub token (fine-grained, this repo only, Contents + Actions read/write)</label><input id="s_token" type="password" autocomplete="off" placeholder="github_pat_..."></div>
+        <div class="row"><div><label>Owner</label><input id="s_owner"></div><div><label>Repo</label><input id="s_repo"></div><div><label>Branch</label><input id="s_branch"></div></div>
+        <div class="note">Stored in this browser only. Needed to add records, tag playlists, log pitches and trigger syncs.</div>
+        <button class="pri" data-act="saveSettings">Save settings</button>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div id="banner"></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="view"></div>
+</main>
+<div id="toast"></div>
+
+<script src="core.js"></script>
+<script>
+(function () {
+  'use strict';
+  var C = window.Core;
+  var $ = function (s, el) { return (el || document).querySelector(s); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]; }); };
+
+  var state = {
+    tracked: { tracks: [] }, history: { generated_at: null, records: {} },
+    registry: { playlists: {} }, manual: { entries: {} }, pitches: { pitches: {} },
+    ui: { tab: 'records', open: null, pitch: {}, showAll: {} }, loadError: null, syncing: false
+  };
+
+  // ------------------------------------------------------------ settings / github
+  var LS = { get: function (k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }, set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  function detectRepo() {
+    var host = location.hostname, parts = location.pathname.split('/').filter(Boolean);
+    if (/\.github\.io$/.test(host)) return { owner: host.split('.')[0], repo: parts[0] || '' };
+    return { owner: '', repo: '' };
+  }
+  function cfg() {
+    var d = detectRepo();
+    return { token: LS.get('epp_token'), owner: LS.get('epp_owner') || d.owner, repo: LS.get('epp_repo') || d.repo, branch: LS.get('epp_branch') || 'main' };
+  }
+  function utf8ToB64(s) { return btoa(unescape(encodeURIComponent(s))); }
+  function ghFetch(path, opts) {
+    var c = cfg();
+    opts = opts || {};
+    opts.headers = Object.assign({ 'Authorization': 'Bearer ' + c.token, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' }, opts.headers || {});
+    return fetch('https://api.github.com/repos/' + c.owner + '/' + c.repo + path, opts);
+  }
+  function needToken() {
+    var c = cfg();
+    if (!c.token || !c.owner || !c.repo) { toast('Add your GitHub token and repo in Settings first', true); $('#settingsPop').hidden = false; return true; }
+    return false;
+  }
+  // Read-modify-write one JSON file in the repo, retrying if someone else changed it meanwhile.
+  async function mutateFile(path, mutator) {
+    var c = cfg();
+    for (var attempt = 0; attempt < 4; attempt++) {
+      var meta = await ghFetch('/contents/' + path + '?ref=' + encodeURIComponent(c.branch));
+      if (!meta.ok) throw new Error('Could not read ' + path + ' (' + meta.status + ')');
+      var info = await meta.json();
+      var raw = await ghFetch('/contents/' + path + '?ref=' + encodeURIComponent(c.branch), { headers: { 'Accept': 'application/vnd.github.raw+json' } });
+      var obj = JSON.parse(await raw.text());
+      var next = mutator(obj) || obj;
+      var put = await ghFetch('/contents/' + path, { method: 'PUT', body: JSON.stringify({ message: 'Update ' + path + ' from page', content: utf8ToB64(JSON.stringify(next, null, 1) + '\n'), sha: info.sha, branch: c.branch }) });
+      if (put.ok) return next;
+      if (put.status !== 409 && put.status !== 422) throw new Error('Save failed (' + put.status + ')');
+    }
+    throw new Error('Save kept conflicting, try again');
+  }
+
+  // ------------------------------------------------------------ loading
+  function getJSON(path) {
+    return fetch(path + '?t=' + Date.now()).then(function (r) { if (!r.ok) throw new Error(path + ' ' + r.status); return r.json(); });
+  }
+  async function loadAll() {
+    try {
+      var r = await Promise.all(['tracked', 'history', 'registry', 'manual', 'pitches'].map(function (n) { return getJSON('data/' + n + '.json'); }));
+      state.tracked = r[0]; state.history = r[1]; state.registry = r[2]; state.manual = r[3]; state.pitches = r[4];
+      state.loadError = null;
+    } catch (e) {
+      state.loadError = 'Could not load the data files (' + e.message + '). If you opened this from your computer, use the GitHub Pages link instead.';
+    }
+    render();
+  }
+
+  // ------------------------------------------------------------ helpers
+  function today() { return C.todayUTC(); }
+  function contexts() {
+    var t = today();
+    return (state.tracked.tracks || []).map(function (e) {
+      return C.buildContext(e, state.history.records[e.isrc], (state.manual.entries || {})[e.isrc] || [], state.registry.playlists || {}, t);
+    }).sort(function (a, b) { return (b.release || 0) - (a.release || 0); });
+  }
+  function toast(msg, err) {
+    var el = $('#toast'); el.textContent = msg; el.className = 'show' + (err ? ' err' : '');
+    clearTimeout(toast.t); toast.t = setTimeout(function () { el.className = ''; }, err ? 5000 : 2600);
+  }
+  function copy(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text).then(function () { toast('Copied'); }, fallback);
+    return fallback();
+    function fallback() { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); toast('Copied'); } catch (e) { toast('Copy failed', true); } ta.remove(); }
+  }
+  function ago(iso) {
+    if (!iso) return 'never';
+    var m = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+    if (m < 2) return 'just now'; if (m < 90) return m + ' min ago';
+    var h = Math.round(m / 60); if (h < 36) return h + 'h ago';
+    return Math.round(h / 24) + ' days ago';
+  }
+  function pitchState(ctx) {
+    var s = state.ui.pitch[ctx.isrc];
+    if (!s) { s = state.ui.pitch[ctx.isrc] = { dsp: 'spotify', week: null, followUp: null, name: '', playlist: '' }; }
+    return s;
+  }
+
+  // ------------------------------------------------------------ rendering
+  function render() {
+    var ctxs = contexts();
+    var untagged = collectUntagged(ctxs);
+    $('#banner').innerHTML = state.loadError ? '<div class="banner">' + esc(state.loadError) + '</div>' : '';
+    $('#synced').textContent = state.history.generated_at ? 'Last synced ' + ago(state.history.generated_at) + ' (daily, or use Check live now)' : 'No sync yet. Add a record, then Check live now.';
+    var tabs = [['records', 'Records'], ['followups', 'Follow-ups'], ['tagging', 'Needs tagging'], ['add', 'Add record']];
+    $('#tabs').innerHTML = tabs.map(function (t) {
+      return '<button class="tab' + (state.ui.tab === t[0] ? ' on' : '') + '" data-act="tab" data-tab="' + t[0] + '">' + t[1] +
+        (t[0] === 'tagging' && untagged.length ? '<span class="badge">' + untagged.length + '</span>' : '') + '</button>';
+    }).join('');
+    var v = $('#view');
+    if (state.ui.tab === 'records') v.innerHTML = viewRecords(ctxs);
+    else if (state.ui.tab === 'followups') v.innerHTML = viewFollowUps(ctxs);
+    else if (state.ui.tab === 'tagging') v.innerHTML = viewTagging(untagged);
+    else v.innerHTML = viewAdd();
+    if (state.ui.tab === 'records' && state.ui.open) { var c = ctxs.filter(function (x) { return x.isrc === state.ui.open; })[0]; if (c) updatePitch(c); }
+    var sb = $('#syncBtn'); sb.disabled = state.syncing; sb.textContent = state.syncing ? 'Syncing...' : 'Check live now';
+  }
+
+  function viewRecords(ctxs) {
+    if (!ctxs.length) return '<div class="card empty">No records yet. Use <b>Add record</b> to track your first one.</div>';
+    return ctxs.map(recCard).join('');
+  }
+
+  function recCard(ctx) {
+    var open = state.ui.open === ctx.isrc;
+    var ed = C.editorialOnly(ctx.placements).filter(C.activeNow);
+    var chips = C.DSPS.map(function (d) {
+      var n = ed.filter(function (p) { return p.dsp === d.key; }).length;
+      return n ? '<span class="chip g">' + d.label + ' ' + n + '</span>' : '';
+    }).join('') || '<span class="chip">No editorial support yet</span>';
+    var wk = '';
+    if (ctx.release != null) {
+      var cw = C.weekOf(ctx.release, today());
+      wk = cw < 1 ? '<b>Out ' + C.fmtShort(ctx.release) + '</b>not released' : '<b>Week ' + cw + '</b>' + C.fmtShort(ctx.release);
+    } else wk = '<b>?</b>no release date yet';
+    var errs = ctx.errors && ctx.errors.length ? '<span class="chip a" title="' + esc(ctx.errors.join('\n')) + '">' + ctx.errors.length + ' sync issue' + (ctx.errors.length > 1 ? 's' : '') + '</span>' : '';
+    var head = '<div class="rec-head" data-act="open" data-isrc="' + esc(ctx.isrc) + '">' +
+      (ctx.artwork ? '<img class="art" src="' + esc(ctx.artwork) + '" alt="" loading="lazy">' : '<div class="art"></div>') +
+      '<div class="grow"><div class="rec-title">' + esc(ctx.artist || '(awaiting first sync)') + ' - ' + esc(ctx.track || ctx.isrc) + '</div>' +
+      '<div class="chips">' + chips + errs + '</div></div><div class="wk">' + wk + '</div></div>';
+    return '<div class="card rec" id="rec-' + esc(ctx.isrc) + '">' + head + (open ? recDetail(ctx) : '') + '</div>';
+  }
+
+  function recDetail(ctx) {
+    var t = today();
+    var s = pitchState(ctx);
+    var parts = [];
+
+    // weekly table
+    if (ctx.release == null) {
+      parts.push('<div class="banner">No release date yet. It appears after the first sync, or set one below under Details.</div>');
+    } else {
+      var head = '<tr><th>Release week</th>' + C.DSPS.map(function (d) { return '<th>' + d.label + '</th>'; }).join('') + '<th>Total</th><th>Spotify streams</th><th>Shazams</th></tr>';
+      var rows = ctx.weeks.slice().reverse().map(function (w) {
+        var cells = C.DSPS.map(function (d) {
+          var c = w.perDsp[d.key];
+          if (!c.active && !c.added && !c.removed) return '<td class="z">-</td>';
+          return '<td><b>' + c.active + '</b>' + (c.added || c.removed ? ' <span class="d">' + (c.added ? '+' + c.added : '') + (c.removed ? ' -' + c.removed : '') + '</span>' : '') + '</td>';
+        }).join('');
+        var endEff = Math.min(w.end, t);
+        var st = C.seriesSum(ctx.streams, w.start, endEff), sz = C.seriesSum(ctx.shazams, w.start, endEff);
+        var prevS = C.seriesSum(ctx.streams, w.start - 7 * C.DAY, w.end - 7 * C.DAY);
+        var pc = st && prevS && !w.partial ? C.pctChange(st.sum, prevS.sum) : null;
+        return '<tr' + (w.partial ? ' class="cur"' : '') + '><td>Wk ' + w.n + ' <span class="d">' + C.fmtShort(w.start) + ' - ' + C.fmtShort(w.end) + (w.partial ? ' (so far)' : '') + '</span></td>' + cells +
+          '<td><b>' + w.totalActive + '</b>' + (w.totalAdded ? ' <span class="d">+' + w.totalAdded + '</span>' : '') + '</td>' +
+          '<td>' + (st ? C.fmtNum(st.sum) + (pc != null ? ' <span class="d" style="color:' + (pc >= 0 ? 'var(--green)' : 'var(--red)') + '">' + (pc >= 0 ? '+' : '') + pc + '%</span>' : '') : '<span class="d">-</span>') + '</td>' +
+          '<td>' + (sz ? C.fmtNum(sz.sum) : '<span class="d">-</span>') + '</td></tr>';
+      }).join('');
+      parts.push('<div><h3>Editorial playlists by release week (Friday to Thursday)</h3><div class="scroll"><table>' + head + rows + '</table></div>' +
+        '<div class="note">Counts are editorial playlists holding the record at the end of each week. +N added in the week, -N removed. Spotify stream dates are shifted 2 days to match Spotify for Artists.</div></div>');
+    }
+
+    // pitch builder
+    parts.push(pitchPanel(ctx, s));
+
+    // charts
+    var moves = C.chartMoves(ctx.charts).sort(function (a, b) { return a.position - b.position; }).slice(0, 12);
+    if (moves.length) {
+      parts.push('<div><h3>Current charts</h3><div class="chips">' + moves.map(function (m) {
+        var tag = m.isNew ? 'new' : (m.delta > 0 ? 'up ' + m.delta : (m.delta < 0 ? 'down ' + (-m.delta) : 'steady'));
+        return '<span class="chip ' + (m.isNew || m.delta > 0 ? 'g' : '') + '">' + esc(m.label) + ' #' + m.position + ' (' + tag + ')</span>';
+      }).join('') + '</div></div>');
+    }
+
+    // placements
+    parts.push('<div><h3>Editorial placements</h3>' + placementsList(ctx) + '</div>');
+
+    // manual entry
+    parts.push(manualForm(ctx));
+
+    // details
+    parts.push(detailsForm(ctx));
+    return '<div class="detail">' + parts.join('') + '</div>';
+  }
+
+  function placementsList(ctx) {
+    var ed = C.editorialOnly(ctx.placements);
+    var indep = ctx.placements.filter(function (p) { return p.kind === 'independent'; }).length;
+    if (!ed.length) return '<div class="note">No editorial placements recorded yet.' + (indep ? ' ' + indep + ' independent playlists are being ignored here.' : '') + '</div>';
+    var html = '';
+    C.DSPS.forEach(function (d) {
+      var mine = ed.filter(function (p) { return p.dsp === d.key; });
+      if (!mine.length) return;
+      mine.sort(function (a, b) { return Number(C.activeNow(b)) - Number(C.activeNow(a)) || (b.followers || 0) - (a.followers || 0); });
+      html += '<div style="margin:10px 0 2px;color:var(--green);font-weight:600">' + d.label + '</div>';
+      mine.forEach(function (p) {
+        var first = p.spans.map(function (s) { return s.added_at; }).filter(Boolean).sort()[0];
+        var rg = C.activeRegions(p).join(', ');
+        var gone = !C.activeNow(p);
+        var removed = p.spans.map(function (s) { return s.removed_at; }).filter(Boolean).sort().slice(-1)[0];
+        var pos = p.spans.map(function (s) { return s.position; }).filter(function (x) { return x != null; });
+        html += '<div class="pl">' + (p.artwork ? '<img src="' + esc(p.artwork) + '" alt="" loading="lazy">' : '<div style="width:34px"></div>') +
+          '<div class="n"><div>' + esc(p.name || '(unnamed)') + '</div><div class="m">' +
+          [rg && 'Regions: ' + rg, first && 'Added ' + C.fmtShort(C.parseDate(first)), gone && removed ? 'Removed ' + C.fmtShort(C.parseDate(removed)) : '', pos.length ? 'Position ' + Math.min.apply(null, pos) : '', p.followers ? C.fmtNum(p.followers) + ' followers' : ''].filter(Boolean).join(' | ') +
+          '</div></div>' + (gone ? '<span class="chip r">removed</span>' : '<span class="chip g">live</span>') +
+          (p.manual ? '<button class="sm ghost" data-act="delManual" data-isrc="' + esc(ctx.isrc) + '" data-idx="' + p.manualIndex + '">Delete</button>' : '') + '</div>';
+      });
+    });
+    return html + (indep ? '<div class="note">' + indep + ' independent playlists not shown (this tool is for editorial).</div>' : '');
+  }
+
+  function manualForm(ctx) {
+    var id = ctx.isrc;
+    return '<div><h3>Log a placement by hand (Amazon, YouTube Music, Beatport, SoundCloud, or anything the sync missed)</h3>' +
+      '<div class="row"><div><label>DSP</label><select id="m_dsp_' + id + '">' + C.DSPS.map(function (d) { return '<option value="' + d.key + '"' + (d.auto ? '' : ' selected') + '>' + d.label + '</option>'; }).join('') + '</select></div>' +
+      '<div style="flex:2 1 240px"><label>Playlist name</label><input id="m_name_' + id + '" placeholder="e.g. Dance Heat"></div>' +
+      '<div><label>Region (optional)</label><input id="m_reg_' + id + '" placeholder="UK"></div>' +
+      '<div><label>Added</label><input id="m_add_' + id + '" type="date" value="' + C.iso(today()) + '"></div>' +
+      '<div style="flex:none;align-self:flex-end"><button class="pri" data-act="addManual" data-isrc="' + esc(id) + '">Add</button></div></div></div>';
+  }
+
+  function detailsForm(ctx) {
+    var e = (state.tracked.tracks || []).filter(function (t) { return t.isrc === ctx.isrc; })[0] || {};
+    var l = e.links || {};
+    var id = ctx.isrc;
+    return '<details><summary style="cursor:pointer;color:var(--dim)">Details: hook line, links, overrides</summary><div style="display:grid;gap:10px;margin-top:12px">' +
+      '<div><label>Hook line (one sentence that adds context, goes in the pitch)</label><input id="d_hook_' + id + '" value="' + esc(e.hook || '') + '"></div>' +
+      '<div class="row"><div><label>Amazon Music link</label><input id="d_amazon_' + id + '" value="' + esc(l.amazon || '') + '"></div><div><label>YouTube Music link</label><input id="d_youtube_' + id + '" value="' + esc(l.youtube || '') + '"></div>' +
+      '<div><label>Beatport link</label><input id="d_beatport_' + id + '" value="' + esc(l.beatport || '') + '"></div><div><label>SoundCloud link</label><input id="d_soundcloud_' + id + '" value="' + esc(l.soundcloud || '') + '"></div></div>' +
+      '<div class="row"><div><label>Artist override (optional)</label><input id="d_artist_' + id + '" value="' + esc(e.artist || '') + '"></div><div><label>Title override (optional)</label><input id="d_track_' + id + '" value="' + esc(e.track || '') + '"></div>' +
+      '<div><label>Release date override (YYYY-MM-DD)</label><input id="d_rel_' + id + '" value="' + esc(e.release_date || '') + '"></div></div>' +
+      '<div style="display:flex;gap:8px"><button class="pri" data-act="saveDetails" data-isrc="' + esc(id) + '">Save details</button><button class="ghost" data-act="removeRecord" data-isrc="' + esc(id) + '">Stop tracking this record</button></div></div></details>';
+  }
+
+  function pitchPanel(ctx, s) {
+    var id = ctx.isrc;
+    var last = ((state.pitches.pitches || {})[id] || {})[s.dsp] || null;
+    var weekOpts = '';
+    if (ctx.release != null) {
+      var cw = Math.max(1, C.weekOf(ctx.release, today()));
+      for (var n = cw; n >= 1; n--) {
+        weekOpts += '<option value="' + n + '"' + ((s.week || ctx.defaultWeek) === n ? ' selected' : '') + '>Week ' + n + ' (' + C.fmtShort(C.weekStart(ctx.release, n)) + ' - ' + C.fmtShort(C.weekEnd(ctx.release, n)) + ')' + (n === ctx.defaultWeek ? ' - suggested' : '') + '</option>';
+      }
+    } else weekOpts = '<option value="1">Week 1</option>';
+    var fu = s.followUp == null ? !!last : s.followUp;
+    return '<div><h3>Pitch block</h3>' +
+      '<div class="dsp-chips" style="margin-bottom:12px">' + C.DSPS.map(function (d) { return '<button class="dsp-chip' + (s.dsp === d.key ? ' on' : '') + '" data-act="pdsp" data-isrc="' + esc(id) + '" data-dsp="' + d.key + '">' + d.label + '</button>'; }).join('') + '</div>' +
+      '<div class="row"><div><label>Week to talk about</label><select id="p_week_' + id + '">' + weekOpts + '</select></div>' +
+      '<div><label>Editor first name</label><input id="p_name_' + id + '" value="' + esc(s.name) + '" placeholder="[Name]"></div>' +
+      '<div><label>Their playlist</label><input id="p_pl_' + id + '" value="' + esc(s.playlist) + '" placeholder="[playlist]"></div>' +
+      '<div style="flex:none;align-self:flex-end"><label style="display:flex;gap:6px;align-items:center;margin:0 0 8px"><input type="checkbox" id="p_fu_' + id + '" style="width:auto"' + (fu ? ' checked' : '') + '> Follow-up wording</label></div></div>' +
+      '<div style="margin-top:12px"><label>Subject</label><div style="display:flex;gap:8px"><input id="p_subj_' + id + '" readonly><button data-act="copySubj" data-isrc="' + esc(id) + '">Copy</button></div></div>' +
+      '<div style="margin-top:10px"><label>Body</label><textarea id="p_body_' + id + '" rows="12" readonly></textarea></div>' +
+      '<div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center"><button class="pri" data-act="copyBody" data-isrc="' + esc(id) + '">Copy body</button>' +
+      '<span style="flex:1"></span><span class="note" id="p_last_' + id + '"></span>' +
+      '<button data-act="markPitched" data-isrc="' + esc(id) + '">Mark pitched to ' + esc(C.DSP_LABEL[s.dsp]) + ' today</button></div>' +
+      '<div class="note" id="p_note_' + id + '"></div></div>';
+  }
+
+  function updatePitch(ctx) {
+    var id = ctx.isrc, s = pitchState(ctx);
+    var wk = $('#p_week_' + id); if (!wk) return;
+    s.week = parseInt(wk.value, 10) || ctx.defaultWeek;
+    s.name = $('#p_name_' + id).value; s.playlist = $('#p_pl_' + id).value; s.followUp = $('#p_fu_' + id).checked;
+    var p = C.buildPitch(ctx, s.dsp, { weekN: s.week, followUp: s.followUp, name: s.name.trim() || null, playlist: s.playlist.trim() || null });
+    $('#p_subj_' + id).value = p.subject; $('#p_body_' + id).value = p.body;
+    var notes = [];
+    notes.push(p.headline ? 'Headline used: ' + p.headline.text + '.' : 'No positive stat for week ' + s.week + ', so none is claimed. Lead with support and the hook line.');
+    if (p.missingLink) notes.push('No ' + p.label + ' link stored yet, add it under Details.');
+    $('#p_note_' + id).className = 'note' + (p.missingLink ? ' warn' : '');
+    $('#p_note_' + id).textContent = notes.join(' ');
+    var last = ((state.pitches.pitches || {})[id] || {})[s.dsp];
+    $('#p_last_' + id).textContent = last ? 'Last pitched to ' + p.label + ': ' + C.fmtLong(C.parseDate(last)) : 'Not logged as pitched to ' + p.label + ' yet';
+  }
+
+  function viewFollowUps(ctxs) {
+    if (!ctxs.length) return '<div class="card empty">Nothing tracked yet.</div>';
+    var head = '<tr><th>Record</th>' + C.DSPS.map(function (d) { return '<th>' + d.label + '</th>'; }).join('') + '</tr>';
+    var rows = ctxs.map(function (ctx) {
+      var f = C.followUps(ctx, (state.pitches.pitches || {})[ctx.isrc] || {});
+      return '<tr><td><b>' + esc(ctx.artist || ctx.isrc) + '</b> <span class="d">' + esc(ctx.track) + '</span></td>' + f.map(function (x) {
+        var inner;
+        if (x.count > 0) inner = '<span class="cell ' + (x.never ? 'nev' : 'new') + '" title="' + esc(x.names) + '">' + x.count + (x.never ? ' (never pitched)' : ' new') + '</span>';
+        else inner = '<span class="cell ok">' + (x.never ? '-' : 'up to date') + '</span>';
+        return '<td data-act="gotoPitch" data-isrc="' + esc(ctx.isrc) + '" data-dsp="' + x.dsp + '">' + inner + '</td>';
+      }).join('') + '</tr>';
+    }).join('');
+    return '<div class="card" style="padding:6px 10px"><div class="scroll fu"><table>' + head + rows + '</table></div></div>' +
+      '<div class="note" style="margin-top:10px">Shows editorial support (any DSP) added since you last logged a pitch to that DSP. Amber means that DSP has never been logged for the record. Click a cell to open the pitch block for it.</div>';
+  }
+
+  function collectUntagged(ctxs) {
+    var seen = {}, out = [];
+    ctxs.forEach(function (ctx) {
+      C.needsTagging(ctx.placements).forEach(function (p) {
+        var k = p.dsp + ':' + p.id;
+        if (!seen[k]) { seen[k] = { key: k, dsp: p.dsp, id: p.id, name: p.name, artwork: p.artwork, followers: p.followers, regions: {}, records: [] }; out.push(seen[k]); }
+        seen[k].records.push(ctx.track || ctx.isrc);
+        (p.spans || []).forEach(function (s) { if (s.cc) seen[k].regions[s.cc] = 1; });
+      });
+    });
+    out.sort(function (a, b) { return C.DSPS.map(function (d) { return d.key; }).indexOf(a.dsp) - C.DSPS.map(function (d) { return d.key; }).indexOf(b.dsp) || (b.followers || 0) - (a.followers || 0) || String(a.name).localeCompare(String(b.name)); });
+    return out;
+  }
+
+  function viewTagging(list) {
+    if (!list.length) return '<div class="card empty">Nothing needs tagging. Every playlist the sync found is classified.</div>';
+    return '<div class="note" style="margin-bottom:10px">Spot On Track does not say who owns Apple Music and Deezer playlists, so tag each one once. Your answer is remembered for every record and every future sync. Use Ignore for anything that is not worth pitching around.</div>' +
+      '<div style="display:flex;gap:8px;margin-bottom:12px"><button class="ghost" data-act="tagAllIgnore">Ignore everything left on this page</button></div>' +
+      '<div class="card">' + list.map(function (p) {
+        return '<div class="tagrow">' + (p.artwork ? '<img class="art" style="width:44px;height:44px" src="' + esc(p.artwork) + '" alt="" loading="lazy">' : '<div class="art" style="width:44px;height:44px"></div>') +
+          '<div class="grow"><div><b>' + esc(p.name || '(unnamed)') + '</b></div><div class="note" style="margin:0">' + esc(C.DSP_LABEL[p.dsp]) + (Object.keys(p.regions).length ? ' | ' + Object.keys(p.regions).slice(0, 6).join(', ') : '') + (p.followers ? ' | ' + C.fmtNum(p.followers) + ' followers' : '') + ' | on ' + esc(p.records.slice(0, 2).join(', ')) + '</div></div>' +
+          '<div class="btns"><button class="sm pri" data-act="tag" data-key="' + esc(p.key) + '" data-kind="editorial" data-name="' + esc(p.name || '') + '">Editorial</button><button class="sm" data-act="tag" data-key="' + esc(p.key) + '" data-kind="independent" data-name="' + esc(p.name || '') + '">Independent</button><button class="sm ghost" data-act="tag" data-key="' + esc(p.key) + '" data-kind="ignore" data-name="' + esc(p.name || '') + '">Ignore</button></div></div>';
+      }).join('') + '</div>';
+  }
+
+  function viewAdd() {
+    return '<div class="card" style="padding:18px;display:grid;gap:12px;max-width:720px">' +
+      '<div><label>ISRC (required)</label><input id="a_isrc" placeholder="GBXXX2600001" autocomplete="off"></div>' +
+      '<div class="row"><div><label>Artist (optional, filled from Spot On Track)</label><input id="a_artist"></div><div><label>Title (optional)</label><input id="a_track"></div></div>' +
+      '<div><label>Hook line (optional, one sentence of story or context)</label><input id="a_hook" placeholder="e.g. First release since the Amnesia residency"></div>' +
+      '<div class="note">Release date, artwork, and Spotify/Apple/Deezer links come from Spot On Track. Amazon, YouTube Music, Beatport and SoundCloud links can be added afterwards under Details.</div>' +
+      '<div><button class="pri" data-act="addRecord">Add and sync</button></div></div>';
+  }
+
+  // ------------------------------------------------------------ actions
+  async function triggerSync(isrc) {
+    if (needToken()) return false;
+    var c = cfg();
+    var before = state.history.generated_at;
+    state.syncing = true; render();
+    try {
+      var r = await ghFetch('/actions/workflows/sync.yml/dispatches', { method: 'POST', body: JSON.stringify({ ref: c.branch, inputs: { isrc: isrc || '' } }) });
+      if (!r.ok) throw new Error('Could not start the sync (' + r.status + '). Check the token has Actions read/write.');
+      toast('Sync started, this takes a minute or two');
+      for (var i = 0; i < 30; i++) {
+        await new Promise(function (res) { setTimeout(res, 8000); });
+        var raw = await ghFetch('/contents/data/history.json?ref=' + encodeURIComponent(c.branch), { headers: { 'Accept': 'application/vnd.github.raw+json' } });
+        if (!raw.ok) continue;
+        var h = JSON.parse(await raw.text());
+        if (h.generated_at && h.generated_at !== before) { state.history = h; state.syncing = false; render(); toast('Synced'); return true; }
+      }
+      toast('Still running. Refresh the page in a minute.', true);
+    } catch (e) { toast(e.message, true); }
+    state.syncing = false; render();
+    return false;
+  }
+
+  var actions = {
+    toggleSettings: function () { var pop = $('#settingsPop'); pop.hidden = !pop.hidden; },
+    tab: function (el) { state.ui.tab = el.dataset.tab; render(); },
+    open: function (el) { var id = el.dataset.isrc; state.ui.open = state.ui.open === id ? null : id; render(); if (state.ui.open) { var n = $('#rec-' + id); if (n) n.scrollIntoView({ block: 'nearest' }); } },
+    pdsp: function (el) { var ctx = ctxFor(el.dataset.isrc); pitchState(ctx).dsp = el.dataset.dsp; render(); },
+    gotoPitch: function (el) { state.ui.tab = 'records'; state.ui.open = el.dataset.isrc; pitchState(ctxFor(el.dataset.isrc)).dsp = el.dataset.dsp; render(); var n = $('#rec-' + el.dataset.isrc); if (n) n.scrollIntoView({ block: 'start' }); },
+    copySubj: function (el) { copy($('#p_subj_' + el.dataset.isrc).value); },
+    copyBody: function (el) { copy($('#p_body_' + el.dataset.isrc).value); },
+    sync: function () { return triggerSync(''); },
+    saveSettings: function () {
+      LS.set('epp_token', $('#s_token').value.trim()); LS.set('epp_owner', $('#s_owner').value.trim()); LS.set('epp_repo', $('#s_repo').value.trim()); LS.set('epp_branch', $('#s_branch').value.trim() || 'main');
+      $('#settingsPop').hidden = true; toast('Settings saved');
+    },
+    markPitched: async function (el) {
+      if (needToken()) return;
+      var id = el.dataset.isrc, dsp = pitchState(ctxFor(id)).dsp, d = C.iso(today());
+      try {
+        var next = await mutateFile('data/pitches.json', function (o) { o.pitches = o.pitches || {}; (o.pitches[id] = o.pitches[id] || {})[dsp] = d; });
+        state.pitches = next; render(); toast('Logged: pitched to ' + C.DSP_LABEL[dsp]);
+      } catch (e) { toast(e.message, true); }
+    },
+    tag: async function (el) {
+      if (needToken()) return;
+      var key = el.dataset.key, kind = el.dataset.kind, name = el.dataset.name;
+      try {
+        var next = await mutateFile('data/registry.json', function (o) { o.playlists = o.playlists || {}; o.playlists[key] = { kind: kind, name: name }; });
+        state.registry = next; render(); toast('Saved');
+      } catch (e) { toast(e.message, true); }
+    },
+    tagAllIgnore: async function () {
+      if (needToken()) return;
+      var list = collectUntagged(contexts());
+      if (!list.length || !confirm('Mark all ' + list.length + ' remaining playlists as Ignore?')) return;
+      try {
+        var next = await mutateFile('data/registry.json', function (o) { o.playlists = o.playlists || {}; list.forEach(function (p) { o.playlists[p.key] = { kind: 'ignore', name: p.name || '' }; }); });
+        state.registry = next; render(); toast('Done');
+      } catch (e) { toast(e.message, true); }
+    },
+    addManual: async function (el) {
+      if (needToken()) return;
+      var id = el.dataset.isrc, name = $('#m_name_' + id).value.trim(), added = $('#m_add_' + id).value;
+      if (!name) { toast('Add a playlist name', true); return; }
+      var entry = { dsp: $('#m_dsp_' + id).value, playlist: name, region: $('#m_reg_' + id).value.trim(), added_at: added || C.iso(today()) };
+      try {
+        var next = await mutateFile('data/manual.json', function (o) { o.entries = o.entries || {}; (o.entries[id] = o.entries[id] || []).push(entry); });
+        state.manual = next; render(); toast('Added');
+      } catch (e) { toast(e.message, true); }
+    },
+    delManual: async function (el) {
+      if (needToken()) return;
+      var id = el.dataset.isrc, idx = parseInt(el.dataset.idx, 10);
+      if (!confirm('Delete this hand-logged placement?')) return;
+      try {
+        var next = await mutateFile('data/manual.json', function (o) { if (o.entries && o.entries[id]) o.entries[id].splice(idx, 1); });
+        state.manual = next; render(); toast('Deleted');
+      } catch (e) { toast(e.message, true); }
+    },
+    saveDetails: async function (el) {
+      if (needToken()) return;
+      var id = el.dataset.isrc, g = function (n) { return ($('#d_' + n + '_' + id).value || '').trim(); };
+      var rel = g('rel');
+      if (rel && C.parseDate(rel) == null) { toast('Release date must look like 2026-10-02', true); return; }
+      try {
+        var next = await mutateFile('data/tracked.json', function (o) {
+          var t = (o.tracks || []).filter(function (x) { return x.isrc === id; })[0]; if (!t) return;
+          t.hook = g('hook'); t.artist = g('artist'); t.track = g('track'); if (rel) t.release_date = rel; else delete t.release_date;
+          t.links = { amazon: g('amazon'), youtube: g('youtube'), beatport: g('beatport'), soundcloud: g('soundcloud') };
+        });
+        state.tracked = next; render(); toast('Saved');
+      } catch (e) { toast(e.message, true); }
+    },
+    removeRecord: async function (el) {
+      if (needToken()) return;
+      var id = el.dataset.isrc;
+      if (!confirm('Stop tracking this record? Its stored history is removed at the next sync.')) return;
+      try {
+        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = (o.tracks || []).filter(function (x) { return x.isrc !== id; }); });
+        state.tracked = next; state.ui.open = null; render(); toast('Removed');
+      } catch (e) { toast(e.message, true); }
+    },
+    addRecord: async function () {
+      if (needToken()) return;
+      var isrc = ($('#a_isrc').value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (!/^[A-Z]{2}[A-Z0-9]{3}\d{7}$/.test(isrc)) { toast('That does not look like a valid ISRC (12 characters)', true); return; }
+      if ((state.tracked.tracks || []).some(function (t) { return t.isrc === isrc; })) { toast('Already tracked', true); return; }
+      var entry = { isrc: isrc, artist: ($('#a_artist').value || '').trim(), track: ($('#a_track').value || '').trim(), hook: ($('#a_hook').value || '').trim(), links: {}, added: C.iso(today()) };
+      try {
+        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = o.tracks || []; if (!o.tracks.some(function (t) { return t.isrc === isrc; })) o.tracks.push(entry); });
+        state.tracked = next; state.ui.tab = 'records'; state.ui.open = isrc; render();
+        triggerSync(isrc);
+      } catch (e) { toast(e.message, true); }
+    }
+  };
+  function ctxFor(isrc) { return contexts().filter(function (c) { return c.isrc === isrc; })[0]; }
+
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest('[data-act]');
+    if (!el) return;
+    if (ev.target.closest('select,input,textarea')) return;
+    var fn = actions[el.dataset.act];
+    if (fn) { ev.preventDefault(); fn(el); }
+  });
+  document.addEventListener('input', function (ev) {
+    var t = ev.target;
+    if (!t.id || t.id.indexOf('p_') !== 0) return;
+    var isrc = t.id.replace(/^p_(week|name|pl|fu)_/, '');
+    var ctx = ctxFor(isrc); if (ctx) updatePitch(ctx);
+  });
+  document.addEventListener('change', function (ev) {
+    var t = ev.target;
+    if (!t.id || t.id.indexOf('p_') !== 0) return;
+    var isrc = t.id.replace(/^p_(week|name|pl|fu)_/, '');
+    var ctx = ctxFor(isrc); if (ctx) updatePitch(ctx);
+  });
+
+  // settings fields
+  var c0 = cfg();
+  $('#s_token').value = c0.token; $('#s_owner').value = c0.owner; $('#s_repo').value = c0.repo; $('#s_branch').value = c0.branch;
+
+  window.__epp = { state: state, render: render, actions: actions, loadAll: loadAll };
+  loadAll();
+})();
+</script>
+</body>
+</html>
