@@ -183,58 +183,76 @@
     var more = names.length - shown.length;
     return shown.join(', ') + (more > 0 ? ' +' + more + ' more' : '');
   }
-  // Honest selection: shows the strongest genuinely positive number, or nothing. The card always shows the full picture.
-  function pickHeadline(ctx, n) {
+  // ---------------------------------------------------------------- campaign headlines
+  // The email is for a curator whose own lists we do not know, so it carries campaign-wide numbers only.
+  // Framing is the strongest TRUE one: week-on-week growth when it is up 10% or more, otherwise the running total.
+  // Nothing is claimed that the data does not show, and declines are never presented as growth.
+  function streamsBullet(ctx, n) {
     var rel = ctx.release;
     if (rel == null) return null;
-    var s = weekStart(rel, n), e = weekEnd(rel, n);
-    var fresh = newEditorialIn(ctx.placements, s, e);
-    if (fresh.length) {
-      return { kind: 'editorial_adds', text: fresh.length + ' new editorial add' + (fresh.length > 1 ? 's' : '') + ' in week ' + n + ': ' + nameList(fresh, 2) };
+    var t = ctx.today != null ? ctx.today : Date.now();
+    var s = weekStart(rel, n), e = Math.min(weekEnd(rel, n), t);
+    var total = seriesSum(ctx.streams, rel, e);
+    if (!total || total.sum <= 0) return null;
+    var cur = seriesSum(ctx.streams, s, e);
+    var prev = n >= 2 ? seriesSum(ctx.streams, weekStart(rel, n - 1), weekEnd(rel, n - 1)) : null;
+    var pct = cur && prev && weekEnd(rel, n) <= t ? pctChange(cur.sum, prev.sum) : null;
+    if (pct != null && pct >= 10 && n >= 2) {
+      return { kind: 'streams_growth', framing: 'Streams shown as week on week growth (+' + pct + '%)',
+        text: 'Spotify streams: ' + fmtNum(total.sum) + ' since release, up ' + pct + '% week on week (' + fmtNum(cur.sum) + ' in week ' + n + ')' };
     }
+    return { kind: 'streams_total', framing: 'Streams shown as the running total (week on week was not up 10% or more)',
+      text: 'Spotify streams: ' + fmtNum(total.sum) + ' since release' };
+  }
+  function momentumBullet(ctx, n) {
+    var parts = [], framing = [];
     var chart = bestChartMove(ctx.charts);
-    if (chart) return { kind: 'chart', text: chart.text };
-    if (n >= 2) {
-      var cur = seriesSum(ctx.streams, s, e), prev = seriesSum(ctx.streams, weekStart(rel, n - 1), weekEnd(rel, n - 1));
-      var pct = cur && prev ? pctChange(cur.sum, prev.sum) : null;
-      if (pct != null && pct >= 10) return { kind: 'streams', text: 'Spotify streams up ' + pct + '% on the week (' + fmtNum(cur.sum) + ' in week ' + n + ')' };
-      var zc = seriesSum(ctx.shazams, s, e), zp = seriesSum(ctx.shazams, weekStart(rel, n - 1), weekEnd(rel, n - 1));
+    if (chart) { parts.push(chart.text); framing.push('Chart move: ' + chart.text); }
+    var rel = ctx.release, t = ctx.today != null ? ctx.today : Date.now();
+    if (rel != null && n >= 2 && weekEnd(rel, n) <= t) {
+      var zc = seriesSum(ctx.shazams, weekStart(rel, n), weekEnd(rel, n)), zp = seriesSum(ctx.shazams, weekStart(rel, n - 1), weekEnd(rel, n - 1));
       var zpct = zc && zp ? pctChange(zc.sum, zp.sum) : null;
-      if (zpct != null && zpct >= 10) return { kind: 'shazam', text: 'Shazams up ' + zpct + '% on the week (' + fmtNum(zc.sum) + ' in week ' + n + ')' };
-    } else {
-      var launch = seriesSum(ctx.streams, s, e);
-      if (launch && launch.sum > 0) return { kind: 'launch_streams', text: fmtNum(launch.sum) + ' Spotify streams in launch week so far' };
+      if (zpct != null && zpct >= 10) { parts.push('Shazams up ' + zpct + '% week on week (' + fmtNum(zc.sum) + ' in week ' + n + ')'); framing.push('Shazams up ' + zpct + '%'); }
     }
-    return null;
+    if (!parts.length) return null;
+    return { kind: 'momentum', framing: framing.join('. '), text: 'Movement: ' + parts.join('. ') };
   }
 
   // ---------------------------------------------------------------- pitch block
-  function supportBullet(placements, targetDsp) {
-    var ed = editorialOnly(placements).filter(activeNow);
-    if (!ed.length) return { text: null, names: [] };
+  // Campaign-wide support, every platform together. Biggest lists first (by followers where the data has them).
+  function fmtCompact(n) {
+    if (n == null || isNaN(n)) return '';
+    if (n >= 1e6) return (Math.round(n / 1e5) / 10) + 'M';
+    if (n >= 1e3) return Math.round(n / 1e3) + 'K';
+    return String(n);
+  }
+  function bigFirst(pls) {
     var order = DSPS.map(function (d) { return d.key; });
-    if (targetDsp && order.indexOf(targetDsp) > 0) { order.splice(order.indexOf(targetDsp), 1); order.unshift(targetDsp); }
-    var parts = [], used = 0, hidden = 0, firstNames = [];
-    order.forEach(function (key) {
-      var mine = ed.filter(function (p) { return p.dsp === key; });
-      if (!mine.length) return;
-      mine.sort(function (a, b) {
-        return (b.followers || 0) - (a.followers || 0) || activeRegions(b).length - activeRegions(a).length || String(a.name).localeCompare(String(b.name));
-      });
-      var room = 4 - used;
-      var take = room > 0 ? mine.slice(0, Math.min(2, room)) : [];
-      hidden += mine.length - take.length;
-      if (!take.length) return;
-      used += take.length;
-      var bits = take.map(function (p) {
-        var rg = activeRegions(p).slice(0, 3);
-        return (p.name || '(unnamed)') + (rg.length ? ' ' + rg.join('/') : '');
-      });
-      take.forEach(function (p) { firstNames.push(p.name || ''); });
-      parts.push(DSP_LABEL[key] + ' (' + bits.join(', ') + ')');
+    return pls.slice().sort(function (a, b) {
+      return (b.followers || 0) - (a.followers || 0) || order.indexOf(a.dsp) - order.indexOf(b.dsp) || String(a.name).localeCompare(String(b.name));
     });
-    var text = 'Editorial support: ' + parts.join(' | ') + (hidden > 0 ? ' (+' + hidden + ' more)' : '');
-    return { text: text, names: firstNames };
+  }
+  // Top lists with every platform represented first (hand-logged Amazon, YouTube etc have no follower counts and would never rank otherwise).
+  function pickBig(pls, max) {
+    var sorted = bigFirst(pls), seen = {}, chosen = [];
+    sorted.forEach(function (p) { if (!seen[p.dsp]) { seen[p.dsp] = 1; chosen.push(p); } });
+    chosen = chosen.slice(0, max);
+    sorted.forEach(function (p) { if (chosen.length < max && chosen.indexOf(p) < 0) chosen.push(p); });
+    return bigFirst(chosen);
+  }
+  function nameWithDsp(p) {
+    return (p.name || '(unnamed)') + ' (' + DSP_LABEL[p.dsp] + ')';
+  }
+  function supportBullets(placements, n, release, maxNames) {
+    var ed = editorialOnly(placements).filter(activeNow);
+    var out = { count: ed.length, biggest: null, fresh: null };
+    if (!ed.length) return out;
+    out.biggest = 'Editorial support: ' + pickBig(ed, maxNames || 4).map(nameWithDsp).join(', ');
+    if (release != null && n) {
+      var fresh = newEditorialIn(placements, weekStart(release, n), weekEnd(release, n));
+      if (fresh.length) out.fresh = 'Added in week ' + n + ': ' + pickBig(fresh, 3).map(nameWithDsp).join(', ') + (fresh.length > 3 ? ' +' + (fresh.length - 3) + ' more' : '');
+    }
+    return out;
   }
 
   function linkFor(ctx, dsp) {
@@ -250,11 +268,15 @@
     var label = DSP_LABEL[dspKey] || dspKey;
     var title = (ctx.artist || 'Artist') + ' - ' + (ctx.track || 'Track');
     var relTxt = ctx.release != null ? fmtLong(ctx.release) : 'release date TBC';
-    var support = supportBullet(ctx.placements, dspKey);
-    var headline = pickHeadline(ctx, n);
-    var bullets = [];
-    if (support.text) bullets.push(support.text);
-    if (headline) bullets.push(headline.text);
+    var streams = streamsBullet(ctx, n);
+    var support = supportBullets(ctx.placements, n, ctx.release);
+    var momentum = momentumBullet(ctx, n);
+    var data = [];
+    if (streams) data.push(streams);
+    if (momentum) data.push(momentum);
+    if (support.biggest) data.push({ kind: 'biggest', text: support.biggest, framing: 'Strongest lists named first (ranked by followers, every platform represented)' });
+    if (support.fresh) data.push({ kind: 'fresh', text: support.fresh, framing: 'This week\'s biggest adds named' });
+    var bullets = data.map(function (d) { return d.text; });
     if (ctx.hook) bullets.push(ctx.hook);
 
     var link = linkFor(ctx, dspKey) || '[link]';
@@ -263,11 +285,45 @@
       : 'Sending over ' + title + ' (' + relTxt + '). Quick headlines:';
     var body = 'Hi ' + (opts.name || '[Name]') + ',\n\n' + intro + '\n\n' +
       (bullets.length ? bullets.map(function (b) { return '- ' + b; }).join('\n') + '\n\n' : '') +
-      'Would love to see it considered for ' + (opts.playlist || '[playlist]') + '. Link: ' + link + '\n\n[Sign-off]';
+      'Would love to see it considered for ' + (opts.playlist || 'your playlists') + '. Link: ' + link + '\n\n[Sign-off]';
 
-    var tag = support.names.length ? 'on ' + support.names.slice(0, 2).join(' + ') : 'out ' + fmtShort(ctx.release != null ? ctx.release : Date.now());
+    var tag = support.count ? 'on ' + support.count + ' editorial playlist' + (support.count > 1 ? 's' : '') : 'out ' + fmtShort(ctx.release != null ? ctx.release : Date.now());
     var subject = (ctx.artist || 'Artist') + ' "' + (ctx.track || 'Track') + '" | ' + tag;
-    return { subject: subject, body: body, headline: headline, label: label, bullets: bullets, missingLink: link === '[link]' };
+    return { subject: subject, body: body, label: label, bullets: bullets, framing: data.map(function (d) { return d.framing; }), missingLink: link === '[link]' };
+  }
+
+  // ---------------------------------------------------------------- several records in one email
+  // Each record gets a compact block (three bullets at most, hook kept) so a 3 or 4 record email stays short.
+  function shortTitle(ctx) { return (ctx.artist || 'Artist') + ' - ' + (ctx.track || 'Track'); }
+  function buildMultiPitch(ctxs, dspKey, opts) {
+    opts = opts || {};
+    var label = DSP_LABEL[dspKey] || dspKey;
+    var missing = [], blocks = [], total = 0;
+    ctxs.forEach(function (ctx) {
+      var n = ctx.defaultWeek || 1;
+      var streams = streamsBullet(ctx, n), support = supportBullets(ctx.placements, n, ctx.release, 3), momentum = momentumBullet(ctx, n);
+      var data = [];
+      if (streams) data.push(streams.text);
+      if (support.biggest) data.push(support.biggest);
+      if (support.fresh) data.push(support.fresh);
+      if (momentum) data.push(momentum.text);
+      data = data.slice(0, 3 - (ctx.hook ? 1 : 0));
+      if (ctx.hook) data.push(ctx.hook);
+      total += support.count || 0;
+      var link = linkFor(ctx, dspKey);
+      if (!link) missing.push(shortTitle(ctx));
+      blocks.push(shortTitle(ctx) + (ctx.release != null ? ' (' + fmtLong(ctx.release) + ')' : '') + '\n' +
+        data.map(function (b) { return '- ' + b; }).join('\n') + (data.length ? '\n' : '') + 'Link: ' + (link || '[link]'));
+    });
+    var k = ctxs.length;
+    var intro = opts.followUp
+      ? 'Following up with an update on ' + k + ' records since I last sent them:'
+      : 'Sending over ' + k + ' records. Quick headlines on each:';
+    var body = 'Hi ' + (opts.name || '[Name]') + ',\n\n' + intro + '\n\n' + blocks.join('\n\n') +
+      '\n\nWould love to see them considered for ' + (opts.playlist || 'your playlists') + '.\n\n[Sign-off]';
+    var lead = ctxs[0];
+    var subject = lead ? (lead.artist || 'Artist') + ' "' + (lead.track || 'Track') + '"' + (k > 1 ? ' + ' + (k - 1) + ' more' : '') + (total ? ' | on ' + total + ' editorial playlists' : '') : '';
+    return { subject: subject, body: body, label: label, missing: missing };
   }
 
   // ---------------------------------------------------------------- follow-up list
@@ -360,7 +416,7 @@
     effectivePlacements: effectivePlacements, editorialOnly: editorialOnly, needsTagging: needsTagging,
     weeklyTable: weeklyTable, seriesSum: seriesSum, pctChange: pctChange,
     chartLabel: chartLabel, chartMoves: chartMoves, bestChartMove: bestChartMove,
-    pickHeadline: pickHeadline, supportBullet: supportBullet, buildPitch: buildPitch, followUps: followUps,
+    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
     buildContext: buildContext, nameList: nameList, normalizeLink: normalizeLink
   };
 }));
