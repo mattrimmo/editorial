@@ -111,6 +111,10 @@
   "apple:pl.7e484c6b5169487d9d465a4b8bc68d09": {
    "kind": "editorial",
    "name": "The Apple Music 1 List"
+  },
+  "apple:pl.542285f9f737465cb24bae12cdd9e58b": {
+   "kind": "ignore",
+   "name": "Dance Risers"
   }
  }
 }
