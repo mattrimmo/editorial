@@ -120,7 +120,7 @@ tr.cur td{background:rgba(43,217,107,.06)}
 
   var state = {
     tracked: { tracks: [] }, history: { generated_at: null, records: {} },
-    registry: { playlists: {} }, manual: { entries: {} }, pitches: { pitches: {} },
+    registry: { playlists: {} }, manual: { entries: {} }, pitches: { pitches: {} }, resolved: { entries: {} },
     ui: { tab: 'records', open: null, pitch: {}, showAll: {} }, loadError: null, syncing: false
   };
 
@@ -172,6 +172,7 @@ tr.cur td{background:rgba(43,217,107,.06)}
     try {
       var r = await Promise.all(['tracked', 'history', 'registry', 'manual', 'pitches'].map(function (n) { return getJSON('data/' + n + '.json'); }));
       state.tracked = r[0]; state.history = r[1]; state.registry = r[2]; state.manual = r[3]; state.pitches = r[4];
+      state.resolved = await getJSON('data/resolved.json').catch(function () { return { entries: {} }; });
       state.loadError = null;
     } catch (e) {
       state.loadError = 'Could not load the data files (' + e.message + '). If you opened this from your computer, use the GitHub Pages link instead.';
@@ -181,12 +182,22 @@ tr.cur td{background:rgba(43,217,107,.06)}
 
   // ------------------------------------------------------------ helpers
   function today() { return C.todayUTC(); }
-  function contexts() {
-    var t = today();
-    return (state.tracked.tracks || []).map(function (e) {
-      return C.buildContext(e, state.history.records[e.isrc], (state.manual.entries || {})[e.isrc] || [], state.registry.playlists || {}, t);
-    }).sort(function (a, b) { return (b.release || 0) - (a.release || 0); });
+  // Records added by link have no ISRC until the sync matches them (data/resolved.json).
+  function resolvedFor(e) { return ((state.resolved.entries || {})[e.key || e.link || ''] || {}); }
+  function entryIsrc(e) { return e.isrc || resolvedFor(e).isrc || ''; }
+  function allItems() {
+    var t = today(), seen = {}, out = [];
+    (state.tracked.tracks || []).forEach(function (e) {
+      var isrc = entryIsrc(e);
+      if (!isrc) { out.push({ pending: true, key: e.key || e.link, link: e.link || e.key, error: resolvedFor(e).error || null, release: 9e15 }); return; }
+      if (seen[isrc]) return;
+      seen[isrc] = 1;
+      var entry = Object.assign({}, e, { isrc: isrc });
+      out.push(C.buildContext(entry, state.history.records[isrc], (state.manual.entries || {})[isrc] || [], state.registry.playlists || {}, t));
+    });
+    return out.sort(function (a, b) { return (b.release || 0) - (a.release || 0); });
   }
+  function contexts() { return allItems().filter(function (i) { return !i.pending; }); }
   function toast(msg, err) {
     var el = $('#toast'); el.textContent = msg; el.className = 'show' + (err ? ' err' : '');
     clearTimeout(toast.t); toast.t = setTimeout(function () { el.className = ''; }, err ? 5000 : 2600);
@@ -221,7 +232,7 @@ tr.cur td{background:rgba(43,217,107,.06)}
         (t[0] === 'tagging' && untagged.length ? '<span class="badge">' + untagged.length + '</span>' : '') + '</button>';
     }).join('');
     var v = $('#view');
-    if (state.ui.tab === 'records') v.innerHTML = viewRecords(ctxs);
+    if (state.ui.tab === 'records') v.innerHTML = viewRecords(allItems());
     else if (state.ui.tab === 'followups') v.innerHTML = viewFollowUps(ctxs);
     else if (state.ui.tab === 'tagging') v.innerHTML = viewTagging(untagged);
     else v.innerHTML = viewAdd();
@@ -234,7 +245,15 @@ tr.cur td{background:rgba(43,217,107,.06)}
     return ctxs.map(recCard).join('');
   }
 
+  function pendingCard(p) {
+    var msg = p.error ? esc(p.error) : 'Waiting for the next sync to match this link to a record. Check live now does it straight away.';
+    return '<div class="card rec"><div class="rec-head" style="cursor:default"><div class="art"></div><div class="grow"><div class="rec-title" style="word-break:break-all">' + esc(p.link) + '</div>' +
+      '<div class="chips"><span class="chip ' + (p.error ? 'r' : 'a') + '">' + (p.error ? 'Could not match' : 'Waiting to be matched') + '</span></div><div class="note">' + msg + '</div></div>' +
+      '<div><button class="sm ghost" data-act="removePending" data-key="' + esc(p.key) + '">Remove</button></div></div></div>';
+  }
+
   function recCard(ctx) {
+    if (ctx.pending) return pendingCard(ctx);
     var open = state.ui.open === ctx.isrc;
     var ed = C.editorialOnly(ctx.placements).filter(C.activeNow);
     var chips = C.DSPS.map(function (d) {
@@ -343,7 +362,7 @@ tr.cur td{background:rgba(43,217,107,.06)}
   }
 
   function detailsForm(ctx) {
-    var e = (state.tracked.tracks || []).filter(function (t) { return t.isrc === ctx.isrc; })[0] || {};
+    var e = (state.tracked.tracks || []).filter(function (t) { return entryIsrc(t) === ctx.isrc; })[0] || {};
     var l = e.links || {};
     var id = ctx.isrc;
     return '<details><summary style="cursor:pointer;color:var(--dim)">Details: hook line, links, overrides</summary><div style="display:grid;gap:10px;margin-top:12px">' +
@@ -439,10 +458,11 @@ tr.cur td{background:rgba(43,217,107,.06)}
 
   function viewAdd() {
     return '<div class="card" style="padding:18px;display:grid;gap:12px;max-width:720px">' +
-      '<div><label>ISRC (required)</label><input id="a_isrc" placeholder="GBXXX2600001" autocomplete="off"></div>' +
+      '<div><label>Spotify track link (or an ISRC)</label><input id="a_link" placeholder="https://open.spotify.com/track/..." autocomplete="off"></div>' +
+      '<div class="note" style="margin-top:-6px">In Spotify use Share, then Copy Song Link. Spot On Track matches it to Apple Music, Deezer and the rest. Apple Music, Deezer and Shazam track links and plain ISRCs work too.</div>' +
       '<div class="row"><div><label>Artist (optional, filled from Spot On Track)</label><input id="a_artist"></div><div><label>Title (optional)</label><input id="a_track"></div></div>' +
       '<div><label>Hook line (optional, one sentence of story or context)</label><input id="a_hook" placeholder="e.g. First release since the Amnesia residency"></div>' +
-      '<div class="note">Release date, artwork, and Spotify/Apple/Deezer links come from Spot On Track. Amazon, YouTube Music, Beatport and SoundCloud links can be added afterwards under Details.</div>' +
+      '<div class="note">Release date, artwork and links come from Spot On Track. Amazon, YouTube Music, Beatport and SoundCloud links can be added afterwards under Details.</div>' +
       '<div><button class="pri" data-act="addRecord">Add and sync</button></div></div>';
   }
 
@@ -461,7 +481,12 @@ tr.cur td{background:rgba(43,217,107,.06)}
         var raw = await ghFetch('/contents/data/history.json?ref=' + encodeURIComponent(c.branch), { headers: { 'Accept': 'application/vnd.github.raw+json' } });
         if (!raw.ok) continue;
         var h = JSON.parse(await raw.text());
-        if (h.generated_at && h.generated_at !== before) { state.history = h; state.syncing = false; render(); toast('Synced'); return true; }
+        if (h.generated_at && h.generated_at !== before) {
+          state.history = h;
+          var rr = await ghFetch('/contents/data/resolved.json?ref=' + encodeURIComponent(c.branch), { headers: { 'Accept': 'application/vnd.github.raw+json' } });
+          if (rr.ok) state.resolved = JSON.parse(await rr.text());
+          state.syncing = false; render(); toast('Synced'); return true;
+        }
       }
       toast('Still running. Refresh the page in a minute.', true);
     } catch (e) { toast(e.message, true); }
@@ -533,7 +558,7 @@ tr.cur td{background:rgba(43,217,107,.06)}
       if (rel && C.parseDate(rel) == null) { toast('Release date must look like 2026-10-02', true); return; }
       try {
         var next = await mutateFile('data/tracked.json', function (o) {
-          var t = (o.tracks || []).filter(function (x) { return x.isrc === id; })[0]; if (!t) return;
+          var t = (o.tracks || []).filter(function (x) { return entryIsrc(x) === id; })[0]; if (!t) return;
           t.hook = g('hook'); t.artist = g('artist'); t.track = g('track'); if (rel) t.release_date = rel; else delete t.release_date;
           t.links = { amazon: g('amazon'), youtube: g('youtube'), beatport: g('beatport'), soundcloud: g('soundcloud') };
         });
@@ -545,20 +570,34 @@ tr.cur td{background:rgba(43,217,107,.06)}
       var id = el.dataset.isrc;
       if (!confirm('Stop tracking this record? Its stored history is removed at the next sync.')) return;
       try {
-        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = (o.tracks || []).filter(function (x) { return x.isrc !== id; }); });
+        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = (o.tracks || []).filter(function (x) { return entryIsrc(x) !== id; }); });
         state.tracked = next; state.ui.open = null; render(); toast('Removed');
+      } catch (e) { toast(e.message, true); }
+    },
+    removePending: async function (el) {
+      if (needToken()) return;
+      var key = el.dataset.key;
+      try {
+        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = (o.tracks || []).filter(function (x) { return (x.key || x.link) !== key; }); });
+        state.tracked = next; render(); toast('Removed');
       } catch (e) { toast(e.message, true); }
     },
     addRecord: async function () {
       if (needToken()) return;
-      var isrc = ($('#a_isrc').value || '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
-      if (!/^[A-Z]{2}[A-Z0-9]{3}\d{7}$/.test(isrc)) { toast('That does not look like a valid ISRC (12 characters)', true); return; }
-      if ((state.tracked.tracks || []).some(function (t) { return t.isrc === isrc; })) { toast('Already tracked', true); return; }
-      var entry = { isrc: isrc, artist: ($('#a_artist').value || '').trim(), track: ($('#a_track').value || '').trim(), hook: ($('#a_hook').value || '').trim(), links: {}, added: C.iso(today()) };
+      var typed = ($('#a_link').value || '').trim();
+      var parsed = C.normalizeLink(typed);
+      if (parsed.error) { toast(parsed.error, true); return; }
+      var entry = { artist: ($('#a_artist').value || '').trim(), track: ($('#a_track').value || '').trim(), hook: ($('#a_hook').value || '').trim(), links: {}, added: C.iso(today()) };
+      var only = parsed.value;
+      if (parsed.type === 'isrc') entry.isrc = parsed.value; else { entry.key = parsed.value; entry.link = typed; }
+      var already = function (t) {
+        return (entry.isrc && entryIsrc(t) === entry.isrc) || (entry.key && ((t.key || t.link) === entry.key || (resolvedFor({ key: entry.key }).isrc && entryIsrc(t) === resolvedFor({ key: entry.key }).isrc)));
+      };
+      if ((state.tracked.tracks || []).some(already)) { toast('Already tracked', true); return; }
       try {
-        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = o.tracks || []; if (!o.tracks.some(function (t) { return t.isrc === isrc; })) o.tracks.push(entry); });
-        state.tracked = next; state.ui.tab = 'records'; state.ui.open = isrc; render();
-        triggerSync(isrc);
+        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = o.tracks || []; if (!o.tracks.some(already)) o.tracks.push(entry); });
+        state.tracked = next; state.ui.tab = 'records'; state.ui.open = entry.isrc || null; render();
+        triggerSync(only);
       } catch (e) { toast(e.message, true); }
     }
   };
