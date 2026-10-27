@@ -192,17 +192,17 @@
     if (rel == null) return null;
     var t = ctx.today != null ? ctx.today : Date.now();
     var s = weekStart(rel, n), e = Math.min(weekEnd(rel, n), t);
-    var total = seriesSum(ctx.streams, rel, e);
+    var total = totalStreams(ctx.streams, rel, e);
     if (!total || total.sum <= 0) return null;
     var cur = seriesSum(ctx.streams, s, e);
     var prev = n >= 2 ? seriesSum(ctx.streams, weekStart(rel, n - 1), weekEnd(rel, n - 1)) : null;
     var pct = cur && prev && weekEnd(rel, n) <= t ? pctChange(cur.sum, prev.sum) : null;
     if (pct != null && pct >= 10 && n >= 2) {
       return { kind: 'streams_growth', framing: 'Streams shown as week on week growth (+' + pct + '%)',
-        text: 'Spotify streams: ' + fmtNum(total.sum) + ' since release, up ' + pct + '% week on week (' + fmtNum(cur.sum) + ' in week ' + n + ')' };
+        text: 'Spotify streams: ' + fmtNum(total.sum) + ' in total, up ' + pct + '% week on week (' + fmtNum(cur.sum) + ' in week ' + n + ')' };
     }
     return { kind: 'streams_total', framing: 'Streams shown as the running total (week on week was not up 10% or more)',
-      text: 'Spotify streams: ' + fmtNum(total.sum) + ' since release' };
+      text: 'Spotify streams: ' + fmtNum(total.sum) + ' in total' };
   }
   function momentumBullet(ctx, n) {
     var parts = [], framing = [];
@@ -368,7 +368,7 @@
     var L = latestDate(ctx.streams);
     if (rel == null || L == null) return out;
     var t = ctx.today != null ? ctx.today : Date.now();
-    var total = seriesSum(ctx.streams, rel, L);
+    var total = totalStreams(ctx.streams, rel, L);
     var tr = trendOf(ctx.streams, 300);
 
     // 1. lift since an editorial add: daily average in the 7 days after against the 7 days before
@@ -382,7 +382,7 @@
     if (best) out.push({ kind: 'lift', text: 'Spotify streams up ' + best.pct + '% since ' + best.e.name + ' (' + DSP_LABEL[best.e.dsp] + ') added it on ' + fmtShort(best.e.date) + ', daily average ' + fmtNum(best.pre) + ' to ' + fmtNum(best.post) });
 
     // 2. a milestone passed in the last 14 days
-    var cum = 0, passed = null;
+    var dsum = seriesSum(ctx.streams, 0, L), cum = total && dsum ? Math.max(0, total.sum - dsum.sum) : 0, passed = null;
     (ctx.streams || []).map(function (r) { return { d: parseDate(r.date), v: r.daily }; })
       .filter(function (r) { return r.d != null && r.v != null && r.d >= rel && r.d <= L; })
       .sort(function (a, b) { return a.d - b.d; })
@@ -408,7 +408,7 @@
     if (sz && sz.sum >= 500) out.push({ kind: 'shazam', text: fmtNum(sz.sum) + ' Shazams since release' });
 
     // 7. running total, always true
-    if (total && total.sum > 0) out.push({ kind: 'total', text: fmtNum(total.sum) + ' Spotify streams since release' });
+    if (total && total.sum > 0) out.push({ kind: 'total', text: fmtNum(total.sum) + ' Spotify streams in total' });
     return out;
   }
 
@@ -430,8 +430,8 @@
     // streams
     var st = [];
     if (rel != null && L != null) {
-      var total = seriesSum(ctx.streams, rel, L);
-      if (total && total.sum > 0) st.push(fmtNum(total.sum) + ' Spotify streams since release');
+      var total = totalStreams(ctx.streams, rel, L);
+      if (total && total.sum > 0) st.push(fmtNum(total.sum) + ' Spotify streams in total');
       var last7 = seriesSum(ctx.streams, L - 6 * DAY, L);
       if (last7 && last7.days >= 5 && last7.sum >= 300) st.push(fmtNum(last7.sum) + ' Spotify streams in the last 7 days (' + fmtNum(last7.sum / last7.days) + ' a day)');
       if (tr.state === 'accelerating' && tr.last7 >= 500) st.push('Spotify streams up ' + tr.pct + '% on the previous 7 days');
@@ -502,7 +502,7 @@
     out.window = { from: s, to: e };
 
     // streams
-    var total = seriesSum(ctx.streams, rel, e), cur = seriesSum(ctx.streams, s, e);
+    var total = totalStreams(ctx.streams, rel, e), cur = seriesSum(ctx.streams, s, e);
     var prev = hasPrev ? seriesSum(ctx.streams, ps, pe) : null;
     var avg = cur ? cur.sum / cur.days : null, avgPrev = prev ? prev.sum / prev.days : null;
     var pct = avg != null && avgPrev != null && cur.days >= 3 ? pctChange(avg, avgPrev) : null;
@@ -641,6 +641,26 @@
   }
 
   // ---------------------------------------------------------------- build a record context
+  // Spot On Track gives a running lifetime "total" alongside "daily". The daily rows can start late or have gaps,
+  // so adding them up understates the real figure. Prefer the reported total, never go below the daily sum.
+  function totalStreams(series, s, e) {
+    var sum = seriesSum(series, s, e), best = null;
+    (series || []).forEach(function (r) {
+      var d = parseDate(r.date);
+      if (d != null && d <= e && r.total != null && (!best || d > best.d)) best = { d: d, v: r.total };
+    });
+    if (!best) return sum;
+    return { sum: Math.max(best.v, sum ? sum.sum : 0), days: sum ? sum.days : 0, reported: true };
+  }
+  function fillDaily(series) {
+    var rows = (series || []).map(function (r) { return { date: r.date, daily: r.daily, total: r.total }; });
+    rows.sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    for (var i = 1; i < rows.length; i++) {
+      var a = rows[i - 1], b = rows[i];
+      if (b.daily == null && b.total != null && a.total != null && parseDate(b.date) - parseDate(a.date) === DAY && b.total >= a.total) b.daily = b.total - a.total;
+    }
+    return rows;
+  }
   function buildContext(entry, histRec, manualEntries, registry, today) {
     var meta = (histRec && histRec.meta) || {};
     var release = parseDate(entry.release_date) != null ? parseDate(entry.release_date) : parseDate(meta.release_date);
@@ -661,7 +681,7 @@
       links: links,
       placements: placements,
       charts: (histRec && histRec.charts) || {},
-      streams: (histRec && histRec.streams) || [],
+      streams: fillDaily(histRec && histRec.streams),
       shazams: (histRec && histRec.shazams) || [],
       errors: (histRec && histRec.errors) || [],
       syncedAt: (histRec && histRec.synced_at) || null,
@@ -680,7 +700,7 @@
     effectivePlacements: effectivePlacements, editorialOnly: editorialOnly, needsTagging: needsTagging,
     weeklyTable: weeklyTable, seriesSum: seriesSum, pctChange: pctChange,
     chartLabel: chartLabel, chartMoves: chartMoves, bestChartMove: bestChartMove,
-    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, leadStats: leadStats, allBullets: allBullets, monitor: monitor, trendOf: trendOf, changeFeed: changeFeed, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
+    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, leadStats: leadStats, totalStreams: totalStreams, allBullets: allBullets, monitor: monitor, trendOf: trendOf, changeFeed: changeFeed, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
     buildContext: buildContext, nameList: nameList, normalizeLink: normalizeLink
   };
 }));
