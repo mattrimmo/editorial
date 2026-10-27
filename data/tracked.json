@@ -1,3 +1,29 @@
 {
- "tracks": []
+ "name": "tracked.json",
+ "path": "data/tracked.json",
+ "sha": "85f19ef6f6e3213fe5782f4e752786b03b298f70",
+ "size": 18,
+ "url": "https://api.github.com/repos/mattrimmo/editorial/contents/data/tracked.json?ref=main",
+ "html_url": "https://github.com/mattrimmo/editorial/blob/main/data/tracked.json",
+ "git_url": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/85f19ef6f6e3213fe5782f4e752786b03b298f70",
+ "download_url": "https://raw.githubusercontent.com/mattrimmo/editorial/main/data/tracked.json",
+ "type": "file",
+ "content": "ewogInRyYWNrcyI6IFtdCn0K\n",
+ "encoding": "base64",
+ "_links": {
+  "self": "https://api.github.com/repos/mattrimmo/editorial/contents/data/tracked.json?ref=main",
+  "git": "https://api.github.com/repos/mattrimmo/editorial/git/blobs/85f19ef6f6e3213fe5782f4e752786b03b298f70",
+  "html": "https://github.com/mattrimmo/editorial/blob/main/data/tracked.json"
+ },
+ "tracks": [
+  {
+   "artist": "",
+   "track": "",
+   "hook": "",
+   "links": {},
+   "added": "2026-10-27",
+   "key": "https://open.spotify.com/track/49fqtR2gcZXvJRQNbwrGkU",
+   "link": "https://open.spotify.com/track/49fqtR2gcZXvJRQNbwrGkU"
+  }
+ ]
 }
