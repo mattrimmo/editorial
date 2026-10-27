@@ -212,7 +212,7 @@
     if (rel != null && n >= 2 && weekEnd(rel, n) <= t) {
       var zc = seriesSum(ctx.shazams, weekStart(rel, n), weekEnd(rel, n)), zp = seriesSum(ctx.shazams, weekStart(rel, n - 1), weekEnd(rel, n - 1));
       var zpct = zc && zp ? pctChange(zc.sum, zp.sum) : null;
-      if (zpct != null && zpct >= 10) { parts.push('Shazams up ' + zpct + '% week on week (' + fmtNum(zc.sum) + ' in week ' + n + ')'); framing.push('Shazams up ' + zpct + '%'); }
+      if (zpct != null && zpct >= 20 && zc.sum >= 100) { parts.push('Shazams up ' + zpct + '% week on week (' + fmtNum(zc.sum) + ' in week ' + n + ')'); framing.push('Shazams up ' + zpct + '%'); }
     }
     if (!parts.length) return null;
     return { kind: 'momentum', framing: framing.join('. '), text: 'Movement: ' + parts.join('. ') };
@@ -300,12 +300,13 @@
     (series || []).forEach(function (r) { var d = parseDate(r.date); if (d != null && r.daily != null && (m == null || d > m)) m = d; });
     return m;
   }
-  function trendOf(series) {
+  function trendOf(series, minVolume) {
     var L = latestDate(series);
     if (L == null) return { state: 'nodata', pct: null, last7: null, prev7: null, latest: null };
     var cur = seriesSum(series, L - 6 * DAY, L), prev = seriesSum(series, L - 13 * DAY, L - 7 * DAY);
     var out = { state: 'early', pct: null, last7: cur ? cur.sum : null, prev7: prev ? prev.sum : null, latest: L, days: cur ? cur.days : 0 };
     if (!cur || !prev || cur.days < 5 || prev.days < 5) return out;
+    if (minVolume && (cur.sum < minVolume || prev.sum < minVolume)) return out;   // too small to read a percentage into
     out.pct = pctChange(cur.sum / cur.days, prev.sum / prev.days);
     if (out.pct == null) return out;
     out.state = out.pct >= 10 ? 'accelerating' : (out.pct <= -10 ? 'declining' : 'plateauing');
@@ -323,7 +324,7 @@
   }
   function monitor(ctx) {
     var t = ctx.today != null ? ctx.today : Date.now();
-    var tr = trendOf(ctx.streams), sh = trendOf(ctx.shazams);
+    var tr = trendOf(ctx.streams, 300), sh = trendOf(ctx.shazams, 100);
     var ev = placementEvents(ctx), since = t - 6 * DAY;
     var recent = ev.filter(function (e) { return e.date >= since && e.date <= t; });
     var adds7 = recent.filter(function (e) { return e.type === 'added'; }), rem7 = recent.filter(function (e) { return e.type === 'removed'; });
@@ -335,6 +336,7 @@
     else if (tr.state === 'declining') sentences.push('Spotify streams are down ' + (-tr.pct) + '% on the previous 7 days.');
     else if (tr.state === 'plateauing') sentences.push('Spotify streams are steady against the previous 7 days (' + (tr.pct >= 0 ? '+' : '') + tr.pct + '%).');
     else if (tr.state === 'early') sentences.push('Too early to call a trend. Not enough days of data yet.');
+    if (tr.state === 'declining' && ctx.release != null && tr.latest != null && tr.latest - ctx.release <= 35 * DAY) sentences.push('Streams usually fall after launch, so look at whether editorial adds lift the line again.');
     if (adds7.length) sentences.push(adds7.length + ' editorial add' + (adds7.length > 1 ? 's' : '') + ' in the last 7 days: ' + adds7.slice(0, 3).map(function (e) { return e.name + ' (' + DSP_LABEL[e.dsp] + ')'; }).join(', ') + (adds7.length > 3 ? ' +' + (adds7.length - 3) + ' more' : '') + '.');
     if (rem7.length) sentences.push(rem7.length + ' removed in the last 7 days: ' + rem7.slice(0, 3).map(function (e) { return e.name + ' (' + DSP_LABEL[e.dsp] + ')'; }).join(', ') + '.');
     return {
@@ -356,21 +358,152 @@
     return out.sort(function (a, b) { return b.date - a.date || String(a.name).localeCompare(String(b.name)); });
   }
 
+  // ---------------------------------------------------------------- numbers to lead with
+  // Streams normally fall after launch week, so "this week vs last week" is usually down and makes a poor headline.
+  // This lists the strongest TRUE numbers instead, best first: lift since an editorial add, a milestone passed,
+  // genuine growth, recent adds, holding up, then the running totals (which only ever go up).
+  var MILESTONES = [10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000, 5000000, 10000000];
+  function leadStats(ctx) {
+    var rel = ctx.release, out = [];
+    var L = latestDate(ctx.streams);
+    if (rel == null || L == null) return out;
+    var t = ctx.today != null ? ctx.today : Date.now();
+    var total = seriesSum(ctx.streams, rel, L);
+    var tr = trendOf(ctx.streams, 300);
+
+    // 1. lift since an editorial add: daily average in the 7 days after against the 7 days before
+    var best = null;
+    placementEvents(ctx).filter(function (e) { return e.type === 'added' && e.date <= L - 2 * DAY && e.date >= rel; }).forEach(function (e) {
+      var pre = seriesSum(ctx.streams, e.date - 7 * DAY, e.date - DAY), post = seriesSum(ctx.streams, e.date, Math.min(e.date + 6 * DAY, L));
+      if (!pre || !post || pre.days < 5 || post.days < 3 || pre.sum < 300) return;
+      var pct = pctChange(post.sum / post.days, pre.sum / pre.days);
+      if (pct != null && pct >= 15 && (!best || pct > best.pct)) best = { pct: pct, e: e, pre: pre.sum / pre.days, post: post.sum / post.days };
+    });
+    if (best) out.push({ kind: 'lift', text: 'Spotify streams up ' + best.pct + '% since ' + best.e.name + ' (' + DSP_LABEL[best.e.dsp] + ') added it on ' + fmtShort(best.e.date) + ', daily average ' + fmtNum(best.pre) + ' to ' + fmtNum(best.post) });
+
+    // 2. a milestone passed in the last 14 days
+    var cum = 0, passed = null;
+    (ctx.streams || []).map(function (r) { return { d: parseDate(r.date), v: r.daily }; })
+      .filter(function (r) { return r.d != null && r.v != null && r.d >= rel && r.d <= L; })
+      .sort(function (a, b) { return a.d - b.d; })
+      .forEach(function (r) {
+        var before = cum; cum += r.v;
+        MILESTONES.forEach(function (m) { if (before < m && cum >= m && r.d >= L - 13 * DAY) passed = { m: m, d: r.d }; });
+      });
+    if (passed) out.push({ kind: 'milestone', text: 'Passed ' + fmtNum(passed.m) + ' Spotify streams on ' + fmtShort(passed.d) });
+
+    // 3. real growth on the previous 7 days
+    if (tr.state === 'accelerating' && tr.last7 >= 500) out.push({ kind: 'growth', text: 'Spotify streams up ' + tr.pct + '% on the previous 7 days' });
+
+    // 4. recent editorial adds
+    var adds14 = placementEvents(ctx).filter(function (e) { return e.type === 'added' && e.date >= t - 13 * DAY && e.date <= t; });
+    if (adds14.length) out.push({ kind: 'adds', text: adds14.length + ' new editorial playlist add' + (adds14.length > 1 ? 's' : '') + ' in the last 14 days: ' + adds14.slice(0, 3).map(function (e) { return e.name + ' (' + DSP_LABEL[e.dsp] + ')'; }).join(', ') });
+
+    // 5. holding up, which is a good story for a record several weeks old
+    var ageWeeks = Math.floor((L - rel) / (7 * DAY));
+    if ((tr.state === 'plateauing' || tr.state === 'accelerating') && ageWeeks >= 2 && tr.last7 >= 700) out.push({ kind: 'holding', text: 'Still averaging ' + fmtNum(tr.last7 / 7) + ' Spotify streams a day, ' + ageWeeks + ' weeks after release' });
+
+    // 6. Shazams
+    var sz = seriesSum(ctx.shazams, rel, L);
+    if (sz && sz.sum >= 500) out.push({ kind: 'shazam', text: fmtNum(sz.sum) + ' Shazams since release' });
+
+    // 7. running total, always true
+    if (total && total.sum > 0) out.push({ kind: 'total', text: fmtNum(total.sum) + ' Spotify streams since release' });
+    return out;
+  }
+
+  // ---------------------------------------------------------------- every pickable bullet
+  // Everything true and positive a curator would want to hear, grouped, so the user can pick and copy.
+  // Never includes declines or follower numbers.
+  function allBullets(ctx) {
+    var rel = ctx.release, groups = [];
+    var L = latestDate(ctx.streams);
+    var t = ctx.today != null ? ctx.today : Date.now();
+    function add(title, items) { if (items.length) groups.push({ title: title, items: items }); }
+    var tr = trendOf(ctx.streams, 300);
+    var ed = editorialOnly(ctx.placements);
+    var live = ed.filter(activeNow);
+
+    // the story
+    if (ctx.hook) add('The story', [ctx.hook]);
+
+    // streams
+    var st = [];
+    if (rel != null && L != null) {
+      var total = seriesSum(ctx.streams, rel, L);
+      if (total && total.sum > 0) st.push(fmtNum(total.sum) + ' Spotify streams since release');
+      var last7 = seriesSum(ctx.streams, L - 6 * DAY, L);
+      if (last7 && last7.days >= 5 && last7.sum >= 300) st.push(fmtNum(last7.sum) + ' Spotify streams in the last 7 days (' + fmtNum(last7.sum / last7.days) + ' a day)');
+      if (tr.state === 'accelerating' && tr.last7 >= 500) st.push('Spotify streams up ' + tr.pct + '% on the previous 7 days');
+      var best = null;
+      (ctx.streams || []).forEach(function (r) { var d = parseDate(r.date); if (d != null && d >= rel && r.daily != null && (!best || r.daily > best.v)) best = { d: d, v: r.daily }; });
+      if (best && best.v >= 500) st.push('Biggest day so far: ' + fmtNum(best.v) + ' Spotify streams on ' + fmtShort(best.d));
+      var ls = leadStats(ctx);
+      ls.forEach(function (x) { if (x.kind === 'milestone' || x.kind === 'holding') st.push(x.text); });
+      // lift since each editorial add
+      placementEvents(ctx).filter(function (e) { return e.type === 'added' && e.date <= L - 2 * DAY && e.date >= rel; }).forEach(function (e) {
+        var pre = seriesSum(ctx.streams, e.date - 7 * DAY, e.date - DAY), post = seriesSum(ctx.streams, e.date, Math.min(e.date + 6 * DAY, L));
+        if (!pre || !post || pre.days < 5 || post.days < 3 || pre.sum < 300) return;
+        var pct = pctChange(post.sum / post.days, pre.sum / pre.days);
+        if (pct != null && pct >= 15) st.push('Spotify streams up ' + pct + '% after ' + e.name + ' (' + DSP_LABEL[e.dsp] + ') added it on ' + fmtShort(e.date));
+      });
+    }
+    add('Streams', st);
+
+    // editorial support, overall then per platform
+    var sup = [];
+    if (live.length) {
+      var dspsLive = DSPS.filter(function (d) { return live.some(function (p) { return p.dsp === d.key; }); });
+      sup.push('On ' + live.length + ' editorial playlist' + (live.length > 1 ? 's' : '') + ' across ' + dspsLive.map(function (d) { return d.label; }).join(', '));
+      DSPS.forEach(function (d) {
+        var pls = bigFirst(live.filter(function (p) { return p.dsp === d.key; }));
+        if (pls.length) sup.push(d.label + ': ' + nameList(pls, 6));
+      });
+    }
+    add('Editorial support', sup);
+
+    // new adds in the last 7 days
+    var fresh = placementEvents(ctx).filter(function (e) { return e.type === 'added' && e.date >= t - 6 * DAY && e.date <= t; });
+    add('New this week', fresh.map(function (e) { return 'Added to ' + e.name + ' (' + DSP_LABEL[e.dsp] + ') on ' + fmtShort(e.date); }));
+
+    // charts
+    var ch = chartMoves(ctx.charts).sort(function (a, b) { return a.position - b.position; });
+    add('Charts', ch.map(function (m) { return (m.isNew || m.delta > 0) ? chartText(m) : m.label + ' #' + m.position; }));
+
+    // shazam
+    var sz = [];
+    if (rel != null && L != null) {
+      var zt = seriesSum(ctx.shazams, rel, L);
+      if (zt && zt.sum >= 300) sz.push(fmtNum(zt.sum) + ' Shazams since release');
+      var z7 = seriesSum(ctx.shazams, L - 6 * DAY, L), zp = seriesSum(ctx.shazams, L - 13 * DAY, L - 7 * DAY);
+      if (z7 && z7.days >= 5 && z7.sum >= 100) sz.push(fmtNum(z7.sum) + ' Shazams in the last 7 days');
+      var zpct = z7 && zp && z7.days >= 5 && zp.days >= 5 ? pctChange(z7.sum, zp.sum) : null;
+      if (zpct != null && zpct >= 20 && z7.sum >= 100) sz.push('Shazams up ' + zpct + '% on the previous 7 days');
+    }
+    add('Shazam', sz);
+    return groups;
+  }
+
   // ---------------------------------------------------------------- campaign highlights (for Matt to read, not to paste)
   function chartText(m) {
     var move = m.isNew ? 'new entry' : (m.delta > 0 ? 'up ' + m.delta : (m.delta < 0 ? 'down ' + (-m.delta) : 'steady'));
     return m.label + ' #' + m.position + ' (' + move + ')';
   }
+  // n is a release week number, or 'latest' for the newest 7 days of data against the 7 before (what the Records page trend uses).
   function highlights(ctx, n) {
     var rel = ctx.release, t = ctx.today != null ? ctx.today : Date.now();
-    var out = { week: n, hasRelease: rel != null, streams: null, top: null, others: [], dsps: [] };
+    var rolling = n === 'latest';
+    var out = { week: n, rolling: rolling, hasRelease: rel != null, streams: null, top: null, others: [], dsps: [], label: rolling ? 'the latest 7 days' : 'week ' + n };
     if (rel == null) return out;
-    var s = weekStart(rel, n), eFull = weekEnd(rel, n), e = Math.min(eFull, t);
-    var complete = eFull <= t;
+    var Ld = latestDate(ctx.streams); if (Ld == null) Ld = t;
+    var s, e, ps, pe, hasPrev, ws, we, complete;
+    if (rolling) { s = Ld - 6 * DAY; e = Ld; ps = Ld - 13 * DAY; pe = Ld - 7 * DAY; hasPrev = true; ws = t - 6 * DAY; we = t; complete = true; }
+    else { s = weekStart(rel, n); var eFull = weekEnd(rel, n); e = Math.min(eFull, t); ps = weekStart(rel, n - 1); pe = weekEnd(rel, n - 1); hasPrev = n >= 2; ws = s; we = e; complete = eFull <= t; }
+    out.window = { from: s, to: e };
 
     // streams
     var total = seriesSum(ctx.streams, rel, e), cur = seriesSum(ctx.streams, s, e);
-    var prev = n >= 2 ? seriesSum(ctx.streams, weekStart(rel, n - 1), weekEnd(rel, n - 1)) : null;
+    var prev = hasPrev ? seriesSum(ctx.streams, ps, pe) : null;
     var avg = cur ? cur.sum / cur.days : null, avgPrev = prev ? prev.sum / prev.days : null;
     var pct = avg != null && avgPrev != null && cur.days >= 3 ? pctChange(avg, avgPrev) : null;
     var best = null;
@@ -378,14 +511,14 @@
       var d = parseDate(r.date);
       if (d != null && d >= rel && d <= e && r.daily != null && (!best || r.daily > best.value)) best = { date: d, value: r.daily };
     });
-    var zc = seriesSum(ctx.shazams, s, e), zp = n >= 2 ? seriesSum(ctx.shazams, weekStart(rel, n - 1), weekEnd(rel, n - 1)) : null;
+    var zc = seriesSum(ctx.shazams, s, e), zp = hasPrev ? seriesSum(ctx.shazams, ps, pe) : null;
     var zpct = zc && zp && zc.days >= 3 ? pctChange(zc.sum / zc.days, zp.sum / zp.days) : null;
     var days = [];
     (ctx.streams || []).forEach(function (r) { var d = parseDate(r.date); if (d != null && d >= rel && d <= e && r.daily != null) days.push({ date: d, value: r.daily, inWeek: d >= s }); });
     out.streams = {
       total: total ? total.sum : null, week: cur ? cur.sum : null, weekDays: cur ? cur.days : 0, partial: !complete,
       pct: pct, prevWeek: prev ? prev.sum : null, best: best, bestInWeek: !!(best && best.date >= s),
-      shazams: zc ? zc.sum : null, shazamPct: zpct, daily: days.slice(-28)
+      shazams: zc ? zc.sum : null, shazamPct: zpct, daily: days.slice(-28), latest: Ld
     };
 
     // platform cards
@@ -394,7 +527,7 @@
     var cards = DSPS.map(function (d) { return { key: d.key, label: d.label }; }).concat([{ key: 'shazam', label: 'Shazam' }]);
     cards.forEach(function (d) {
       var live = bigFirst(ed.filter(function (p) { return p.dsp === d.key && activeNow(p); }));
-      var added = bigFirst(newEditorialIn(ctx.placements, s, e).filter(function (p) { return p.dsp === d.key; }));
+      var added = bigFirst(newEditorialIn(ctx.placements, ws, we).filter(function (p) { return p.dsp === d.key; }));
       var mv = moves.filter(function (m) { return m.dsp === d.key; }).sort(function (a, b) { return a.position - b.position; });
       if (!live.length && !added.length && !mv.length) return;
       out.dsps.push({
@@ -406,17 +539,18 @@
 
     // the top thing that happened this week, ranked: editorial adds, chart move, stream growth, best day, Shazams
     var cand = [];
-    bigFirst(newEditorialIn(ctx.placements, s, e)).forEach(function (p) {
+    bigFirst(newEditorialIn(ctx.placements, ws, we)).forEach(function (p) {
       var rg = activeRegions(p).slice(0, 3).join(', ');
       cand.push({ kind: 'editorial', text: 'Added to ' + (p.name || '(unnamed)') + ' on ' + DSP_LABEL[p.dsp] + (rg ? ' (' + rg + ')' : '') });
     });
-    if (n >= ctx.defaultWeek) {
+    if (rolling || n >= ctx.defaultWeek) {
       var chart = bestChartMove(ctx.charts);
       if (chart) cand.push({ kind: 'chart', text: chart.text });
     }
-    if (pct != null && pct >= 10) cand.push({ kind: 'streams', text: 'Spotify streams up ' + pct + '% on last week (daily average ' + fmtNum(avg) + ')' });
-    if (best && best.date >= s && n >= 2 && best.value > 0) cand.push({ kind: 'bestday', text: 'Best day yet: ' + fmtNum(best.value) + ' Spotify streams on ' + fmtShort(best.date) });
-    if (zpct != null && zpct >= 10) cand.push({ kind: 'shazam', text: 'Shazams up ' + zpct + '% on last week' });
+    // percentages only when the base is big enough to mean something
+    if (pct != null && pct >= 10 && cur.sum >= 500 && prev && prev.sum >= 300) cand.push({ kind: 'streams', text: 'Spotify streams up ' + pct + '% on ' + (rolling ? 'the previous 7 days' : 'last week') + ' (daily average ' + fmtNum(avg) + ')' });
+    if (best && best.date >= s && (rolling || n >= 2) && best.value > 0) cand.push({ kind: 'bestday', text: 'Best day yet: ' + fmtNum(best.value) + ' Spotify streams on ' + fmtShort(best.date) });
+    if (zpct != null && zpct >= 20 && zc.sum >= 100) cand.push({ kind: 'shazam', text: 'Shazams up ' + zpct + '% on ' + (rolling ? 'the previous 7 days' : 'last week') + ' (' + fmtNum(zc.sum) + ')' });
     out.top = cand[0] || null;
     out.others = cand.slice(1);
     return out;
@@ -546,7 +680,7 @@
     effectivePlacements: effectivePlacements, editorialOnly: editorialOnly, needsTagging: needsTagging,
     weeklyTable: weeklyTable, seriesSum: seriesSum, pctChange: pctChange,
     chartLabel: chartLabel, chartMoves: chartMoves, bestChartMove: bestChartMove,
-    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, monitor: monitor, trendOf: trendOf, changeFeed: changeFeed, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
+    streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, leadStats: leadStats, allBullets: allBullets, monitor: monitor, trendOf: trendOf, changeFeed: changeFeed, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
     buildContext: buildContext, nameList: nameList, normalizeLink: normalizeLink
   };
 }));
