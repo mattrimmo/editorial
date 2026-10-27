@@ -163,6 +163,45 @@ tr.live td{background:rgba(53,217,117,.05)}
 .dsp-main{font-size:15px}
 .dsp-card .chip{background:var(--raised)}
 .dsp-chart{margin-top:10px;font-size:14px;color:var(--text)}
+/* monitor */
+.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.ov{background:var(--panel);border-radius:12px;padding:14px 16px;border-left:4px solid var(--line);display:flex;flex-direction:column}
+.ov b{font-size:26px;line-height:1.2}
+.ov span{color:var(--muted);font-size:13px}
+.ov.acc{border-left-color:var(--signal)}.ov.pla{border-left-color:var(--amber)}.ov.dec{border-left-color:var(--red)}.ov.good{border-left-color:#7ab8ff}
+.trend{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 8px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap}
+.trend.big{font-size:15px;padding:5px 14px 5px 10px}
+.trend.acc{background:rgba(53,217,117,.15);color:var(--signal)}
+.trend.pla{background:rgba(240,180,74,.15);color:var(--amber)}
+.trend.dec{background:rgba(255,138,138,.15);color:var(--red)}
+.trend.early{background:var(--raised);color:var(--muted)}
+.mhead,.mrow{display:grid;grid-template-columns:minmax(220px,2.2fr) 150px 112px 92px 112px minmax(0,1.1fr) 16px;gap:14px;align-items:center}
+.mhead{padding:8px 8px;color:var(--muted);font-size:13px;border-bottom:1px solid var(--line)}
+.mrow{padding:14px 8px;border-bottom:1px solid var(--line)}
+a.mrow:hover{background:var(--panel)}
+.m-title{display:flex;gap:12px;align-items:center;min-width:0}
+.m-title .row-title{white-space:normal}
+.m-trend{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.art.sm{width:40px;height:40px;border-radius:6px}
+.m-spark.acc{color:var(--signal)}.m-spark.pla{color:var(--amber)}.m-spark.dec{color:var(--red)}.m-spark.early{color:var(--muted)}
+.m-num{font-size:15px}
+.m-chart{font-size:13px;color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.row.feed{padding:12px 8px;gap:12px}
+.sortbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 12px}
+.traj-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.traj-text{margin:0 0 10px;max-width:70ch}
+.traj-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:14px}
+.trend-chart{width:100%;height:auto;display:block;background:var(--panel);border-radius:12px}
+.trend-chart .area{fill:rgba(53,217,117,.12)}
+.trend-chart .ln{fill:none;stroke:var(--signal);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.trend-chart .band.now{fill:rgba(255,255,255,.06)}
+.trend-chart .band.prev{fill:rgba(255,255,255,.025)}
+.trend-chart .tl{fill:var(--muted);font-size:11px;font-family:inherit}
+.trend-chart .mk line{stroke-width:1;stroke-dasharray:3 3}
+.trend-chart .mk.add line{stroke:rgba(53,217,117,.55)}.trend-chart .mk.add circle{fill:var(--signal)}
+.trend-chart .mk.rem line{stroke:rgba(255,138,138,.55)}.trend-chart .mk.rem circle{fill:var(--red)}
+.key{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.key.add{background:var(--signal)}.key.rem{background:var(--red)}
 /* picking several records */
 .row.pick{cursor:pointer}
 .row.pick:hover{background:var(--panel)}
@@ -183,6 +222,15 @@ tr.live td{background:rgba(53,217,117,.05)}
 @media (max-width:720px){
   .wrap{padding:0 14px}
   .strip{display:none}
+  .overview{grid-template-columns:1fr 1fr}
+  .mhead{display:none}
+  .mrow{grid-template-columns:1fr 100px;gap:8px 12px;padding:14px 4px}
+  .m-title{grid-column:1 / -1}
+  .m-trend{grid-column:1}
+  .m-spark{grid-column:2;grid-row:2;justify-self:end}
+  .m-num,.m-chart{grid-column:1 / -1;font-size:14px}
+  .m-num::before,.m-chart::before{content:attr(data-l) ': ';color:var(--muted)}
+  .mrow .chev{display:none}
   .tiles{grid-template-columns:repeat(3,1fr);gap:8px}
   .tiles4{grid-template-columns:1fr 1fr}
   .dsp-grid{grid-template-columns:1fr}
@@ -236,7 +284,7 @@ tr.live td{background:rgba(53,217,117,.05)}
   var state = {
     tracked: { tracks: [] }, history: { generated_at: null, records: {} },
     registry: { playlists: {} }, manual: { entries: {} }, pitches: { pitches: {} }, resolved: { entries: {} },
-    ui: { view: 'records', rec: null, tab: 'highlights', hl: {}, pitch: {}, modal: null, logOpen: false, selecting: false, sel: [], bundle: { dsp: 'spotify', name: '', followUp: false } },
+    ui: { view: 'records', rec: null, tab: 'highlights', hl: {}, pitch: {}, modal: null, logOpen: false, selecting: false, sel: [], sort: 'newest', bundle: { dsp: 'spotify', name: '', followUp: false } },
     loadError: null, syncing: false
   };
 
@@ -267,6 +315,7 @@ tr.live td{background:rgba(53,217,117,.05)}
   function ghFetch(path, opts) {
     var c = cfg();
     opts = opts || {};
+    opts.cache = 'no-store';   // never let the browser hand back an old copy of a file (it caused tags to be saved onto stale data)
     opts.headers = Object.assign({ 'Authorization': 'Bearer ' + c.token, 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' }, opts.headers || {});
     return fetch('https://api.github.com/repos/' + c.owner + '/' + c.repo + path, opts);
   }
@@ -276,15 +325,22 @@ tr.live td{background:rgba(53,217,117,.05)}
     return false;
   }
   // Read-modify-write one JSON file in the repo, retrying if something else changed it meanwhile.
+  // One request gives both the content and its version (sha), so they always belong together.
+  var FILE_KEY = { 'data/registry.json': 'playlists', 'data/pitches.json': 'pitches', 'data/manual.json': 'entries', 'data/tracked.json': 'tracks' };
+  function b64ToUtf8(b) { return decodeURIComponent(escape(atob(String(b).replace(/\s/g, '')))); }
   async function mutateFile(path, mutator) {
-    var c = cfg();
+    var c = cfg(), key = FILE_KEY[path];
     for (var attempt = 0; attempt < 4; attempt++) {
       var meta = await ghFetch('/contents/' + path + '?ref=' + encodeURIComponent(c.branch));
       if (!meta.ok) throw new Error('Could not read ' + path + ' (' + meta.status + ')');
       var info = await meta.json();
-      var raw = await ghFetch('/contents/' + path + '?ref=' + encodeURIComponent(c.branch), { headers: { 'Accept': 'application/vnd.github.raw+json' } });
-      var obj = JSON.parse(await raw.text());
+      var obj = JSON.parse(b64ToUtf8(info.content));
+      if (key && obj[key] == null) {
+        if (key === 'tracks') throw new Error(path + ' does not look right, so nothing was saved. Check it in GitHub.');
+        obj = {}; obj[key] = key === 'playlists' || key === 'pitches' || key === 'entries' ? {} : [];
+      }
       var next = mutator(obj) || obj;
+      if (key) { var clean = {}; clean[key] = next[key]; next = clean; }   // drop any stray keys
       var put = await ghFetch('/contents/' + path, { method: 'PUT', body: JSON.stringify({ message: 'Update ' + path + ' from page', content: utf8ToB64(JSON.stringify(next, null, 1) + '\n'), sha: info.sha, branch: c.branch }) });
       if (put.ok) return next;
       if (put.status !== 409 && put.status !== 422) throw new Error('Save failed (' + put.status + ')');
@@ -296,11 +352,23 @@ tr.live td{background:rgba(53,217,117,.05)}
   function getJSON(path) {
     return fetch(path + '?t=' + Date.now()).then(function (r) { if (!r.ok) throw new Error(path + ' ' + r.status); return r.json(); });
   }
+  // With a token set, read straight from the repo so a change you just made shows at once.
+  // GitHub Pages can take a minute or two to catch up, which made saved changes look lost.
+  async function readData(path) {
+    var c = cfg();
+    if (c.token && c.owner && c.repo) {
+      try {
+        var r = await ghFetch('/contents/' + path + '?ref=' + encodeURIComponent(c.branch), { headers: { 'Accept': 'application/vnd.github.raw+json' } });
+        if (r.ok) return JSON.parse(await r.text());
+      } catch (e) { /* fall back to the published copy */ }
+    }
+    return getJSON(path);
+  }
   async function loadAll() {
     try {
-      var r = await Promise.all(['tracked', 'history', 'registry', 'manual', 'pitches'].map(function (n) { return getJSON('data/' + n + '.json'); }));
+      var r = await Promise.all(['tracked', 'history', 'registry', 'manual', 'pitches'].map(function (n) { return readData('data/' + n + '.json'); }));
       state.tracked = r[0]; state.history = r[1]; state.registry = r[2]; state.manual = r[3]; state.pitches = r[4];
-      state.resolved = await getJSON('data/resolved.json').catch(function () { return { entries: {} }; });
+      state.resolved = await readData('data/resolved.json').catch(function () { return { entries: {} }; });
       state.loadError = null;
     } catch (e) {
       state.loadError = 'The data files could not be loaded (' + e.message + '). Open this from your GitHub Pages address rather than from a file on your computer.';
@@ -400,19 +468,63 @@ tr.live td{background:rgba(53,217,117,.05)}
   }
 
   // ---- records list
+  var TREND = {
+    accelerating: { label: 'Accelerating', cls: 'acc', icon: '<path d="M3 11l4-4 3 3 4-5M10 5h4v4" />' },
+    plateauing: { label: 'Plateauing', cls: 'pla', icon: '<path d="M2 8h12M11 5l3 3-3 3" />' },
+    declining: { label: 'Declining', cls: 'dec', icon: '<path d="M3 5l4 4 3-3 4 5M10 11h4V7" />' },
+    early: { label: 'Too early to call', cls: 'early', icon: '<path d="M8 3v5l3 2" /><circle cx="8" cy="8" r="6" />' },
+    nodata: { label: 'No data yet', cls: 'early', icon: '<path d="M8 3v5l3 2" /><circle cx="8" cy="8" r="6" />' }
+  };
+  function trendBadge(tr, big) {
+    var t = TREND[tr.state] || TREND.nodata;
+    return '<span class="trend ' + t.cls + (big ? ' big' : '') + '"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + t.icon + '</svg>' +
+      '<span>' + t.label + (tr.pct != null && (tr.state === 'accelerating' || tr.state === 'declining' || tr.state === 'plateauing') ? ' ' + (tr.pct >= 0 ? '+' : '') + tr.pct + '%' : '') + '</span></span>';
+  }
+  function sparkSvg(values, cls) {
+    if (!values || values.length < 2) return '<span class="muted" style="font-size:13px">No daily data</span>';
+    var w = 110, hgt = 32, min = Math.min.apply(null, values), max = Math.max.apply(null, values), span = max - min || 1;
+    var pts = values.map(function (v, i) { return (i / (values.length - 1) * (w - 4) + 2).toFixed(1) + ',' + (hgt - 3 - (v - min) / span * (hgt - 6)).toFixed(1); }).join(' ');
+    return '<svg class="spark ' + cls + '" viewBox="0 0 ' + w + ' ' + hgt + '" width="' + w + '" height="' + hgt + '" role="img" aria-label="Daily Spotify streams, last ' + values.length + ' days"><polyline points="' + pts + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+  }
+  var TREND_RANK = { accelerating: 0, plateauing: 1, early: 2, nodata: 3, declining: 4 };
+  function sortedItems(items, mons) {
+    var real = items.filter(function (i) { return !i.pending; }), pend = items.filter(function (i) { return i.pending; });
+    var how = state.ui.sort;
+    if (how === 'best') real.sort(function (a, b) { return TREND_RANK[mons[a.isrc].trend.state] - TREND_RANK[mons[b.isrc].trend.state] || (mons[b.isrc].trend.pct || 0) - (mons[a.isrc].trend.pct || 0); });
+    else if (how === 'worst') real.sort(function (a, b) { return TREND_RANK[mons[b.isrc].trend.state] - TREND_RANK[mons[a.isrc].trend.state] || (mons[a.isrc].trend.pct || 0) - (mons[b.isrc].trend.pct || 0); });
+    return pend.concat(real);
+  }
   function viewRecords(items) {
     var c = cfg();
     var sel = state.ui.selecting;
-    var head = '<div class="page-head"><div><h1>' + (sel ? 'Choose records for one email' : 'Records') + '</h1><p class="lede">' + (sel ? 'Tick up to four records. They go in one email, strongest first.' : 'Pick a record to build a pitch for an editor.') + '</p></div>' +
-      (sel ? '<button class="btn quiet" data-act="cancelSelect">Cancel</button>' : '<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="startSelect">Pitch several records</button><button class="btn primary" data-act="openAdd">Add record</button></div>') + '</div>';
+    var head = '<div class="page-head"><div><h1>' + (sel ? 'Choose records for one email' : 'Records') + '</h1><p class="lede">' + (sel ? 'Tick up to four records. They go in one email, strongest first.' : (state.history.generated_at ? 'Refreshes itself every morning. Last update ' + ago(state.history.generated_at) + '.' : 'Refreshes itself every morning once the first update has run.')) + '</p></div>' +
+      (sel ? '<button class="btn quiet" data-act="cancelSelect">Cancel</button>' : '<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn quiet" data-act="startSelect">Write one email for several</button><button class="btn primary" data-act="openAdd">Add records</button></div>') + '</div>';
     var banner = !c.token ? '<div class="callout"><span>GitHub is not connected yet, so you can look around but not add records or save changes.</span><button class="btn small" data-act="openSettings">Connect GitHub</button></div>' : '';
     if (!items.length) {
-      return head + banner + '<div class="empty"><h2>Add your first record</h2><p>Paste a Spotify track link. The app finds the same record on Apple Music and Deezer, lists the editorial playlists it is on, and drafts a short pitch for each editor.</p><button class="btn primary" data-act="openAdd">Add record</button></div>';
+      return head + banner + '<div class="empty"><h2>Add your first records</h2><p>Paste Spotify track links, one per line. The app follows each record every morning on Spotify, Apple Music and Deezer, shows whether it is accelerating or slowing, and tells you when there is good news to take to editors.</p><button class="btn primary" data-act="openAdd">Add records</button></div>';
     }
     var bar = sel ? '<div class="selbar"><span>' + plural(state.ui.sel.length, 'record') + ' chosen</span><button class="btn primary" data-act="openBundle"' + (state.ui.sel.length < 2 ? ' disabled' : '') + '>Write one email</button></div>' : '';
-    return head + banner + '<div class="list">' + items.map(function (i) { return recRow(i, sel); }).join('') + '</div>' + bar;
+    if (sel) return head + banner + '<div class="list">' + items.map(function (i) { return recRow(i, true, null); }).join('') + '</div>' + bar;
+
+    var real = items.filter(function (i) { return !i.pending; }), mons = {};
+    real.forEach(function (i) { mons[i.isrc] = C.monitor(i); });
+    var count = function (st) { return real.filter(function (i) { return mons[i.isrc].trend.state === st; }).length; };
+    var worth = real.filter(function (i) { return mons[i.isrc].worth; }).length;
+    var overview = real.length ? '<div class="overview">' +
+      '<div class="ov acc"><b class="num">' + count('accelerating') + '</b><span>Accelerating</span></div>' +
+      '<div class="ov pla"><b class="num">' + count('plateauing') + '</b><span>Plateauing</span></div>' +
+      '<div class="ov dec"><b class="num">' + count('declining') + '</b><span>Declining</span></div>' +
+      '<div class="ov good"><b class="num">' + worth + '</b><span>Worth an update to editors</span></div></div>' : '';
+    var feed = C.changeFeed(real, today(), 7);
+    var feedHtml = '<div class="section"><h2>Changed in the last 7 days</h2>' + (feed.length ? '<div class="list">' + feed.slice(0, 8).map(function (e) {
+      return '<a class="row feed" href="#/record/' + encodeURIComponent(e.isrc) + '"><span class="pill ' + (e.type === 'added' ? 'good' : 'bad') + '">' + (e.type === 'added' ? 'Added' : 'Removed') + '</span><div class="row-main"><span class="strong">' + esc(e.name) + '</span> <span class="muted">on ' + esc(C.DSP_LABEL[e.dsp]) + ' for ' + esc((e.artist || '') + (e.track ? ' - ' + e.track : '')) + '</span></div><span class="muted">' + C.fmtShort(e.date) + '</span></a>';
+    }).join('') + '</div>' + (feed.length > 8 ? '<p class="muted" style="font-size:14px;margin:8px 0 0">and ' + (feed.length - 8) + ' more. Open a record for the full list.</p>' : '') : '<p class="muted" style="margin:0">No editorial playlists added or removed in the last 7 days.</p>') + '</div>';
+    var sortSel = '<div class="sortbar"><h2 style="margin:0">All records</h2><div class="hl-pick" style="margin:0"><label for="m_sort">Order</label><select id="m_sort"><option value="newest"' + (state.ui.sort === 'newest' ? ' selected' : '') + '>Newest release first</option><option value="best"' + (state.ui.sort === 'best' ? ' selected' : '') + '>Best trend first</option><option value="worst"' + (state.ui.sort === 'worst' ? ' selected' : '') + '>Needs attention first</option></select></div></div>';
+    var rows = sortedItems(items, mons).map(function (i) { return recRow(i, false, i.pending ? null : mons[i.isrc]); }).join('');
+    var colhead = '<div class="mhead"><span>Record</span><span>Trend</span><span>Last 28 days</span><span>Streams, last 7 days</span><span>Editorial live</span><span>Chart</span><span></span></div>';
+    return head + banner + overview + feedHtml + sortSel + '<div class="list monitor">' + colhead + rows + '</div>';
   }
-  function recRow(ctx, sel) {
+  function recRow(ctx, sel, mon) {
     if (ctx.pending) {
       var msg = ctx.error ? ctx.error : 'Waiting for the next refresh to find this record. Refresh data does it straight away.';
       return '<div class="row"><div class="art"></div><div class="row-main"><div class="row-title" style="white-space:normal;word-break:break-all">' + esc(ctx.link) + '</div><div class="row-sub">' + esc(msg) + '</div></div>' +
@@ -435,10 +547,18 @@ tr.live td{background:rgba(53,217,117,.05)}
       return '<div class="row pick" role="checkbox" aria-checked="' + on + '" tabindex="0" data-act="toggleSel" data-isrc="' + esc(ctx.isrc) + '"><span class="box' + (on ? ' on' : '') + '" aria-hidden="true">' + (on ? '&#10003;' : '') + '</span>' +
         '<div class="row-main"><div class="row-title">' + esc(title(ctx)) + '</div><div class="row-sub">' + esc(sub) + '</div></div><div class="strip">' + fresh + pills + '</div></div>';
     }
-    return '<a class="row" href="#/record/' + encodeURIComponent(ctx.isrc) + '">' +
-      (ctx.artwork ? '<img class="art" src="' + esc(ctx.artwork) + '" alt="" loading="lazy">' : '<div class="art"></div>') +
-      '<div class="row-main"><div class="row-title">' + esc(title(ctx)) + '</div><div class="row-sub">' + esc(sub) + '</div></div>' +
-      '<div class="strip">' + fresh + pills + '</div>' + CHEV + '</a>';
+    var cls = (TREND[mon.trend.state] || TREND.nodata).cls;
+    var last7 = mon.trend.last7;
+    var addTxt = mon.adds7.length ? '<span class="add">+' + mon.adds7.length + ' this week</span>' : '';
+    var remTxt = mon.rem7.length ? '<span class="rem">-' + mon.rem7.length + ' this week</span>' : '';
+    return '<a class="mrow" href="#/record/' + encodeURIComponent(ctx.isrc) + '">' +
+      '<div class="m-title">' + (ctx.artwork ? '<img class="art sm" src="' + esc(ctx.artwork) + '" alt="" loading="lazy">' : '<div class="art sm"></div>') +
+      '<div class="row-main"><div class="row-title">' + esc(title(ctx)) + '</div><div class="row-sub">' + esc(sub) + '</div></div></div>' +
+      '<div class="m-trend">' + trendBadge(mon.trend) + (mon.worth ? '<span class="pill good">Worth an update</span>' : '') + '</div>' +
+      '<div class="m-spark ' + cls + '">' + sparkSvg(mon.spark, cls) + '</div>' +
+      '<div class="m-num" data-l="Streams, last 7 days"><b class="num">' + (last7 != null ? C.fmtNum(last7) : '-') + '</b></div>' +
+      '<div class="m-num" data-l="Editorial live"><b class="num">' + mon.live + '</b> ' + addTxt + remTxt + '</div>' +
+      '<div class="m-chart" data-l="Chart">' + (mon.chart ? esc(mon.chart) : '<span class="muted">None</span>') + '</div>' + CHEV + '</a>';
   }
 
   // ---- one email for several records
@@ -512,6 +632,40 @@ tr.live td{background:rgba(53,217,117,.05)}
     }
     return o;
   }
+  function trendChart(mon) {
+    var days = mon.days.slice(-90);
+    if (days.length < 2) return '<p class="muted">The chart appears once there are two days of data.</p>';
+    var W = 800, H = 230, L = 8, R = 8, T = 26, B = 26;
+    var d0 = days[0].date, d1 = days[days.length - 1].date, span = (d1 - d0) || 1;
+    var max = Math.max.apply(null, days.map(function (d) { return d.value; }).concat([1]));
+    var x = function (d) { return L + (d - d0) / span * (W - L - R); };
+    var y = function (v) { return T + (1 - v / max) * (H - T - B); };
+    var line = days.map(function (d, i) { return (i ? 'L' : 'M') + x(d.date).toFixed(1) + ' ' + y(d.value).toFixed(1); }).join(' ');
+    var area = line + ' L' + x(d1).toFixed(1) + ' ' + (H - B) + ' L' + x(d0).toFixed(1) + ' ' + (H - B) + ' Z';
+    var lt = mon.latest, bands = '';
+    if (lt != null) {
+      var xa = Math.max(L, x(lt - 6 * C.DAY)), xb = x(lt), xp = Math.max(L, x(lt - 13 * C.DAY)), xq = Math.max(L, x(lt - 7 * C.DAY));
+      bands = '<rect x="' + xa.toFixed(1) + '" y="' + T + '" width="' + (xb - xa).toFixed(1) + '" height="' + (H - T - B) + '" class="band now"/>' +
+        '<rect x="' + xp.toFixed(1) + '" y="' + T + '" width="' + Math.max(0, xq - xp).toFixed(1) + '" height="' + (H - T - B) + '" class="band prev"/>' +
+        '<text x="' + ((xa + xb) / 2).toFixed(1) + '" y="14" text-anchor="middle" class="tl">Latest 7 days</text>' +
+        (xq - xp > 40 ? '<text x="' + ((xp + xq) / 2).toFixed(1) + '" y="14" text-anchor="middle" class="tl">Previous 7 days</text>' : '');
+    }
+    var marks = mon.events.filter(function (e) { return e.date >= d0 && e.date <= d1; }).map(function (e) {
+      var xx = x(e.date).toFixed(1), col = e.type === 'added' ? 'add' : 'rem';
+      return '<g class="mk ' + col + '"><line x1="' + xx + '" x2="' + xx + '" y1="' + T + '" y2="' + (H - B) + '"/><circle cx="' + xx + '" cy="' + (H - B) + '" r="5"/><title>' + esc((e.type === 'added' ? 'Added to ' : 'Removed from ') + e.name + ' (' + C.DSP_LABEL[e.dsp] + '), ' + C.fmtShort(e.date)) + '</title></g>';
+    }).join('');
+    return '<svg class="trend-chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Daily Spotify streams with editorial adds and removals marked">' + bands +
+      '<path d="' + area + '" class="area"/><path d="' + line + '" class="ln"/>' + marks +
+      '<text x="' + L + '" y="' + (H - 6) + '" class="tl">' + C.fmtShort(d0) + '</text><text x="' + (W - R) + '" y="' + (H - 6) + '" text-anchor="end" class="tl">' + C.fmtShort(d1) + '</text>' +
+      '<text x="' + L + '" y="' + (T - 12) + '" class="tl">Peak day ' + C.fmtNum(max) + '</text></svg>' +
+      '<p class="muted" style="font-size:13px;margin:6px 0 0"><span class="key add"></span>Added to an editorial playlist <span class="key rem" style="margin-left:14px"></span>Removed. Daily Spotify streams, newest data from ' + C.fmtShort(d1) + '.</p>';
+  }
+  function trajectorySection(ctx) {
+    var mon = C.monitor(ctx), sh = mon.shazam;
+    var shz = sh.state === 'nodata' ? '' : '<div class="traj-row"><span class="muted">Shazams</span> ' + trendBadge(sh) + '</div>';
+    return '<div class="section"><div class="traj-head"><h2 style="margin:0">Trajectory</h2>' + trendBadge(mon.trend, true) + '</div>' +
+      (mon.sentences.length ? '<p class="traj-text">' + mon.sentences.map(esc).join(' ') + '</p>' : '') + shz + trendChart(mon) + '</div>';
+  }
   function tabHighlights(ctx) {
     if (ctx.release == null) return '<div class="callout"><span>This record has no release date yet, so there are no weeks to summarise. It arrives with the next refresh, or set one under Details.</span></div>';
     var n = state.ui.hl[ctx.isrc] || ctx.defaultWeek, hl = C.highlights(ctx, n), st = hl.streams;
@@ -525,10 +679,7 @@ tr.live td{background:rgba(53,217,117,.05)}
       '<div class="tile"><div class="v num">' + (st.week != null ? C.fmtNum(st.week) : '-') + up(st.pct) + '</div><div class="l">Week ' + n + (st.partial ? ' so far' : '') + (st.pct != null ? ', daily average vs last week' : '') + '</div></div>' +
       '<div class="tile"><div class="v num">' + (st.best ? C.fmtNum(st.best.value) : '-') + '</div><div class="l">Best day' + (st.best ? ', ' + C.fmtShort(st.best.date) : '') + '</div></div>' +
       '<div class="tile"><div class="v num">' + (st.shazams != null ? C.fmtNum(st.shazams) : '-') + up(st.shazamPct) + '</div><div class="l">Shazams in week ' + n + '</div></div></div>';
-    var max = Math.max.apply(null, st.daily.map(function (d) { return d.value; }).concat([1]));
-    var bars = st.daily.length ? '<div class="bars" role="img" aria-label="Daily Spotify streams, most recent 28 days">' + st.daily.map(function (d) {
-      return '<span class="bar' + (d.inWeek ? ' on' : '') + '" style="height:' + Math.max(3, Math.round(d.value / max * 100)) + '%" title="' + esc(C.fmtShort(d.date) + ': ' + C.fmtNum(d.value)) + '"></span>';
-    }).join('') + '</div><p class="muted" style="font-size:13px;margin:6px 0 0">Daily Spotify streams. Week ' + n + ' is in green.</p>' : '';
+    var bars = '';
     var cards = hl.dsps.length ? '<div class="dsp-grid">' + hl.dsps.map(function (d) {
       var bits = '';
       if (d.key !== 'shazam') {
@@ -538,7 +689,7 @@ tr.live td{background:rgba(53,217,117,.05)}
       if (d.chart) bits += '<div class="dsp-chart">' + esc(d.chart) + (d.chartMore ? ' <span class="muted">and ' + d.chartMore + ' more</span>' : '') + '</div>';
       return '<div class="dsp-card"><h3>' + esc(d.label) + '</h3>' + bits + '</div>';
     }).join('') + '</div>' : '<div class="empty" style="padding:32px"><p style="margin:0">No editorial playlists or chart positions yet.</p></div>';
-    return picker + hero + '<div class="section"><h2>Streams</h2>' + tiles + bars + '</div><div class="section"><h2>By platform</h2>' + cards + '</div>';
+    return trajectorySection(ctx) + picker + hero + '<div class="section"><h2>Streams</h2>' + tiles + '</div><div class="section"><h2>By platform</h2>' + cards + '</div>';
   }
 
   function tabPitch(ctx) {
@@ -702,11 +853,9 @@ tr.live td{background:rgba(53,217,117,.05)}
     if (!w) { m.className = ''; m.innerHTML = ''; return; }
     m.className = 'show';
     if (w === 'add') {
-      m.innerHTML = '<div class="dialog"><h2 id="modalTitle">Add a record</h2><p class="muted" style="margin-top:0">Paste a Spotify track link. In Spotify, use Share, then Copy Song Link. Apple Music, Deezer and Shazam track links and ISRCs work too.</p>' +
-        '<div class="field"><label for="a_link">Track link or ISRC</label><input id="a_link" placeholder="https://open.spotify.com/track/..." autocomplete="off"></div>' +
-        '<div class="field"><label for="a_hook">Hook line (optional)</label><input id="a_hook" placeholder="e.g. First release since the Amnesia residency"></div>' +
-        '<details class="more"><summary>Name it yourself</summary><div class="grid2"><div class="field"><label for="a_artist">Artist</label><input id="a_artist"></div><div class="field"><label for="a_track">Title</label><input id="a_track"></div></div></details>' +
-        '<div class="actions"><button class="btn quiet" data-act="closeModal">Cancel</button><button class="btn primary" data-act="addRecord">Add record</button></div></div>';
+      m.innerHTML = '<div class="dialog"><h2 id="modalTitle">Add records</h2><p class="muted" style="margin-top:0">Paste Spotify track links or ISRCs, one per line. In Spotify use Share, then Copy Song Link. Apple Music, Deezer and Shazam track links work too. You can add as many as you like at once.</p>' +
+        '<div class="field"><label for="a_link">Track links or ISRCs</label><textarea id="a_link" rows="6" placeholder="https://open.spotify.com/track/...\nhttps://open.spotify.com/track/..." autocomplete="off" spellcheck="false" style="min-height:140px"></textarea></div>' +
+        '<div class="actions"><button class="btn quiet" data-act="closeModal">Cancel</button><button class="btn primary" data-act="addRecord">Add records</button></div></div>';
     } else {
       var c = cfg();
       m.innerHTML = '<div class="dialog"><h2 id="modalTitle">Settings</h2><p class="muted" style="margin-top:0">Paste a GitHub token once so this page can save records, tags and pitch dates and start refreshes. It is kept in this browser only.</p>' +
@@ -865,21 +1014,31 @@ tr.live td{background:rgba(53,217,117,.05)}
     },
     addRecord: async function () {
       if (needToken()) return;
-      var typed = ($('#a_link').value || '').trim();
-      var parsed = C.normalizeLink(typed);
-      if (parsed.error) { toast(parsed.error, true); return; }
-      var entry = { artist: ($('#a_artist').value || '').trim(), track: ($('#a_track').value || '').trim(), hook: ($('#a_hook').value || '').trim(), links: {}, added: C.iso(today()) };
-      var only = parsed.value;
-      if (parsed.type === 'isrc') entry.isrc = parsed.value; else { entry.key = parsed.value; entry.link = typed; }
-      var already = function (t) {
-        return (entry.isrc && entryIsrc(t) === entry.isrc) || (entry.key && ((t.key || t.link) === entry.key || (resolvedFor({ key: entry.key }).isrc && entryIsrc(t) === resolvedFor({ key: entry.key }).isrc)));
+      var lines = ($('#a_link').value || '').split(/[\r\n]+|\s+(?=https?:\/\/|spotify:)/).map(function (l) { return l.trim(); }).filter(Boolean);
+      if (!lines.length) { toast('Paste at least one Spotify link or ISRC.', true); return; }
+      var entries = [], errors = [], seen = {}, dup = 0;
+      var already = function (list, entry) {
+        return list.some(function (t) {
+          return (entry.isrc && entryIsrc(t) === entry.isrc) || (entry.key && ((t.key || t.link) === entry.key || (resolvedFor({ key: entry.key }).isrc && entryIsrc(t) === resolvedFor({ key: entry.key }).isrc)));
+        });
       };
-      if ((state.tracked.tracks || []).some(already)) { toast('That record is already in your list.', true); return; }
+      lines.forEach(function (line, i) {
+        var parsed = C.normalizeLink(line);
+        if (parsed.error) { errors.push((lines.length > 1 ? 'Line ' + (i + 1) + ': ' : '') + parsed.error); return; }
+        var entry = { links: {}, added: C.iso(today()) };
+        if (parsed.type === 'isrc') entry.isrc = parsed.value; else { entry.key = parsed.value; entry.link = line; }
+        var id = entry.isrc || entry.key;
+        if (seen[id] || already(state.tracked.tracks || [], entry)) { dup++; return; }
+        seen[id] = 1; entries.push(entry);
+      });
+      if (errors.length) { toast(errors[0] + (errors.length > 1 ? ' (and ' + (errors.length - 1) + ' more). Nothing was added.' : (lines.length > 1 ? ' Nothing was added.' : '')), true); return; }
+      if (!entries.length) { toast(dup > 1 ? 'Those are already in your list.' : 'That record is already in your list.', true); return; }
       try {
-        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = o.tracks || []; if (!o.tracks.some(already)) o.tracks.push(entry); });
+        var next = await mutateFile('data/tracked.json', function (o) { o.tracks = o.tracks || []; entries.forEach(function (e) { if (!already(o.tracks, e)) o.tracks.push(e); }); });
         state.tracked = next; state.ui.modal = null;
-        if (entry.isrc) go('record/' + encodeURIComponent(entry.isrc)); else go('records');
-        triggerSync(only);
+        if (entries.length === 1 && entries[0].isrc) go('record/' + encodeURIComponent(entries[0].isrc)); else go('records');
+        toast('Added ' + plural(entries.length, 'record') + (dup ? ', skipped ' + dup + ' already tracked' : '') + '. Finding them now.');
+        triggerSync(entries.length === 1 ? (entries[0].isrc || entries[0].key) : '');
       } catch (e) { toast(e.message, true); }
     }
   };
@@ -897,6 +1056,7 @@ tr.live td{background:rgba(53,217,117,.05)}
     var ctx = ctxFor(state.ui.rec); if (ctx) updatePitch(ctx);
   }
   document.addEventListener('change', function (ev) {
+    if (ev.target && ev.target.id === 'm_sort') { state.ui.sort = ev.target.value; render(); return; }
     if (ev.target && ev.target.id === 'h_week') { state.ui.hl[state.ui.rec] = parseInt(ev.target.value, 10); render(); }
   });
   document.addEventListener('input', pitchInput);
@@ -904,7 +1064,7 @@ tr.live td{background:rgba(53,217,117,.05)}
   document.addEventListener('keydown', function (ev) {
     if ((ev.key === ' ' || ev.key === 'Enter') && ev.target && ev.target.classList && ev.target.classList.contains('pick')) { ev.preventDefault(); actions.toggleSel(ev.target); return; }
     if (ev.key === 'Escape' && state.ui.modal) closeModal();
-    if (ev.key === 'Enter' && state.ui.modal === 'add' && ev.target && ev.target.id === 'a_link') { ev.preventDefault(); actions.addRecord(); }
+    if (ev.key === 'Enter' && (ev.metaKey || ev.ctrlKey) && state.ui.modal === 'add') { ev.preventDefault(); actions.addRecord(); }
   });
 
   window.__epp = { state: state, render: render, actions: actions, loadAll: loadAll, go: go };
