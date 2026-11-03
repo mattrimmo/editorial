@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-02T15:47:26+00:00",
+ "generated_at": "2026-11-03T10:38:55+00:00",
  "records": {
   "QMDA72677722": {
    "isrc": "QMDA72677722",
@@ -73062,6 +73062,631 @@
      "date": "2026-10-29",
      "daily": 8080,
      "total": 315812
+    }
+   ],
+   "shazams": []
+  },
+  "GBLV62613006": {
+   "isrc": "GBLV62613006",
+   "synced_at": "2026-11-03T10:37:50+00:00",
+   "errors": [],
+   "meta": {
+    "name": "Mind Control",
+    "artists": [
+     "CamrinWatsin"
+    ],
+    "release_date": "2026-10-30",
+    "artwork": "https://i.scdn.co/image/ab67616d0000b273e2354d2f4c9e7258fb769ecb",
+    "links": {
+     "spotify": [
+      "https://open.spotify.com/track/5FmOlqVnQmVEmbT35R4kf8"
+     ],
+     "apple": [],
+     "deezer": [
+      "https://www.deezer.com/track/4345071682"
+     ],
+     "shazam": []
+    }
+   },
+   "placements": [
+    {
+     "dsp": "spotify",
+     "id": "37i9dQZF1DXa41CMuUARjl",
+     "name": "All New Dance",
+     "artwork": "https://i.scdn.co/image/ab67706f00000002d121c66c94c8c069a823f7cb",
+     "followers": 578586,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 68
+      }
+     ],
+     "kind": "editorial"
+    },
+    {
+     "dsp": "spotify",
+     "id": "37i9dQZF1DXcvmeS1jhCQv",
+     "name": "Today's Ireland",
+     "artwork": "https://i.scdn.co/image/ab67706f00000002f9bbee02e4605e59b873f628",
+     "followers": 121146,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 8
+      }
+     ],
+     "kind": "editorial"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7JHSHYiU3AuxrVnL1BeYzp",
+     "name": "Car & Driving Music",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6774adffeb302e084f2da480",
+     "followers": 31318,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 192
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7JHfOdUVhOTLqSRglkp3aL",
+     "name": "Hot New Dance 2026 | Let's Dance",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca7357da447864e909e397dc7",
+     "followers": 29790,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-02",
+       "removed_at": null,
+       "position": 26
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5kyDTxrXdC6Qal62iEO5Ty",
+     "name": "New House Music Friday",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c9137bec6ee783019be3d3a7b",
+     "followers": 23117,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 24
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "19u1qiXMgcvE6C5ywbuwfq",
+     "name": "Dance Hits",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
+     "followers": 22230,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 3
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7yilCLh2sgFFnwrxdcK9dM",
+     "name": "BASS BOOST 2026 🔊 (ANYTHING WITH A LOT OF BASS 😈)",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cf696ef4b02cb7e6ccaa6a2bd",
+     "followers": 19361,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 9
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "0yjI9AXON9ZdzRFsWQ0710",
+     "name": "New Best Artists",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c15f30180662613a700ca74f7",
+     "followers": 16562,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 337
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5S4RCK21r9JWBILqLEs6of",
+     "name": "FITNESS SELECTION 2026 | The Best Of Dance Music For Your Training |",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84a6b0216d8f35d899d77166c1",
+     "followers": 13769,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-02",
+       "removed_at": null,
+       "position": 2
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7JfArlbY36KqstXVJFoJZB",
+     "name": "New Dance Music Friday",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a9a4e3f1b728ead1a62ee998",
+     "followers": 9357,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 10
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "2LVh8rHGisSis48ojsWeNO",
+     "name": "Edmtrain's New Music Weekly",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c02061aefba4b3aaa21742116",
+     "followers": 9245,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 122
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5F13KTaxemrVfpPtJLXuv4",
+     "name": "Dance Music Friday | Ministry of Sound",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c3de60022f6f52a97233a394f",
+     "followers": 8602,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 55
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "6gGJFshQvzJmyBCctCnmTS",
+     "name": "KIFFIX | Elevation",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
+     "followers": 7781,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 151
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "0fmotwQw3N67LHKsIHDYEf",
+     "name": "Sintezo Selection",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8432d8dd1beaa2fe00fae9ffd6",
+     "followers": 6573,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 3
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "1RhKAC60GppzY6cprZUIkJ",
+     "name": "Jacked | Best House & EDM | 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
+     "followers": 6200,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 176
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5AXXPKwCShVfZECQk1igN6",
+     "name": "House Cat - Best & Latest House Music Releases ",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c65063828fd4629777f082924",
+     "followers": 3437,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 9
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "0o92XGXwVLVktRC73REUGC",
+     "name": "BEATS UNTIL DAWN | Melodic - Techno - House - Tech | ANYMA, ARGY, KOROLOVA, KREAM, ADRIATIQUE & more",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c70053b741cd119f8e3bccace",
+     "followers": 2300,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 111
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "50iZbYqBXGxIqShIaEx94d",
+     "name": "DanceWeekly - New Dance Music 2026",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
+     "followers": 2232,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 13
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "3fX8nep9Gsg5W5FIO8pgvz",
+     "name": "Riot EDM | EDM & House Music | New Music Friday 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c476e6465ab893ee97a1d56fc",
+     "followers": 2026,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 150
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "0XhjQsPQDo3VIINOpjvDNu",
+     "name": "KIFFIX | Breakout",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c1eba5a3eb8afa7e601679b78",
+     "followers": 2017,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 148
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7x6hrBFrps6sxXZGUG37ib",
+     "name": "Groove Therapy 2027",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da846c71c1765e73931cfc510115",
+     "followers": 1162,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 58
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "2KQIkjH9YHSa88ibUACuf5",
+     "name": "NEW WEEKLY EDM 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf96da76f98b87187d7746abf",
+     "followers": 1147,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 46
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7ngnwBM3ZVC6rkaWcm9iGx",
+     "name": "CHICAGO HOUSE 2026",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca75142e79720cfa16fe88b07",
+     "followers": 925,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 10
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7cVJGf1jA6qnv33MQBBLmW",
+     "name": "New Music Friday EDM | Best New EDM Releases 2026 - EDMNOMAD ",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c0a8d72bcae4a43301379f21b",
+     "followers": 866,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 26
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5bv3VA8EmVQjWYbVogAxgG",
+     "name": "Amsterdam ADE 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce7c86cad06482befc77a9354",
+     "followers": 851,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 250
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "6gK0zx5g01L7cZ0zLnAdod",
+     "name": "Tal's NMF Picks",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6536d6f8f67a8a9e055bfc4d",
+     "followers": 721,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 36
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5rUwUA4QWeRhEyJCeWo5Dd",
+     "name": "Café Mambo Ibiza 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c4edad5e135ad09b68d81c073",
+     "followers": 693,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 4
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "6kB3M3s9xyrLvl6tR9SvDm",
+     "name": "Dance",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb6209aaec4cd56119da78a51",
+     "followers": 520,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-03",
+       "removed_at": null,
+       "position": 41
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "03vc8OT8Gze4H8EBhEyVpj",
+     "name": "#GrooversMX",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3f01fcfc676e7b51095abb88",
+     "followers": 516,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 117
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "1WSjvbqXFDWy5Cs1ukMwLS",
+     "name": "Welcome to the House",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c5dcfa77118c5fdf81df37532",
+     "followers": 510,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 1
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "1NWNLSB4ALkowA5k8OqKFM",
+     "name": "Music Discovery",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c28804b5725a623f1d17dad82",
+     "followers": 488,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 3
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "3WdavSckFNowy24vibOLwT",
+     "name": "Selected by Erick T",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c84c5415d9cf537b1eea28226",
+     "followers": 435,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 126
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "4JPKSdg56MmCSt5vHQ5QRt",
+     "name": "Ministry of Sound | The Annual 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c83ea1efd1d5168c3cc4c26a0",
+     "followers": 357,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 121
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "6hTM3pUr3vwN3q3M9ac9Kw",
+     "name": "House",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cc430a04187abdd274e28b401",
+     "followers": 329,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-30",
+       "removed_at": null,
+       "position": 275
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "37i9dQZF1DZ06evO18p75s",
+     "name": "This Is CamrinWatsin",
+     "artwork": "https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/thisisv3/20rKUmFZsfv9GBXiv6R9d6/en",
+     "followers": 284,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "1970-01-01",
+       "removed_at": null,
+       "position": 23
+      }
+     ],
+     "kind": "editorial"
+    },
+    {
+     "dsp": "deezer",
+     "id": "7533300182",
+     "name": "Dance Music Friday | Ministry of Sound",
+     "artwork": "https://cdn-images.dzcdn.net/images/playlist/95da5dd1054574ae7c4b1ec4ef0ed738/500x500-000000-80-0-0.jpg",
+     "followers": 318,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-10-31",
+       "removed_at": null,
+       "position": 54
+      }
+     ],
+     "kind": "independent"
+    }
+   ],
+   "charts": {
+    "spotify": [],
+    "apple": [],
+    "deezer": [],
+    "shazam": []
+   },
+   "streams": [
+    {
+     "date": "2026-10-28",
+     "daily": 1360,
+     "total": 1360
+    },
+    {
+     "date": "2026-10-29",
+     "daily": 624,
+     "total": 1984
+    },
+    {
+     "date": "2026-10-30",
+     "daily": 507,
+     "total": 2491
     }
    ],
    "shazams": []
