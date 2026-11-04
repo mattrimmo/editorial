@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-04T10:49:30+00:00",
+ "generated_at": "2026-11-04T14:29:07+00:00",
  "records": {
   "QMFMF2607528": {
    "isrc": "QMFMF2607528",
-   "synced_at": "2026-11-04T10:46:13+00:00",
+   "synced_at": "2026-11-04T14:25:41+00:00",
    "errors": [],
    "meta": {
     "name": "Oh Baby",
@@ -31,7 +31,7 @@
      "id": "37i9dQZF1DXa41CMuUARjl",
      "name": "All New Dance",
      "artwork": "https://i.scdn.co/image/ab67706f00000002d121c66c94c8c069a823f7cb",
-     "followers": 578537,
+     "followers": 578539,
      "spans": [
       {
        "cc": "",
@@ -47,7 +47,7 @@
      "id": "37i9dQZF1DWVKDF4ycOESi",
      "name": "New Music Friday Italia",
      "artwork": "https://i.scdn.co/image/ab67706f00000002be1f855f1cad13e09c3498c7",
-     "followers": 371357,
+     "followers": 371349,
      "spans": [
       {
        "cc": "",
@@ -63,7 +63,7 @@
      "id": "37i9dQZF1DXcfWvNFKxjDo",
      "name": "Dance Brandneu",
      "artwork": "https://i.scdn.co/image/ab67706f000000028c905cd6cc5c1a405c4fc7d9",
-     "followers": 351908,
+     "followers": 351905,
      "spans": [
       {
        "cc": "",
@@ -79,7 +79,7 @@
      "id": "37i9dQZF1DX2ENAPP1Tyed",
      "name": "Dance Room 2026",
      "artwork": "https://i.scdn.co/image/ab67706f00000002b4270ef899fae34c6c499dda",
-     "followers": 338105,
+     "followers": 338104,
      "spans": [
       {
        "cc": "",
@@ -334,7 +334,7 @@
      "dsp": "spotify",
      "id": "2mbV5p0pQoGNc54g5T6pcn",
      "name": "Weekly House | Best Dance Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da843fe6033390495e9481bcb130",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843fe6033390495e9481bcb130",
      "followers": 17913,
      "spans": [
       {
@@ -350,7 +350,7 @@
      "dsp": "spotify",
      "id": "2tj1iOLK9Uwef7ooLgJMtJ",
      "name": "ZENITH",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6992b7ed9f08e66c54c8fa16",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da846992b7ed9f08e66c54c8fa16",
      "followers": 17560,
      "spans": [
       {
@@ -430,7 +430,7 @@
      "dsp": "spotify",
      "id": "6Ew9R6Voadn2aAcezVU6Mi",
      "name": "Tomorrowland Official New Music by Austin Kramer",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c5d60935c551c8055e0483a9f",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845d60935c551c8055e0483a9f",
      "followers": 14000,
      "spans": [
       {
@@ -526,8 +526,8 @@
      "dsp": "spotify",
      "id": "56JeUOZqcAKrWwdh1LyoXO",
      "name": "HOUSE MUSIC 2026 (Top 100)",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c4868c873b5e16774034e1d97",
-     "followers": 9700,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c4868c873b5e16774034e1d97",
+     "followers": 9698,
      "spans": [
       {
        "cc": "",
@@ -782,8 +782,8 @@
      "dsp": "spotify",
      "id": "5AXXPKwCShVfZECQk1igN6",
      "name": "House Cat - Best & Latest House Music Releases ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c65063828fd4629777f082924",
-     "followers": 3437,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c65063828fd4629777f082924",
+     "followers": 3436,
      "spans": [
       {
        "cc": "",
@@ -1086,7 +1086,7 @@
      "dsp": "spotify",
      "id": "3Sr5cpruyeppjxaGRSgPlC",
      "name": "Afterlife Diynamic Innervisions Mix",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c9c31a1237ab0f084965ea34b",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9c31a1237ab0f084965ea34b",
      "followers": 977,
      "spans": [
       {
@@ -1135,7 +1135,7 @@
      "id": "3wX4zpHwo6OZqEBraHGcsm",
      "name": "NEW EDM, House, Electro, Techno & Dance Pop 2026 | New Music FRIDAY 2026 by Charlie 'El Tibu'",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cc42a917558da610c3c319142",
-     "followers": 834,
+     "followers": 835,
      "spans": [
       {
        "cc": "",
@@ -1198,8 +1198,8 @@
      "dsp": "spotify",
      "id": "25928HxMjdDA3QMpY3waqQ",
      "name": "Melodic House & Techno Top 50",
-     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e0277458cc58b985c3453608470ab67616d00001e028556ac6e42f0981980c40f50ab67616d00001e02af75988b7b1a4c6dd23daf2bab67616d00001e02b20218a226b5bb82a9e9255f",
-     "followers": 669,
+     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e024be876ed54be4a341fbdd065ab67616d00001e0277458cc58b985c3453608470ab67616d00001e028556ac6e42f0981980c40f50ab67616d00001e02b20218a226b5bb82a9e9255f",
+     "followers": 668,
      "spans": [
       {
        "cc": "",
@@ -1310,8 +1310,8 @@
      "dsp": "spotify",
      "id": "54SQDVVzokayJnPQOcT8II",
      "name": "DJ KRIS B2B MATYS ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84b40717d7c9a81c68e245c625",
-     "followers": 467,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb40717d7c9a81c68e245c625",
+     "followers": 469,
      "spans": [
       {
        "cc": "",
@@ -1349,7 +1349,7 @@
        "cc": "",
        "added_at": "1970-01-01",
        "removed_at": null,
-       "position": 31
+       "position": 22
       }
      ],
      "kind": "editorial"
@@ -1401,6 +1401,22 @@
       }
      ],
      "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "37i9dQZF1E4vk1lQglkEs4",
+     "name": "Cleopard2000 Radio",
+     "artwork": "https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/artist/32EPfJgEPYMc9W0qTJPGjl/en",
+     "followers": 231,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "1970-01-01",
+       "removed_at": null,
+       "position": 23
+      }
+     ],
+     "kind": "editorial"
     },
     {
      "dsp": "spotify",
@@ -9799,7 +9815,7 @@
      "id": "1478649355",
      "name": "Les nouveaut&eacute;s du vendredi",
      "artwork": "https://cdn-images.dzcdn.net/images/playlist/15403773c291ec39b5979fd1873a6b5c/500x500-000000-80-0-0.jpg",
-     "followers": 205517,
+     "followers": 205522,
      "spans": [
       {
        "cc": "",
@@ -9815,7 +9831,7 @@
      "id": "1282495565",
      "name": "Radar Weekly",
      "artwork": "https://cdn-images.dzcdn.net/images/playlist/ebc203f4d4f539cd978f1fe03d9c9d91/500x500-000000-80-0-0.jpg",
-     "followers": 186001,
+     "followers": 186003,
      "spans": [
       {
        "cc": "",
@@ -9911,11 +9927,25 @@
     "spotify": [],
     "apple": [
      {
-      "country_code": "LB",
-      "position": 151,
-      "previous_position": 146,
+      "country_code": "EG",
+      "position": 110,
+      "previous_position": null,
       "genre": "Dance",
-      "date": "2026-11-03"
+      "date": "2026-11-04"
+     },
+     {
+      "country_code": "ME",
+      "position": 149,
+      "previous_position": null,
+      "genre": "Dance",
+      "date": "2026-11-04"
+     },
+     {
+      "country_code": "LB",
+      "position": 188,
+      "previous_position": 151,
+      "genre": "Dance",
+      "date": "2026-11-04"
      }
     ],
     "deezer": [],
@@ -9982,7 +10012,7 @@
   },
   "QMDA72660189": {
    "isrc": "QMDA72660189",
-   "synced_at": "2026-11-04T10:47:19+00:00",
+   "synced_at": "2026-11-04T14:26:47+00:00",
    "errors": [],
    "meta": {
     "name": "We Could Be Lost",
@@ -10010,7 +10040,7 @@
      "id": "37i9dQZF1DX4JAvHpjipBk",
      "name": "New Music Friday",
      "artwork": "https://i.scdn.co/image/ab67706f00000002c359d225c77567fbfd28470e",
-     "followers": 4652360,
+     "followers": 4652362,
      "spans": [
       {
        "cc": "",
@@ -10026,7 +10056,7 @@
      "id": "37i9dQZF1DX8tZsk68tuDw",
      "name": "Dance Rising",
      "artwork": "https://i.scdn.co/image/ab67706f00000002d4b8b78060057d51c072e93a",
-     "followers": 1807361,
+     "followers": 1807369,
      "spans": [
       {
        "cc": "",
@@ -10042,7 +10072,7 @@
      "id": "37i9dQZF1DX8AliSIsGeKd",
      "name": "Electronic Rising",
      "artwork": "https://i.scdn.co/image/ab67706f0000000277e440e0a30cbf2395f29b56",
-     "followers": 759280,
+     "followers": 759296,
      "spans": [
       {
        "cc": "",
@@ -10074,7 +10104,7 @@
      "id": "37i9dQZF1DXa41CMuUARjl",
      "name": "All New Dance",
      "artwork": "https://i.scdn.co/image/ab67706f00000002d121c66c94c8c069a823f7cb",
-     "followers": 578537,
+     "followers": 578539,
      "spans": [
       {
        "cc": "",
@@ -10090,7 +10120,7 @@
      "id": "37i9dQZF1DWXJfnUiYjUKT",
      "name": "New Music Friday",
      "artwork": "https://i.scdn.co/image/ab67706f00000002385b0231b0520cf6c212c620",
-     "followers": 525703,
+     "followers": 525709,
      "spans": [
       {
        "cc": "",
@@ -10106,7 +10136,7 @@
      "id": "37i9dQZF1DX07Bg0Q5GozA",
      "name": "OFF POP",
      "artwork": "https://i.scdn.co/image/ab67706f0000000274f5566a61ea15d331800c90",
-     "followers": 438590,
+     "followers": 438589,
      "spans": [
       {
        "cc": "",
@@ -10138,7 +10168,7 @@
      "id": "37i9dQZF1DWVKDF4ycOESi",
      "name": "New Music Friday Italia",
      "artwork": "https://i.scdn.co/image/ab67706f00000002be1f855f1cad13e09c3498c7",
-     "followers": 371357,
+     "followers": 371349,
      "spans": [
       {
        "cc": "",
@@ -10154,7 +10184,7 @@
      "id": "37i9dQZF1DWU5hC93Ey99S",
      "name": "Emotional Dance",
      "artwork": "https://i.scdn.co/image/ab67706f000000023fe2546417d7f11b8415adc9",
-     "followers": 262271,
+     "followers": 262296,
      "spans": [
       {
        "cc": "",
@@ -10170,13 +10200,13 @@
      "id": "4sjsye4xyuVeYFQh0MJlMG",
      "name": "Electronic Chill",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c7dc5d3d006cc1d6fb3d382b6",
-     "followers": 251012,
+     "followers": 251017,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-09",
        "removed_at": null,
-       "position": 66
+       "position": 65
       }
      ],
      "kind": "independent"
@@ -10186,7 +10216,7 @@
      "id": "37i9dQZF1DXcecv7ESbOPu",
      "name": "New Music Friday Sweden",
      "artwork": "https://i.scdn.co/image/ab67706f00000002dd761d6d12f5b07c996ef4b9",
-     "followers": 236830,
+     "followers": 236829,
      "spans": [
       {
        "cc": "",
@@ -10202,7 +10232,7 @@
      "id": "37i9dQZF1DWV3RrjH1jDkx",
      "name": "New Music Friday Norway",
      "artwork": "https://i.scdn.co/image/ab67706f0000000242c58b8bd8027407888df7b9",
-     "followers": 204770,
+     "followers": 204766,
      "spans": [
       {
        "cc": "",
@@ -10217,8 +10247,8 @@
      "dsp": "spotify",
      "id": "2RHfgparZ8PzI4tJnYtVof",
      "name": "ADHD Techno Focus - Full Concentration - Melodic Techno – Melodic House - Ibiza Lounge",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c329a744ea450ee2a061a383a",
-     "followers": 141330,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c329a744ea450ee2a061a383a",
+     "followers": 141334,
      "spans": [
       {
        "cc": "",
@@ -10234,7 +10264,7 @@
      "id": "37i9dQZF1DWWuIAAkPM0Lu",
      "name": "New Music Friday Denmark",
      "artwork": "https://i.scdn.co/image/ab67706f0000000296d79f441774601b0818b010",
-     "followers": 130717,
+     "followers": 130714,
      "spans": [
       {
        "cc": "",
@@ -10250,7 +10280,7 @@
      "id": "37i9dQZF1DWXtcXUwhuzFM",
      "name": "New Music Friday Suomi",
      "artwork": "https://i.scdn.co/image/ab67706f0000000264d5222b3bff2a4017767a74",
-     "followers": 109042,
+     "followers": 109041,
      "spans": [
       {
        "cc": "",
@@ -10313,8 +10343,8 @@
      "dsp": "spotify",
      "id": "38JmDMAI5MztUH9klEQWU6",
      "name": "Pete Tong’s Essential Selection Radio Playlist",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c453bf8967b1e305fabe590a5",
-     "followers": 50390,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c453bf8967b1e305fabe590a5",
+     "followers": 50389,
      "spans": [
       {
        "cc": "",
@@ -10330,7 +10360,7 @@
      "id": "0aKdqLs5wf1EArbaMdAunS",
      "name": "Purified by Nora En Pure",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c962e828d2a5feba3c75963b5",
-     "followers": 46802,
+     "followers": 46801,
      "spans": [
       {
        "cc": "",
@@ -10665,7 +10695,7 @@
      "dsp": "spotify",
      "id": "6Ew9R6Voadn2aAcezVU6Mi",
      "name": "Tomorrowland Official New Music by Austin Kramer",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c5d60935c551c8055e0483a9f",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845d60935c551c8055e0483a9f",
      "followers": 14000,
      "spans": [
       {
@@ -10729,7 +10759,7 @@
      "dsp": "spotify",
      "id": "0qlDLUSeQtGFDvTsmjeZS5",
      "name": "Tomorrowland Official House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c626912f1162c828d7f24bfa5",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84626912f1162c828d7f24bfa5",
      "followers": 12219,
      "spans": [
       {
@@ -11887,7 +11917,7 @@
      "dsp": "spotify",
      "id": "3Tbvc0aIXZ8nX0UQOknRXX",
      "name": "Traxsource Top 100 - Melodic / Progressive House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c88fb478c86f21abf8ffcc838",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cde7806dc0d23c5b378bbe1ec",
      "followers": 225,
      "spans": [
       {
@@ -20066,7 +20096,7 @@
      "id": "1478649355",
      "name": "Les nouveaut&eacute;s du vendredi",
      "artwork": "https://cdn-images.dzcdn.net/images/playlist/15403773c291ec39b5979fd1873a6b5c/500x500-000000-80-0-0.jpg",
-     "followers": 205517,
+     "followers": 205522,
      "spans": [
       {
        "cc": "",
@@ -20082,7 +20112,7 @@
      "id": "1282495565",
      "name": "Radar Weekly",
      "artwork": "https://cdn-images.dzcdn.net/images/playlist/ebc203f4d4f539cd978f1fe03d9c9d91/500x500-000000-80-0-0.jpg",
-     "followers": 186001,
+     "followers": 186003,
      "spans": [
       {
        "cc": "",
@@ -20192,7 +20222,15 @@
    ],
    "charts": {
     "spotify": [],
-    "apple": [],
+    "apple": [
+     {
+      "country_code": "TM",
+      "position": 117,
+      "previous_position": null,
+      "genre": "Dance",
+      "date": "2026-11-04"
+     }
+    ],
     "deezer": [],
     "shazam": []
    },
@@ -20312,7 +20350,7 @@
   },
   "GBLV62613006": {
    "isrc": "GBLV62613006",
-   "synced_at": "2026-11-04T10:48:26+00:00",
+   "synced_at": "2026-11-04T14:27:57+00:00",
    "errors": [],
    "meta": {
     "name": "Mind Control",
@@ -20338,7 +20376,7 @@
      "id": "37i9dQZF1DXa41CMuUARjl",
      "name": "All New Dance",
      "artwork": "https://i.scdn.co/image/ab67706f00000002d121c66c94c8c069a823f7cb",
-     "followers": 578537,
+     "followers": 578539,
      "spans": [
       {
        "cc": "",
@@ -20354,7 +20392,7 @@
      "id": "37i9dQZF1DXcvmeS1jhCQv",
      "name": "Today's Ireland",
      "artwork": "https://i.scdn.co/image/ab67706f00000002f9bbee02e4605e59b873f628",
-     "followers": 121158,
+     "followers": 121160,
      "spans": [
       {
        "cc": "",
@@ -20721,8 +20759,8 @@
      "dsp": "spotify",
      "id": "5AXXPKwCShVfZECQk1igN6",
      "name": "House Cat - Best & Latest House Music Releases ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c65063828fd4629777f082924",
-     "followers": 3437,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c65063828fd4629777f082924",
+     "followers": 3436,
      "spans": [
       {
        "cc": "",
