@@ -35,6 +35,24 @@
    "name": "Mind Control",
    "release_date": "2026-10-30",
    "resolved_at": "2026-11-03T10:37:49+00:00"
+  },
+  "https://open.spotify.com/track/2Xk4cbxu9PMlJRSrja2C6h": {
+   "isrc": "GBLV62609990",
+   "name": "Need I Say More",
+   "release_date": "2026-11-06",
+   "resolved_at": "2026-11-10T16:41:03+00:00"
+  },
+  "https://open.spotify.com/track/2XTUMvTZrHBQDYBaaOa831": {
+   "isrc": "GBLV62609991",
+   "name": "Move Around",
+   "release_date": "2026-11-06",
+   "resolved_at": "2026-11-10T16:41:04+00:00"
+  },
+  "https://open.spotify.com/track/739gC75fGBYtULn1yr6nyZ": {
+   "isrc": "GBLV62609992",
+   "name": "Right There",
+   "release_date": "2026-11-06",
+   "resolved_at": "2026-11-10T16:41:05+00:00"
   }
  }
 }
