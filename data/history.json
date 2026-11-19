@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-19T15:16:34+00:00",
+ "generated_at": "2026-11-19T15:47:29+00:00",
  "records": {
   "QMFMF2607528": {
    "isrc": "QMFMF2607528",
-   "synced_at": "2026-11-19T15:09:12+00:00",
+   "synced_at": "2026-11-19T15:40:07+00:00",
    "errors": [],
    "meta": {
     "name": "Oh Baby",
@@ -63,7 +63,7 @@
      "id": "37i9dQZF1DXcfWvNFKxjDo",
      "name": "Dance Brandneu",
      "artwork": "https://i.scdn.co/image/ab67706f00000002de8d71625e8c3b79a3d10d58",
-     "followers": 351871,
+     "followers": 351870,
      "spans": [
       {
        "cc": "",
@@ -111,7 +111,7 @@
      "id": "37i9dQZF1DX8ZMwsPgxIOs",
      "name": "Techno State",
      "artwork": "https://i.scdn.co/image/ab67706f000000021b82b1d2e57184cfc3398a5a",
-     "followers": 152679,
+     "followers": 152678,
      "spans": [
       {
        "cc": "",
@@ -126,7 +126,7 @@
      "dsp": "spotify",
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f6752453e64e8b07bfeaf16c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
      "followers": 105628,
      "spans": [
       {
@@ -174,7 +174,7 @@
      "dsp": "spotify",
      "id": "5LiofJ2vjsHmgzBL0eD6HX",
      "name": "House & Techno Music 2026 🎧 ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c261f84ebefc99be06788cde9",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84261f84ebefc99be06788cde9",
      "followers": 56579,
      "spans": [
       {
@@ -191,7 +191,7 @@
      "id": "4WVOpoFeIDUri7FiF1gRid",
      "name": "Insomniac New Music Friday",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3aae97d4df295bc65b3486bc",
-     "followers": 51096,
+     "followers": 51095,
      "spans": [
       {
        "cc": "",
@@ -206,7 +206,7 @@
      "dsp": "spotify",
      "id": "4qrmQCYMMzsbbtnhj82ggy",
      "name": "Afro House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf0cdb026e3b471565b4917c1",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84f0cdb026e3b471565b4917c1",
      "followers": 33885,
      "spans": [
       {
@@ -222,8 +222,8 @@
      "dsp": "spotify",
      "id": "3zk8c5D7VDxd9Q6gsYjyMC",
      "name": "HILLS HOUSE",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da840880600732ec1dc6c37118cd",
-     "followers": 32786,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c0880600732ec1dc6c37118cd",
+     "followers": 32789,
      "spans": [
       {
        "cc": "",
@@ -254,7 +254,7 @@
      "dsp": "spotify",
      "id": "2T8tPxdznMSlgYayUBS5pl",
      "name": "Festival Music 2026 - Big Room EDM & Future Rave | Colonize Media",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84ff80730f571db6339fec8856",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cff80730f571db6339fec8856",
      "followers": 31186,
      "spans": [
       {
@@ -286,7 +286,7 @@
      "dsp": "spotify",
      "id": "0aVptI42oGmk9EggZgfoX2",
      "name": "Melodic Techno 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c922ebfc7be914e18448d38c5",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84922ebfc7be914e18448d38c5",
      "followers": 27021,
      "spans": [
       {
@@ -302,8 +302,8 @@
      "dsp": "spotify",
      "id": "3SD4wXlBmWh2r8KVqwResR",
      "name": "DANCE MUSIC SELECTION 2027 WWW.TRACK-SWAP.COM",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c41cf12133b3aa45f7e687173",
-     "followers": 23199,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c41cf12133b3aa45f7e687173",
+     "followers": 23200,
      "spans": [
       {
        "cc": "",
@@ -318,7 +318,7 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
@@ -430,7 +430,7 @@
      "dsp": "spotify",
      "id": "4PV7pMQADb2plazslbmFoY",
      "name": "New Music, Radar de Novidades, Friday EDM e +",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da840cd197f29f2c7a6d88e1ef8b",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0cd197f29f2c7a6d88e1ef8b",
      "followers": 16681,
      "spans": [
       {
@@ -511,7 +511,7 @@
      "id": "5VO60VnjyuuJYXxUhi5nEe",
      "name": "Best of Melodic Techno",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c95ad1fe142291ab372d2db46",
-     "followers": 13149,
+     "followers": 13150,
      "spans": [
       {
        "cc": "",
@@ -526,7 +526,7 @@
      "dsp": "spotify",
      "id": "3jbwIZaT8UYo4REQsPQHpJ",
      "name": "New Music Frijay",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
      "followers": 11926,
      "spans": [
       {
@@ -558,8 +558,8 @@
      "dsp": "spotify",
      "id": "1zfvmEqQMnfZpwwGCilOfh",
      "name": "Melodic Selections",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84371a822330abe44dc401fb09",
-     "followers": 10814,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c371a822330abe44dc401fb09",
+     "followers": 10813,
      "spans": [
       {
        "cc": "",
@@ -10453,7 +10453,7 @@
   },
   "GBLV62613006": {
    "isrc": "GBLV62613006",
-   "synced_at": "2026-11-19T15:10:17+00:00",
+   "synced_at": "2026-11-19T15:41:12+00:00",
    "errors": [],
    "meta": {
     "name": "Mind Control",
@@ -10526,7 +10526,7 @@
      "dsp": "spotify",
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f6752453e64e8b07bfeaf16c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
      "followers": 105628,
      "spans": [
       {
@@ -10638,7 +10638,7 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
@@ -10750,8 +10750,8 @@
      "dsp": "spotify",
      "id": "4me0jdfkCKD2qdP2TJyi7Y",
      "name": "GYM SELECTION 2026 | The Best Of Dance Music For Your Training |",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf3c725d9037f55427b9bc6e2",
-     "followers": 13892,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f3c725d9037f55427b9bc6e2",
+     "followers": 13893,
      "spans": [
       {
        "cc": "",
@@ -10766,8 +10766,8 @@
      "dsp": "spotify",
      "id": "5S4RCK21r9JWBILqLEs6of",
      "name": "FITNESS SELECTION 2026 | The Best Of Dance Music For Your Training |",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a6b0216d8f35d899d77166c1",
-     "followers": 13797,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84a6b0216d8f35d899d77166c1",
+     "followers": 13800,
      "spans": [
       {
        "cc": "",
@@ -10782,7 +10782,7 @@
      "dsp": "spotify",
      "id": "3jbwIZaT8UYo4REQsPQHpJ",
      "name": "New Music Frijay",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
      "followers": 11926,
      "spans": [
       {
@@ -10798,7 +10798,7 @@
      "dsp": "spotify",
      "id": "0EHXJQkZXfirn8Ozb5NCUr",
      "name": "EDM Festival Music 2026 | Big Room, Mainstage & Festival Anthems",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da849808950b864b4074f08a5dde",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9808950b864b4074f08a5dde",
      "followers": 11532,
      "spans": [
       {
@@ -10814,7 +10814,7 @@
      "dsp": "spotify",
      "id": "7cRWjWVRkqhCVZTK2T3fyA",
      "name": "Welcome to the House Party",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cd0872a96ff432883b220fab8",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cd0872a96ff432883b220fab8",
      "followers": 11097,
      "spans": [
       {
@@ -11526,7 +11526,7 @@
   },
   "GBLV62609990": {
    "isrc": "GBLV62609990",
-   "synced_at": "2026-11-19T15:11:22+00:00",
+   "synced_at": "2026-11-19T15:42:17+00:00",
    "errors": [],
    "meta": {
     "name": "Need I Say More",
@@ -11553,7 +11553,7 @@
      "dsp": "spotify",
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f6752453e64e8b07bfeaf16c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
      "followers": 105628,
      "spans": [
       {
@@ -11569,7 +11569,7 @@
      "dsp": "spotify",
      "id": "5LiofJ2vjsHmgzBL0eD6HX",
      "name": "House & Techno Music 2026 🎧 ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c261f84ebefc99be06788cde9",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84261f84ebefc99be06788cde9",
      "followers": 56579,
      "spans": [
       {
@@ -11585,7 +11585,7 @@
      "dsp": "spotify",
      "id": "7m2GBDQiFuLUxdF5l92SVs",
      "name": "Electronic Sunrise 🌞🌴 | Dance Pop, Ibiza Chillout, Deep House, Dance, Summer, Ibiza",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb3a1ca10ae028ccdfa5f9321",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb3a1ca10ae028ccdfa5f9321",
      "followers": 52871,
      "spans": [
       {
@@ -11665,7 +11665,7 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
@@ -11682,7 +11682,7 @@
      "id": "0Q4JvzeT0q3FLsj5fqffMV",
      "name": "Beatport Top 100 - Today",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c13eefd3fa0824de200fa2ba3",
-     "followers": 20188,
+     "followers": 20186,
      "spans": [
       {
        "cc": "",
@@ -11761,7 +11761,7 @@
      "dsp": "spotify",
      "id": "436p5sa0ecnkaB5twylGlO",
      "name": "Play Nice | Poppin' Beats",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da841989a5457fa77bc1f2ed1e70",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1989a5457fa77bc1f2ed1e70",
      "followers": 12715,
      "spans": [
       {
@@ -11777,7 +11777,7 @@
      "dsp": "spotify",
      "id": "28QA6xyCDHBDvHPvcn89ve",
      "name": "Fresh House Friday",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c5d05fc81216d4030f9da0435",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c5d05fc81216d4030f9da0435",
      "followers": 12310,
      "spans": [
       {
@@ -14982,7 +14982,7 @@
   },
   "GBLV62609991": {
    "isrc": "GBLV62609991",
-   "synced_at": "2026-11-19T15:12:28+00:00",
+   "synced_at": "2026-11-19T15:43:25+00:00",
    "errors": [],
    "meta": {
     "name": "Move Around",
@@ -15010,7 +15010,7 @@
      "id": "37i9dQZF1DXacX3REVaOqV",
      "name": "House Supreme",
      "artwork": "https://i.scdn.co/image/ab67706f00000002b69499cfbf7258b189df1b4e",
-     "followers": 499235,
+     "followers": 499236,
      "spans": [
       {
        "cc": "",
@@ -15025,7 +15025,7 @@
      "dsp": "spotify",
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f6752453e64e8b07bfeaf16c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
      "followers": 105628,
      "spans": [
       {
@@ -15057,7 +15057,7 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
@@ -15074,7 +15074,7 @@
      "id": "0Q4JvzeT0q3FLsj5fqffMV",
      "name": "Beatport Top 100 - Today",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c13eefd3fa0824de200fa2ba3",
-     "followers": 20188,
+     "followers": 20186,
      "spans": [
       {
        "cc": "",
@@ -15090,7 +15090,7 @@
      "id": "3MZYtB7bu6aLkt0XLMIzkg",
      "name": "DANCE FLOOR ESSENTIALS",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce3d273e123356928f0ef6fff",
-     "followers": 16666,
+     "followers": 16668,
      "spans": [
       {
        "cc": "",
@@ -15105,7 +15105,7 @@
      "dsp": "spotify",
      "id": "0IdoU14c3Zyj7a4wwUkGgU",
      "name": "Afro House & Melodic Ibiza 2026  🌴🌞",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da844b52ca229d36ec8e00bce4a8",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c4b52ca229d36ec8e00bce4a8",
      "followers": 14916,
      "spans": [
       {
@@ -15121,8 +15121,8 @@
      "dsp": "spotify",
      "id": "48cE3B9k3B64cfHAIXSouV",
      "name": "Best Tech House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0c039d3cbaef2e45f0c0f9b4",
-     "followers": 12247,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da840c039d3cbaef2e45f0c0f9b4",
+     "followers": 12248,
      "spans": [
       {
        "cc": "",
@@ -15478,7 +15478,7 @@
   },
   "GBLV62609992": {
    "isrc": "GBLV62609992",
-   "synced_at": "2026-11-19T15:14:22+00:00",
+   "synced_at": "2026-11-19T15:45:18+00:00",
    "errors": [],
    "meta": {
     "name": "Right There",
@@ -15505,7 +15505,7 @@
      "dsp": "spotify",
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f6752453e64e8b07bfeaf16c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
      "followers": 105628,
      "spans": [
       {
@@ -15522,7 +15522,7 @@
      "id": "3MZYtB7bu6aLkt0XLMIzkg",
      "name": "DANCE FLOOR ESSENTIALS",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce3d273e123356928f0ef6fff",
-     "followers": 16666,
+     "followers": 16668,
      "spans": [
       {
        "cc": "",
@@ -15862,7 +15862,7 @@
   },
   "SE3T62602701": {
    "isrc": "SE3T62602701",
-   "synced_at": "2026-11-19T15:15:29+00:00",
+   "synced_at": "2026-11-19T15:46:24+00:00",
    "errors": [],
    "meta": {
     "name": "Black Sun White Noise - Adam Rickfors Remix",
@@ -15889,7 +15889,7 @@
      "id": "5Udnh472z0CeexGPSpdIw9",
      "name": "TikTok Party Songs 2026 🎉 Popular Party Songs",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84db498f5c41a5fc32db088c0e",
-     "followers": 733043,
+     "followers": 733042,
      "spans": [
       {
        "cc": "",
@@ -15921,7 +15921,7 @@
      "id": "6n9ku24WgdidSEugbHD7sT",
      "name": "EDM DANCE HITS🔥2026🌞 FESTIVAL & CLUB VIBES",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c761e900a11c541212ea66b2c",
-     "followers": 67687,
+     "followers": 67692,
      "spans": [
       {
        "cc": "",
@@ -15936,8 +15936,8 @@
      "dsp": "spotify",
      "id": "2ZMACy1lzHY6RXfZt9V6xS",
      "name": "Afro Hits 2026 ☀️🌴 Top 100 ☮️ ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da844a463f513fdc629520b5d5e5",
-     "followers": 51388,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c4a463f513fdc629520b5d5e5",
+     "followers": 51400,
      "spans": [
       {
        "cc": "",
@@ -16032,8 +16032,8 @@
      "dsp": "spotify",
      "id": "3SD4wXlBmWh2r8KVqwResR",
      "name": "DANCE MUSIC SELECTION 2027 WWW.TRACK-SWAP.COM",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c41cf12133b3aa45f7e687173",
-     "followers": 23199,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c41cf12133b3aa45f7e687173",
+     "followers": 23200,
      "spans": [
       {
        "cc": "",
@@ -16064,7 +16064,7 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
