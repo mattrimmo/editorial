@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-19T15:47:29+00:00",
+ "generated_at": "2026-11-20T15:29:17+00:00",
  "records": {
   "QMFMF2607528": {
    "isrc": "QMFMF2607528",
-   "synced_at": "2026-11-19T15:40:07+00:00",
+   "synced_at": "2026-11-20T15:21:57+00:00",
    "errors": [],
    "meta": {
     "name": "Oh Baby",
@@ -30,8 +30,8 @@
      "dsp": "spotify",
      "id": "37i9dQZF1DXa41CMuUARjl",
      "name": "All New Dance",
-     "artwork": "https://i.scdn.co/image/ab67706f0000000226da1905a001379160aa3ac7",
-     "followers": 578525,
+     "artwork": "https://i.scdn.co/image/ab67706f000000028d9bd37b9d12a9d7f561718c",
+     "followers": 578676,
      "spans": [
       {
        "cc": "",
@@ -46,8 +46,8 @@
      "dsp": "spotify",
      "id": "37i9dQZF1DWVKDF4ycOESi",
      "name": "New Music Friday Italia",
-     "artwork": "https://i.scdn.co/image/ab67706f00000002b4822668b3ae649e6b35bc3a",
-     "followers": 371831,
+     "artwork": "https://i.scdn.co/image/ab67706f0000000283f016cb3b168af78ae9f103",
+     "followers": 372165,
      "spans": [
       {
        "cc": "",
@@ -62,8 +62,8 @@
      "dsp": "spotify",
      "id": "37i9dQZF1DXcfWvNFKxjDo",
      "name": "Dance Brandneu",
-     "artwork": "https://i.scdn.co/image/ab67706f00000002de8d71625e8c3b79a3d10d58",
-     "followers": 351870,
+     "artwork": "https://i.scdn.co/image/ab67706f00000002932c79f7169429ae769265fd",
+     "followers": 351878,
      "spans": [
       {
        "cc": "",
@@ -78,14 +78,14 @@
      "dsp": "spotify",
      "id": "37i9dQZF1DX2ENAPP1Tyed",
      "name": "Dance Room 2026",
-     "artwork": "https://i.scdn.co/image/ab67706f00000002b33f3065a1f151daaa3d0346",
-     "followers": 337917,
+     "artwork": "https://i.scdn.co/image/ab67706f00000002a1cfdb1aefa4f5a3adf4139b",
+     "followers": 337898,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-22",
        "removed_at": null,
-       "position": 31
+       "position": 24
       }
      ],
      "kind": "editorial"
@@ -95,13 +95,13 @@
      "id": "2DjIfVDXGYDgRxw7IJTKVb",
      "name": "Summer Hits 2026 🌞 Summer Music",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cf97a203d5f04d61bdd94fe95",
-     "followers": 166421,
+     "followers": 166415,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-01",
        "removed_at": null,
-       "position": 33
+       "position": 35
       }
      ],
      "kind": "independent"
@@ -111,7 +111,7 @@
      "id": "37i9dQZF1DX8ZMwsPgxIOs",
      "name": "Techno State",
      "artwork": "https://i.scdn.co/image/ab67706f000000021b82b1d2e57184cfc3398a5a",
-     "followers": 152678,
+     "followers": 152688,
      "spans": [
       {
        "cc": "",
@@ -127,13 +127,13 @@
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
-     "followers": 105628,
+     "followers": 105626,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-26",
        "removed_at": null,
-       "position": 40
+       "position": 48
       }
      ],
      "kind": "independent"
@@ -143,7 +143,7 @@
      "id": "5rvC6qEvW1Sc78gOjqsB0N",
      "name": "Dance Hits",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415c17194f3807b64568eb435",
-     "followers": 101514,
+     "followers": 101513,
      "spans": [
       {
        "cc": "",
@@ -159,13 +159,13 @@
      "id": "2HQsMPvBpywqOCFPCtcx4a",
      "name": "MELODIC DANCE 🔥 2026 House Eletro",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84dd6e8f437359f69f43549e06",
-     "followers": 57958,
+     "followers": 57957,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-16",
        "removed_at": null,
-       "position": 202
+       "position": 204
       }
      ],
      "kind": "independent"
@@ -174,14 +174,14 @@
      "dsp": "spotify",
      "id": "5LiofJ2vjsHmgzBL0eD6HX",
      "name": "House & Techno Music 2026 🎧 ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84261f84ebefc99be06788cde9",
-     "followers": 56579,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c261f84ebefc99be06788cde9",
+     "followers": 56578,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-26",
        "removed_at": null,
-       "position": 41
+       "position": 42
       }
      ],
      "kind": "independent"
@@ -191,13 +191,13 @@
      "id": "4WVOpoFeIDUri7FiF1gRid",
      "name": "Insomniac New Music Friday",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3aae97d4df295bc65b3486bc",
-     "followers": 51095,
+     "followers": 51119,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-29",
        "removed_at": null,
-       "position": 71
+       "position": 73
       }
      ],
      "kind": "independent"
@@ -206,8 +206,8 @@
      "dsp": "spotify",
      "id": "4qrmQCYMMzsbbtnhj82ggy",
      "name": "Afro House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84f0cdb026e3b471565b4917c1",
-     "followers": 33885,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cf0cdb026e3b471565b4917c1",
+     "followers": 33882,
      "spans": [
       {
        "cc": "",
@@ -222,8 +222,8 @@
      "dsp": "spotify",
      "id": "3zk8c5D7VDxd9Q6gsYjyMC",
      "name": "HILLS HOUSE",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c0880600732ec1dc6c37118cd",
-     "followers": 32789,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0880600732ec1dc6c37118cd",
+     "followers": 32811,
      "spans": [
       {
        "cc": "",
@@ -239,13 +239,13 @@
      "id": "7JHSHYiU3AuxrVnL1BeYzp",
      "name": "Car & Driving Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6774adffeb302e084f2da480",
-     "followers": 31490,
+     "followers": 31499,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 679
+       "position": 716
       }
      ],
      "kind": "independent"
@@ -254,7 +254,7 @@
      "dsp": "spotify",
      "id": "2T8tPxdznMSlgYayUBS5pl",
      "name": "Festival Music 2026 - Big Room EDM & Future Rave | Colonize Media",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cff80730f571db6339fec8856",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cff80730f571db6339fec8856",
      "followers": 31186,
      "spans": [
       {
@@ -271,7 +271,7 @@
      "id": "7JHfOdUVhOTLqSRglkp3aL",
      "name": "Hot New Dance 2026 | Let's Dance",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca7357da447864e909e397dc7",
-     "followers": 29782,
+     "followers": 29779,
      "spans": [
       {
        "cc": "",
@@ -287,7 +287,7 @@
      "id": "0aVptI42oGmk9EggZgfoX2",
      "name": "Melodic Techno 2026",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84922ebfc7be914e18448d38c5",
-     "followers": 27021,
+     "followers": 27019,
      "spans": [
       {
        "cc": "",
@@ -318,14 +318,14 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 21
+       "position": 25
       }
      ],
      "kind": "independent"
@@ -335,7 +335,7 @@
      "id": "7yilCLh2sgFFnwrxdcK9dM",
      "name": "BASS BOOST 2026 🔊 (ANYTHING WITH A LOT OF BASS 😈)",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f696ef4b02cb7e6ccaa6a2bd",
-     "followers": 19350,
+     "followers": 19351,
      "spans": [
       {
        "cc": "",
@@ -350,14 +350,14 @@
      "dsp": "spotify",
      "id": "6UoRPw77RjifgKdN7jB84h",
      "name": "Club House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
-     "followers": 18507,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
+     "followers": 18513,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 643
+       "position": 678
       }
      ],
      "kind": "independent"
@@ -366,8 +366,8 @@
      "dsp": "spotify",
      "id": "1t6WIWuz8XXBk9Svkivme3",
      "name": "Car Music 2026 🚗🔊 - Bass Boosted EDM & Driving Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da846d5fb2e072cabe475e4d09f3",
-     "followers": 18021,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6d5fb2e072cabe475e4d09f3",
+     "followers": 18032,
      "spans": [
       {
        "cc": "",
@@ -382,7 +382,7 @@
      "dsp": "spotify",
      "id": "2mbV5p0pQoGNc54g5T6pcn",
      "name": "Weekly House | Best Dance Hits",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843fe6033390495e9481bcb130",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3fe6033390495e9481bcb130",
      "followers": 17906,
      "spans": [
       {
@@ -398,7 +398,7 @@
      "dsp": "spotify",
      "id": "2tj1iOLK9Uwef7ooLgJMtJ",
      "name": "ZENITH",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84b516be828841f916e7a2588b",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84b516be828841f916e7a2588b",
      "followers": 17553,
      "spans": [
       {
@@ -414,14 +414,14 @@
      "dsp": "spotify",
      "id": "0yjI9AXON9ZdzRFsWQ0710",
      "name": "New Best Artists",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c15f30180662613a700ca74f7",
-     "followers": 16696,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415f30180662613a700ca74f7",
+     "followers": 16701,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 610
+       "position": 642
       }
      ],
      "kind": "independent"
@@ -430,7 +430,7 @@
      "dsp": "spotify",
      "id": "4PV7pMQADb2plazslbmFoY",
      "name": "New Music, Radar de Novidades, Friday EDM e +",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0cd197f29f2c7a6d88e1ef8b",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da840cd197f29f2c7a6d88e1ef8b",
      "followers": 16681,
      "spans": [
       {
@@ -447,13 +447,13 @@
      "id": "4xLGR5cEKvIkgNlgFdLgRo",
      "name": "Dance Party",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8468b70a20f898fa360e644901",
-     "followers": 14800,
+     "followers": 14804,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 285
+       "position": 317
       }
      ],
      "kind": "independent"
@@ -462,8 +462,8 @@
      "dsp": "spotify",
      "id": "02drWIbmrqJigXSikPo8Vi",
      "name": "New Dance Friday, Electronic Music, EDM Releases 2026 🔥",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ce7d5cd2389c115e759fe633f",
-     "followers": 14674,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce7d5cd2389c115e759fe633f",
+     "followers": 14676,
      "spans": [
       {
        "cc": "",
@@ -479,7 +479,7 @@
      "id": "6Ew9R6Voadn2aAcezVU6Mi",
      "name": "Tomorrowland Official New Music by Austin Kramer",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da845d60935c551c8055e0483a9f",
-     "followers": 13994,
+     "followers": 13993,
      "spans": [
       {
        "cc": "",
@@ -494,8 +494,8 @@
      "dsp": "spotify",
      "id": "7L4SjLIfHE9MnA8UmpTroI",
      "name": "BASS BOOST YOUR SMILE",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84bc65ae1281fb6cd010663ae9",
-     "followers": 13823,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cbc65ae1281fb6cd010663ae9",
+     "followers": 13828,
      "spans": [
       {
        "cc": "",
@@ -511,7 +511,7 @@
      "id": "5VO60VnjyuuJYXxUhi5nEe",
      "name": "Best of Melodic Techno",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c95ad1fe142291ab372d2db46",
-     "followers": 13150,
+     "followers": 13151,
      "spans": [
       {
        "cc": "",
@@ -526,7 +526,7 @@
      "dsp": "spotify",
      "id": "3jbwIZaT8UYo4REQsPQHpJ",
      "name": "New Music Frijay",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
      "followers": 11926,
      "spans": [
       {
@@ -558,8 +558,8 @@
      "dsp": "spotify",
      "id": "1zfvmEqQMnfZpwwGCilOfh",
      "name": "Melodic Selections",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c371a822330abe44dc401fb09",
-     "followers": 10813,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84371a822330abe44dc401fb09",
+     "followers": 10812,
      "spans": [
       {
        "cc": "",
@@ -574,8 +574,8 @@
      "dsp": "spotify",
      "id": "3GolTNxAoP6s1v8KtKq4rs",
      "name": "Reps to the Rhythm",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9f6a8f9b41506071c8581110",
-     "followers": 9908,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c9f6a8f9b41506071c8581110",
+     "followers": 9914,
      "spans": [
       {
        "cc": "",
@@ -590,8 +590,8 @@
      "dsp": "spotify",
      "id": "56JeUOZqcAKrWwdh1LyoXO",
      "name": "HOUSE MUSIC 2026 (Top 100)",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da844868c873b5e16774034e1d97",
-     "followers": 9695,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da844868c873b5e16774034e1d97",
+     "followers": 9693,
      "spans": [
       {
        "cc": "",
@@ -606,8 +606,8 @@
      "dsp": "spotify",
      "id": "39KMjepUJeHiQUcGc3NCz9",
      "name": "Melodic Techno, and Progressive House Vibes 2026",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ccfa4e4ad1b6d322363e7885a",
-     "followers": 9387,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84cfa4e4ad1b6d322363e7885a",
+     "followers": 9388,
      "spans": [
       {
        "cc": "",
@@ -638,8 +638,8 @@
      "dsp": "spotify",
      "id": "0GKv1UM2QjEkUNeVbUsPUI",
      "name": "Hot Sauce",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce02d270be1141a553c0d72e0",
-     "followers": 9053,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ce02d270be1141a553c0d72e0",
+     "followers": 9051,
      "spans": [
       {
        "cc": "",
@@ -655,7 +655,7 @@
      "id": "5F13KTaxemrVfpPtJLXuv4",
      "name": "Dance Music Friday | Ministry of Sound",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3de60022f6f52a97233a394f",
-     "followers": 8600,
+     "followers": 8599,
      "spans": [
       {
        "cc": "",
@@ -670,7 +670,7 @@
      "dsp": "spotify",
      "id": "6gGJFshQvzJmyBCctCnmTS",
      "name": "KIFFIX | Elevation",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
      "followers": 7774,
      "spans": [
       {
@@ -686,7 +686,7 @@
      "dsp": "spotify",
      "id": "2NjsYSQxghPOP5pWv4nJX2",
      "name": "CAR PLAY | DANCE/EDM ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da842631cddaeecabe5f5d129090",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c2631cddaeecabe5f5d129090",
      "followers": 7608,
      "spans": [
       {
@@ -702,7 +702,7 @@
      "dsp": "spotify",
      "id": "21PPkUqTqS1A6ZlaUaaZ7K",
      "name": "Sweat Mode",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84233957e3a70e4e5d9d3eb91e",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c233957e3a70e4e5d9d3eb91e",
      "followers": 7031,
      "spans": [
       {
@@ -750,7 +750,7 @@
      "dsp": "spotify",
      "id": "1RhKAC60GppzY6cprZUIkJ",
      "name": "Jacked | Best House & EDM | 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
      "followers": 6203,
      "spans": [
       {
@@ -773,7 +773,7 @@
        "cc": "",
        "added_at": "2026-10-26",
        "removed_at": null,
-       "position": 13
+       "position": 15
       }
      ],
      "kind": "independent"
@@ -830,8 +830,8 @@
      "dsp": "spotify",
      "id": "4fzSFXLzbUXeVucFqeYLFR",
      "name": "Weekly - Singoli della settimana",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da846108b991786271724b1a86c7",
-     "followers": 3725,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8430affad49eb3126f44feae73",
+     "followers": 3724,
      "spans": [
       {
        "cc": "",
@@ -846,8 +846,8 @@
      "dsp": "spotify",
      "id": "5AXXPKwCShVfZECQk1igN6",
      "name": "House Cat - Best & Latest House Music Releases ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c95ad4affc2bfe5a296c0c57d",
-     "followers": 3431,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c95ad4affc2bfe5a296c0c57d",
+     "followers": 3430,
      "spans": [
       {
        "cc": "",
@@ -894,7 +894,7 @@
      "dsp": "spotify",
      "id": "4ls8IrETPU4Ag7rYNN3UYk",
      "name": "New Music Friday Cratediggers",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
      "followers": 3137,
      "spans": [
       {
@@ -910,7 +910,7 @@
      "dsp": "spotify",
      "id": "1GvJs9Y1HByksnvuqDSUXC",
      "name": "Dance Music Bangers",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c9da755a0fc41f4eb43da468b",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9da755a0fc41f4eb43da468b",
      "followers": 2883,
      "spans": [
       {
@@ -926,7 +926,7 @@
      "dsp": "spotify",
      "id": "5lM9uf3MiiD5C2v4TFecuB",
      "name": "DJLC New Music Friday",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c55b522374407299f56571863",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c55b522374407299f56571863",
      "followers": 2865,
      "spans": [
       {
@@ -942,7 +942,7 @@
      "dsp": "spotify",
      "id": "7a99oDfrybQoOh1tWDpZvB",
      "name": "Deep & Melodic 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ccf49cfa14edce53e6517711a",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ccf49cfa14edce53e6517711a",
      "followers": 2758,
      "spans": [
       {
@@ -1006,7 +1006,7 @@
      "dsp": "spotify",
      "id": "50iZbYqBXGxIqShIaEx94d",
      "name": "DanceWeekly - New Dance Music 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
      "followers": 2228,
      "spans": [
       {
@@ -1022,7 +1022,7 @@
      "dsp": "spotify",
      "id": "3fX8nep9Gsg5W5FIO8pgvz",
      "name": "Riot EDM | EDM & House Music | New Music Friday 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c476e6465ab893ee97a1d56fc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84476e6465ab893ee97a1d56fc",
      "followers": 2025,
      "spans": [
       {
@@ -1038,7 +1038,7 @@
      "dsp": "spotify",
      "id": "0XhjQsPQDo3VIINOpjvDNu",
      "name": "KIFFIX | Breakout",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1eba5a3eb8afa7e601679b78",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841eba5a3eb8afa7e601679b78",
      "followers": 2016,
      "spans": [
       {
@@ -1054,8 +1054,8 @@
      "dsp": "spotify",
      "id": "78e4ooFCHlaKby8bKIxpJm",
      "name": "EDM Vocals 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c887a4a6b25cd2c865494dd2e",
-     "followers": 1834,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84887a4a6b25cd2c865494dd2e",
+     "followers": 1835,
      "spans": [
       {
        "cc": "",
@@ -1070,8 +1070,8 @@
      "dsp": "spotify",
      "id": "2aLLFbRel1plIC1f9Usw1F",
      "name": " Zamna  Festival Tulum  2026 🇲🇽",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c43315e76fe2db81f5ca1dbb4",
-     "followers": 1817,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8443315e76fe2db81f5ca1dbb4",
+     "followers": 1816,
      "spans": [
       {
        "cc": "",
@@ -1086,8 +1086,8 @@
      "dsp": "spotify",
      "id": "7rWdKxjKHLKB4nq7WZjEc5",
      "name": "AIRBEAT ONE 2027 ✭ Melodic",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0ea9ef9ea2a5a11e15846b9f",
-     "followers": 1608,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840ea9ef9ea2a5a11e15846b9f",
+     "followers": 1609,
      "spans": [
       {
        "cc": "",
@@ -1134,7 +1134,7 @@
      "dsp": "spotify",
      "id": "0IISnEeSHhtGGJ9WHikguH",
      "name": "Best Of Today #Release",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cc6170dfcb5a146def1174eb5",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84c6170dfcb5a146def1174eb5",
      "followers": 1367,
      "spans": [
       {
@@ -1151,7 +1151,7 @@
      "id": "0PEeWXPiX21KD1FTf01dx5",
      "name": "1001 Tracklist DJ Chart Top 50 2026 Week  47",
      "artwork": "https://mosaic.scdn.co/640/ab67616d00001e020dc5ec8a5b74257f5f5cb512ab67616d00001e02512dbdbda5656b429bb8d764ab67616d00001e02c61c56d930b2077eb169f437ab67616d00001e02ff3d93877372a2248e9f7acc",
-     "followers": 1222,
+     "followers": 1221,
      "spans": [
       {
        "cc": "",
@@ -1214,8 +1214,8 @@
      "dsp": "spotify",
      "id": "7ngnwBM3ZVC6rkaWcm9iGx",
      "name": "CHICAGO HOUSE 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a75142e79720cfa16fe88b07",
-     "followers": 946,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca75142e79720cfa16fe88b07",
+     "followers": 947,
      "spans": [
       {
        "cc": "",
@@ -1246,8 +1246,8 @@
      "dsp": "spotify",
      "id": "3wX4zpHwo6OZqEBraHGcsm",
      "name": "NEW EDM, House, Electro, Techno & Dance Pop 2026 | New Music FRIDAY 2026 by Charlie 'El Tibu'",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cc42a917558da610c3c319142",
-     "followers": 857,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84c42a917558da610c3c319142",
+     "followers": 858,
      "spans": [
       {
        "cc": "",
@@ -1279,7 +1279,7 @@
      "id": "52b8w3oNwisw5BKGi0UVB7",
      "name": "Jasmin Blust: Melodic Techno Vibes",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf4477226a278e13ab4609324",
-     "followers": 752,
+     "followers": 751,
      "spans": [
       {
        "cc": "",
@@ -1294,7 +1294,7 @@
      "dsp": "spotify",
      "id": "1iPRQlnTbtA7rwY8Vj6JgY",
      "name": "New Music Friday Worldwide | The Collector",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cf73414b21ed2c6cfbd97002c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf73414b21ed2c6cfbd97002c",
      "followers": 721,
      "spans": [
       {
@@ -1358,14 +1358,14 @@
      "dsp": "spotify",
      "id": "09AFfb9CQl88mOWxBlsXuC",
      "name": "Rave",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c6659763be6b7468f5c7b4aee",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6659763be6b7468f5c7b4aee",
      "followers": 607,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-23",
-       "removed_at": null,
-       "position": 116
+       "removed_at": "2026-11-20",
+       "position": null
       }
      ],
      "kind": "independent"
@@ -1397,7 +1397,7 @@
        "cc": "",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 17
+       "position": 20
       }
      ],
      "kind": "independent"
@@ -1406,8 +1406,8 @@
      "dsp": "spotify",
      "id": "54SQDVVzokayJnPQOcT8II",
      "name": "DJ KRIS B2B MATYS ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84b40717d7c9a81c68e245c625",
-     "followers": 497,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb40717d7c9a81c68e245c625",
+     "followers": 502,
      "spans": [
       {
        "cc": "",
@@ -1423,7 +1423,7 @@
      "id": "1NWNLSB4ALkowA5k8OqKFM",
      "name": "Music Discovery",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8428804b5725a623f1d17dad82",
-     "followers": 487,
+     "followers": 486,
      "spans": [
       {
        "cc": "",
@@ -1438,7 +1438,7 @@
      "dsp": "spotify",
      "id": "3WdavSckFNowy24vibOLwT",
      "name": "Selected by Erick T",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c84c5415d9cf537b1eea28226",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c84c5415d9cf537b1eea28226",
      "followers": 434,
      "spans": [
       {
@@ -1454,8 +1454,8 @@
      "dsp": "spotify",
      "id": "4JPKSdg56MmCSt5vHQ5QRt",
      "name": "Ministry of Sound | The Annual 2027",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8432edf15d730a0094ff5b428f",
-     "followers": 367,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c32edf15d730a0094ff5b428f",
+     "followers": 375,
      "spans": [
       {
        "cc": "",
@@ -1470,8 +1470,8 @@
      "dsp": "spotify",
      "id": "6MLiXYZTr4RyR9lEkeGM1o",
      "name": "Novos Lançamentos Internacionais | Electronic, House & Techno",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c0848b4edc9f177936f85e255",
-     "followers": 348,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0848b4edc9f177936f85e255",
+     "followers": 349,
      "spans": [
       {
        "cc": "",
@@ -1487,7 +1487,7 @@
      "id": "2F6MmFFlvPRXNKycyMDgyy",
      "name": "Electro House / Big Room (2026)",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cdd173dc0b1c50920e524a717",
-     "followers": 292,
+     "followers": 293,
      "spans": [
       {
        "cc": "",
@@ -1502,7 +1502,7 @@
      "dsp": "spotify",
      "id": "7DQE2GyQGUQ3qImUE74SrO",
      "name": "Modern Melodic Techno Selection",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb3e94f72b9c38db105b015c9",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84b3e94f72b9c38db105b015c9",
      "followers": 228,
      "spans": [
       {
@@ -1534,7 +1534,7 @@
      "dsp": "spotify",
      "id": "0JSigJK8tkV7H6qkuf59Qm",
      "name": "Techno Warehouse 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8c47fe7d523c3a8e3f5651f2",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c8c47fe7d523c3a8e3f5651f2",
      "followers": 183,
      "spans": [
       {
@@ -1598,7 +1598,7 @@
      "dsp": "spotify",
      "id": "15omiMVb0smb0qDkBCIt3z",
      "name": "Melodic Tech House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce9837d1e6ae01bdacc6a3ce0",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84e9837d1e6ae01bdacc6a3ce0",
      "followers": 120,
      "spans": [
       {
@@ -1646,7 +1646,7 @@
      "dsp": "spotify",
      "id": "7IFvHK0RAwYmgREOPDwR2t",
      "name": "BEST MUSIC ITALY OFFICIAL",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c78fec754d0c63ef5ab8032db",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c78fec754d0c63ef5ab8032db",
      "followers": 108,
      "spans": [
       {
@@ -5795,1027 +5795,1027 @@
        "cc": "AE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AI",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AL",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 11
+       "position": 48
       },
       {
        "cc": "AM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AU",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "AZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BB",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BF",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BH",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BJ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BS",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BW",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "BY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 12
+       "position": 94
       },
       {
        "cc": "BZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CD",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CH",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CI",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CL",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 12
+       "position": 85
       },
       {
        "cc": "CO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CV",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "CZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "DE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "DK",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "DM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "DO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "DZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "EC",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "EE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "EG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ES",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "FI",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "FJ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "FM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "FR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GB",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GD",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GH",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GW",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "GY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "HK",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "HN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "HR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "HU",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ID",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "IE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "IL",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "IN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "IQ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "IS",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "IT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "JM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "JO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "JP",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KH",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KW",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "KZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LB",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LC",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LK",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LU",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LV",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "LY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MD",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ME",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MK",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ML",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MS",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MU",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MV",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MW",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MX",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "MZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NI",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NL",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NP",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "NZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "OM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "PA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "PE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "PG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "PH",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "PK",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 11
+       "position": 51
       },
       {
        "cc": "PL",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "PT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "PY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "QA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "RO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "RS",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "RW",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SB",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SC",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SI",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SK",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SL",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ST",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 13
+       "position": 79
       },
       {
        "cc": "SV",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "SZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TC",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TD",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TH",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TJ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TO",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TR",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TT",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TW",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "TZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "UA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "UG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "US",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "UY",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "UZ",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "VC",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "VE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "VG",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "VN",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "VU",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "XK",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 15
+       "position": 93
       },
       {
        "cc": "YE",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ZA",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ZM",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       },
       {
        "cc": "ZW",
        "added_at": "2026-10-23",
        "removed_at": null,
-       "position": 16
+       "position": 104
       }
      ],
      "kind": "editorial"
@@ -9632,536 +9632,536 @@
      "dsp": "apple",
      "id": "pl.6bf4415b83ce4f3789614ac4c3675740",
      "name": "danceXL",
-     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/4e/2c/a0/4e2ca06b-b2e7-e849-098d-db872414d8de/ca8b399f-1eb7-41d4-b8cb-e74ea4781c5c.png/500x500SC.DN02.jpg?l=en-US",
+     "artwork": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/69/66/03/696603b1-efb9-b17d-4b78-6ed218406e93/79bac296-a7c6-4f21-a411-7b166f4489ad.png/500x500SC.DN02.jpg?l=en-US",
      "followers": null,
      "spans": [
       {
        "cc": "AM",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "AR",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "AZ",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "BE",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "BN",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 52
       },
       {
        "cc": "BO",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "BR",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "BY",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 36
+       "position": 41
       },
       {
        "cc": "CA",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 66
+       "position": 78
       },
       {
        "cc": "CL",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "CO",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "CR",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "DO",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "EC",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "ES",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "GT",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "GY",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "HK",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 52
       },
       {
        "cc": "HN",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "ID",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "JM",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "JP",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "KG",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "KH",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "KZ",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "LA",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "LC",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "LK",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "LU",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "MD",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "MM",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "MN",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "MO",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 52
       },
       {
        "cc": "MS",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "MV",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "MX",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "MY",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "NI",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "NL",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "PA",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "PE",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "PH",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "PY",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "SG",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "SR",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "SV",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "TC",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "TH",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "TJ",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "TM",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "TR",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "TW",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 52
       },
       {
        "cc": "US",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "UY",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "UZ",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 52
       },
       {
        "cc": "VC",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "VE",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "VN",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 45
+       "position": 53
       },
       {
        "cc": "BW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "MU",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "MW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "NA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "SZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "ZA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "ZM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "ZW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 51
+       "position": 59
       },
       {
        "cc": "AE",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "DK",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 66
+       "position": 75
       },
       {
        "cc": "DZ",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "EG",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "FI",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 66
+       "position": 75
       },
       {
        "cc": "IN",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 48
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "IQ",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "IS",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 66
+       "position": 75
       },
       {
        "cc": "JO",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "KW",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "LB",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "LY",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "MA",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "NO",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 66
+       "position": 75
       },
       {
        "cc": "OM",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "PK",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 31
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "QA",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "SA",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "SE",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 66
+       "position": 75
       },
       {
        "cc": "TN",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "UA",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       },
       {
        "cc": "YE",
        "added_at": "2026-11-13",
-       "removed_at": null,
-       "position": 46
+       "removed_at": "2026-11-20",
+       "position": null
       }
      ],
      "kind": "editorial"
@@ -10171,13 +10171,13 @@
      "id": "2021502402",
      "name": "Melodic Techno",
      "artwork": "https://cdn-images.dzcdn.net/images/playlist/256889eff6911ccb664aa5a769bca584/500x500-000000-80-0-0.jpg",
-     "followers": 341786,
+     "followers": 341801,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-22",
        "removed_at": null,
-       "position": 25
+       "position": 24
       }
      ],
      "kind": "editorial"
@@ -10186,8 +10186,8 @@
      "dsp": "deezer",
      "id": "1478649355",
      "name": "Les nouveaut&eacute;s du vendredi",
-     "artwork": "https://cdn-images.dzcdn.net/images/playlist/88f9d78d486211cc813ba38e6164d1e6/500x500-000000-80-0-0.jpg",
-     "followers": 205885,
+     "artwork": "https://cdn-images.dzcdn.net/images/playlist/4d6638acedad029ddf569e16a33cdbe2/500x500-000000-80-0-0.jpg",
+     "followers": 205940,
      "spans": [
       {
        "cc": "",
@@ -10202,8 +10202,8 @@
      "dsp": "deezer",
      "id": "1282495565",
      "name": "Radar Weekly",
-     "artwork": "https://cdn-images.dzcdn.net/images/playlist/64826de50c50075d124862b2d7721d02/500x500-000000-80-0-0.jpg",
-     "followers": 186140,
+     "artwork": "https://cdn-images.dzcdn.net/images/playlist/a8923296a74a0fc45bc74e378ce26a76/500x500-000000-80-0-0.jpg",
+     "followers": 186163,
      "spans": [
       {
        "cc": "",
@@ -10219,7 +10219,7 @@
      "id": "11753127741",
      "name": "Club Rush",
      "artwork": "https://cdn-images.dzcdn.net/images/playlist/86928299f1f25a8af3c1e63febc447f5/500x500-000000-80-0-0.jpg",
-     "followers": 10410,
+     "followers": 10411,
      "spans": [
       {
        "cc": "",
@@ -10447,13 +10447,18 @@
      "date": "2026-11-15",
      "daily": 7644,
      "total": 269735
+    },
+    {
+     "date": "2026-11-16",
+     "daily": 7509,
+     "total": 277244
     }
    ],
    "shazams": []
   },
   "GBLV62613006": {
    "isrc": "GBLV62613006",
-   "synced_at": "2026-11-19T15:41:12+00:00",
+   "synced_at": "2026-11-20T15:23:02+00:00",
    "errors": [],
    "meta": {
     "name": "Mind Control",
@@ -10478,8 +10483,8 @@
      "dsp": "spotify",
      "id": "37i9dQZF1DXa41CMuUARjl",
      "name": "All New Dance",
-     "artwork": "https://i.scdn.co/image/ab67706f0000000226da1905a001379160aa3ac7",
-     "followers": 578525,
+     "artwork": "https://i.scdn.co/image/ab67706f000000028d9bd37b9d12a9d7f561718c",
+     "followers": 578676,
      "spans": [
       {
        "cc": "",
@@ -10495,13 +10500,13 @@
      "id": "37i9dQZF1DWSqPHam7LOqC",
      "name": "New Dance Revolution",
      "artwork": "https://i.scdn.co/image/ab67706f00000002e03d7400ff1a011846af651b",
-     "followers": 196647,
+     "followers": 196656,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 18
+       "position": 21
       }
      ],
      "kind": "editorial"
@@ -10510,14 +10515,14 @@
      "dsp": "spotify",
      "id": "37i9dQZF1DXcvmeS1jhCQv",
      "name": "Today's Ireland",
-     "artwork": "https://i.scdn.co/image/ab67706f0000000291713f1428179882aafd6848",
-     "followers": 121290,
+     "artwork": "https://i.scdn.co/image/ab67706f00000002c096be1ac506fa5e3cd4b208",
+     "followers": 121302,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 17
+       "position": 23
       }
      ],
      "kind": "editorial"
@@ -10527,7 +10532,7 @@
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
-     "followers": 105628,
+     "followers": 105626,
      "spans": [
       {
        "cc": "",
@@ -10543,7 +10548,7 @@
      "id": "5rvC6qEvW1Sc78gOjqsB0N",
      "name": "Dance Hits",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415c17194f3807b64568eb435",
-     "followers": 101514,
+     "followers": 101513,
      "spans": [
       {
        "cc": "",
@@ -10558,14 +10563,14 @@
      "dsp": "spotify",
      "id": "2CITPTk7giv6hhhyb70OEI",
      "name": "YELLOW CLAW - JESUS LOVES TRAP MUSIC",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da848c7156f5c5177b9668ea58fc",
-     "followers": 44705,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8c7156f5c5177b9668ea58fc",
+     "followers": 44700,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-05",
        "removed_at": null,
-       "position": 37
+       "position": 41
       }
      ],
      "kind": "independent"
@@ -10575,13 +10580,13 @@
      "id": "7JHSHYiU3AuxrVnL1BeYzp",
      "name": "Car & Driving Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6774adffeb302e084f2da480",
-     "followers": 31490,
+     "followers": 31499,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 549
+       "position": 586
       }
      ],
      "kind": "independent"
@@ -10590,8 +10595,8 @@
      "dsp": "spotify",
      "id": "0hsLLFaADDjU54tFqaImFh",
      "name": "360° : The Best Indie Music",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6a3c7f3e0e872702ec71a4cc",
-     "followers": 30125,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da846a3c7f3e0e872702ec71a4cc",
+     "followers": 30129,
      "spans": [
       {
        "cc": "",
@@ -10607,7 +10612,7 @@
      "id": "7JHfOdUVhOTLqSRglkp3aL",
      "name": "Hot New Dance 2026 | Let's Dance",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca7357da447864e909e397dc7",
-     "followers": 29782,
+     "followers": 29779,
      "spans": [
       {
        "cc": "",
@@ -10622,8 +10627,8 @@
      "dsp": "spotify",
      "id": "5kyDTxrXdC6Qal62iEO5Ty",
      "name": "New House Music Friday",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9137bec6ee783019be3d3a7b",
-     "followers": 23120,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c9137bec6ee783019be3d3a7b",
+     "followers": 23122,
      "spans": [
       {
        "cc": "",
@@ -10638,7 +10643,7 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
@@ -10655,7 +10660,7 @@
      "id": "7yilCLh2sgFFnwrxdcK9dM",
      "name": "BASS BOOST 2026 🔊 (ANYTHING WITH A LOT OF BASS 😈)",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f696ef4b02cb7e6ccaa6a2bd",
-     "followers": 19350,
+     "followers": 19351,
      "spans": [
       {
        "cc": "",
@@ -10670,14 +10675,14 @@
      "dsp": "spotify",
      "id": "6UoRPw77RjifgKdN7jB84h",
      "name": "Club House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
-     "followers": 18507,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
+     "followers": 18513,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-04",
        "removed_at": null,
-       "position": 526
+       "position": 561
       }
      ],
      "kind": "independent"
@@ -10686,14 +10691,14 @@
      "dsp": "spotify",
      "id": "1t6WIWuz8XXBk9Svkivme3",
      "name": "Car Music 2026 🚗🔊 - Bass Boosted EDM & Driving Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da846d5fb2e072cabe475e4d09f3",
-     "followers": 18021,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6d5fb2e072cabe475e4d09f3",
+     "followers": 18032,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-03",
        "removed_at": null,
-       "position": 33
+       "position": 36
       }
      ],
      "kind": "independent"
@@ -10702,14 +10707,14 @@
      "dsp": "spotify",
      "id": "0yjI9AXON9ZdzRFsWQ0710",
      "name": "New Best Artists",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c15f30180662613a700ca74f7",
-     "followers": 16696,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415f30180662613a700ca74f7",
+     "followers": 16701,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 478
+       "position": 510
       }
      ],
      "kind": "independent"
@@ -10719,13 +10724,13 @@
      "id": "4xLGR5cEKvIkgNlgFdLgRo",
      "name": "Dance Party",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8468b70a20f898fa360e644901",
-     "followers": 14800,
+     "followers": 14804,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-04",
        "removed_at": null,
-       "position": 301
+       "position": 333
       }
      ],
      "kind": "independent"
@@ -10735,13 +10740,13 @@
      "id": "1rsodfA4SeqISRV31QUUcp",
      "name": "BARONG FAMILY - FAMILY IS EVERYTHING",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da842508d19d6242c53c7cad2a6a",
-     "followers": 14390,
+     "followers": 14389,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-05",
        "removed_at": null,
-       "position": 34
+       "position": 42
       }
      ],
      "kind": "independent"
@@ -10750,7 +10755,7 @@
      "dsp": "spotify",
      "id": "4me0jdfkCKD2qdP2TJyi7Y",
      "name": "GYM SELECTION 2026 | The Best Of Dance Music For Your Training |",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f3c725d9037f55427b9bc6e2",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cf3c725d9037f55427b9bc6e2",
      "followers": 13893,
      "spans": [
       {
@@ -10766,8 +10771,8 @@
      "dsp": "spotify",
      "id": "5S4RCK21r9JWBILqLEs6of",
      "name": "FITNESS SELECTION 2026 | The Best Of Dance Music For Your Training |",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84a6b0216d8f35d899d77166c1",
-     "followers": 13800,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a6b0216d8f35d899d77166c1",
+     "followers": 13804,
      "spans": [
       {
        "cc": "",
@@ -10782,7 +10787,7 @@
      "dsp": "spotify",
      "id": "3jbwIZaT8UYo4REQsPQHpJ",
      "name": "New Music Frijay",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f8797eb5fe5ff60a0fe36aeb",
      "followers": 11926,
      "spans": [
       {
@@ -10798,7 +10803,7 @@
      "dsp": "spotify",
      "id": "0EHXJQkZXfirn8Ozb5NCUr",
      "name": "EDM Festival Music 2026 | Big Room, Mainstage & Festival Anthems",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9808950b864b4074f08a5dde",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c9808950b864b4074f08a5dde",
      "followers": 11532,
      "spans": [
       {
@@ -10815,7 +10820,7 @@
      "id": "7cRWjWVRkqhCVZTK2T3fyA",
      "name": "Welcome to the House Party",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cd0872a96ff432883b220fab8",
-     "followers": 11097,
+     "followers": 11096,
      "spans": [
       {
        "cc": "",
@@ -10831,13 +10836,13 @@
      "id": "7JfArlbY36KqstXVJFoJZB",
      "name": "New Dance Music Friday",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a9a4e3f1b728ead1a62ee998",
-     "followers": 9356,
+     "followers": 9353,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-30",
        "removed_at": null,
-       "position": 43
+       "position": 44
       }
      ],
      "kind": "independent"
@@ -10863,7 +10868,7 @@
      "id": "5F13KTaxemrVfpPtJLXuv4",
      "name": "Dance Music Friday | Ministry of Sound",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3de60022f6f52a97233a394f",
-     "followers": 8600,
+     "followers": 8599,
      "spans": [
       {
        "cc": "",
@@ -10878,8 +10883,8 @@
      "dsp": "spotify",
      "id": "1Y69O4XhrcWmjxbwL5hx9R",
      "name": "Tech House Afterparty",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c8e8a114b876d67cddab31aac",
-     "followers": 7873,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8e8a114b876d67cddab31aac",
+     "followers": 7876,
      "spans": [
       {
        "cc": "",
@@ -10894,7 +10899,7 @@
      "dsp": "spotify",
      "id": "6gGJFshQvzJmyBCctCnmTS",
      "name": "KIFFIX | Elevation",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
      "followers": 7774,
      "spans": [
       {
@@ -10910,14 +10915,14 @@
      "dsp": "spotify",
      "id": "0x7yN4GQ0eEw90PZ5W3z1B",
      "name": "New Dance/Electronic Daily: SWEDISH HOUSE MAFIA, CLOONEE, ANOTR, FISHER, HUGEL and more!",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c74dbe2c9bc83c9b0bd1c6995",
-     "followers": 7332,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c74dbe2c9bc83c9b0bd1c6995",
+     "followers": 7340,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-03",
        "removed_at": null,
-       "position": 120
+       "position": 122
       }
      ],
      "kind": "independent"
@@ -10942,7 +10947,7 @@
      "dsp": "spotify",
      "id": "1RhKAC60GppzY6cprZUIkJ",
      "name": "Jacked | Best House & EDM | 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
      "followers": 6203,
      "spans": [
       {
@@ -10974,8 +10979,8 @@
      "dsp": "spotify",
      "id": "5AXXPKwCShVfZECQk1igN6",
      "name": "House Cat - Best & Latest House Music Releases ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c95ad4affc2bfe5a296c0c57d",
-     "followers": 3431,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c95ad4affc2bfe5a296c0c57d",
+     "followers": 3430,
      "spans": [
       {
        "cc": "",
@@ -10990,7 +10995,7 @@
      "dsp": "spotify",
      "id": "0iKk6CVcSzZEDta2cAtCMY",
      "name": "Rave Selection  🧬  House & Techno 🪩",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84d1f9fb0ec3f0627fc76535c3",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cd1f9fb0ec3f0627fc76535c3",
      "followers": 2968,
      "spans": [
       {
@@ -11022,7 +11027,7 @@
      "dsp": "spotify",
      "id": "50iZbYqBXGxIqShIaEx94d",
      "name": "DanceWeekly - New Dance Music 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
      "followers": 2228,
      "spans": [
       {
@@ -11038,7 +11043,7 @@
      "dsp": "spotify",
      "id": "3fX8nep9Gsg5W5FIO8pgvz",
      "name": "Riot EDM | EDM & House Music | New Music Friday 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c476e6465ab893ee97a1d56fc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84476e6465ab893ee97a1d56fc",
      "followers": 2025,
      "spans": [
       {
@@ -11054,7 +11059,7 @@
      "dsp": "spotify",
      "id": "0XhjQsPQDo3VIINOpjvDNu",
      "name": "KIFFIX | Breakout",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1eba5a3eb8afa7e601679b78",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841eba5a3eb8afa7e601679b78",
      "followers": 2016,
      "spans": [
       {
@@ -11070,8 +11075,8 @@
      "dsp": "spotify",
      "id": "5tJD1yTOXv57QtlRMhtjLE",
      "name": "North Coast Music Festival 2026 - NCMF",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c97a0585c62688d5604c2d80e",
-     "followers": 1890,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c97a0585c62688d5604c2d80e",
+     "followers": 1894,
      "spans": [
       {
        "cc": "",
@@ -11166,8 +11171,8 @@
      "dsp": "spotify",
      "id": "7ngnwBM3ZVC6rkaWcm9iGx",
      "name": "CHICAGO HOUSE 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a75142e79720cfa16fe88b07",
-     "followers": 946,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca75142e79720cfa16fe88b07",
+     "followers": 947,
      "spans": [
       {
        "cc": "",
@@ -11198,7 +11203,7 @@
      "dsp": "spotify",
      "id": "5bv3VA8EmVQjWYbVogAxgG",
      "name": "Amsterdam ADE 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce7c86cad06482befc77a9354",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84e7c86cad06482befc77a9354",
      "followers": 851,
      "spans": [
       {
@@ -11214,8 +11219,8 @@
      "dsp": "spotify",
      "id": "6gK0zx5g01L7cZ0zLnAdod",
      "name": "Tal's NMF Picks",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c6536d6f8f67a8a9e055bfc4d",
-     "followers": 731,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6536d6f8f67a8a9e055bfc4d",
+     "followers": 733,
      "spans": [
       {
        "cc": "",
@@ -11246,14 +11251,14 @@
      "dsp": "spotify",
      "id": "6kB3M3s9xyrLvl6tR9SvDm",
      "name": "Dance",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb6209aaec4cd56119da78a51",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb6209aaec4cd56119da78a51",
      "followers": 519,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-03",
        "removed_at": null,
-       "position": 158
+       "position": 209
       }
      ],
      "kind": "independent"
@@ -11295,7 +11300,7 @@
      "id": "1NWNLSB4ALkowA5k8OqKFM",
      "name": "Music Discovery",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8428804b5725a623f1d17dad82",
-     "followers": 487,
+     "followers": 486,
      "spans": [
       {
        "cc": "",
@@ -11310,7 +11315,7 @@
      "dsp": "spotify",
      "id": "3WdavSckFNowy24vibOLwT",
      "name": "Selected by Erick T",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c84c5415d9cf537b1eea28226",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c84c5415d9cf537b1eea28226",
      "followers": 434,
      "spans": [
       {
@@ -11326,8 +11331,8 @@
      "dsp": "spotify",
      "id": "4JPKSdg56MmCSt5vHQ5QRt",
      "name": "Ministry of Sound | The Annual 2027",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8432edf15d730a0094ff5b428f",
-     "followers": 367,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c32edf15d730a0094ff5b428f",
+     "followers": 375,
      "spans": [
       {
        "cc": "",
@@ -11342,7 +11347,7 @@
      "dsp": "spotify",
      "id": "6hTM3pUr3vwN3q3M9ac9Kw",
      "name": "House",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cc430a04187abdd274e28b401",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cc430a04187abdd274e28b401",
      "followers": 329,
      "spans": [
       {
@@ -11520,13 +11525,18 @@
      "date": "2026-11-15",
      "daily": 297,
      "total": 10622
+    },
+    {
+     "date": "2026-11-16",
+     "daily": 299,
+     "total": 10921
     }
    ],
    "shazams": []
   },
   "GBLV62609990": {
    "isrc": "GBLV62609990",
-   "synced_at": "2026-11-19T15:42:17+00:00",
+   "synced_at": "2026-11-20T15:24:06+00:00",
    "errors": [],
    "meta": {
     "name": "Need I Say More",
@@ -11554,7 +11564,7 @@
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
-     "followers": 105628,
+     "followers": 105626,
      "spans": [
       {
        "cc": "",
@@ -11569,14 +11579,14 @@
      "dsp": "spotify",
      "id": "5LiofJ2vjsHmgzBL0eD6HX",
      "name": "House & Techno Music 2026 🎧 ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84261f84ebefc99be06788cde9",
-     "followers": 56579,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c261f84ebefc99be06788cde9",
+     "followers": 56578,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 30
+       "position": 31
       }
      ],
      "kind": "independent"
@@ -11585,8 +11595,8 @@
      "dsp": "spotify",
      "id": "7m2GBDQiFuLUxdF5l92SVs",
      "name": "Electronic Sunrise 🌞🌴 | Dance Pop, Ibiza Chillout, Deep House, Dance, Summer, Ibiza",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb3a1ca10ae028ccdfa5f9321",
-     "followers": 52871,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb3a1ca10ae028ccdfa5f9321",
+     "followers": 52872,
      "spans": [
       {
        "cc": "",
@@ -11602,13 +11612,13 @@
      "id": "7JHSHYiU3AuxrVnL1BeYzp",
      "name": "Car & Driving Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6774adffeb302e084f2da480",
-     "followers": 31490,
+     "followers": 31499,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-05",
        "removed_at": null,
-       "position": 580
+       "position": 617
       }
      ],
      "kind": "independent"
@@ -11618,13 +11628,13 @@
      "id": "5Gu206tFWsihUs0nTKpXFh",
      "name": "House Party 2026",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cd28a8e7a387f45ef230f45bc",
-     "followers": 25731,
+     "followers": 25730,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 29
+       "position": 38
       }
      ],
      "kind": "independent"
@@ -11633,8 +11643,8 @@
      "dsp": "spotify",
      "id": "5kyDTxrXdC6Qal62iEO5Ty",
      "name": "New House Music Friday",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9137bec6ee783019be3d3a7b",
-     "followers": 23120,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c9137bec6ee783019be3d3a7b",
+     "followers": 23122,
      "spans": [
       {
        "cc": "",
@@ -11649,8 +11659,8 @@
      "dsp": "spotify",
      "id": "1YzEPnT8jOyyaxpCHyI6so",
      "name": "Definitive Classic House",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8469564d342c5f405c3ed36949",
-     "followers": 22746,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c69564d342c5f405c3ed36949",
+     "followers": 22767,
      "spans": [
       {
        "cc": "",
@@ -11665,14 +11675,14 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 12
+       "position": 16
       }
      ],
      "kind": "independent"
@@ -11681,8 +11691,8 @@
      "dsp": "spotify",
      "id": "0Q4JvzeT0q3FLsj5fqffMV",
      "name": "Beatport Top 100 - Today",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c13eefd3fa0824de200fa2ba3",
-     "followers": 20186,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8413eefd3fa0824de200fa2ba3",
+     "followers": 20177,
      "spans": [
       {
        "cc": "",
@@ -11697,14 +11707,14 @@
      "dsp": "spotify",
      "id": "6UoRPw77RjifgKdN7jB84h",
      "name": "Club House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
-     "followers": 18507,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
+     "followers": 18513,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-05",
        "removed_at": null,
-       "position": 541
+       "position": 576
       }
      ],
      "kind": "independent"
@@ -11713,8 +11723,8 @@
      "dsp": "spotify",
      "id": "1t6WIWuz8XXBk9Svkivme3",
      "name": "Car Music 2026 🚗🔊 - Bass Boosted EDM & Driving Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da846d5fb2e072cabe475e4d09f3",
-     "followers": 18021,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6d5fb2e072cabe475e4d09f3",
+     "followers": 18032,
      "spans": [
       {
        "cc": "",
@@ -11729,14 +11739,14 @@
      "dsp": "spotify",
      "id": "0yjI9AXON9ZdzRFsWQ0710",
      "name": "New Best Artists",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c15f30180662613a700ca74f7",
-     "followers": 16696,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415f30180662613a700ca74f7",
+     "followers": 16701,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-05",
        "removed_at": null,
-       "position": 510
+       "position": 542
       }
      ],
      "kind": "independent"
@@ -11746,13 +11756,13 @@
      "id": "4xLGR5cEKvIkgNlgFdLgRo",
      "name": "Dance Party",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8468b70a20f898fa360e644901",
-     "followers": 14800,
+     "followers": 14804,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-05",
        "removed_at": null,
-       "position": 317
+       "position": 349
       }
      ],
      "kind": "independent"
@@ -11762,7 +11772,7 @@
      "id": "436p5sa0ecnkaB5twylGlO",
      "name": "Play Nice | Poppin' Beats",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1989a5457fa77bc1f2ed1e70",
-     "followers": 12715,
+     "followers": 12713,
      "spans": [
       {
        "cc": "",
@@ -11793,8 +11803,8 @@
      "dsp": "spotify",
      "id": "0feU0JFrJ5DgNjrdRpkaTT",
      "name": "HOUSE MUSIC SELECTION 2027 WWW.TRACK-SWAP.COM",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84cf7eba8afaec7823076777d5",
-     "followers": 12147,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ccf7eba8afaec7823076777d5",
+     "followers": 12149,
      "spans": [
       {
        "cc": "",
@@ -11809,7 +11819,7 @@
      "dsp": "spotify",
      "id": "7AW2k6LNqmOACWfkxi9gzs",
      "name": "Future Sounds - Tech House / Melodic Techno",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c352758e277cba8457461b4bc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c352758e277cba8457461b4bc",
      "followers": 9813,
      "spans": [
       {
@@ -11826,7 +11836,7 @@
      "id": "5F13KTaxemrVfpPtJLXuv4",
      "name": "Dance Music Friday | Ministry of Sound",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3de60022f6f52a97233a394f",
-     "followers": 8600,
+     "followers": 8599,
      "spans": [
       {
        "cc": "",
@@ -11842,7 +11852,7 @@
      "id": "7rBFl3U6eF1iLGBynZdY5F",
      "name": "Hed Kandi Beach House 2026",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c03f238550c62ce87432db227",
-     "followers": 8284,
+     "followers": 8286,
      "spans": [
       {
        "cc": "",
@@ -11857,7 +11867,7 @@
      "dsp": "spotify",
      "id": "6gGJFshQvzJmyBCctCnmTS",
      "name": "KIFFIX | Elevation",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
      "followers": 7774,
      "spans": [
       {
@@ -11874,7 +11884,7 @@
      "id": "54aXqW2RTp8DDZinfbFX7F",
      "name": "Limitless Beats! Lato Network ",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da841f3dd6e1b1a171c5359edd85",
-     "followers": 6673,
+     "followers": 6672,
      "spans": [
       {
        "cc": "",
@@ -11905,7 +11915,7 @@
      "dsp": "spotify",
      "id": "1RhKAC60GppzY6cprZUIkJ",
      "name": "Jacked | Best House & EDM | 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
      "followers": 6203,
      "spans": [
       {
@@ -11921,8 +11931,8 @@
      "dsp": "spotify",
      "id": "7xU48WL8ghUjcZ0xYyLsGW",
      "name": "Underground Disco House 2026 ✨🕺 (by Midnight City)",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da847c4a8b250b6ff48e4fc8b011",
-     "followers": 5846,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c7c4a8b250b6ff48e4fc8b011",
+     "followers": 5851,
      "spans": [
       {
        "cc": "",
@@ -11953,7 +11963,7 @@
      "dsp": "spotify",
      "id": "74cIDkQIwEQe7pg6atk4Mg",
      "name": "K-Nation",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c700c1da5b9c71d78db2e9440",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84700c1da5b9c71d78db2e9440",
      "followers": 5233,
      "spans": [
       {
@@ -11969,8 +11979,8 @@
      "dsp": "spotify",
      "id": "3ckPhD1SQgcacija1WNSAI",
      "name": "XXX Radio",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da840506e9a73645855397f46986",
-     "followers": 5041,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840506e9a73645855397f46986",
+     "followers": 5042,
      "spans": [
       {
        "cc": "",
@@ -12001,14 +12011,14 @@
      "dsp": "spotify",
      "id": "1r1yVWCB1vFwa7WwDIruzB",
      "name": "Underground House + Techno | Dan McKie",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb514f7837892fc50643de5c9",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb514f7837892fc50643de5c9",
      "followers": 3796,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-09",
        "removed_at": null,
-       "position": 8
+       "position": 9
       }
      ],
      "kind": "independent"
@@ -12017,7 +12027,7 @@
      "dsp": "spotify",
      "id": "2PxXdIzzm2Eg0VfaXhgfl3",
      "name": "Future Disco Friday",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a624168c8b1fa7cdf307ff90",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca624168c8b1fa7cdf307ff90",
      "followers": 3751,
      "spans": [
       {
@@ -12049,8 +12059,8 @@
      "dsp": "spotify",
      "id": "5AXXPKwCShVfZECQk1igN6",
      "name": "House Cat - Best & Latest House Music Releases ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c95ad4affc2bfe5a296c0c57d",
-     "followers": 3431,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c95ad4affc2bfe5a296c0c57d",
+     "followers": 3430,
      "spans": [
       {
        "cc": "",
@@ -12065,7 +12075,7 @@
      "dsp": "spotify",
      "id": "6Rb9g19X91Z5rHH5ZJf2P5",
      "name": "Premium Push! Lato Network ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8495eb73c212e9e3fd018bd07f",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c95eb73c212e9e3fd018bd07f",
      "followers": 3404,
      "spans": [
       {
@@ -12113,7 +12123,7 @@
      "dsp": "spotify",
      "id": "4ls8IrETPU4Ag7rYNN3UYk",
      "name": "New Music Friday Cratediggers",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
      "followers": 3137,
      "spans": [
       {
@@ -12129,7 +12139,7 @@
      "dsp": "spotify",
      "id": "4rdb0iJ7hZhqgBFpXHGVU6",
      "name": "ANTS Ushuaïa Ibiza 2026 | Andrea Oliva | Nic Fanciulli | Matthias Tanzmann | John Summit",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ccb14b969e1b00a0ef9c5056d",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84cb14b969e1b00a0ef9c5056d",
      "followers": 3098,
      "spans": [
       {
@@ -12146,7 +12156,7 @@
      "id": "1tDdi0QaPmUMAtXUVfz4zu",
      "name": "Kontor House Of House",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cc37a0758a3faeb018b6f56b2",
-     "followers": 2772,
+     "followers": 2773,
      "spans": [
       {
        "cc": "",
@@ -12177,7 +12187,7 @@
      "dsp": "spotify",
      "id": "50iZbYqBXGxIqShIaEx94d",
      "name": "DanceWeekly - New Dance Music 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
      "followers": 2228,
      "spans": [
       {
@@ -12200,7 +12210,7 @@
        "cc": "",
        "added_at": "2026-11-09",
        "removed_at": null,
-       "position": 5
+       "position": 6
       }
      ],
      "kind": "independent"
@@ -12209,7 +12219,7 @@
      "dsp": "spotify",
      "id": "3fX8nep9Gsg5W5FIO8pgvz",
      "name": "Riot EDM | EDM & House Music | New Music Friday 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c476e6465ab893ee97a1d56fc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84476e6465ab893ee97a1d56fc",
      "followers": 2025,
      "spans": [
       {
@@ -12225,7 +12235,7 @@
      "dsp": "spotify",
      "id": "0XhjQsPQDo3VIINOpjvDNu",
      "name": "KIFFIX | Breakout",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1eba5a3eb8afa7e601679b78",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841eba5a3eb8afa7e601679b78",
      "followers": 2016,
      "spans": [
       {
@@ -12273,7 +12283,7 @@
      "dsp": "spotify",
      "id": "3I6JzrzeDURclrN9091yqN",
      "name": "DANCE TO THE BEAT 2026 🤩",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84f99cccd5a551235c6f21096e",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf99cccd5a551235c6f21096e",
      "followers": 1549,
      "spans": [
       {
@@ -12321,8 +12331,8 @@
      "dsp": "spotify",
      "id": "7ngnwBM3ZVC6rkaWcm9iGx",
      "name": "CHICAGO HOUSE 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a75142e79720cfa16fe88b07",
-     "followers": 946,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca75142e79720cfa16fe88b07",
+     "followers": 947,
      "spans": [
       {
        "cc": "",
@@ -12367,10 +12377,26 @@
     },
     {
      "dsp": "spotify",
+     "id": "0iTd0ROVcTikJEhkqdrl9j",
+     "name": "High Blaze",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c3ff5330fe9d837fb60418f99",
+     "followers": 817,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-19",
+       "removed_at": null,
+       "position": 4
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
      "id": "6gK0zx5g01L7cZ0zLnAdod",
      "name": "Tal's NMF Picks",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c6536d6f8f67a8a9e055bfc4d",
-     "followers": 731,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6536d6f8f67a8a9e055bfc4d",
+     "followers": 733,
      "spans": [
       {
        "cc": "",
@@ -12385,7 +12411,7 @@
      "dsp": "spotify",
      "id": "7rcUTcSm42NG82kX0i7Uyd",
      "name": "Edible Inspirations",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da841497966f83ffe0b69a3a2b6c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1497966f83ffe0b69a3a2b6c",
      "followers": 717,
      "spans": [
       {
@@ -12440,7 +12466,7 @@
        "cc": "",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 10
+       "position": 13
       }
      ],
      "kind": "independent"
@@ -12450,7 +12476,7 @@
      "id": "1NWNLSB4ALkowA5k8OqKFM",
      "name": "Music Discovery",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8428804b5725a623f1d17dad82",
-     "followers": 487,
+     "followers": 486,
      "spans": [
       {
        "cc": "",
@@ -12465,8 +12491,8 @@
      "dsp": "spotify",
      "id": "3hMyWaOxg31s0LBv1qaXBB",
      "name": "Diego’s NMF",
-     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e023a5e6c130b6ca32c6e5e29ccab67616d00001e0259d090ee89f03b40cf38fe8aab67616d00001e026869e17656b5ce42adf90403ab67616d00001e028b27300924533e0637bd141d",
-     "followers": 432,
+     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e0236723d0a7c5357ea023eb607ab67616d00001e0261a259c90f7d94bea97a810fab67616d00001e027a9ba3881642ffa93a15c0c6ab67616d00001e02bf4e49bacea7ba5cb28807b2",
+     "followers": 435,
      "spans": [
       {
        "cc": "",
@@ -12520,7 +12546,7 @@
        "cc": "",
        "added_at": "2026-11-12",
        "removed_at": null,
-       "position": 19
+       "position": 25
       }
      ],
      "kind": "independent"
@@ -12530,7 +12556,7 @@
      "id": "5FU9z5HXyY8QG9vqVns4v1",
      "name": "Beatport Chart (BPC) 2026 Top 50 Week 47",
      "artwork": "https://mosaic.scdn.co/640/ab67616d00001e0234f018a0d63e85c934020795ab67616d00001e02a1822f067bbc55699e5722dcab67616d00001e02ab3ba1fe18f45a0ccbcd06aeab67616d00001e02d8a1711f6275c55d5f1de1ee",
-     "followers": 246,
+     "followers": 247,
      "spans": [
       {
        "cc": "",
@@ -12545,7 +12571,7 @@
      "dsp": "spotify",
      "id": "2TvNouDqsKRnM9buhCDLjA",
      "name": "French Deep House 🇫🇷",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c7829c1c99dffdf87b7be2680",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c7829c1c99dffdf87b7be2680",
      "followers": 153,
      "spans": [
       {
@@ -12561,7 +12587,7 @@
      "dsp": "spotify",
      "id": "1lhJH8KPLZjmIWcquZzQJA",
      "name": "Evan McGee - ESSENTIALS ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c38cd5905eccf02e39b24970b",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c38cd5905eccf02e39b24970b",
      "followers": 123,
      "spans": [
       {
@@ -12574,6 +12600,22 @@
      "kind": "independent"
     },
     {
+     "dsp": "spotify",
+     "id": "37i9dQZF1E8PuabXDgAuqt",
+     "name": "Street Player (ESSED Remix) Radio",
+     "artwork": "https://pickasso.spotifycdn.com/image/ab67c0de0000deef/dt/v1/img/radio/track/6TtVu3UO75uS0V9r2D1wgq/en",
+     "followers": 0,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "1970-01-01",
+       "removed_at": null,
+       "position": 14
+      }
+     ],
+     "kind": "editorial"
+    },
+    {
      "dsp": "apple",
      "id": "pl.54bae8c027e0481ba3ce364db2cb20bf",
      "name": "Club Disco",
@@ -12584,1027 +12626,1027 @@
        "cc": "AE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AI",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AL",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 6
+       "position": 8
       },
       {
        "cc": "AM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AU",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "AZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BB",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BF",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BH",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BJ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BS",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "BZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 10
       },
       {
        "cc": "CD",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CH",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CI",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CL",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CV",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "CZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "DE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "DK",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "DM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "DO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "DZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "EC",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "EE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "EG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ES",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "FI",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "FJ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "FM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "FR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GB",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GD",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GH",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "GY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "HK",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "HN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "HR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "HU",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ID",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "IE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "IL",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "IN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "IQ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "IS",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "IT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "JM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "JO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "JP",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KH",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "KZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LB",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LC",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LK",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LU",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LV",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "LY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MD",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ME",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MK",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ML",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MS",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MU",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MV",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MX",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "MZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NI",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NL",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NP",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "NZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "OM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "PA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "PE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "PG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "PH",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "PK",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 7
+       "position": 9
       },
       {
        "cc": "PL",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "PT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "PY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "QA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "RO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "RS",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "RU",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 8
+       "position": 10
       },
       {
        "cc": "RW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SB",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SC",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SI",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SK",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SL",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ST",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 7
+       "position": 9
       },
       {
        "cc": "SV",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "SZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TC",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TD",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TH",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TJ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TO",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TR",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TT",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "TZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "UA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "UG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "US",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "UY",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "UZ",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "VC",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "VE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "VG",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "VN",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "VU",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "XK",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "YE",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ZA",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ZM",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       },
       {
        "cc": "ZW",
        "added_at": "2026-11-06",
        "removed_at": null,
-       "position": 9
+       "position": 11
       }
      ],
      "kind": "editorial"
@@ -14976,13 +15018,18 @@
      "date": "2026-11-15",
      "daily": 559,
      "total": 7374
+    },
+    {
+     "date": "2026-11-16",
+     "daily": 633,
+     "total": 8007
     }
    ],
    "shazams": []
   },
   "GBLV62609991": {
    "isrc": "GBLV62609991",
-   "synced_at": "2026-11-19T15:43:25+00:00",
+   "synced_at": "2026-11-20T15:25:11+00:00",
    "errors": [],
    "meta": {
     "name": "Move Around",
@@ -15010,13 +15057,13 @@
      "id": "37i9dQZF1DXacX3REVaOqV",
      "name": "House Supreme",
      "artwork": "https://i.scdn.co/image/ab67706f00000002b69499cfbf7258b189df1b4e",
-     "followers": 499236,
+     "followers": 499239,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-12",
        "removed_at": null,
-       "position": 11
+       "position": 14
       }
      ],
      "kind": "editorial"
@@ -15026,7 +15073,7 @@
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
-     "followers": 105628,
+     "followers": 105626,
      "spans": [
       {
        "cc": "",
@@ -15042,7 +15089,7 @@
      "id": "5rvC6qEvW1Sc78gOjqsB0N",
      "name": "Dance Hits",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415c17194f3807b64568eb435",
-     "followers": 101514,
+     "followers": 101513,
      "spans": [
       {
        "cc": "",
@@ -15057,14 +15104,14 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 8
+       "position": 12
       }
      ],
      "kind": "independent"
@@ -15073,8 +15120,8 @@
      "dsp": "spotify",
      "id": "0Q4JvzeT0q3FLsj5fqffMV",
      "name": "Beatport Top 100 - Today",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c13eefd3fa0824de200fa2ba3",
-     "followers": 20186,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8413eefd3fa0824de200fa2ba3",
+     "followers": 20177,
      "spans": [
       {
        "cc": "",
@@ -15090,7 +15137,7 @@
      "id": "3MZYtB7bu6aLkt0XLMIzkg",
      "name": "DANCE FLOOR ESSENTIALS",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce3d273e123356928f0ef6fff",
-     "followers": 16668,
+     "followers": 16670,
      "spans": [
       {
        "cc": "",
@@ -15121,7 +15168,7 @@
      "dsp": "spotify",
      "id": "48cE3B9k3B64cfHAIXSouV",
      "name": "Best Tech House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da840c039d3cbaef2e45f0c0f9b4",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0c039d3cbaef2e45f0c0f9b4",
      "followers": 12248,
      "spans": [
       {
@@ -15137,7 +15184,7 @@
      "dsp": "spotify",
      "id": "6gGJFshQvzJmyBCctCnmTS",
      "name": "KIFFIX | Elevation",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
      "followers": 7774,
      "spans": [
       {
@@ -15153,7 +15200,7 @@
      "dsp": "spotify",
      "id": "1RhKAC60GppzY6cprZUIkJ",
      "name": "Jacked | Best House & EDM | 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
      "followers": 6203,
      "spans": [
       {
@@ -15169,8 +15216,8 @@
      "dsp": "spotify",
      "id": "7xU48WL8ghUjcZ0xYyLsGW",
      "name": "Underground Disco House 2026 ✨🕺 (by Midnight City)",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da847c4a8b250b6ff48e4fc8b011",
-     "followers": 5846,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c7c4a8b250b6ff48e4fc8b011",
+     "followers": 5851,
      "spans": [
       {
        "cc": "",
@@ -15201,14 +15248,14 @@
      "dsp": "spotify",
      "id": "1r1yVWCB1vFwa7WwDIruzB",
      "name": "Underground House + Techno | Dan McKie",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb514f7837892fc50643de5c9",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb514f7837892fc50643de5c9",
      "followers": 3796,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-09",
        "removed_at": null,
-       "position": 9
+       "position": 10
       }
      ],
      "kind": "independent"
@@ -15217,7 +15264,7 @@
      "dsp": "spotify",
      "id": "4ls8IrETPU4Ag7rYNN3UYk",
      "name": "New Music Friday Cratediggers",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
      "followers": 3137,
      "spans": [
       {
@@ -15233,7 +15280,7 @@
      "dsp": "spotify",
      "id": "50iZbYqBXGxIqShIaEx94d",
      "name": "DanceWeekly - New Dance Music 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
      "followers": 2228,
      "spans": [
       {
@@ -15256,7 +15303,7 @@
        "cc": "",
        "added_at": "2026-11-09",
        "removed_at": null,
-       "position": 17
+       "position": 18
       }
      ],
      "kind": "independent"
@@ -15265,7 +15312,7 @@
      "dsp": "spotify",
      "id": "3fX8nep9Gsg5W5FIO8pgvz",
      "name": "Riot EDM | EDM & House Music | New Music Friday 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c476e6465ab893ee97a1d56fc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84476e6465ab893ee97a1d56fc",
      "followers": 2025,
      "spans": [
       {
@@ -15281,7 +15328,7 @@
      "dsp": "spotify",
      "id": "0XhjQsPQDo3VIINOpjvDNu",
      "name": "KIFFIX | Breakout",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1eba5a3eb8afa7e601679b78",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841eba5a3eb8afa7e601679b78",
      "followers": 2016,
      "spans": [
       {
@@ -15313,7 +15360,7 @@
      "dsp": "spotify",
      "id": "7xA3JqaWV50TxgOzUaFd6l",
      "name": "Mason Collective // TMC Selects",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cbb895595d9b717ef629dd583",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84bb895595d9b717ef629dd583",
      "followers": 946,
      "spans": [
       {
@@ -15336,7 +15383,7 @@
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 7
+       "position": 10
       }
      ],
      "kind": "independent"
@@ -15361,8 +15408,8 @@
      "dsp": "spotify",
      "id": "3hMyWaOxg31s0LBv1qaXBB",
      "name": "Diego’s NMF",
-     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e023a5e6c130b6ca32c6e5e29ccab67616d00001e0259d090ee89f03b40cf38fe8aab67616d00001e026869e17656b5ce42adf90403ab67616d00001e028b27300924533e0637bd141d",
-     "followers": 432,
+     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e0236723d0a7c5357ea023eb607ab67616d00001e0261a259c90f7d94bea97a810fab67616d00001e027a9ba3881642ffa93a15c0c6ab67616d00001e02bf4e49bacea7ba5cb28807b2",
+     "followers": 435,
      "spans": [
       {
        "cc": "",
@@ -15377,7 +15424,7 @@
      "dsp": "spotify",
      "id": "22KwMxtrIfgsdWlUqGDujM",
      "name": "Beatport Top 100 - Jackin House",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c5e6007191cc6c4b8e3b779be",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c40e87cc2da7679c0c6821b27",
      "followers": 427,
      "spans": [
       {
@@ -15394,7 +15441,7 @@
      "id": "5FU9z5HXyY8QG9vqVns4v1",
      "name": "Beatport Chart (BPC) 2026 Top 50 Week 47",
      "artwork": "https://mosaic.scdn.co/640/ab67616d00001e0234f018a0d63e85c934020795ab67616d00001e02a1822f067bbc55699e5722dcab67616d00001e02ab3ba1fe18f45a0ccbcd06aeab67616d00001e02d8a1711f6275c55d5f1de1ee",
-     "followers": 246,
+     "followers": 247,
      "spans": [
       {
        "cc": "",
@@ -15472,13 +15519,18 @@
      "date": "2026-11-15",
      "daily": 590,
      "total": 6438
+    },
+    {
+     "date": "2026-11-16",
+     "daily": 591,
+     "total": 7029
     }
    ],
    "shazams": []
   },
   "GBLV62609992": {
    "isrc": "GBLV62609992",
-   "synced_at": "2026-11-19T15:45:18+00:00",
+   "synced_at": "2026-11-20T15:27:07+00:00",
    "errors": [],
    "meta": {
     "name": "Right There",
@@ -15506,13 +15558,13 @@
      "id": "3lk0oO9FXemt7o3MsCDEGQ",
      "name": "House Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf6752453e64e8b07bfeaf16c",
-     "followers": 105628,
+     "followers": 105626,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-10",
        "removed_at": null,
-       "position": 25
+       "position": 33
       }
      ],
      "kind": "independent"
@@ -15522,7 +15574,7 @@
      "id": "3MZYtB7bu6aLkt0XLMIzkg",
      "name": "DANCE FLOOR ESSENTIALS",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce3d273e123356928f0ef6fff",
-     "followers": 16668,
+     "followers": 16670,
      "spans": [
       {
        "cc": "",
@@ -15537,7 +15589,7 @@
      "dsp": "spotify",
      "id": "7AW2k6LNqmOACWfkxi9gzs",
      "name": "Future Sounds - Tech House / Melodic Techno",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c352758e277cba8457461b4bc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c352758e277cba8457461b4bc",
      "followers": 9813,
      "spans": [
       {
@@ -15553,7 +15605,7 @@
      "dsp": "spotify",
      "id": "6gGJFshQvzJmyBCctCnmTS",
      "name": "KIFFIX | Elevation",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
      "followers": 7774,
      "spans": [
       {
@@ -15569,7 +15621,7 @@
      "dsp": "spotify",
      "id": "1RhKAC60GppzY6cprZUIkJ",
      "name": "Jacked | Best House & EDM | 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
      "followers": 6203,
      "spans": [
       {
@@ -15601,14 +15653,14 @@
      "dsp": "spotify",
      "id": "1r1yVWCB1vFwa7WwDIruzB",
      "name": "Underground House + Techno | Dan McKie",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cb514f7837892fc50643de5c9",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb514f7837892fc50643de5c9",
      "followers": 3796,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-09",
        "removed_at": null,
-       "position": 10
+       "position": 11
       }
      ],
      "kind": "independent"
@@ -15633,7 +15685,7 @@
      "dsp": "spotify",
      "id": "4ls8IrETPU4Ag7rYNN3UYk",
      "name": "New Music Friday Cratediggers",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
      "followers": 3137,
      "spans": [
       {
@@ -15665,7 +15717,7 @@
      "dsp": "spotify",
      "id": "50iZbYqBXGxIqShIaEx94d",
      "name": "DanceWeekly - New Dance Music 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
      "followers": 2228,
      "spans": [
       {
@@ -15688,7 +15740,7 @@
        "cc": "",
        "added_at": "2026-11-09",
        "removed_at": null,
-       "position": 18
+       "position": 19
       }
      ],
      "kind": "independent"
@@ -15697,7 +15749,7 @@
      "dsp": "spotify",
      "id": "3fX8nep9Gsg5W5FIO8pgvz",
      "name": "Riot EDM | EDM & House Music | New Music Friday 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c476e6465ab893ee97a1d56fc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84476e6465ab893ee97a1d56fc",
      "followers": 2025,
      "spans": [
       {
@@ -15713,7 +15765,7 @@
      "dsp": "spotify",
      "id": "0XhjQsPQDo3VIINOpjvDNu",
      "name": "KIFFIX | Breakout",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1eba5a3eb8afa7e601679b78",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841eba5a3eb8afa7e601679b78",
      "followers": 2016,
      "spans": [
       {
@@ -15761,8 +15813,8 @@
      "dsp": "spotify",
      "id": "3hMyWaOxg31s0LBv1qaXBB",
      "name": "Diego’s NMF",
-     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e023a5e6c130b6ca32c6e5e29ccab67616d00001e0259d090ee89f03b40cf38fe8aab67616d00001e026869e17656b5ce42adf90403ab67616d00001e028b27300924533e0637bd141d",
-     "followers": 432,
+     "artwork": "https://mosaic.scdn.co/640/ab67616d00001e0236723d0a7c5357ea023eb607ab67616d00001e0261a259c90f7d94bea97a810fab67616d00001e027a9ba3881642ffa93a15c0c6ab67616d00001e02bf4e49bacea7ba5cb28807b2",
+     "followers": 435,
      "spans": [
       {
        "cc": "",
@@ -15778,7 +15830,7 @@
      "id": "5FU9z5HXyY8QG9vqVns4v1",
      "name": "Beatport Chart (BPC) 2026 Top 50 Week 47",
      "artwork": "https://mosaic.scdn.co/640/ab67616d00001e0234f018a0d63e85c934020795ab67616d00001e02a1822f067bbc55699e5722dcab67616d00001e02ab3ba1fe18f45a0ccbcd06aeab67616d00001e02d8a1711f6275c55d5f1de1ee",
-     "followers": 246,
+     "followers": 247,
      "spans": [
       {
        "cc": "",
@@ -15856,13 +15908,18 @@
      "date": "2026-11-15",
      "daily": 287,
      "total": 4500
+    },
+    {
+     "date": "2026-11-16",
+     "daily": 278,
+     "total": 4778
     }
    ],
    "shazams": []
   },
   "SE3T62602701": {
    "isrc": "SE3T62602701",
-   "synced_at": "2026-11-19T15:46:24+00:00",
+   "synced_at": "2026-11-20T15:28:12+00:00",
    "errors": [],
    "meta": {
     "name": "Black Sun White Noise - Adam Rickfors Remix",
@@ -15888,14 +15945,14 @@
      "dsp": "spotify",
      "id": "5Udnh472z0CeexGPSpdIw9",
      "name": "TikTok Party Songs 2026 🎉 Popular Party Songs",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84db498f5c41a5fc32db088c0e",
-     "followers": 733042,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cdb498f5c41a5fc32db088c0e",
+     "followers": 733006,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 22
+       "position": 23
       }
      ],
      "kind": "independent"
@@ -15905,7 +15962,7 @@
      "id": "5rvC6qEvW1Sc78gOjqsB0N",
      "name": "Dance Hits",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415c17194f3807b64568eb435",
-     "followers": 101514,
+     "followers": 101513,
      "spans": [
       {
        "cc": "",
@@ -15921,7 +15978,7 @@
      "id": "6n9ku24WgdidSEugbHD7sT",
      "name": "EDM DANCE HITS🔥2026🌞 FESTIVAL & CLUB VIBES",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c761e900a11c541212ea66b2c",
-     "followers": 67692,
+     "followers": 67699,
      "spans": [
       {
        "cc": "",
@@ -15934,10 +15991,26 @@
     },
     {
      "dsp": "spotify",
+     "id": "52rap28FDiSGMxkrFZOia0",
+     "name": "House Songs 🎉 Best Dance House 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c36e81808f3aefe6a9319c561",
+     "followers": 55132,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 3
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
      "id": "2ZMACy1lzHY6RXfZt9V6xS",
      "name": "Afro Hits 2026 ☀️🌴 Top 100 ☮️ ",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c4a463f513fdc629520b5d5e5",
-     "followers": 51400,
+     "followers": 51483,
      "spans": [
       {
        "cc": "",
@@ -15952,14 +16025,14 @@
      "dsp": "spotify",
      "id": "3BsJymCvGFJrNYPt6Vy7cx",
      "name": "All About House 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da842abc4149a259f6e0357cc886",
-     "followers": 45506,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c2abc4149a259f6e0357cc886",
+     "followers": 45534,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-12",
        "removed_at": null,
-       "position": 17
+       "position": 18
       }
      ],
      "kind": "independent"
@@ -15969,13 +16042,13 @@
      "id": "7JHSHYiU3AuxrVnL1BeYzp",
      "name": "Car & Driving Music",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6774adffeb302e084f2da480",
-     "followers": 31490,
+     "followers": 31499,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 677
+       "position": 714
       }
      ],
      "kind": "independent"
@@ -15984,7 +16057,7 @@
      "dsp": "spotify",
      "id": "32hLUCH0B9At8gN9dBAkk8",
      "name": "Hybrid Trap Music 🔥 Gaming Playlist & Workout Radio | TVBOO Hot!",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8476e3038333ba6935f6fce385",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8476e3038333ba6935f6fce385",
      "followers": 31364,
      "spans": [
       {
@@ -16001,7 +16074,7 @@
      "id": "7JHfOdUVhOTLqSRglkp3aL",
      "name": "Hot New Dance 2026 | Let's Dance",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca7357da447864e909e397dc7",
-     "followers": 29782,
+     "followers": 29779,
      "spans": [
       {
        "cc": "",
@@ -16016,8 +16089,8 @@
      "dsp": "spotify",
      "id": "2Jd9mPosVnk90xWXMdyTrG",
      "name": "🦁️ The Lion's House ",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415c2892e8be029b7162526a9",
-     "followers": 24488,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c15c2892e8be029b7162526a9",
+     "followers": 24490,
      "spans": [
       {
        "cc": "",
@@ -16048,14 +16121,14 @@
      "dsp": "spotify",
      "id": "0VdiJdAETXf3BEJjQQnA0X",
      "name": "FUNKY DISCO HOUSE ",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84e6d3c435a9ad8bcd5cab37f9",
-     "followers": 22998,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ce6d3c435a9ad8bcd5cab37f9",
+     "followers": 23024,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-11",
        "removed_at": null,
-       "position": 44
+       "position": 46
       }
      ],
      "kind": "independent"
@@ -16064,14 +16137,14 @@
      "dsp": "spotify",
      "id": "19u1qiXMgcvE6C5ywbuwfq",
      "name": "Dance Hits",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8493f6ad634d2b1e98681657e6",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c93f6ad634d2b1e98681657e6",
      "followers": 22227,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 5
+       "position": 9
       }
      ],
      "kind": "independent"
@@ -16081,7 +16154,7 @@
      "id": "3JJSkagpKQLLoqb26dl9Z7",
      "name": "EDM Vibes 2027 💃 Electronic & House Music | Danny Snowden",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c777905c81a54b6797770b26b",
-     "followers": 21101,
+     "followers": 21102,
      "spans": [
       {
        "cc": "",
@@ -16096,14 +16169,14 @@
      "dsp": "spotify",
      "id": "5tkTcwEqlgLSalQnl11ZYE",
      "name": "Won't STOP dancing 🕺💃",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c13f46b6282d8822376a78ed9",
-     "followers": 19897,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c13f46b6282d8822376a78ed9",
+     "followers": 19955,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 15
+       "position": 16
       }
      ],
      "kind": "independent"
@@ -16112,14 +16185,14 @@
      "dsp": "spotify",
      "id": "6UoRPw77RjifgKdN7jB84h",
      "name": "Club House Music",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
-     "followers": 18507,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da843eda70546ba7b0c657752138",
+     "followers": 18513,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 641
+       "position": 676
       }
      ],
      "kind": "independent"
@@ -16128,14 +16201,14 @@
      "dsp": "spotify",
      "id": "1t6WIWuz8XXBk9Svkivme3",
      "name": "Car Music 2026 🚗🔊 - Bass Boosted EDM & Driving Hits",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da846d5fb2e072cabe475e4d09f3",
-     "followers": 18021,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c6d5fb2e072cabe475e4d09f3",
+     "followers": 18032,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 17
+       "position": 18
       }
      ],
      "kind": "independent"
@@ -16144,14 +16217,14 @@
      "dsp": "spotify",
      "id": "4KClLpDJJrLMoNFB1iEnL0",
      "name": "House Music Sounds",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cca4a1e0b33dc99399fa380b7",
-     "followers": 16727,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84ca4a1e0b33dc99399fa380b7",
+     "followers": 16732,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-11",
        "removed_at": null,
-       "position": 36
+       "position": 42
       }
      ],
      "kind": "independent"
@@ -16160,14 +16233,14 @@
      "dsp": "spotify",
      "id": "0yjI9AXON9ZdzRFsWQ0710",
      "name": "New Best Artists",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c15f30180662613a700ca74f7",
-     "followers": 16696,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8415f30180662613a700ca74f7",
+     "followers": 16701,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 608
+       "position": 640
       }
      ],
      "kind": "independent"
@@ -16177,7 +16250,7 @@
      "id": "3IYpUC5bEQZ2dyCh7YW9VQ",
      "name": "House  Bangers - 2026",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cad70faf93388c4a3021f5555",
-     "followers": 15852,
+     "followers": 15868,
      "spans": [
       {
        "cc": "",
@@ -16193,13 +16266,13 @@
      "id": "4xLGR5cEKvIkgNlgFdLgRo",
      "name": "Dance Party",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8468b70a20f898fa360e644901",
-     "followers": 14800,
+     "followers": 14804,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 415
+       "position": 447
       }
      ],
      "kind": "independent"
@@ -16256,8 +16329,8 @@
      "dsp": "spotify",
      "id": "0tgUXK3n6jFR44yG15zzqF",
      "name": "Bass Music & Dubstep 2026 👽| richard finger",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8432704d0f2fddded9cdd5c660",
-     "followers": 9426,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8432704d0f2fddded9cdd5c660",
+     "followers": 9427,
      "spans": [
       {
        "cc": "",
@@ -16272,8 +16345,8 @@
      "dsp": "spotify",
      "id": "2U2bKKuu3bxceH2PBw1r4h",
      "name": "Future Bass Music",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c849eb1a09b2f3dda144bdbe6",
-     "followers": 9409,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c849eb1a09b2f3dda144bdbe6",
+     "followers": 9408,
      "spans": [
       {
        "cc": "",
@@ -16289,13 +16362,13 @@
      "id": "7JfArlbY36KqstXVJFoJZB",
      "name": "New Dance Music Friday",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a9a4e3f1b728ead1a62ee998",
-     "followers": 9356,
+     "followers": 9353,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 32
+       "position": 33
       }
      ],
      "kind": "independent"
@@ -16304,8 +16377,8 @@
      "dsp": "spotify",
      "id": "67qKV4gSyaWZ915Jbg7FKz",
      "name": "Electronic Sunshine 🌞",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c96cbf82d02ef8a1072318858",
-     "followers": 9242,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c96cbf82d02ef8a1072318858",
+     "followers": 9243,
      "spans": [
       {
        "cc": "",
@@ -16336,7 +16409,7 @@
      "dsp": "spotify",
      "id": "6gGJFshQvzJmyBCctCnmTS",
      "name": "KIFFIX | Elevation",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c384cde8dc1e884a483da9d20",
      "followers": 7774,
      "spans": [
       {
@@ -16368,7 +16441,7 @@
      "dsp": "spotify",
      "id": "0lUKOoMgnzN4dQPc7HQH88",
      "name": "house music like you're in a vintage store",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c40249ddede8c3d1cb006d284",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8440249ddede8c3d1cb006d284",
      "followers": 6449,
      "spans": [
       {
@@ -16384,7 +16457,7 @@
      "dsp": "spotify",
      "id": "1RhKAC60GppzY6cprZUIkJ",
      "name": "Jacked | Best House & EDM | 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca2ce9bd79059908b14f8b2bd",
      "followers": 6203,
      "spans": [
       {
@@ -16417,7 +16490,7 @@
      "id": "1kRapSDBxv7TcooXtk7DxN",
      "name": "Jackin Disco House 2026",
      "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cf901bdea42aa09a252f47003",
-     "followers": 5512,
+     "followers": 5515,
      "spans": [
       {
        "cc": "",
@@ -16464,7 +16537,7 @@
      "dsp": "spotify",
      "id": "4Sbeek087KWj6JzRlorjNB",
      "name": "Sunset Vibes",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c830b5eb402b3edb426f1da91",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c830b5eb402b3edb426f1da91",
      "followers": 3285,
      "spans": [
       {
@@ -16519,7 +16592,7 @@
        "cc": "",
        "added_at": "2026-11-15",
        "removed_at": null,
-       "position": 11
+       "position": 12
       }
      ],
      "kind": "independent"
@@ -16528,7 +16601,7 @@
      "dsp": "spotify",
      "id": "50iZbYqBXGxIqShIaEx94d",
      "name": "DanceWeekly - New Dance Music 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c45d5d2c34fb5eeb667a17d8c",
      "followers": 2228,
      "spans": [
       {
@@ -16544,7 +16617,7 @@
      "dsp": "spotify",
      "id": "3fX8nep9Gsg5W5FIO8pgvz",
      "name": "Riot EDM | EDM & House Music | New Music Friday 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c476e6465ab893ee97a1d56fc",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84476e6465ab893ee97a1d56fc",
      "followers": 2025,
      "spans": [
       {
@@ -16560,7 +16633,7 @@
      "dsp": "spotify",
      "id": "0XhjQsPQDo3VIINOpjvDNu",
      "name": "KIFFIX | Breakout",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1eba5a3eb8afa7e601679b78",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da841eba5a3eb8afa7e601679b78",
      "followers": 2016,
      "spans": [
       {
@@ -16592,7 +16665,7 @@
      "dsp": "spotify",
      "id": "3GhX8hHAWcenYzjEH58o9g",
      "name": "UPLIFTING HOUSE 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8b27de6210aad8857f9cbb34",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da848b27de6210aad8857f9cbb34",
      "followers": 1503,
      "spans": [
       {
@@ -16624,8 +16697,8 @@
      "dsp": "spotify",
      "id": "5rqQwCXvUYaNrOypPb5Hia",
      "name": "Ibiza 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1b21d92448f3be0e674dd9ab",
-     "followers": 1156,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c1b21d92448f3be0e674dd9ab",
+     "followers": 1157,
      "spans": [
       {
        "cc": "",
@@ -16672,7 +16745,7 @@
      "dsp": "spotify",
      "id": "7rcUTcSm42NG82kX0i7Uyd",
      "name": "Edible Inspirations",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da841497966f83ffe0b69a3a2b6c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c1497966f83ffe0b69a3a2b6c",
      "followers": 717,
      "spans": [
       {
@@ -16695,7 +16768,7 @@
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 4
+       "position": 7
       }
      ],
      "kind": "independent"
@@ -16704,7 +16777,7 @@
      "dsp": "spotify",
      "id": "6hTM3pUr3vwN3q3M9ac9Kw",
      "name": "House",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cc430a04187abdd274e28b401",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cc430a04187abdd274e28b401",
      "followers": 329,
      "spans": [
       {
@@ -16715,6 +16788,22 @@
       }
      ],
      "kind": "independent"
+    },
+    {
+     "dsp": "deezer",
+     "id": "9002582642",
+     "name": "Feel Good House",
+     "artwork": "https://cdn-images.dzcdn.net/images/playlist/ed8099e96556b601a15fac2cd1f676ae/500x500-000000-80-0-0.jpg",
+     "followers": 16400,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 38
+      }
+     ],
+     "kind": null
     },
     {
      "dsp": "deezer",
@@ -16774,6 +16863,11 @@
      "date": "2026-11-15",
      "daily": 560,
      "total": 1719
+    },
+    {
+     "date": "2026-11-16",
+     "daily": 609,
+     "total": 2328
     }
    ],
    "shazams": []
