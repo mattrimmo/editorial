@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T15:29:17+00:00",
+ "generated_at": "2026-11-20T16:30:07+00:00",
  "records": {
   "QMFMF2607528": {
    "isrc": "QMFMF2607528",
@@ -16870,6 +16870,278 @@
      "total": 2328
     }
    ],
+   "shazams": []
+  },
+  "QMFMG2603936": {
+   "isrc": "QMFMG2603936",
+   "synced_at": "2026-11-20T16:29:00+00:00",
+   "errors": [],
+   "meta": {
+    "name": "Follow - Mathame 1999 Remix",
+    "artists": [
+     "Mathame",
+     "Bonn"
+    ],
+    "release_date": "2026-11-20",
+    "artwork": "https://i.scdn.co/image/ab67616d0000b27358b618a100530c0dd0249958",
+    "links": {
+     "spotify": [
+      "https://open.spotify.com/track/2IOAWf6sSb6QCHlf7ZNfQV"
+     ],
+     "apple": [],
+     "deezer": [],
+     "shazam": []
+    }
+   },
+   "placements": [
+    {
+     "dsp": "spotify",
+     "id": "37i9dQZF1DXa41CMuUARjl",
+     "name": "All New Dance",
+     "artwork": "https://i.scdn.co/image/ab67706f000000028d9bd37b9d12a9d7f561718c",
+     "followers": 578694,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 110
+      }
+     ],
+     "kind": "editorial"
+    },
+    {
+     "dsp": "spotify",
+     "id": "4tNbsQ5rxtLLwTPiVUxiz2",
+     "name": "WINTER SELECTION 2027 WWW.TRACK-SWAP.COM",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c7ecd8202c276ac8e39149cb0",
+     "followers": 28450,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 10
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "69WI1EYhCyop1JWowR9wq5",
+     "name": "NEW EDM FRIDAY 🔥",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da843885b727bb72b371e620a5df",
+     "followers": 24048,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 44
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5kyDTxrXdC6Qal62iEO5Ty",
+     "name": "New House Music Friday",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c9137bec6ee783019be3d3a7b",
+     "followers": 23130,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 113
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "0S0cuX8pnvmF7gA47Eu63M",
+     "name": "New EDM This Week - New EDM 2027 - New Dance Music",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da848c1204533ded05737456f609",
+     "followers": 13987,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 30
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "2LVh8rHGisSis48ojsWeNO",
+     "name": "Edmtrain's New Music Weekly",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da8402061aefba4b3aaa21742116",
+     "followers": 9251,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 176
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5F13KTaxemrVfpPtJLXuv4",
+     "name": "Dance Music Friday | Ministry of Sound",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da843de60022f6f52a97233a394f",
+     "followers": 8598,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 39
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "1PysT5HQ1hkH7HrQ5rRpLa",
+     "name": "New Dance Music Friday, New Music Friday Dance 2026",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c7e009bc38850be729fde7284",
+     "followers": 5072,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 59
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "5AXXPKwCShVfZECQk1igN6",
+     "name": "House Cat - Best & Latest House Music Releases ",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c95ad4affc2bfe5a296c0c57d",
+     "followers": 3430,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 79
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "6aYAiIdPeGpVcA3cPsO2JC",
+     "name": "Nieuwe Releases",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cc66f2cce83e9dfa6485acfe5",
+     "followers": 3239,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 31
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "78clz9racyMioC5w4MjJZr",
+     "name": "Miami 2026",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cba67371a1f30c555df8a6e94",
+     "followers": 2176,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 263
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "0sVOopWlxQmgqUWaIMtT1s",
+     "name": "New Music 2026 - Handpicked Release Radar",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c7cbb926518e317849f1192b0",
+     "followers": 1826,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-19",
+       "removed_at": null,
+       "position": 19
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "620eL4a9RJABPcIyO0jzVu",
+     "name": "NEW EDM 2026",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da849963fc33a5ecd1a3d727fcee",
+     "followers": 1341,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-19",
+       "removed_at": null,
+       "position": 17
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "2KQIkjH9YHSa88ibUACuf5",
+     "name": "NEW WEEKLY EDM 2026",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c89e70253696d6275969d83c2",
+     "followers": 1154,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 125
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "6kB3M3s9xyrLvl6tR9SvDm",
+     "name": "Dance",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cb6209aaec4cd56119da78a51",
+     "followers": 519,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 49
+      }
+     ],
+     "kind": "independent"
+    }
+   ],
+   "charts": {
+    "spotify": [],
+    "apple": [],
+    "deezer": [],
+    "shazam": []
+   },
+   "streams": [],
    "shazams": []
   }
  }
