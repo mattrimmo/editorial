@@ -1,10 +1,24 @@
 {
- "generated_at": "2026-11-22T14:38:54+00:00",
+ "generated_at": "2026-11-23T10:31:57+00:00",
  "records": {
   "QMFMF2607528": {
    "isrc": "QMFMF2607528",
-   "synced_at": "2026-11-22T14:29:37+00:00",
-   "errors": [],
+   "synced_at": "2026-11-23T10:31:05+00:00",
+   "errors": [
+    "metadata: /tracks/QMFMF2607528: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify current: /tracks/QMFMF2607528/spotify/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify removed: /tracks/QMFMF2607528/spotify/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple current: /tracks/QMFMF2607528/apple/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple removed: /tracks/QMFMF2607528/apple/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer current: /tracks/QMFMF2607528/deezer/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer removed: /tracks/QMFMF2607528/deezer/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify charts: /tracks/QMFMF2607528/spotify/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple charts: /tracks/QMFMF2607528/apple/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer charts: /tracks/QMFMF2607528/deezer/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazam charts: /tracks/QMFMF2607528/shazam/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify streams: /tracks/QMFMF2607528/spotify/streams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazams: /tracks/QMFMF2607528/shazam/shazams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width"
+   ],
    "meta": {
     "name": "Oh Baby",
     "artists": [
@@ -10484,8 +10498,22 @@
   },
   "GBLV62613006": {
    "isrc": "GBLV62613006",
-   "synced_at": "2026-11-22T14:30:43+00:00",
-   "errors": [],
+   "synced_at": "2026-11-23T10:31:14+00:00",
+   "errors": [
+    "metadata: /tracks/GBLV62613006: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify current: /tracks/GBLV62613006/spotify/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify removed: /tracks/GBLV62613006/spotify/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple current: /tracks/GBLV62613006/apple/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple removed: /tracks/GBLV62613006/apple/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer current: /tracks/GBLV62613006/deezer/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer removed: /tracks/GBLV62613006/deezer/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify charts: /tracks/GBLV62613006/spotify/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple charts: /tracks/GBLV62613006/apple/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer charts: /tracks/GBLV62613006/deezer/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazam charts: /tracks/GBLV62613006/shazam/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify streams: /tracks/GBLV62613006/spotify/streams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazams: /tracks/GBLV62613006/shazam/shazams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width"
+   ],
    "meta": {
     "name": "Mind Control",
     "artists": [
@@ -11588,8 +11616,22 @@
   },
   "GBLV62609990": {
    "isrc": "GBLV62609990",
-   "synced_at": "2026-11-22T14:31:48+00:00",
-   "errors": [],
+   "synced_at": "2026-11-23T10:31:21+00:00",
+   "errors": [
+    "metadata: /tracks/GBLV62609990: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify current: /tracks/GBLV62609990/spotify/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify removed: /tracks/GBLV62609990/spotify/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple current: /tracks/GBLV62609990/apple/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple removed: /tracks/GBLV62609990/apple/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer current: /tracks/GBLV62609990/deezer/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer removed: /tracks/GBLV62609990/deezer/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify charts: /tracks/GBLV62609990/spotify/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple charts: /tracks/GBLV62609990/apple/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer charts: /tracks/GBLV62609990/deezer/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazam charts: /tracks/GBLV62609990/shazam/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify streams: /tracks/GBLV62609990/spotify/streams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazams: /tracks/GBLV62609990/shazam/shazams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width"
+   ],
    "meta": {
     "name": "Need I Say More",
     "artists": [
@@ -15139,8 +15181,22 @@
   },
   "GBLV62609991": {
    "isrc": "GBLV62609991",
-   "synced_at": "2026-11-22T14:32:52+00:00",
-   "errors": [],
+   "synced_at": "2026-11-23T10:31:29+00:00",
+   "errors": [
+    "metadata: /tracks/GBLV62609991: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify current: /tracks/GBLV62609991/spotify/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify removed: /tracks/GBLV62609991/spotify/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple current: /tracks/GBLV62609991/apple/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple removed: /tracks/GBLV62609991/apple/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer current: /tracks/GBLV62609991/deezer/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer removed: /tracks/GBLV62609991/deezer/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify charts: /tracks/GBLV62609991/spotify/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple charts: /tracks/GBLV62609991/apple/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer charts: /tracks/GBLV62609991/deezer/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazam charts: /tracks/GBLV62609991/shazam/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify streams: /tracks/GBLV62609991/spotify/streams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazams: /tracks/GBLV62609991/shazam/shazams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width"
+   ],
    "meta": {
     "name": "Move Around",
     "artists": [
@@ -15698,8 +15754,22 @@
   },
   "GBLV62609992": {
    "isrc": "GBLV62609992",
-   "synced_at": "2026-11-22T14:34:49+00:00",
-   "errors": [],
+   "synced_at": "2026-11-23T10:31:36+00:00",
+   "errors": [
+    "metadata: /tracks/GBLV62609992: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify current: /tracks/GBLV62609992/spotify/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify removed: /tracks/GBLV62609992/spotify/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple current: /tracks/GBLV62609992/apple/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple removed: /tracks/GBLV62609992/apple/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer current: /tracks/GBLV62609992/deezer/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer removed: /tracks/GBLV62609992/deezer/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify charts: /tracks/GBLV62609992/spotify/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple charts: /tracks/GBLV62609992/apple/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer charts: /tracks/GBLV62609992/deezer/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazam charts: /tracks/GBLV62609992/shazam/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify streams: /tracks/GBLV62609992/spotify/streams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazams: /tracks/GBLV62609992/shazam/shazams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width"
+   ],
    "meta": {
     "name": "Right There",
     "artists": [
@@ -16145,8 +16215,22 @@
   },
   "SE3T62602701": {
    "isrc": "SE3T62602701",
-   "synced_at": "2026-11-22T14:35:54+00:00",
-   "errors": [],
+   "synced_at": "2026-11-23T10:31:43+00:00",
+   "errors": [
+    "metadata: /tracks/SE3T62602701: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify current: /tracks/SE3T62602701/spotify/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify removed: /tracks/SE3T62602701/spotify/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple current: /tracks/SE3T62602701/apple/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple removed: /tracks/SE3T62602701/apple/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer current: /tracks/SE3T62602701/deezer/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer removed: /tracks/SE3T62602701/deezer/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify charts: /tracks/SE3T62602701/spotify/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple charts: /tracks/SE3T62602701/apple/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer charts: /tracks/SE3T62602701/deezer/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazam charts: /tracks/SE3T62602701/shazam/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify streams: /tracks/SE3T62602701/spotify/streams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazams: /tracks/SE3T62602701/shazam/shazams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width"
+   ],
    "meta": {
     "name": "Black Sun White Noise - Adam Rickfors Remix",
     "artists": [
@@ -17190,8 +17274,22 @@
   },
   "QMFMG2603936": {
    "isrc": "QMFMG2603936",
-   "synced_at": "2026-11-22T14:36:58+00:00",
-   "errors": [],
+   "synced_at": "2026-11-23T10:31:50+00:00",
+   "errors": [
+    "metadata: /tracks/QMFMG2603936: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify current: /tracks/QMFMG2603936/spotify/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify removed: /tracks/QMFMG2603936/spotify/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple current: /tracks/QMFMG2603936/apple/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple removed: /tracks/QMFMG2603936/apple/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer current: /tracks/QMFMG2603936/deezer/playlists/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer removed: /tracks/QMFMG2603936/deezer/playlists/removed: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify charts: /tracks/QMFMG2603936/spotify/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "apple charts: /tracks/QMFMG2603936/apple/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "deezer charts: /tracks/QMFMG2603936/deezer/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazam charts: /tracks/QMFMG2603936/shazam/charts/current: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "spotify streams: /tracks/QMFMG2603936/spotify/streams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width",
+    "shazams: /tracks/QMFMG2603936/shazam/shazams: HTTP 503 <!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width"
+   ],
    "meta": {
     "name": "Follow - Mathame 1999 Remix",
     "artists": [
