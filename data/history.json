@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-23T17:44:29+00:00",
+ "generated_at": "2026-11-23T18:07:28+00:00",
  "records": {
   "QMFMF2607528": {
    "isrc": "QMFMF2607528",
-   "synced_at": "2026-11-23T17:32:13+00:00",
+   "synced_at": "2026-11-23T17:58:10+00:00",
    "errors": [],
    "meta": {
     "name": "Oh Baby",
@@ -606,7 +606,7 @@
      "dsp": "spotify",
      "id": "39KMjepUJeHiQUcGc3NCz9",
      "name": "Melodic Techno, and Progressive House Vibes 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ccfa4e4ad1b6d322363e7885a",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84cfa4e4ad1b6d322363e7885a",
      "followers": 9391,
      "spans": [
       {
@@ -894,14 +894,14 @@
      "dsp": "spotify",
      "id": "1iClTzJkt8IrUN82hqAMrF",
      "name": "Beatport Top 100 - Melodic House & Techno",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c085f0d01f82e4f73c3003c78",
-     "followers": 3176,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ccc3f9f9354a7e485f6857a4e",
+     "followers": 3178,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-10-24",
        "removed_at": null,
-       "position": 45
+       "position": 60
       }
      ],
      "kind": "independent"
@@ -990,7 +990,7 @@
      "dsp": "spotify",
      "id": "7a6dcy8npH0eSDO3XxN7Bh",
      "name": "Alien Selection",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84cfc0d64a39bfdcceea1c93d3",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ccfc0d64a39bfdcceea1c93d3",
      "followers": 2595,
      "spans": [
       {
@@ -1102,7 +1102,7 @@
      "dsp": "spotify",
      "id": "7rWdKxjKHLKB4nq7WZjEc5",
      "name": "AIRBEAT ONE 2027 ✭ Melodic",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da840ea9ef9ea2a5a11e15846b9f",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c0ea9ef9ea2a5a11e15846b9f",
      "followers": 1609,
      "spans": [
       {
@@ -1118,8 +1118,8 @@
      "dsp": "spotify",
      "id": "5x8S0w0apvv8j7n6qGGAnV",
      "name": "CATCH ME AT THE AFTERS - Dark Melodic House & Techno",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da840c22490e549ff647c129cdc3",
-     "followers": 1592,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c0c22490e549ff647c129cdc3",
+     "followers": 1594,
      "spans": [
       {
        "cc": "",
@@ -10187,7 +10187,7 @@
      "id": "2021502402",
      "name": "Melodic Techno",
      "artwork": "https://cdn-images.dzcdn.net/images/playlist/256889eff6911ccb664aa5a769bca584/500x500-000000-80-0-0.jpg",
-     "followers": 341881,
+     "followers": 341882,
      "spans": [
       {
        "cc": "",
@@ -10489,7 +10489,7 @@
   },
   "GBLV62613006": {
    "isrc": "GBLV62613006",
-   "synced_at": "2026-11-23T17:34:19+00:00",
+   "synced_at": "2026-11-23T17:59:16+00:00",
    "errors": [],
    "meta": {
     "name": "Mind Control",
@@ -10945,15 +10945,15 @@
     {
      "dsp": "spotify",
      "id": "0x7yN4GQ0eEw90PZ5W3z1B",
-     "name": "New Dance/Electronic Daily: SWEDISH HOUSE MAFIA, CLOONEE, ANOTR, FISHER, HUGEL and more!",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c74dbe2c9bc83c9b0bd1c6995",
-     "followers": 7334,
+     "name": "New Dance/Electronic Daily: GTA VI, JUSTICE, FRED AGAIN.., DOM DOLLA, SHM, CLOONEE, ANOTR and more!",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c74dbe2c9bc83c9b0bd1c6995",
+     "followers": 7357,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-03",
        "removed_at": null,
-       "position": 122
+       "position": 128
       }
      ],
      "kind": "independent"
@@ -11026,7 +11026,7 @@
      "dsp": "spotify",
      "id": "0iKk6CVcSzZEDta2cAtCMY",
      "name": "Rave Selection  🧬  House & Techno 🪩",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cd1f9fb0ec3f0627fc76535c3",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84d1f9fb0ec3f0627fc76535c3",
      "followers": 2969,
      "spans": [
       {
@@ -11598,7 +11598,7 @@
   },
   "GBLV62609990": {
    "isrc": "GBLV62609990",
-   "synced_at": "2026-11-23T17:36:22+00:00",
+   "synced_at": "2026-11-23T18:00:21+00:00",
    "errors": [],
    "meta": {
     "name": "Need I Say More",
@@ -11945,7 +11945,7 @@
      "dsp": "spotify",
      "id": "7rBFl3U6eF1iLGBynZdY5F",
      "name": "Hed Kandi Beach House 2026",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8403f238550c62ce87432db227",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c03f238550c62ce87432db227",
      "followers": 8286,
      "spans": [
       {
@@ -12025,7 +12025,7 @@
      "dsp": "spotify",
      "id": "7xU48WL8ghUjcZ0xYyLsGW",
      "name": "Underground Disco House 2026 ✨🕺 (by Midnight City)",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c7c4a8b250b6ff48e4fc8b011",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c7c4a8b250b6ff48e4fc8b011",
      "followers": 5863,
      "spans": [
       {
@@ -12137,14 +12137,14 @@
      "dsp": "spotify",
      "id": "0mpX2EakDLmFjifuh1fQKU",
      "name": "Beatport Top 100 - House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a30e16714779087af8ae4a48",
-     "followers": 3544,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cccca16c1ed68761556a2ff15",
+     "followers": 3555,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-09",
        "removed_at": null,
-       "position": 35
+       "position": 42
       }
      ],
      "kind": "independent"
@@ -15170,7 +15170,7 @@
   },
   "GBLV62609991": {
    "isrc": "GBLV62609991",
-   "synced_at": "2026-11-23T17:38:28+00:00",
+   "synced_at": "2026-11-23T18:01:26+00:00",
    "errors": [],
    "meta": {
     "name": "Move Around",
@@ -15245,7 +15245,7 @@
      "dsp": "spotify",
      "id": "08M2kTqmlPNHygrNfrZJuQ",
      "name": "Defected Radio",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72ca23f23c169e1abbfcdcba344",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a23f23c169e1abbfcdcba344",
      "followers": 63022,
      "spans": [
       {
@@ -15373,7 +15373,7 @@
      "dsp": "spotify",
      "id": "7xU48WL8ghUjcZ0xYyLsGW",
      "name": "Underground Disco House 2026 ✨🕺 (by Midnight City)",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c7c4a8b250b6ff48e4fc8b011",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c7c4a8b250b6ff48e4fc8b011",
      "followers": 5863,
      "spans": [
       {
@@ -15734,7 +15734,7 @@
   },
   "GBLV62609992": {
    "isrc": "GBLV62609992",
-   "synced_at": "2026-11-23T17:40:23+00:00",
+   "synced_at": "2026-11-23T18:03:21+00:00",
    "errors": [],
    "meta": {
     "name": "Right There",
@@ -15889,8 +15889,8 @@
      "dsp": "spotify",
      "id": "0mpX2EakDLmFjifuh1fQKU",
      "name": "Beatport Top 100 - House",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a30e16714779087af8ae4a48",
-     "followers": 3544,
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cccca16c1ed68761556a2ff15",
+     "followers": 3555,
      "spans": [
       {
        "cc": "",
@@ -16017,7 +16017,7 @@
      "dsp": "spotify",
      "id": "1nQ5QZnLwYstFQ36MmghjU",
      "name": "Sunice Festival 2026",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84a56a042d248c60b723a95c9e",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72ca56a042d248c60b723a95c9e",
      "followers": 1794,
      "spans": [
       {
@@ -16186,7 +16186,7 @@
   },
   "SE3T62602701": {
    "isrc": "SE3T62602701",
-   "synced_at": "2026-11-23T17:41:28+00:00",
+   "synced_at": "2026-11-23T18:04:26+00:00",
    "errors": [],
    "meta": {
     "name": "Black Sun White Noise - Adam Rickfors Remix",
@@ -16804,14 +16804,14 @@
      "dsp": "spotify",
      "id": "5iaQbHAkvBj5mPAyLfyRNA",
      "name": "Melodic Dance",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84afdc1dfc1f9ecaf3f0051d9c",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cafdc1dfc1f9ecaf3f0051d9c",
      "followers": 5853,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-14",
        "removed_at": null,
-       "position": 13
+       "position": 17
       }
      ],
      "kind": "independent"
@@ -16820,14 +16820,14 @@
      "dsp": "spotify",
      "id": "1kRapSDBxv7TcooXtk7DxN",
      "name": "Jackin Disco House 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72cf901bdea42aa09a252f47003",
-     "followers": 5536,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72cf901bdea42aa09a252f47003",
+     "followers": 5544,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-11",
        "removed_at": null,
-       "position": 67
+       "position": 65
       }
      ],
      "kind": "independent"
@@ -16836,14 +16836,14 @@
      "dsp": "spotify",
      "id": "0FsXNhmuNNz11GwK802zFk",
      "name": "The house of HOUSE 2026 🏠",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c97901d16929d38affa4a1737",
-     "followers": 5444,
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da8497901d16929d38affa4a1737",
+     "followers": 5442,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-13",
        "removed_at": null,
-       "position": 46
+       "position": 48
       }
      ],
      "kind": "independent"
@@ -16885,13 +16885,13 @@
      "id": "4XzRkmScYsL2HSFUwjCnq4",
      "name": "SUMMER HOUSE 2026",
      "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c11a568e52ff298704a7b893f",
-     "followers": 2972,
+     "followers": 2975,
      "spans": [
       {
        "cc": "",
        "added_at": "2026-11-11",
        "removed_at": null,
-       "position": 38
+       "position": 39
       }
      ],
      "kind": "independent"
@@ -16980,7 +16980,7 @@
      "dsp": "spotify",
      "id": "3fE21ieGsMoN7HSq5w69FB",
      "name": "Good Morning House Music - ☯️ISM☀️",
-     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c07077283828257ddf0f67d7c",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c07077283828257ddf0f67d7c",
      "followers": 1603,
      "spans": [
       {
@@ -16996,7 +16996,7 @@
      "dsp": "spotify",
      "id": "3GhX8hHAWcenYzjEH58o9g",
      "name": "UPLIFTING HOUSE 2026",
-     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8b27de6210aad8857f9cbb34",
+     "artwork": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da848b27de6210aad8857f9cbb34",
      "followers": 1504,
      "spans": [
       {
@@ -17236,7 +17236,7 @@
   },
   "QMFMG2603936": {
    "isrc": "QMFMG2603936",
-   "synced_at": "2026-11-23T17:42:33+00:00",
+   "synced_at": "2026-11-23T18:05:32+00:00",
    "errors": [],
    "meta": {
     "name": "Follow - Mathame 1999 Remix",
