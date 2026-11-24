@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-24T12:35:07+00:00",
+ "generated_at": "2026-11-24T14:15:31+00:00",
  "records": {
   "QMFMF2607528": {
    "isrc": "QMFMF2607528",
@@ -18199,6 +18199,90 @@
      "date": "2026-11-19",
      "daily": 4156,
      "total": 12885
+    }
+   ],
+   "shazams": []
+  },
+  "GXEUJ2400181": {
+   "isrc": "GXEUJ2400181",
+   "synced_at": "2026-11-24T14:14:25+00:00",
+   "errors": [],
+   "meta": {
+    "name": "On My Mind",
+    "artists": [
+     "Tony y Not"
+    ],
+    "release_date": "2026-01-01",
+    "artwork": "https://i.scdn.co/image/ab67616d0000b273ebb54e5f08b91f4f2663a4ac",
+    "links": {
+     "spotify": [
+      "https://open.spotify.com/track/3XdknNb13kQemzdYugenUa"
+     ],
+     "apple": [],
+     "deezer": [],
+     "shazam": []
+    }
+   },
+   "placements": [
+    {
+     "dsp": "spotify",
+     "id": "4ls8IrETPU4Ag7rYNN3UYk",
+     "name": "New Music Friday Cratediggers",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000d72c8cd818dafdbbcbba9109a583",
+     "followers": 3139,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 219
+      }
+     ],
+     "kind": "independent"
+    },
+    {
+     "dsp": "spotify",
+     "id": "7z5jO4nqMp4Tx7YM4WKndU",
+     "name": "Hot Haus Recs | 11-23-26 last update | Electronic, House, Eclectic | UK",
+     "artwork": "https://image-cdn-fa.spotifycdn.com/image/ab67706c0000da84a5c381d247cc60cc9bc85641",
+     "followers": 198,
+     "spans": [
+      {
+       "cc": "",
+       "added_at": "2026-11-20",
+       "removed_at": null,
+       "position": 403
+      }
+     ],
+     "kind": "independent"
+    }
+   ],
+   "charts": {
+    "spotify": [],
+    "apple": [],
+    "deezer": [],
+    "shazam": []
+   },
+   "streams": [
+    {
+     "date": "2026-11-17",
+     "daily": null,
+     "total": 0
+    },
+    {
+     "date": "2026-11-18",
+     "daily": 0,
+     "total": 0
+    },
+    {
+     "date": "2026-11-19",
+     "daily": 0,
+     "total": 0
+    },
+    {
+     "date": "2026-11-20",
+     "daily": 0,
+     "total": 0
     }
    ],
    "shazams": []
