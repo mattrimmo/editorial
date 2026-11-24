@@ -98,7 +98,7 @@ def ss_get(path, params):
             continue
         if r.status_code == 404:
             time.sleep(SS_DELAY)
-            return None
+            raise SsError(f"{path}: not found on Songstats (404) {r.text[:160]}")
         if not r.ok:
             raise SsError(f"{path}: HTTP {r.status_code} {r.text[:160]}")
         time.sleep(SS_DELAY)
@@ -111,6 +111,27 @@ def ss_get(path, params):
             raise SsError(f"{path}: {body.get('message')}")
         return body
     raise SsError(f"{path}: kept failing")
+
+
+def find_ids(isrc, hint=""):
+    """Songstats track + artist IDs for an ISRC. Keys scoped to artists/members need the artist
+    on every call, so we look the track up once (by ISRC, then by 'artist title') and send both."""
+    for q in [isrc, hint]:
+        if not q:
+            continue
+        for res in (ss_get("tracks/search", {"q": q, "limit": 5}) or {}).get("results") or []:
+            artists = [a.get("songstats_artist_id") for a in res.get("artists") or [] if a.get("songstats_artist_id")]
+            for aid in artists or [None]:
+                ident = {"songstats_track_id": res.get("songstats_track_id"), "songstats_artist_id": aid}
+                try:
+                    body = ss_get("tracks/info", dict(ident, source="all"))
+                except SsError:
+                    continue
+                info = (body or {}).get("track_info") or {}
+                isrcs = {l.get("isrc") for l in info.get("links") or [] if l.get("isrc")}
+                if q != isrc or isrc in isrcs or not isrcs:
+                    return {k: v for k, v in ident.items() if v}, body
+    raise SsError(f"could not find {isrc} on Songstats (searched by ISRC{' and ' + repr(hint) if hint else ''})")
 
 
 def source_data(body, source):
@@ -131,12 +152,12 @@ def safe(label, errors, fn, default):
         return default, False
 
 
-def all_playlists(isrc, source, stop_below=None):
+def all_playlists(ident, source, stop_below=None):
     """Current + removed playlist rows for one source, 100 per page."""
     rows = []
     for page in range(MAX_PAGES):
-        body = ss_get("tracks/stats", {"isrc": isrc, "source": source, "with_playlists": "true",
-                                       "limit": PAGE, "offset": page * PAGE})
+        body = ss_get("tracks/stats", dict(ident, source=source, with_playlists="true",
+                                           limit=PAGE, offset=page * PAGE))
         pl = source_data(body, source).get("playlists") or []
         rows.extend(pl)
         if len(pl) < PAGE:
@@ -325,8 +346,8 @@ def shazam_chart(c):
             "position": c.get("current_position"), "previous_position": None, "genre": genre, "city": city, "date": None}
 
 
-def fetch_charts(isrc):
-    body = ss_get("tracks/stats", {"isrc": isrc, "source": "spotify,apple_music,deezer,shazam",
+def fetch_charts(ident):
+    body = ss_get("tracks/stats", {**ident, "source": "spotify,apple_music,deezer,shazam",
                                    "with_charts": "true", "only_current": "true", "limit": PAGE})
     out = {"spotify": [], "apple": [], "deezer": [], "shazam": []}
     for c in source_data(body, "spotify").get("charts") or []:
@@ -420,15 +441,21 @@ def resolve_links(tracked, resolved, only):
         print(f"Matching link {key}")
         try:
             sp = re.search(r"open\.spotify\.com/(?:intl-[a-z]+/)?track/([A-Za-z0-9]+)", key)
+            info, isrc = {}, None
             if sp:
-                body = ss_get("tracks/info", {"spotify_track_id": sp.group(1), "source": "spotify"})
-                info = (body or {}).get("track_info") or {}
-                isrc = isrc_from_info(info, "spotify")
-            else:
+                try:
+                    body = ss_get("tracks/info", {"spotify_track_id": sp.group(1), "source": "spotify"})
+                    info = (body or {}).get("track_info") or {}
+                    isrc = isrc_from_info(info, "spotify")
+                except SsError as e:
+                    print(f"  direct lookup failed ({e}), trying search")
+            if not isrc:
                 found = (ss_get("tracks/search", {"q": key, "limit": 1}) or {}).get("results") or []
                 info, isrc = {}, None
                 if found:
-                    body = ss_get("tracks/info", {"songstats_track_id": found[0]["songstats_track_id"], "source": "all"})
+                    aid = next((x.get("songstats_artist_id") for x in found[0].get("artists") or []), None)
+                    body = ss_get("tracks/info", {"songstats_track_id": found[0]["songstats_track_id"],
+                                                  "songstats_artist_id": aid, "source": "all"})
                     info = (body or {}).get("track_info") or {}
                     isrc = isrc_from_info(info)
         except SsError as e:
@@ -455,7 +482,16 @@ def sync_record(entry, prior, registry):
            "source": "songstats", "errors": errors}
     prior = prior or {}
 
-    body, ok = safe("metadata", errors, lambda: ss_get("tracks/info", {"isrc": isrc, "source": "all"}), None)
+    pm = prior.get("meta") or {}
+    hint = " ".join(filter(None, [", ".join(pm.get("artists") or []) or entry.get("artist"), pm.get("name") or entry.get("track")]))
+    found, ok = safe("lookup", errors, lambda: find_ids(isrc, hint), None)
+    if not ok:
+        rec["meta"] = pm
+        for k in ("placements", "charts", "streams", "shazams"):
+            rec[k] = prior.get(k, {} if k == "charts" else [])
+        return rec
+    ident, body = found
+    rec["songstats"] = ident
     info = (body or {}).get("track_info") or {}
     if info:
         links = {}
@@ -488,7 +524,7 @@ def sync_record(entry, prior, registry):
     placements = []
     for dsp in ("spotify", "apple", "deezer", "amazon"):
         stop = MIN_FOLLOWERS if dsp in ("spotify", "deezer") else None
-        rows, ok = safe(f"{dsp} playlists", errors, lambda d=dsp, s=stop: all_playlists(isrc, DSP_SOURCE[d], s), None)
+        rows, ok = safe(f"{dsp} playlists", errors, lambda d=dsp, s=stop: all_playlists(ident, DSP_SOURCE[d], s), None)
         if not ok:
             if dsp in prior_by_dsp:
                 print(f"  keeping previous {dsp} placements (fetch failed)")
@@ -498,17 +534,17 @@ def sync_record(entry, prior, registry):
     rec["placements"] = placements
 
     # --- charts
-    charts, ok = safe("charts", errors, lambda: fetch_charts(isrc), None)
+    charts, ok = safe("charts", errors, lambda: fetch_charts(ident), None)
     rec["charts"] = carry_previous(charts, prior.get("charts")) if ok else prior.get("charts", {})
 
     # --- streams and shazams
     end = date.today()
     s, ok = safe("spotify streams", errors, lambda: ss_get("tracks/historic_stats", {
-        "isrc": isrc, "source": "spotify", "start_date": since.isoformat(), "end_date": end.isoformat()}), None)
+        **ident, "source": "spotify", "start_date": since.isoformat(), "end_date": end.isoformat()}), None)
     rec["streams"] = daily_series(source_data(s, "spotify").get("history"), "streams_total", STREAMS_SHIFT_DAYS) \
         if ok else prior.get("streams", [])
     z, ok = safe("shazams", errors, lambda: ss_get("tracks/historic_stats", {
-        "isrc": isrc, "source": "shazam", "start_date": since.isoformat(), "end_date": end.isoformat()}), None)
+        **ident, "source": "shazam", "start_date": since.isoformat(), "end_date": end.isoformat()}), None)
     rec["shazams"] = daily_series(source_data(z, "shazam").get("history"), "shazams_total", 0) \
         if ok else prior.get("shazams", [])
     return rec
