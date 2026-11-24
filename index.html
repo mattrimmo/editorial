@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Editorial Pitch Pack</title>
+<title>[Songstats test] Editorial Pitch Pack</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2032%2032%27%3E%3Crect%20width=%2732%27%20height=%2732%27%20rx=%277%27%20fill=%27%2335d975%27/%3E%3Cg%20fill=%27%2305160c%27%3E%3Crect%20x=%276%27%20y=%278.3%27%20width=%2710%27%20height=%273.4%27%20rx=%271.7%27/%3E%3Crect%20x=%276%27%20y=%2714.3%27%20width=%2720%27%20height=%273.4%27%20rx=%271.7%27/%3E%3Crect%20x=%276%27%20y=%2720.3%27%20width=%2720%27%20height=%273.4%27%20rx=%271.7%27/%3E%3Cpolygon%20points=%2723.5%2C4.8%2024.9%2C8.1%2028.4%2C8.4%2025.7%2C10.7%2026.6%2C14.2%2023.5%2C12.3%2020.4%2C14.2%2021.3%2C10.7%2018.6%2C8.4%2022.1%2C8.1%27/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
@@ -825,7 +825,7 @@ a.mrow:hover{background:var(--panel)}
     var l = e.links || {};
     return '<div class="section" style="max-width:640px"><h2>Hook line</h2><p class="muted" style="margin-top:0">One sentence of context that goes into every pitch for this record.</p>' +
       '<div class="field"><input id="d_hook" value="' + esc(e.hook || '') + '" placeholder="e.g. First release since the Amnesia residency"></div>' +
-      '<h2 style="margin-top:28px">Links for the email</h2><p class="muted" style="margin-top:0">Spotify, Apple Music and Deezer links come from Spot On Track. Add the others here.</p>' +
+      '<h2 style="margin-top:28px">Links for the email</h2><p class="muted" style="margin-top:0">Spotify, Apple Music, Deezer and Amazon links come from Songstats. Add the others here.</p>' +
       '<div class="grid2"><div class="field"><label for="d_amazon">Amazon Music</label><input id="d_amazon" value="' + esc(l.amazon || '') + '"></div><div class="field"><label for="d_youtube">YouTube Music</label><input id="d_youtube" value="' + esc(l.youtube || '') + '"></div>' +
       '<div class="field"><label for="d_beatport">Beatport</label><input id="d_beatport" value="' + esc(l.beatport || '') + '"></div><div class="field"><label for="d_soundcloud">SoundCloud</label><input id="d_soundcloud" value="' + esc(l.soundcloud || '') + '"></div></div>' +
       '<details class="more"><summary>Fix a wrong name or release date</summary><div class="grid2"><div class="field"><label for="d_artist">Artist</label><input id="d_artist" value="' + esc(e.artist || '') + '"></div><div class="field"><label for="d_track">Title</label><input id="d_track" value="' + esc(e.track || '') + '"></div>' +
@@ -850,7 +850,7 @@ a.mrow:hover{background:var(--panel)}
 
   // ---- sort playlists
   function viewSort(list) {
-    var head = '<div class="page-head"><div><h1>Sort playlists</h1><p class="lede">Spot On Track does not say who runs Apple Music and Deezer playlists. Mark each one once and it is remembered for every record.</p></div>' +
+    var head = '<div class="page-head"><div><h1>Sort playlists</h1><p class="lede">Songstats sorts most playlists automatically. Anything you mark here overrides it, once, for every record.</p></div>' +
       (list.length ? '<button class="btn quiet" data-act="tagAllIgnore">Ignore all ' + list.length + '</button>' : '') + '</div>';
     if (!list.length) return head + '<div class="empty"><h2>Everything is sorted</h2><p>New playlists that need a decision will appear here after a refresh.</p></div>';
     return head + '<div class="list">' + list.map(function (p) {
