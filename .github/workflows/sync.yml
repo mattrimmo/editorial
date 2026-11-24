@@ -1,8 +1,8 @@
-name: Sync editorial pitch data
+name: Sync editorial pitch data (Songstats test)
 
 on:
   schedule:
-    - cron: '15 6 * * *'      # daily, 06:15 UTC. Spot On Track bills per unique ISRC per month, so daily costs nothing extra.
+    - cron: '15 6 * * *'      # daily, 06:15 UTC
   workflow_dispatch:
     inputs:
       isrc:
@@ -28,12 +28,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install requests
-        run: pip install requests
+      - name: Install dependencies
+        run: pip install requests pycountry
 
       - name: Run sync
         env:
-          SOT_API_KEY: ${{ secrets.SOT_API_KEY }}
+          SONGSTATS_API_KEY: ${{ secrets.SONGSTATS_API_KEY }}
           ONLY_ISRC: ${{ github.event.inputs.isrc }}
         run: python scripts/sync.py
 
