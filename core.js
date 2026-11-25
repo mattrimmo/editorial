@@ -643,15 +643,34 @@
 
   // ---------------------------------------------------------------- everything a record is doing, for pitch notes
   // A period is either the last 7 days or the current release week (Friday to Thursday), always against the 7 days before.
+  // Three ways to look at a record. All of them end on the last day Spotify has actually reported (usually 1 to 2 days
+  // behind), so a lag never shows up as a drop.
+  //   latest: the 7 reported days against the 7 before
+  //   week:   the last FULL release week (Friday to Thursday, counted from release day) against the week before.
+  //           In week 1, before a full week exists, it is week 1 so far.
+  //   since:  everything since release, no comparison
+  function dataEnd(ctx) {
+    var t = ctx.today != null ? ctx.today : todayUTC();
+    var L = latestDate(ctx.streams);
+    return L != null && L <= t ? L : t;
+  }
   function periodFor(ctx, mode) {
-    var t = ctx.today != null ? ctx.today : todayUTC(), rel = ctx.release;
-    if (mode === 'week' && rel != null && t >= rel) {
-      var n = Math.max(1, weekOf(rel, t)), s = weekStart(rel, n), eFull = weekEnd(rel, n);
-      return { mode: 'week', n: n, s: s, e: Math.min(eFull, t), ps: s - 7 * DAY, pe: s - DAY, partial: eFull > t,
-        label: 'week ' + n, header: 'Week ' + n + ' (' + fmtShort(s) + ' - ' + fmtShort(eFull) + ')' };
+    var t = ctx.today != null ? ctx.today : todayUTC(), rel = ctx.release, L = dataEnd(ctx);
+    var lag = Math.round((t - L) / DAY);
+    var base = { end: L, lag: lag, rel: rel, n: rel != null ? Math.max(1, weekOf(rel, t)) : null };
+    if (mode === 'since' && rel != null) {
+      return Object.assign(base, { mode: 'since', s: rel, e: L, ps: null, pe: null, partial: false,
+        label: 'since release', header: 'Since release (' + fmtShort(rel) + ' - ' + fmtShort(L) + ')' });
     }
-    return { mode: 'latest', n: rel != null ? Math.max(1, weekOf(rel, t)) : null, s: t - 6 * DAY, e: t, ps: t - 13 * DAY, pe: t - 7 * DAY, partial: false,
-      label: 'the last 7 days', header: 'Last 7 days (' + fmtShort(t - 6 * DAY) + ' - ' + fmtShort(t) + ')' };
+    if (mode === 'week' && rel != null && L >= rel) {
+      var n = Math.floor((L - rel) / (7 * DAY)) + 1;
+      if (weekEnd(rel, n) > L && n > 1) n -= 1;            // current week not finished: use the last full one
+      var s = weekStart(rel, n), eFull = weekEnd(rel, n), partial = eFull > L;
+      return Object.assign(base, { mode: 'week', n: n, s: s, e: Math.min(eFull, L), ps: s - 7 * DAY, pe: s - DAY, partial: partial,
+        label: 'week ' + n, header: 'Week ' + n + ' (' + fmtShort(s) + ' - ' + fmtShort(eFull) + ')' + (partial ? ', so far' : '') });
+    }
+    return Object.assign(base, { mode: 'latest', s: L - 6 * DAY, e: L, ps: L - 13 * DAY, pe: L - 7 * DAY, partial: false,
+      label: 'the last 7 days', header: 'Last 7 days (' + fmtShort(L - 6 * DAY) + ' - ' + fmtShort(L) + ')' });
   }
   function lastTotal(series, e) {
     var best = null;
@@ -660,10 +679,19 @@
   }
   // this period vs the one before. pct compares daily averages so a part-finished release week is fair.
   function metricWin(series, P) {
+    if (P.mode === 'since') {
+      var tot = lastTotal(series, P.e), before = lastTotal(series, P.s - DAY);
+      var gained = tot == null ? null : tot - (before || 0);
+      var sd = seriesSum(series, P.s, P.e);
+      return { cur: gained, curDays: sd ? sd.days : 0, prev: null, total: tot, pct: null, first: false, since: true };
+    }
     var cur = seriesSum(series, P.s, P.e), prev = seriesSum(series, P.ps, P.pe);
     var out = { cur: cur ? cur.sum : null, curDays: cur ? cur.days : 0, prev: prev ? prev.sum : null, total: lastTotal(series, P.e), pct: null, first: false };
     if (cur && prev && cur.days >= 3 && prev.days >= 3 && prev.sum > 0) out.pct = pctChange(cur.sum / cur.days, prev.sum / prev.days);
-    if (cur && cur.sum > 0 && (!prev || prev.sum === 0)) out.first = true;
+    // nothing to compare with: either the record is genuinely new, or Songstats only picked it up recently
+    if (cur && cur.sum > 0 && (!prev || prev.sum === 0)) {
+      if (P.rel != null && P.pe < P.rel) out.first = true; else out.noPrev = true;
+    }
     return out;
   }
   var STRIP = [
@@ -698,7 +726,10 @@
   function notes(ctx, P) {
     var groups = [], rel = ctx.release;
     function add(title, items) { items = items.filter(Boolean); if (items.length) groups.push({ title: title, items: items }); }
-    function it(text, fresh) { return { text: text, fresh: !!fresh }; }
+    var since = P.mode === 'since';
+    function it(text, fresh) { return { text: text, fresh: !since && !!fresh }; }
+    function inPN(d) { return !since && inP(d, P); }
+    function inLbl(n) { return since || !n ? '' : ' (' + fmtNum(n) + ' in ' + P.label + ')'; }
     var sup = ctx.support || {};
     if (ctx.hook) add('The story', [it(ctx.hook)]);
 
@@ -706,20 +737,25 @@
     var st = [], sw = metricWin(ctx.streams, P);
     var tot = rel != null ? totalStreams(ctx.streams, rel, P.e) : null;
     if (tot && tot.sum > 0) st.push(it(fmtNum(tot.sum) + ' Spotify streams in total'));
-    if (sw.cur && sw.cur >= 300) st.push(it(fmtNum(sw.cur) + ' Spotify streams in ' + P.label + (P.partial ? ' so far' : '') + (sw.curDays ? ' (' + fmtNum(sw.cur / sw.curDays) + ' a day)' : '')));
+    if (!since && sw.cur && sw.cur >= 300) st.push(it(fmtNum(sw.cur) + ' Spotify streams in ' + P.label + (P.partial ? ' so far' : '') + (sw.curDays ? ' (' + fmtNum(sw.cur / sw.curDays) + ' a day)' : '')));
+    if (since && tot && tot.sum > 0 && sw.curDays) st.push(it('Averaging ' + fmtNum(tot.sum / Math.max(1, Math.round((P.e - P.s) / DAY) + 1)) + ' Spotify streams a day since release'));
     if (sw.pct != null && sw.pct >= 10 && sw.cur >= 500) st.push(it('Spotify streams up ' + sw.pct + '% on the week before', true));
+    // "biggest day" only means something if Songstats has every day since release (it sometimes starts late)
+    var firstDay = null;
+    (ctx.streams || []).forEach(function (r) { var d = parseDate(r.date); if (d != null && r.total != null && (firstDay == null || d < firstDay)) firstDay = d; });
+    var fullHistory = rel != null && firstDay != null && firstDay <= rel + 2 * DAY;
     var best = null;
     (ctx.streams || []).forEach(function (r) { var d = parseDate(r.date); if (d != null && (rel == null || d >= rel) && d <= P.e && r.daily != null && (!best || r.daily > best.v)) best = { d: d, v: r.daily }; });
-    if (best && best.v >= 500 && best.d >= P.s) st.push(it('Biggest day so far: ' + fmtNum(best.v) + ' Spotify streams on ' + fmtShort(best.d), true));
+    if (fullHistory && best && best.v >= 500 && (since || best.d >= P.s)) st.push(it('Biggest day so far: ' + fmtNum(best.v) + ' Spotify streams on ' + fmtShort(best.d), true));
     leadStats(ctx).forEach(function (x) {
-      if (x.kind === 'milestone') st.push(it(x.text, x.d >= P.s && x.d <= P.e));
+      if (x.kind === 'milestone' && (since || x.d >= P.s - 7 * DAY)) st.push(it(x.text, x.d >= P.s && x.d <= P.e));
       if (x.kind === 'lift' || x.kind === 'holding') st.push(it(x.text));
     });
     add('Streams', st);
 
     // editorial, every DSP: new adds this period first (one line each, bold), then the rest per platform
     var ed = editorialOnly(ctx.placements).filter(activeNow);
-    var fresh = bigFirst(newEditorialIn(ctx.placements, P.s, P.e)).filter(activeNow);
+    var fresh = since ? [] : bigFirst(newEditorialIn(ctx.placements, P.s, P.e)).filter(activeNow);
     var eds = [];
     fresh.forEach(function (p) {
       var pos = bestPos(p), rg = activeRegions(p).filter(Boolean), top = cc3(rg);
@@ -735,8 +771,13 @@
         eds.push(it(d.label + ': ' + pls.slice(0, 6).map(function (p) { var pos = bestPos(p); return (p.name || '(unnamed)') + (pos ? ' (#' + pos + ')' : ''); }).join(', ') + (pls.length > 6 ? ' +' + (pls.length - 6) + ' more' : '')));
       });
     }
+    if (since) {
+      var ever = editorialOnly(ctx.placements).filter(function (p) { return !activeNow(p); });
+      if (ever.length) eds.push(it('Also supported earlier by ' + bigFirst(ever).slice(0, 6).map(function (p) { return (p.name || '(unnamed)') + ' (' + DSP_LABEL[p.dsp] + ')'; }).join(', ') + (ever.length > 6 ? ' +' + (ever.length - 6) + ' more' : '')));
+      if (ed.length + ever.length > ed.length) eds.splice(eds.length ? 0 : 0, 0, it(fmtNum(ed.length + ever.length) + ' editorial playlists since release, ' + ed.length + ' still live'));
+    }
     var sc = (sup.soundcloud || {}).editorial || [];
-    sc.filter(function (p) { return !p.removed_at; }).forEach(function (p) { eds.push(it((p.position ? '#' + p.position + ' in ' : '') + 'SoundCloud\'s ' + p.name, inP(p.added_at, P))); });
+    sc.filter(function (p) { return !p.removed_at; }).forEach(function (p) { eds.push(it((p.position ? '#' + p.position + ' in ' : '') + 'SoundCloud\'s ' + p.name, inPN(p.added_at)) ); });
     add('Editorial support', eds);
 
     // charts: DSP charts, Beatport, Traxsource, Shazam
@@ -748,7 +789,7 @@
       (rows || []).forEach(function (c) {
         var live = !c.removed_at && c.position;
         var peak = c.peak && (!live || c.peak < c.position) ? (live ? ', peaked #' + c.peak : 'Peaked #' + c.peak + ' in ' + store + (/s$/.test(store) ? '\' ' : '\'s ') + c.name) : '';
-        if (live) ch.push(it('#' + c.position + ' in ' + store + (/s$/.test(store) ? '\' ' : '\'s ') + c.name + chartTail(c) + peak, inP(c.added_at, P)));
+        if (live) ch.push(it('#' + c.position + ' in ' + store + (/s$/.test(store) ? '\' ' : '\'s ') + c.name + chartTail(c) + peak, inPN(c.added_at)) );
         else if (c.peak && c.peak <= 20) ch.push(it(peak));
       });
     }
@@ -759,7 +800,7 @@
     storeCharts(sup.tracklist_charts, '1001Tracklists');
     var djc = ((sup.beatport || {}).dj_charts || []);
     if (djc.length) {
-      var djNew = djc.filter(function (c) { return inP(c.date, P); });
+      var djNew = djc.filter(function (c) { return inPN(c.date, P); });
       var n1 = djc.filter(function (c) { return c.position === 1; });
       ch.push(it('In ' + djc.length + ' Beatport DJ charts' + (n1.length ? ' (#1 for ' + n1.slice(0, 3).map(function (c) { return c.owner; }).join(', ') + ')' : '') + (djNew.length ? ', ' + djNew.length + ' new in ' + P.label : ''), djNew.length > 0));
     }
@@ -767,10 +808,10 @@
 
     // radio
     var ra = [], radio = sup.radio || {}, rp = (ctx.more || {}).radio_plays, rw = rp ? metricWin(rp, P) : null;
-    if (radio.plays) ra.push(it(fmtNum(radio.plays) + ' radio plays across ' + fmtNum(radio.stations_total) + ' stations' + (rw && rw.cur ? ' (' + fmtNum(rw.cur) + ' in ' + P.label + ')' : '')));
+    if (radio.plays) ra.push(it(fmtNum(radio.plays) + ' radio plays across ' + fmtNum(radio.stations_total) + ' stations' + inLbl(rw && rw.cur)));
     if (rw && rw.pct != null && rw.pct >= 10 && rw.cur >= 30) ra.push(it('Radio plays up ' + rw.pct + '% on the week before', true));
     var seenSt = {}, stations = (radio.stations || []).filter(function (r) { var k = String(r.name || '').toLowerCase().replace(/^radio\s+|\s+radio$|[^a-z0-9]/g, '').replace(/\d+(\.\d+)?fm$/, ''); if (!k || seenSt[k]) return false; seenSt[k] = 1; return true; });
-    var newSt = stations.filter(function (r) { return inP(r.first, P); });
+    var newSt = stations.filter(function (r) { return inPN(r.first, P); });
     var keySt = function (list) { return list.slice().sort(function (a, b) { return (BIG_STATIONS.test(b.name) - BIG_STATIONS.test(a.name)) || (b.plays || 0) - (a.plays || 0); }); };
     var stName = function (r) { return r.name + (r.type === 'SiriusXM' ? ' (SiriusXM)' : ''); };
     if (newSt.length) ra.push(it('New radio support in ' + P.label + ': ' + keySt(newSt).slice(0, 6).map(stName).join(', ') + (newSt.length > 6 ? ' +' + (newSt.length - 6) + ' more' : ''), true));
@@ -783,9 +824,9 @@
     var dj = [], sets = (sup.dj_sets || []).filter(function (x) { var d = String(x.dj || '').toLowerCase(); return d && own.indexOf(d) < 0 && !own.some(function (o) { return d === o; }); });
     var djw = (ctx.more || {}).dj_supports ? metricWin(ctx.more.dj_supports, P) : null;
     var setName = function (x) { return x.dj + (x.name && x.type === 'Radio Show / Podcast' ? ' (' + x.name + ')' : x.name && /festival|club|event|open air/i.test(x.type || '') ? ' at ' + x.name.split(',')[0] : ''); };
-    var newSets = sets.filter(function (x) { return inP(x.date, P) && x.dj; }).sort(function (a, b) { return (b.views || 0) - (a.views || 0); });
-    var oldSets = sets.filter(function (x) { return !inP(x.date, P) && x.dj && parseDate(x.date) <= P.e; }).sort(function (a, b) { return (b.views || 0) - (a.views || 0); });
-    if (sup.dj_total) dj.push(it(fmtNum(sup.dj_total) + ' DJ supports on 1001Tracklists' + (djw && djw.cur ? ' (' + fmtNum(djw.cur) + ' in ' + P.label + ')' : '')));
+    var newSets = sets.filter(function (x) { return inPN(x.date, P) && x.dj; }).sort(function (a, b) { return (b.views || 0) - (a.views || 0); });
+    var oldSets = sets.filter(function (x) { return !inPN(x.date, P) && x.dj && parseDate(x.date) <= P.e; }).sort(function (a, b) { return (b.views || 0) - (a.views || 0); });
+    if (sup.dj_total) dj.push(it(fmtNum(sup.dj_total) + ' DJ supports on 1001Tracklists' + inLbl(djw && djw.cur)));
     if (newSets.length) dj.push(it('Played by ' + newSets.slice(0, 5).map(setName).join(', ') + (newSets.length > 5 ? ' +' + (newSets.length - 5) + ' more' : ''), true));
     if (oldSets.length) dj.push(it((newSets.length ? 'Also played by ' : 'Played by ') + oldSets.slice(0, 5).map(setName).join(', ') + (oldSets.length > 5 ? ' +' + (oldSets.length - 5) + ' more' : '')));
     add('DJ support', dj);
@@ -802,7 +843,7 @@
       var grow = [c, v].filter(function (w) { return w && w.pct != null && w.pct >= 10 && !w.first; });
       var g = grow.length ? grow[0] : null;
       var gl = g ? ', ' + (g === c ? unit : 'views') + ' up ' + g.pct + '% on the week before' : '';
-      var wk = c && c.cur ? ' (' + fmtNum(c.cur) + ' new in ' + P.label + ')' : '';
+      var wk = since || !(c && c.cur) ? '' : ' (' + fmtNum(c.cur) + ' new in ' + P.label + ')';
       so.push(it(name + ': ' + bits.join(', ') + wk + gl, !!g));
     }
     socialLine('tiktok_videos', 'tiktok_views', 'TikTok', 'videos', 10, 10000);
@@ -814,7 +855,7 @@
 
     // Shazam
     var sz = [], zw = metricWin(ctx.shazams, P);
-    if (zw.total && zw.total >= 300) sz.push(it(fmtNum(zw.total) + ' Shazams' + (zw.cur ? ' (' + fmtNum(zw.cur) + ' in ' + P.label + ')' : '')));
+    if (zw.total && zw.total >= 300) sz.push(it(fmtNum(zw.total) + ' Shazams' + inLbl(zw.cur)));
     if (zw.pct != null && zw.pct >= 20 && zw.cur >= 100) sz.push(it('Shazams up ' + zw.pct + '% on the week before', true));
     add('Shazam', sz);
     return groups;
@@ -822,6 +863,7 @@
   // newest editorial adds and other events inside the period, for the table and sheet header
   function periodNews(ctx, P) {
     var sup = ctx.support || {};
+    if (P.mode === 'since') return { editorial: [], radio: [], djSets: [], djCharts: [] };
     return {
       editorial: newEditorialIn(ctx.placements, P.s, P.e).filter(activeNow),
       radio: ((sup.radio || {}).stations || []).filter(function (r) { return inP(r.first, P); }),
@@ -842,11 +884,16 @@
     if (!best) return sum;
     return { sum: Math.max(best.v, sum ? sum.sum : 0), days: sum ? sum.days : 0, reported: true };
   }
+  // Songstats totals often sit still for a day or two before the next update lands. Those days are "not reported yet",
+  // not zero, so only fill a gap when a later day shows the total really moved.
   function fillDaily(series) {
     var rows = (series || []).map(function (r) { return { date: r.date, daily: r.daily, total: r.total }; });
     rows.sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    var lastMove = -1;
+    for (var j = rows.length - 1; j > 0; j--) { if (rows[j].total != null && rows[j - 1].total != null && rows[j].total !== rows[j - 1].total) { lastMove = j; break; } }
     for (var i = 1; i < rows.length; i++) {
       var a = rows[i - 1], b = rows[i];
+      if (i > lastMove) { b.daily = null; continue; }   // flat to the end: not reported yet
       if (b.daily == null && b.total != null && a.total != null && parseDate(b.date) - parseDate(a.date) === DAY && b.total >= a.total) b.daily = b.total - a.total;
     }
     return rows;

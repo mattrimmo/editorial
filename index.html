@@ -300,7 +300,8 @@ body.wide .wrap{max-width:1320px}
 .pbox h3{margin:0;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
 .box-h{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
 .box-h .muted{font-size:12.5px}
-.hint{font-size:12.5px;margin:0 0 8px}
+.hint{font-size:12.5px;margin:0 0 4px}
+.ticks{font-size:12.5px;color:var(--muted);margin-bottom:6px}
 .ng{margin-bottom:8px}
 .ng-t{font-size:12px;font-weight:700;color:var(--text);margin:6px 0 2px}
 .ni{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--text);margin:0;padding:3px 0;line-height:1.4;cursor:pointer}
@@ -352,7 +353,7 @@ body.wide .wrap{max-width:1320px}
   var state = {
     tracked: { tracks: [] }, history: { generated_at: null, records: {} },
     registry: { playlists: {} }, manual: { entries: {} }, pitches: { pitches: {} }, resolved: { entries: {} },
-    ui: { view: 'records', rec: null, tab: 'playlists', hl: {}, pitch: {}, modal: null, logOpen: false, selecting: false, sel: [], sort: 'newest', period: 'latest', untick: {}, open: {}, bundle: { dsp: 'spotify', name: '', followUp: false } },
+    ui: { view: 'records', rec: null, tab: 'playlists', hl: {}, pitch: {}, modal: null, logOpen: false, selecting: false, sel: [], sort: 'newest', period: 'latest', tick: {}, open: {}, bundle: { dsp: 'spotify', name: '', followUp: false } },
     loadError: null, syncing: false
   };
 
@@ -557,11 +558,13 @@ body.wide .wrap{max-width:1320px}
     ['streams', 'Streams'], ['editorial', 'Editorial'], ['shazams', 'Shazams'],
     ['radio_plays', 'Radio'], ['dj_supports', 'DJ supports'], ['tiktok_videos', 'TikTok videos']
   ];
-  var PERIOD_LABEL = { latest: 'Last 7 days', week: 'Release week' };
+  var PERIOD_LABEL = { latest: 'Last 7 days', week: 'Last full release week', since: 'Since release' };
   function periodMode() { return state.ui.period || 'latest'; }
   function pctTag(w) {
-    if (!w || w.cur == null) return '<span class="d0">no data yet</span>';
+    if (w && w.since) return w.cur != null ? '' : '<span class="d0">no data yet</span>';
+    if (!w || w.cur == null || (!w.cur && !w.total)) return '<span class="d0">no data yet</span>';
     if (w.first) return '<span class="dn">first week</span>';
+    if (w.noPrev) return '<span class="d0" title="Songstats has no data for the week before, usually because it started tracking this record late">no earlier data</span>';
     if (w.pct == null) return '<span class="d0">-</span>';
     return '<span class="' + (w.pct >= 10 ? 'du' : w.pct <= -10 ? 'dd' : 'd0') + '">' + (w.pct > 0 ? '+' : '') + w.pct + '%</span>';
   }
@@ -593,7 +596,7 @@ body.wide .wrap{max-width:1320px}
   function viewRecords(items) {
     var c = cfg(), mode = periodMode();
     var head = '<div class="page-head"><div><h1>Records</h1><p class="lede">' + (state.history.generated_at ? 'Updates every morning from Songstats. Last update ' + ago(state.history.generated_at) + '.' : 'Updates every morning once the first refresh has run.') + '</p></div>' +
-      '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg" role="group" aria-label="Period">' + ['latest', 'week'].map(function (m) {
+      '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg" role="group" aria-label="Period">' + ['latest', 'week', 'since'].map(function (m) {
         return '<button type="button" class="seg-btn" data-act="setPeriod" data-mode="' + m + '" aria-pressed="' + (mode === m) + '"><span>' + PERIOD_LABEL[m] + '</span></button>';
       }).join('') + '</div><button class="btn primary" data-act="openAdd">Add records</button></div></div>';
     var banner = !c.token ? '<div class="callout"><span>GitHub is not connected yet, so you can look around but not add records or save changes.</span><button class="btn small" data-act="openSettings">Connect GitHub</button></div>' : '';
@@ -602,7 +605,10 @@ body.wide .wrap{max-width:1320px}
     var infos = sortInfos(items.filter(function (i) { return !i.pending; }).map(recInfo));
     state.ui._infos = infos;
     var h = function (k, l) { return '<button class="th' + (state.ui.sort === k ? ' on' : '') + '" data-act="setSort" data-k="' + k + '">' + l + (state.ui.sort === k ? ' ↓' : '') + '</button>'; };
-    var explain = mode === 'week' ? 'Each record\'s current release week (Friday to Thursday) against the week before. Daily averages, so a part-finished week is fair.' : 'Last 7 days against the 7 days before.';
+    var lagDays = infos.length ? Math.max.apply(null, infos.map(function (i) { return i.P.lag || 0; })) : 0;
+    var explain = (mode === 'week' ? 'Each record\'s last full release week (Friday to Thursday, counted from its release day) against the week before. Records still in week 1 show week 1 so far.'
+      : mode === 'since' ? 'Totals since each record\'s release. No comparison.' : 'The last 7 reported days against the 7 days before.') +
+      (lagDays ? ' Spotify reports streams 1 to 2 days late, so every period ends on the last day Spotify has reported, never on a half-empty day.' : '');
     var table = '<div class="rt"><div class="rt-top"><span class="muted" style="font-size:13px">' + explain + ' Click a record to jump to it. Tick records to copy their notes together.</span></div>' +
       '<div class="rt-row rt-h"><span></span>' + h('newest', 'Record') + h('trend', 'Trend') + COLS.map(function (c) { return h(c[0], c[1]); }).join('') + '<span></span></div>' +
       infos.map(function (i) {
@@ -610,7 +616,7 @@ body.wide .wrap{max-width:1320px}
         var cells = COLS.map(function (col) {
           if (col[0] === 'editorial') return '<div class="rt-c"><b class="num">' + i.ed.length + '</b>' + (i.news.editorial.length ? '<span class="newtag">+' + i.news.editorial.length + ' new</span>' : '<span class="d0">no new adds</span>') + '</div>';
           var m = i.by[col[0]];
-          return '<div class="rt-c"><b class="num">' + (m && m.w && m.w.cur != null ? short(m.w.cur) : '-') + '</b>' + (m && m.has ? pctTag(m.w) : '<span class="d0">no data</span>') + '</div>';
+          return '<div class="rt-c"><b class="num">' + (m && m.w && m.w.cur != null && (m.w.cur || m.w.total) ? short(m.w.cur) : '-') + '</b>' + (m && m.has ? pctTag(m.w) : '<span class="d0">no data</span>') + '</div>';
         }).join('');
         var on = state.ui.sel.indexOf(ctx.isrc) >= 0;
         return '<div class="rt-row rec" data-act="jump" data-isrc="' + esc(ctx.isrc) + '">' +
@@ -636,27 +642,27 @@ body.wide .wrap{max-width:1320px}
     var links = LINK_ORDER.filter(function (l) { return linkOf(ctx, l[0]); }).map(function (l) { return '<a class="lk" href="' + esc(linkOf(ctx, l[0])) + '" target="_blank" rel="noopener">' + l[1] + '</a>'; }).join('');
     var on = state.ui.sel.indexOf(ctx.isrc) >= 0;
     var strip = '<div class="mstrip">' + i.strip.map(function (m) {
-      return '<div class="mc' + (m.has ? '' : ' none') + '"><div class="mc-l">' + m.label + '</div><div class="mc-v num">' + (m.w && m.w.cur != null ? short(m.w.cur) : '-') + '</div><div class="mc-f">' + (m.has ? pctTag(m.w) : '<span class="d0">no data</span>') + (m.w && m.w.total ? '<span class="tot">' + short(m.w.total) + ' total</span>' : '') + '</div></div>';
+      return '<div class="mc' + (m.has ? '' : ' none') + '"><div class="mc-l">' + m.label + '</div><div class="mc-v num">' + (m.w && m.w.cur != null && (m.w.cur || m.w.total) ? short(m.w.cur) : '-') + '</div><div class="mc-f">' + (m.has ? pctTag(m.w) : '<span class="d0">no data</span>') + (m.w && m.w.total && !(m.w.since && m.w.total === m.w.cur) ? '<span class="tot">' + short(m.w.total) + ' total' + (m.w.since ? ' inc. pre-release' : '') + '</span>' : '') + '</div></div>';
     }).join('') + '</div>';
     var nkey = ctx.isrc;
     var notesHtml = i.notes.length ? i.notes.map(function (g, gi) {
       return '<div class="ng"><div class="ng-t">' + esc(g.title) + '</div>' + g.items.map(function (it, ii) {
         var id = 'n_' + nkey + '_' + gi + '_' + ii;
-        var unt = (state.ui.untick[nkey] || {})[gi + '_' + ii];
-        return '<label class="ni' + (it.fresh ? ' fresh' : '') + '"><input type="checkbox" class="nck" data-isrc="' + esc(nkey) + '" data-k="' + gi + '_' + ii + '"' + (unt ? '' : ' checked') + '><span>' + esc(it.text) + '</span></label>';
+        var on = (state.ui.tick[nkey] || {})[gi + '_' + ii];
+        return '<label class="ni' + (it.fresh ? ' fresh' : '') + '"><input type="checkbox" class="nck" data-isrc="' + esc(nkey) + '" data-k="' + gi + '_' + ii + '"' + (on ? ' checked' : '') + '><span>' + esc(it.text) + '</span></label>';
       }).join('') + '</div>';
     }).join('') : '<p class="muted">Nothing to report yet. Notes appear after the first refresh with data.</p>';
 
     var ed = C.editorialOnly(ctx.placements).filter(C.activeNow);
     var cols = C.DSPS.filter(function (d) { return ['spotify', 'apple', 'deezer', 'amazon'].indexOf(d.key) >= 0; }).map(function (d) {
       var mine = ed.filter(function (p) { return p.dsp === d.key; }).sort(function (a, b) {
-        return (C.addedIn(b, P.s, P.e) - C.addedIn(a, P.s, P.e)) || (b.followers || 0) - (a.followers || 0);
+        return (b.followers || 0) - (a.followers || 0);
       });
       return edCol(ctx.isrc + ':' + d.key, d.label, mine.map(function (p) {
         var first = (p.spans || []).map(function (s) { return s.added_at; }).filter(Boolean).sort()[0];
         var rg = C.activeRegions(p).filter(Boolean);
         var pos = C.bestPos(p);
-        return { name: p.name, fresh: C.addedIn(p, P.s, P.e), sub: [pos ? '#' + pos : '', p.followers ? C.fmtCompact(p.followers) : '', rg.length > 1 ? rg.length + ' markets' : rg[0] || '', first ? C.fmtShort(C.parseDate(first)) : ''].filter(Boolean).join(' · ') };
+        return { name: p.name, fresh: P.mode !== 'since' && C.addedIn(p, P.s, P.e), sub: [pos ? '#' + pos : '', p.followers ? C.fmtCompact(p.followers) : '', rg.length > 1 ? rg.length + ' markets' : rg[0] || '', first ? C.fmtShort(C.parseDate(first)) : ''].filter(Boolean).join(' · ') };
       }));
     });
     var bp = ((sup.beatport || {}).charts || []).filter(function (c) { return !c.removed_at; });
@@ -693,12 +699,12 @@ body.wide .wrap{max-width:1320px}
       (ctx.errors && ctx.errors.length ? '<div class="callout" title="' + esc(ctx.errors.join('\n')) + '"><span>' + plural(ctx.errors.length, 'item') + ' could not be refreshed last time. Older data is shown where possible.</span></div>' : '') +
       strip +
       '<div class="sh-grid"><div class="pbox notes"><div class="box-h"><h3>Pitch notes</h3><button class="btn primary small" data-act="copyNotes" data-isrc="' + esc(ctx.isrc) + '">Copy notes</button></div>' +
-      '<p class="muted hint">Every true, positive point. <b>Bold</b> is new in ' + esc(P.label) + ' and stays bold when pasted. Untick anything you don\'t want.</p>' + notesHtml + '</div>' +
+      '<p class="muted hint">' + (P.mode === 'since' ? 'Every true, positive point since release. Switch to Last 7 days or Last full release week to see what\'s new.' : 'Every true, positive point. <b>Bold</b> is new in ' + esc(P.label) + ' and stays bold when pasted.') + ' Tick the points you want, then copy.</p><div class="ticks">Tick: <button class="more-btn" data-act="tickSet" data-isrc="' + esc(nkey) + '" data-w="all">all</button> · ' + (P.mode === 'since' ? '' : '<button class="more-btn" data-act="tickSet" data-isrc="' + esc(nkey) + '" data-w="new">new only</button> · ') + '<button class="more-btn" data-act="tickSet" data-isrc="' + esc(nkey) + '" data-w="none">none</button></div>' + notesHtml + '</div>' +
       '<div class="side"><div class="pbox chartbox"><h3>Daily Spotify streams</h3>' + trendChart(i.mon) + '</div>' + lists + '</div></div>' +
       '<div class="pbox"><div class="box-h"><h3>Editorial playlists live</h3><span class="muted">' + ed.length + ' across DSPs' + (i.news.editorial.length ? ' · <span class="newtag">+' + i.news.editorial.length + ' new in ' + esc(P.label) + '</span>' : '') + '</span></div><div class="edcols">' + cols.join('') + '</div></div>' +
       '</section>';
   }
-  function inPer(d, P) { var x = C.parseDate(d); return x != null && x >= P.s && x <= P.e; }
+  function inPer(d, P) { if (P.mode === 'since') return false; var x = C.parseDate(d); return x != null && x >= P.s && x <= P.e; }
   function itemsHtml(key, rows, n) {
     var open = state.ui.open[key], shown = open ? rows : rows.slice(0, n);
     return shown.map(function (r) { return '<div class="li"><div class="li-n">' + (r.fresh ? '<span class="newtag">NEW</span> ' : '') + esc(r.name) + '</div><div class="li-s">' + esc(r.sub || '') + '</div></div>'; }).join('') +
@@ -717,8 +723,9 @@ body.wide .wrap{max-width:1320px}
   function notesFor(isrc) {
     var i = (state.ui._infos || []).filter(function (x) { return x.ctx.isrc === isrc; })[0];
     if (!i) return null;
-    var ctx = i.ctx, unt = state.ui.untick[isrc] || {}, items = [];
-    i.notes.forEach(function (g, gi) { g.items.forEach(function (it, ii) { if (!unt[gi + '_' + ii]) items.push(it); }); });
+    var ctx = i.ctx, tk = state.ui.tick[isrc] || {}, items = [];
+    i.notes.forEach(function (g, gi) { g.items.forEach(function (it, ii) { if (tk[gi + '_' + ii]) items.push(it); }); });
+    if (!items.length) return null;
     var titleTxt = ctx.artist + ' \'' + ctx.track + '\'' + (ctx.label ? ' - ' + ctx.label.toUpperCase() : '');
     var lk = LINK_ORDER.filter(function (l) { return linkOf(ctx, l[0]); }).map(function (l) { return linkOf(ctx, l[0]); });
     var plain = titleTxt + '\n' + (lk.length ? 'STREAM: ' + lk.join(' | ') + '\n' : '') + '\n' + i.P.header + '\n' + items.map(function (it) { return '- ' + it.text; }).join('\n');
@@ -1095,15 +1102,25 @@ body.wide .wrap{max-width:1320px}
       var y = window.scrollY; render(); window.scrollTo(0, y);
     },
     clearSel: function () { state.ui.sel = []; var y = window.scrollY; render(); window.scrollTo(0, y); },
-    setPeriod: function (el) { state.ui.period = el.dataset.mode; state.ui.untick = {}; var y = window.scrollY; render(); window.scrollTo(0, y); },
+    setPeriod: function (el) { state.ui.period = el.dataset.mode; state.ui.tick = {}; var y = window.scrollY; render(); window.scrollTo(0, y); },
     setSort: function (el) { state.ui.sort = el.dataset.k; var y = window.scrollY; render(); window.scrollTo(0, y); },
     jump: function (el) { var s = document.getElementById('sheet-' + el.dataset.isrc); if (s) { s.scrollIntoView({ behavior: 'smooth', block: 'start' }); s.classList.add('flash'); setTimeout(function () { s.classList.remove('flash'); }, 1400); } },
     toggleOpen: function (el) { var k = el.dataset.k; state.ui.open[k] = !state.ui.open[k]; var y = window.scrollY; render(); window.scrollTo(0, y); },
-    copyNotes: function (el) { var n = notesFor(el.dataset.isrc); if (n) copyRich([n]); },
+    copyNotes: function (el) { var n = notesFor(el.dataset.isrc); if (n) copyRich([n]); else toast('Tick the points you want first', true); },
+    tickSet: function (el) {
+      var id = el.dataset.isrc, w = el.dataset.w, i = (state.ui._infos || []).filter(function (x) { return x.ctx.isrc === id; })[0];
+      if (!i) return;
+      var tk = state.ui.tick[id] = {};
+      if (w !== 'none') i.notes.forEach(function (g, gi) { g.items.forEach(function (it, ii) { if (w === 'all' || it.fresh) tk[gi + '_' + ii] = 1; }); });
+      document.querySelectorAll('#sheet-' + id + ' .nck').forEach(function (c) { c.checked = !!tk[c.dataset.k]; });
+    },
     copySelected: function () {
       var order = (state.ui._infos || []).map(function (i) { return i.ctx.isrc; });
-      var parts = order.filter(function (id) { return state.ui.sel.indexOf(id) >= 0; }).map(notesFor).filter(Boolean);
-      if (parts.length) copyRich(parts);
+      var ids = order.filter(function (id) { return state.ui.sel.indexOf(id) >= 0; });
+      var parts = ids.map(notesFor).filter(Boolean);
+      if (!parts.length) { toast('Tick the points you want in each record first', true); return; }
+      copyRich(parts);
+      if (parts.length < ids.length) setTimeout(function () { toast((ids.length - parts.length) + ' ticked record' + (ids.length - parts.length > 1 ? 's had' : ' had') + ' no points ticked, so ' + (ids.length - parts.length > 1 ? 'they were' : 'it was') + ' left out', true); }, 1800);
     },
     openBundle: function () {
       var ctxs = contexts();
@@ -1261,7 +1278,7 @@ body.wide .wrap{max-width:1320px}
   }
   document.addEventListener('change', function (ev) {
     var t = ev.target;
-    if (t && t.classList && t.classList.contains('nck')) { var u = state.ui.untick[t.dataset.isrc] = state.ui.untick[t.dataset.isrc] || {}; if (t.checked) delete u[t.dataset.k]; else u[t.dataset.k] = 1; return; }
+    if (t && t.classList && t.classList.contains('nck')) { var u = state.ui.tick[t.dataset.isrc] = state.ui.tick[t.dataset.isrc] || {}; if (t.checked) u[t.dataset.k] = 1; else delete u[t.dataset.k]; return; }
     if (t && t.dataset && t.dataset.act === 'toggleSel') { actions.toggleSel(t); return; }
     if (ev.target && ev.target.id === 'm_sort') { state.ui.sort = ev.target.value; render(); return; }
     if (ev.target && ev.target.id === 'h_week') { state.ui.hl[state.ui.rec] = ev.target.value === 'latest' ? 'latest' : parseInt(ev.target.value, 10); render(); }
