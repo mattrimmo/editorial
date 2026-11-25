@@ -32,29 +32,27 @@ DSP order used everywhere: Spotify, Apple Music, Deezer, Amazon Music, YouTube M
 
 ## How it works
 
-* **Weeks.** Week 1 starts on the release date (a Friday) and runs to Thursday. Week 2 starts the next Friday.
-  Every placement has an added date (and removed date), so any past week is rebuilt on the spot. Nothing has to wait
-  for snapshots to build up, and a record added late still gets its full history.
-* **Refresh.** Runs daily at 06:15 UTC and on demand from Check live now. Spot On Track bills per unique ISRC per
-  month, so refreshing more often does not cost more entities.
-* **Spotify editorial.** A playlist is editorial if its id starts `37i9dQZF1` (Spotify's own), if Spot On Track names
-  Spotify as the owner, or if you tagged it. Everything else on Spotify is treated as independent and not shown.
-* **Apple Music and Deezer editorial.** The Spot On Track docs do not list an owner field for these. If your live
-  responses include one that names the DSP itself, they classify automatically. Otherwise they appear under
-  **Needs tagging** once, you pick Editorial / Independent / Ignore, and that is remembered for every record.
-  The Actions log prints the playlist object keys on the first record so you can see which case you are in.
-* **Hand-logged DSPs.** Amazon, YouTube Music, Beatport and SoundCloud are entered by hand per record. They appear in the
-  weekly table, the pitch block and the follow-up list like the automatic ones.
-* **Pitch block.** Three bullets at most: editorial support (the recipient's DSP first), one headline stat, and your hook line.
-  The headline is the strongest genuinely positive number for the chosen week (new editorial adds, then a chart climb, then
-  week-on-week streams or Shazams). If nothing is positive it claims nothing. The full numbers are always on the card.
-* **Follow-ups.** Click Mark pitched on a record to log the date. The Follow-ups tab then shows what editorial support was added
-  since you last pitched each DSP.
+* **Records page.** One table to scan every record (trend, streams, editorial, Shazams, radio, DJ supports, TikTok),
+  then every record in full underneath. Click a row to jump to its record. Click a column heading to sort by it.
+* **Period.** Switch between **Last 7 days** and **Release week** at the top. Release weeks run Friday to Thursday from
+  release day. Everything is compared with the 7 days before, using daily averages so a part-finished week is fair.
+* **Pitch notes.** Every true, positive point for the record, across every source: streams, editorial on every DSP,
+  Beatport, 1001Tracklists and DSP charts, radio stations, DJ support, TikTok, Instagram, YouTube, SoundCloud and Shazam.
+  Anything new in the chosen period is marked NEW and stays **bold** when pasted into an email. Untick what you don't want,
+  then **Copy notes**. Tick several records in the table and use **Copy notes for all** to get them in one go, in the format
+  `Artist 'Title' - LABEL`, stream links, period header, bullets. Declines are never listed.
+* **Data.** Songstats, refreshed daily at 06:15 UTC (and from Refresh data). Spotify, Apple Music, Deezer and Amazon
+  editorial come from playlist data. Radio stations, 1001Tracklists DJ supports and charts, Beatport charts and DJ charts,
+  SoundCloud and the social numbers come from the same refresh (about 3 extra Songstats calls per record).
+* **Editorial or not.** Spotify editorial is Spotify-owned (This Is and Artist Radio left out). Apple uses Songstats' editorial
+  flag, Deezer the editor accounts, Amazon its own playlists. Anything unclear appears under **Sort playlists** once, and your
+  choice is remembered for every record.
+* **Edit.** Each record's Edit link has the hook line (shown at the top of its notes), extra links, label, name and release date
+  fixes, hand-logged placements and the week-by-week editorial table.
 
 ## Limits worth knowing
 
-* Streams and Shazams only exist for Spotify and Shazam. Apple and Deezer show placements, regions and charts.
-* Apple placements are per country, so they are shown with their regions.
-* Spotify stream dates are shifted back 2 days to match Spotify for Artists.
-* Playlists under 100 followers (Spotify and Deezer, non-editorial) are skipped. Change with the `MIN_FOLLOWERS` env var in the workflow.
+* Songstats totals don't always move every day. When a total sits still and then jumps, the jump is spread over those days.
+* A record in its first week has nothing to compare with, so it shows "first week" instead of a %.
+* Apple, Amazon and Beatport have no stream counts. YouTube Music editorial isn't in Songstats, so log it by hand under Edit.
 * The repo is public, so the data files are public too. Do not put anything confidential in hook lines.
