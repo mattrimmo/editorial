@@ -550,7 +550,7 @@ def sync_record(entry, prior, registry):
         if ok else prior.get("shazams", [])
 
     # --- everything else Songstats has: socials, radio, DJ support, Beatport, SoundCloud, Traxsource
-    more, ok = safe("social, radio and DJ history", errors, lambda: fetch_more(ident, since), None)
+    more, ok = safe("social, radio and DJ history", errors, lambda: fetch_more(ident, since, rel), None)
     rec["more"] = more if ok else prior.get("more", {})
     sup, ok = safe("radio, DJ and Beatport detail", errors, lambda: fetch_support(ident), None)
     rec["support"] = sup if ok else prior.get("support", {})
@@ -569,18 +569,20 @@ MORE = {
 PRE_DAYS = 28   # socials often start before release, so look back a little for a fair "week before"
 
 
-def with_start(history, key, start):
-    """If a total only appears after the window opens (new release, or the platform picked it up late),
-    it was zero before that, so add a zero day. Otherwise the first day's count is lost."""
+def with_start(history, key, rel):
+    """A brand-new release has no history before release day, so its running total was zero the day before.
+    Adding that zero day keeps release-day plays in week 1. Only done when the data starts on (or just after)
+    release day: if Songstats started tracking an older record late, the first total is everything up to then,
+    and treating it as one day's plays would invent a huge spike."""
     pts = [h for h in history or [] if h.get(key) is not None and to_date(h.get("date"))]
-    if pts:
+    if pts and rel:
         first = min(to_date(h["date"]) for h in pts)
-        if first > start:
+        if rel - timedelta(days=1) <= first <= rel + timedelta(days=2):
             pts = [{"date": (first - timedelta(days=1)).isoformat(), key: 0}] + pts
     return pts
 
 
-def fetch_more(ident, since):
+def fetch_more(ident, since, rel=None):
     start = since - timedelta(days=PRE_DAYS)
     sources = sorted({s for s, _ in MORE.values()})
     params = {**ident, "start_date": start.isoformat(), "end_date": date.today().isoformat()}
@@ -598,7 +600,7 @@ def fetch_more(ident, since):
                 print(f"  {src} history unavailable: {e2}")
     out = {}
     for key, (src, field) in MORE.items():
-        pts = with_start(hist.get(src), field, start)
+        pts = with_start(hist.get(src), field, rel)
         series = daily_series(pts, field, 0)
         if any(r.get("total") for r in series):
             out[key] = series
