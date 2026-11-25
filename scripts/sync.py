@@ -507,6 +507,7 @@ def sync_record(entry, prior, registry):
             "artists": [a.get("name") for a in info.get("artists") or []],
             "release_date": info.get("release_date"),
             "artwork": info.get("avatar"),
+            "label": ", ".join(l.get("name") for l in (info.get("labels") or [])[:1] if l.get("name")),
             "links": {k: v[0] for k, v in links.items()},
         }
     else:
@@ -547,7 +548,113 @@ def sync_record(entry, prior, registry):
         **ident, "source": "shazam", "start_date": since.isoformat(), "end_date": end.isoformat()}), None)
     rec["shazams"] = daily_series(source_data(z, "shazam").get("history"), "shazams_total", 0) \
         if ok else prior.get("shazams", [])
+
+    # --- everything else Songstats has: socials, radio, DJ support, Beatport, SoundCloud, Traxsource
+    more, ok = safe("social, radio and DJ history", errors, lambda: fetch_more(ident, since), None)
+    rec["more"] = more if ok else prior.get("more", {})
+    sup, ok = safe("radio, DJ and Beatport detail", errors, lambda: fetch_support(ident), None)
+    rec["support"] = sup if ok else prior.get("support", {})
     return rec
+
+
+# ------------------------------------------------------------------ socials, radio, DJ, Beatport
+# key: (source, field). All running totals, turned into daily figures the same way as streams.
+MORE = {
+    "tiktok_videos": ("tiktok", "videos_total"), "tiktok_views": ("tiktok", "views_total"),
+    "ig_reels": ("instagram", "videos_total"), "ig_views": ("instagram", "views_total"),
+    "yt_views": ("youtube", "video_views_total"), "yt_shorts": ("youtube", "shorts_total"),
+    "sc_plays": ("soundcloud", "streams_total"), "dj_supports": ("tracklist", "total_supports_total"),
+    "radio_plays": ("radio", "radio_plays_total"), "radio_stations": ("radio", "radio_stations_total"),
+}
+PRE_DAYS = 28   # socials often start before release, so look back a little for a fair "week before"
+
+
+def with_start(history, key, start):
+    """If a total only appears after the window opens (new release, or the platform picked it up late),
+    it was zero before that, so add a zero day. Otherwise the first day's count is lost."""
+    pts = [h for h in history or [] if h.get(key) is not None and to_date(h.get("date"))]
+    if pts:
+        first = min(to_date(h["date"]) for h in pts)
+        if first > start:
+            pts = [{"date": (first - timedelta(days=1)).isoformat(), key: 0}] + pts
+    return pts
+
+
+def fetch_more(ident, since):
+    start = since - timedelta(days=PRE_DAYS)
+    sources = sorted({s for s, _ in MORE.values()})
+    params = {**ident, "start_date": start.isoformat(), "end_date": date.today().isoformat()}
+    hist = {}
+    try:
+        body = ss_get("tracks/historic_stats", dict(params, source=",".join(sources)))
+        for st in (body or {}).get("stats") or []:
+            hist[st.get("source")] = (st.get("data") or {}).get("history") or []
+    except SsError as e:  # a source not on this key: try them one by one
+        print(f"  combined history failed ({e}), trying each source")
+        for src in sources:
+            try:
+                hist[src] = source_data(ss_get("tracks/historic_stats", dict(params, source=src)), src).get("history") or []
+            except SsError as e2:
+                print(f"  {src} history unavailable: {e2}")
+    out = {}
+    for key, (src, field) in MORE.items():
+        pts = with_start(hist.get(src), field, start)
+        series = daily_series(pts, field, 0)
+        if any(r.get("total") for r in series):
+            out[key] = series
+    return out
+
+
+def _chart_row(c):
+    return {"name": c.get("name"), "position": c.get("current_position"), "peak": c.get("top_position"),
+            "peak_date": (c.get("top_position_date") or "")[:10] or None,
+            "added_at": (c.get("added_at") or "")[:10] or None, "removed_at": (c.get("removed_at") or "")[:10] or None}
+
+
+def fetch_support(ident):
+    out = {}
+    body = ss_get("tracks/stats", {**ident, "source": "tracklist,radio", "with_playlists": "true",
+                                   "with_stations": "true", "limit": PAGE})
+    tl = source_data(body, "tracklist")
+    out["dj_sets"] = [{"name": t.get("tracklist_name"), "dj": t.get("artist_name"), "type": t.get("tracklist_type"),
+                       "date": (t.get("record_date") or "")[:10] or None, "views": t.get("tracklist_views")}
+                      for t in tl.get("tracklists") or []]
+    out["dj_total"] = tl.get("total_support")
+    out["dj_unique"] = tl.get("unique_support")
+    out["tracklist_charts"] = [_chart_row(c) for c in tl.get("charts") or []]
+    rd = source_data(body, "radio")
+    out["radio"] = {"plays": rd.get("radio_plays_total"), "stations_total": rd.get("radio_stations_total"),
+                    "stations": [{"name": (r.get("name") or "").strip(), "type": r.get("type"), "plays": r.get("radio_plays_total"),
+                                  "first": r.get("first_played_at"), "last": r.get("last_played_at"), "cc": r.get("country_code"),
+                                  "city": r.get("city_name") or None}
+                                 for r in sorted(rd.get("radio_stations") or [], key=lambda r: -(r.get("radio_plays_total") or 0))]}
+    for sources in ("beatport,soundcloud,traxsource", "beatport,soundcloud"):
+        try:
+            body = ss_get("tracks/stats", {**ident, "source": sources, "with_charts": "true", "with_playlists": "true", "limit": PAGE})
+            break
+        except SsError as e:
+            print(f"  {sources} detail failed ({e})")
+            body = None
+    if body:
+        bp = source_data(body, "beatport")
+        out["beatport"] = {"charts": [_chart_row(c) for c in (bp.get("top_100") or []) + (bp.get("release_charts") or []) + (bp.get("features") or [])],
+                           "dj_charts": [{"name": c.get("name"), "owner": c.get("owner_name"), "position": c.get("position"),
+                                          "date": (c.get("release_date") or "")[:10] or None}
+                                         for c in sorted(bp.get("dj_charts") or [], key=lambda c: c.get("release_date") or "", reverse=True)],
+                           "dj_charts_total": bp.get("dj_charts_total")}
+        sc = source_data(body, "soundcloud")
+        out["soundcloud"] = {"editorial": [dict(_chart_row(p), followers=p.get("followers_count"), owner=p.get("owner_name"))
+                                           for p in sc.get("playlists") or [] if (p.get("playlist_type") or "").lower() == "editorial"],
+                             "charts": [_chart_row(c) for c in sc.get("charts") or []]}
+        tx = source_data(body, "traxsource")
+        if tx:
+            rows = []
+            for k in ("charts", "top_100", "features", "track_charts", "genre_charts"):
+                rows += [_chart_row(c) for c in tx.get(k) or [] if isinstance(c, dict)]
+            out["traxsource"] = {"charts": rows,
+                                 "dj_charts": [{"name": c.get("name"), "owner": c.get("owner_name"), "position": c.get("position"),
+                                                "date": (c.get("release_date") or "")[:10] or None} for c in tx.get("dj_charts") or []]}
+    return out
 
 
 # ------------------------------------------------------------------ main
