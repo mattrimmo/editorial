@@ -318,6 +318,23 @@ body.wide .wrap{max-width:1320px}
 .more-btn{background:none;border:0;color:var(--signal);font-size:12.5px;padding:4px 0 0;cursor:pointer}
 .side{display:flex;flex-direction:column;gap:14px;min-width:0}
 .selbar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:12px;align-items:center;background:var(--raised);border:1px solid var(--signal);border-radius:12px;padding:8px 10px 8px 16px;box-shadow:0 10px 30px rgba(0,0,0,.5);z-index:30}
+
+.sh-grid1{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px;margin-bottom:14px;align-items:start}
+@media (max-width:1100px){.sh-grid1{grid-template-columns:1fr}}
+.sh-grid1 .edcols{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mc.click{cursor:pointer}
+.mc.click:hover{background:#24302a}
+.mc.on{background:rgba(53,217,117,.12);box-shadow:inset 0 -2px 0 var(--signal)}
+.mc-b{margin-top:4px;line-height:0}
+.tchips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:9px;font-size:12.5px}
+.tchips .chip{font-size:12.5px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.tchips .chip:hover{color:var(--text)}
+.tchips .chip.on{background:var(--signal);border-color:var(--signal);color:var(--signal-ink);font-weight:700}
+.trk-n{color:var(--muted);font-weight:500}
+.trend-chart .raw{fill:none;stroke:rgba(159,178,166,.35);stroke-width:1}
+.ckey{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:#7d9286;margin-top:4px}
+.ckey i{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:5px;vertical-align:3px}
+.ckey .k-ln{background:var(--signal)}.ckey .k-raw{background:rgba(159,178,166,.5)}.ckey .k-add{background:var(--signal);height:8px;width:8px;border-radius:50%;vertical-align:0}.ckey .k-rem{background:var(--red);height:8px;width:8px;border-radius:50%;vertical-align:0}
 </style>
 </head>
 <body>
@@ -353,7 +370,7 @@ body.wide .wrap{max-width:1320px}
   var state = {
     tracked: { tracks: [] }, history: { generated_at: null, records: {} },
     registry: { playlists: {} }, manual: { entries: {} }, pitches: { pitches: {} }, resolved: { entries: {} },
-    ui: { view: 'records', rec: null, tab: 'playlists', hl: {}, pitch: {}, modal: null, logOpen: false, selecting: false, sel: [], sort: 'newest', period: 'latest', tick: {}, open: {}, bundle: { dsp: 'spotify', name: '', followUp: false } },
+    ui: { view: 'records', rec: null, tab: 'playlists', hl: {}, pitch: {}, modal: null, logOpen: false, selecting: false, sel: [], sort: 'newest', period: 'latest', tick: {}, trackView: {}, chartKey: {}, open: {}, bundle: { dsp: 'spotify', name: '', followUp: false } },
     loadError: null, syncing: false
   };
 
@@ -602,8 +619,15 @@ body.wide .wrap{max-width:1320px}
     var banner = !c.token ? '<div class="callout"><span>GitHub is not connected yet, so you can look around but not add records or save changes.</span><button class="btn small" data-act="openSettings">Connect GitHub</button></div>' : '';
     if (!items.length) return head + banner + '<div class="empty"><h2>Add your first records</h2><p>Paste Spotify track links, one per line.</p><button class="btn primary" data-act="openAdd">Add records</button></div>';
     var pend = items.filter(function (i) { return i.pending; }).map(function (i) { return recRow(i); }).join('');
-    var infos = sortInfos(items.filter(function (i) { return !i.pending; }).map(recInfo));
-    state.ui._infos = infos;
+    // one row per release: tracks on the same label and release day go together
+    var groups = C.groupReleases(items.filter(function (i) { return !i.pending; }), today());
+    var byId = {}, gById = {};
+    var infos = sortInfos(groups.map(function (g) {
+      var rel = recInfo(g.ctx); rel.group = g; byId[g.key] = rel; gById[g.key] = g;
+      g.tracks.forEach(function (t) { if (g.tracks.length > 1) byId[t.isrc] = null; });
+      return rel;
+    }));
+    state.ui._infos = infos; state.ui._byId = byId; state.ui._groups = gById;
     var h = function (k, l) { return '<button class="th' + (state.ui.sort === k ? ' on' : '') + '" data-act="setSort" data-k="' + k + '">' + l + (state.ui.sort === k ? ' ↓' : '') + '</button>'; };
     var lagDays = infos.length ? Math.max.apply(null, infos.map(function (i) { return i.P.lag || 0; })) : 0;
     var explain = (mode === 'week' ? 'Each record\'s last full release week (Friday to Thursday, counted from its release day) against the week before. Records still in week 1 show week 1 so far.'
@@ -618,15 +642,15 @@ body.wide .wrap{max-width:1320px}
           var m = i.by[col[0]];
           return '<div class="rt-c"><b class="num">' + (m && m.w && m.w.cur != null && (m.w.cur || m.w.total) ? short(m.w.cur) : '-') + '</b>' + (m && m.has ? pctTag(m.w) : '<span class="d0">no data</span>') + '</div>';
         }).join('');
-        var on = state.ui.sel.indexOf(ctx.isrc) >= 0;
-        return '<div class="rt-row rec" data-act="jump" data-isrc="' + esc(ctx.isrc) + '">' +
+        var gk = i.group ? i.group.key : ctx.isrc, on = state.ui.sel.indexOf(gk) >= 0;
+        return '<div class="rt-row rec" data-act="jump" data-isrc="' + esc(gk) + '">' +
           (ctx.artwork ? '<img class="art sm" src="' + esc(ctx.artwork) + '" alt="" loading="lazy">' : '<div class="art sm"></div>') +
-          '<div class="rt-name"><div class="row-title">' + esc(title(ctx)) + '</div><div class="row-sub">' + esc(relSub(ctx)) + (i.top ? ' · <span class="topline">' + esc(i.top) + '</span>' : '') + '</div></div>' +
+          '<div class="rt-name"><div class="row-title" title="' + esc(title(ctx)) + '">' + (ctx.group ? '<span class="trk-n">' + ctx.members.length + ' tracks:</span> ' : '') + esc(title(ctx)) + '</div><div class="row-sub">' + esc(relSub(ctx)) + (i.top ? ' · <span class="topline">' + esc(i.top) + '</span>' : '') + '</div></div>' +
           '<div>' + trendBadge(i.mon.trend) + '</div>' + cells +
-          '<label class="pickbox" title="Include in combined notes"><input type="checkbox" data-act="toggleSel" data-isrc="' + esc(ctx.isrc) + '"' + (on ? ' checked' : '') + '></label></div>';
+          '<label class="pickbox" title="Include in combined notes"><input type="checkbox" data-act="toggleSel" data-isrc="' + esc(gk) + '"' + (on ? ' checked' : '') + '></label></div>';
       }).join('') + pend + '</div>';
     var bar = state.ui.sel.length ? '<div class="selbar"><span>' + plural(state.ui.sel.length, 'record') + ' ticked</span><button class="btn quiet small" data-act="clearSel">Clear</button><button class="btn primary" data-act="copySelected">Copy notes for all ' + state.ui.sel.length + '</button></div>' : '';
-    return head + banner + table + '<div class="sheets">' + infos.map(sheet).join('') + '</div>' + bar;
+    return head + banner + table + '<div class="sheets">' + infos.map(function (rel) { return sheet(viewInfo(rel)); }).join('') + '</div>' + bar;
   }
   function recRow(ctx) {
     var msg = ctx.error ? ctx.error : 'Waiting for the next refresh to find this record. Refresh data does it straight away.';
@@ -634,17 +658,80 @@ body.wide .wrap{max-width:1320px}
       '<span class="pill ' + (ctx.error ? 'bad' : 'wait') + '">' + (ctx.error ? 'Not found' : 'Finding record') + '</span><button class="btn quiet small" data-act="removePending" data-key="' + esc(ctx.key) + '">Remove</button></div>';
   }
 
+  // which view of a release is showing: the whole release, or one of its tracks
+  function viewInfo(rel) {
+    var g = rel.group, tv = state.ui.trackView[g.key];
+    var t = tv ? g.tracks.filter(function (x) { return x.isrc === tv; })[0] : null;
+    if (!t) return rel;
+    var i = state.ui._byId[t.isrc];
+    if (!i) { i = recInfo(t); state.ui._byId[t.isrc] = i; }
+    i.group = g;
+    return i;
+  }
+  function infoById(id) {
+    var i = (state.ui._byId || {})[id];
+    if (i) return i;
+    var g = (state.ui._infos || []).map(function (x) { return x.group; }).filter(function (gr) { return gr && gr.tracks.some(function (t) { return t.isrc === id; }); })[0];
+    if (!g) return null;
+    var t = g.tracks.filter(function (x) { return x.isrc === id; })[0];
+    i = recInfo(t); i.group = g; state.ui._byId[id] = i; return i;
+  }
+  // weekly totals for the last 8 weeks, for the little bars in each metric cell
+  function weeklyBars(series, end) {
+    var out = [];
+    for (var w = 7; w >= 0; w--) { var e = end - w * 7 * C.DAY, s = C.seriesSum(series, e - 6 * C.DAY, e); out.push(s ? s.sum : 0); }
+    return out;
+  }
+  function bars(v, on) {
+    var w = 52, h = 18, max = Math.max.apply(null, v.concat([0.0001])), bw = w / v.length;
+    return '<svg width="' + w + '" height="' + h + '" aria-hidden="true">' + v.map(function (x, i) {
+      var bh = Math.max(1, x / max * (h - 1)); return '<rect x="' + (i * bw).toFixed(1) + '" y="' + (h - bh).toFixed(1) + '" width="' + (bw - 1.5).toFixed(1) + '" height="' + bh.toFixed(1) + '" rx="1" fill="' + (i === v.length - 1 ? '#35d975' : on ? '#3f6b52' : '#2f4339') + '"/>';
+    }).join('') + '</svg>';
+  }
+  // daily chart for any metric, 7-day average on top, editorial adds marked
+  var CHART_LABEL = { streams: 'Daily Spotify streams', shazams: 'Daily Shazams', radio_plays: 'Daily radio plays', dj_supports: 'Daily DJ supports', tiktok_videos: 'New TikTok videos a day', tiktok_views: 'Daily TikTok views', ig_views: 'Daily Instagram views', yt_views: 'Daily YouTube views', sc_plays: 'Daily SoundCloud plays' };
+  function seriesFor(ctx, k) { return k === 'streams' ? ctx.streams : k === 'shazams' ? ctx.shazams : (ctx.more || {})[k] || []; }
+  function metricChart(ctx, k, mon) {
+    var days = (seriesFor(ctx, k) || []).map(function (r) { return { date: C.parseDate(r.date), value: r.daily }; })
+      .filter(function (d) { return d.date != null && d.value != null && (ctx.release == null || d.date >= ctx.release - 14 * C.DAY); }).sort(function (a, b) { return a.date - b.date; }).slice(-90);
+    if (days.length < 2) return '<p class="muted" style="font-size:13px">Not enough daily data to draw this yet.</p>';
+    var W = 560, H = 210, L = 6, R = 6, T = 20, B = 22;
+    var d0 = days[0].date, d1 = days[days.length - 1].date, span = (d1 - d0) || 1;
+    var avg = days.map(function (d, i) { var w = days.slice(Math.max(0, i - 6), i + 1); return w.reduce(function (a, x) { return a + x.value; }, 0) / w.length; });
+    var max = Math.max.apply(null, days.map(function (d) { return d.value; }).concat([1]));
+    var x = function (t) { return L + (t - d0) / span * (W - L - R); }, y = function (v) { return T + (1 - v / max) * (H - T - B); };
+    var raw = days.map(function (d, i) { return (i ? 'L' : 'M') + x(d.date).toFixed(1) + ' ' + y(d.value).toFixed(1); }).join(' ');
+    var av = days.map(function (d, i) { return (i ? 'L' : 'M') + x(d.date).toFixed(1) + ' ' + y(avg[i]).toFixed(1); }).join(' ');
+    var area = av + ' L' + x(d1).toFixed(1) + ' ' + (H - B) + ' L' + x(d0).toFixed(1) + ' ' + (H - B) + ' Z';
+    var marks = (mon.events || []).filter(function (e) { return e.date >= d0 && e.date <= d1; }).map(function (e) {
+      var xx = x(e.date).toFixed(1), col = e.type === 'added' ? 'add' : 'rem';
+      return '<g class="mk ' + col + '"><line x1="' + xx + '" x2="' + xx + '" y1="' + T + '" y2="' + (H - B) + '"/><circle cx="' + xx + '" cy="' + (H - B) + '" r="4.5"/><title>' + esc((e.type === 'added' ? 'Added to ' : 'Removed from ') + e.name + ' (' + C.DSP_LABEL[e.dsp] + '), ' + C.fmtShort(e.date)) + '</title></g>';
+    }).join('');
+    return '<svg class="trend-chart" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(CHART_LABEL[k] || k) + '">' +
+      '<path d="' + area + '" class="area"/><path d="' + raw + '" class="raw"/><path d="' + av + '" class="ln"/>' + marks +
+      '<text x="' + L + '" y="' + (H - 6) + '" class="tl">' + C.fmtShort(d0) + '</text><text x="' + (W - R) + '" y="' + (H - 6) + '" text-anchor="end" class="tl">' + C.fmtShort(d1) + '</text>' +
+      '<text x="' + L + '" y="12" class="tl">Peak day ' + C.fmtNum(max) + '</text></svg>' +
+      '<div class="ckey"><span><i class="k-ln"></i>7-day average</span><span><i class="k-raw"></i>daily</span><span><i class="k-add"></i>editorial add</span><span><i class="k-rem"></i>removed</span></div>';
+  }
+
   // one record, everything visible
   var LINK_ORDER = [['spotify', 'Spotify'], ['apple', 'Apple Music'], ['deezer', 'Deezer'], ['amazon', 'Amazon'], ['youtube', 'YouTube'], ['beatport', 'Beatport'], ['soundcloud', 'SoundCloud']];
   function linkOf(ctx, k) { var v = (ctx.links || {})[k]; return Array.isArray(v) ? v[0] : v; }
   function sheet(i) {
-    var ctx = i.ctx, P = i.P, sup = ctx.support || {};
+    var ctx = i.ctx, P = i.P, sup = ctx.support || {}, g = i.group || { key: ctx.isrc, tracks: [ctx] }, gk = g.key;
+    var ck = state.ui.chartKey[gk] || 'streams';
+    if (!i.strip.some(function (m) { return m.key === ck && m.has; })) ck = 'streams';
     var links = LINK_ORDER.filter(function (l) { return linkOf(ctx, l[0]); }).map(function (l) { return '<a class="lk" href="' + esc(linkOf(ctx, l[0])) + '" target="_blank" rel="noopener">' + l[1] + '</a>'; }).join('');
-    var on = state.ui.sel.indexOf(ctx.isrc) >= 0;
+    var on = state.ui.sel.indexOf(gk) >= 0;
     var strip = '<div class="mstrip">' + i.strip.map(function (m) {
-      return '<div class="mc' + (m.has ? '' : ' none') + '"><div class="mc-l">' + m.label + '</div><div class="mc-v num">' + (m.w && m.w.cur != null && (m.w.cur || m.w.total) ? short(m.w.cur) : '-') + '</div><div class="mc-f">' + (m.has ? pctTag(m.w) : '<span class="d0">no data</span>') + (m.w && m.w.total && !(m.w.since && m.w.total === m.w.cur) ? '<span class="tot">' + short(m.w.total) + ' total' + (m.w.since ? ' inc. pre-release' : '') + '</span>' : '') + '</div></div>';
+      var can = m.has;
+      return '<div class="mc' + (m.has ? '' : ' none') + (can ? ' click' : '') + (ck === m.key ? ' on' : '') + '"' + (can ? ' data-act="setChart" data-g="' + esc(gk) + '" data-m="' + m.key + '" title="Show on the chart"' : '') + '><div class="mc-l">' + m.label + '</div><div class="mc-v num">' + (m.w && m.w.cur != null && (m.w.cur || m.w.total) ? short(m.w.cur) : '-') + '</div><div class="mc-f">' + (m.has ? pctTag(m.w) : '<span class="d0">no data</span>') + (m.w && m.w.total && !(m.w.since && m.w.total === m.w.cur) ? '<span class="tot">' + short(m.w.total) + ' total' + (m.w.since ? ' inc. pre-release' : '') + '</span>' : '') + '</div>' +
+        (m.has ? '<div class="mc-b">' + bars(weeklyBars(seriesFor(ctx, m.key), P.end), ck === m.key) + '</div>' : '') + '</div>';
     }).join('') + '</div>';
-    var nkey = ctx.isrc;
+    var chips = g.tracks.length > 1 ? '<div class="tchips"><span class="muted">Showing</span>' +
+      '<button class="chip' + (!state.ui.trackView[gk] ? ' on' : '') + '" data-act="viewTrack" data-g="' + esc(gk) + '" data-t="">Whole release</button>' +
+      g.tracks.map(function (t) { return '<button class="chip' + (state.ui.trackView[gk] === t.isrc ? ' on' : '') + '" data-act="viewTrack" data-g="' + esc(gk) + '" data-t="' + esc(t.isrc) + '">' + esc(t.track) + '</button>'; }).join('') + '</div>' : '';
+    var nkey = ctx.isrc;   // ticks belong to the view (whole release, or one track)
     var notesHtml = i.notes.length ? i.notes.map(function (g, gi) {
       return '<div class="ng"><div class="ng-t">' + esc(g.title) + '</div>' + g.items.map(function (it, ii) {
         var id = 'n_' + nkey + '_' + gi + '_' + ii;
@@ -662,7 +749,7 @@ body.wide .wrap{max-width:1320px}
         var first = (p.spans || []).map(function (s) { return s.added_at; }).filter(Boolean).sort()[0];
         var rg = C.activeRegions(p).filter(Boolean);
         var pos = C.bestPos(p);
-        return { name: p.name, fresh: P.mode !== 'since' && C.addedIn(p, P.s, P.e), sub: [pos ? '#' + pos : '', p.followers ? C.fmtCompact(p.followers) : '', rg.length > 1 ? rg.length + ' markets' : rg[0] || '', first ? C.fmtShort(C.parseDate(first)) : ''].filter(Boolean).join(' · ') };
+        return { name: p.name, fresh: P.mode !== 'since' && C.addedIn(p, P.s, P.e), sub: [ctx.group && p.tracks ? p.tracks.join(' + ') : '', pos ? '#' + pos : '', p.followers ? C.fmtCompact(p.followers) : '', rg.length > 1 ? rg.length + ' markets' : rg[0] || '', first ? C.fmtShort(C.parseDate(first)) : ''].filter(Boolean).join(' · ') };
       }));
     });
     var bp = ((sup.beatport || {}).charts || []).filter(function (c) { return !c.removed_at; });
@@ -678,11 +765,11 @@ body.wide .wrap{max-width:1320px}
     var sz = ((ctx.charts || {}).shazam || []).slice().sort(function (a, b) { return (a.country_code === 'GB' ? 0 : 1) - (b.country_code === 'GB' ? 0 : 1) || a.position - b.position; });
     var dspCharts = C.chartMoves({ spotify: (ctx.charts || {}).spotify, apple: (ctx.charts || {}).apple, deezer: (ctx.charts || {}).deezer }).sort(function (a, b) { return a.position - b.position; });
     var lists = '' +
-      listBox(ctx.isrc + ':radio', 'Radio', radio.plays ? C.fmtNum(radio.plays) + ' plays · ' + C.fmtNum(radio.stations_total) + ' stations' : '', sts.map(function (r) {
+      listBox(ctx.isrc + ':radio', 'Radio', radio.plays ? C.fmtNum(radio.plays) + ' plays · ' + C.fmtNum(radio.stations_total) + ' stations' : '', sts.slice().sort(function (a, b) { return (BIG_ST.test(b.name) - BIG_ST.test(a.name)) || (b.plays || 0) - (a.plays || 0); }).map(function (r) {
         return { name: r.name + (r.type === 'SiriusXM' ? ' (SiriusXM)' : ''), fresh: inPer(r.first, P), sub: [r.plays + ' play' + (r.plays === 1 ? '' : 's'), r.cc || '', 'since ' + C.fmtShort(C.parseDate(r.first))].filter(Boolean).join(' · ') };
       })) +
       listBox(ctx.isrc + ':dj', 'DJ support (1001Tracklists)', sup.dj_total ? C.fmtNum(sup.dj_total) + ' supports' : '', sets.map(function (x) {
-        return { name: x.dj || '?', fresh: inPer(x.date, P), sub: [x.name, x.date ? C.fmtShort(C.parseDate(x.date)) : ''].filter(Boolean).join(' · ') };
+        return { name: x.dj || '?', fresh: inPer(x.date, P), sub: [x.name, ctx.group && x.track ? x.track : '', x.date ? C.fmtShort(C.parseDate(x.date)) : ''].filter(Boolean).join(' · ') };
       })) +
       listBox(ctx.isrc + ':charts', 'Charts', '', dspCharts.map(function (m) { return { name: m.label, fresh: m.isNew || m.delta > 0, sub: '#' + m.position + (m.isNew ? ' · new' : m.delta ? (m.delta > 0 ? ' · up ' : ' · down ') + Math.abs(m.delta) : '') }; })
         .concat(sz.map(function (c) { return { name: 'Shazam ' + (c.city || c.genre || '') + ' ' + (c.country_code || ''), fresh: c.previous_position == null, sub: '#' + c.position }; }))
@@ -690,20 +777,22 @@ body.wide .wrap{max-width:1320px}
         .concat(djc.length ? [{ name: djc.length + ' Beatport DJ charts', fresh: djc.some(function (c) { return inPer(c.date, P); }), sub: 'latest: ' + djc.slice(0, 3).map(function (c) { return c.owner; }).join(', ') }] : [])) +
       '';
 
-    return '<section class="sheet" id="sheet-' + esc(ctx.isrc) + '">' +
+    return '<section class="sheet" id="sheet-' + esc(gk) + '" data-view="' + esc(ctx.isrc) + '">' +
       '<div class="sh-head">' + (ctx.artwork ? '<img class="art" src="' + esc(ctx.artwork) + '" alt="">' : '<div class="art"></div>') +
       '<div class="sh-t"><h2>' + esc(ctx.artist) + ' \'' + esc(ctx.track) + '\'' + (ctx.label ? ' <span class="lab">' + esc(ctx.label) + '</span>' : '') + '</h2>' +
-      '<div class="muted">' + esc(relSub(ctx)) + ' · showing ' + esc(P.header) + '</div><div class="lks">' + links + '</div></div>' +
-      '<div class="sh-act">' + trendBadge(i.mon.trend) + '<label class="check small"><input type="checkbox" data-act="toggleSel" data-isrc="' + esc(ctx.isrc) + '"' + (on ? ' checked' : '') + '>Include in combined notes</label>' +
-      '<a class="btn quiet small" href="#/record/' + encodeURIComponent(ctx.isrc) + '/details">Edit</a></div></div>' +
+      '<div class="muted">' + esc(relSub(ctx)) + ' · showing ' + esc(P.header) + '</div><div class="lks">' + links + '</div>' + chips + '</div>' +
+      '<div class="sh-act">' + trendBadge(i.mon.trend) + '<label class="check small"><input type="checkbox" data-act="toggleSel" data-isrc="' + esc(gk) + '"' + (on ? ' checked' : '') + '>Include in combined notes</label>' +
+      '<a class="btn quiet small" href="#/record/' + encodeURIComponent(ctx.group ? g.tracks[0].isrc : ctx.isrc) + '/details">Edit' + (ctx.group ? ' tracks' : '') + '</a></div></div>' +
       (ctx.errors && ctx.errors.length ? '<div class="callout" title="' + esc(ctx.errors.join('\n')) + '"><span>' + plural(ctx.errors.length, 'item') + ' could not be refreshed last time. Older data is shown where possible.</span></div>' : '') +
       strip +
-      '<div class="sh-grid"><div class="pbox notes"><div class="box-h"><h3>Pitch notes</h3><button class="btn primary small" data-act="copyNotes" data-isrc="' + esc(ctx.isrc) + '">Copy notes</button></div>' +
+      '<div class="sh-grid1"><div class="pbox"><div class="box-h"><h3>Editorial playlists live</h3><span class="muted">' + ed.length + ' across DSPs' + (i.news.editorial.length ? ' · <span class="newtag">+' + i.news.editorial.length + ' new in ' + esc(P.label) + '</span>' : '') + '</span></div><div class="edcols">' + cols.join('') + '</div></div>' +
+      '<div class="pbox chartbox"><h3>' + esc(CHART_LABEL[ck]) + '</h3>' + metricChart(ctx, ck, i.mon) + '<div class="hint muted" style="margin-top:4px">Click any number above to chart it.</div></div></div>' +
+      '<div class="sh-grid"><div class="pbox notes"><div class="box-h"><h3>Pitch notes' + (g.tracks.length > 1 ? ' <span class="muted" style="text-transform:none;letter-spacing:0;font-weight:500">' + (ctx.group ? 'whole release' : esc(ctx.track)) + '</span>' : '') + '</h3><button class="btn primary small" data-act="copyNotes" data-isrc="' + esc(gk) + '">Copy notes</button></div>' +
       '<p class="muted hint">' + (P.mode === 'since' ? 'Every true, positive point since release. Switch to Last 7 days or Last full release week to see what\'s new.' : 'Every true, positive point. <b>Bold</b> is new in ' + esc(P.label) + ' and stays bold when pasted.') + ' Tick the points you want, then copy.</p><div class="ticks">Tick: <button class="more-btn" data-act="tickSet" data-isrc="' + esc(nkey) + '" data-w="all">all</button> · ' + (P.mode === 'since' ? '' : '<button class="more-btn" data-act="tickSet" data-isrc="' + esc(nkey) + '" data-w="new">new only</button> · ') + '<button class="more-btn" data-act="tickSet" data-isrc="' + esc(nkey) + '" data-w="none">none</button></div>' + notesHtml + '</div>' +
-      '<div class="side"><div class="pbox chartbox"><h3>Daily Spotify streams</h3>' + trendChart(i.mon) + '</div>' + lists + '</div></div>' +
-      '<div class="pbox"><div class="box-h"><h3>Editorial playlists live</h3><span class="muted">' + ed.length + ' across DSPs' + (i.news.editorial.length ? ' · <span class="newtag">+' + i.news.editorial.length + ' new in ' + esc(P.label) + '</span>' : '') + '</span></div><div class="edcols">' + cols.join('') + '</div></div>' +
+      '<div class="side">' + lists + '</div></div>' +
       '</section>';
   }
+  var BIG_ST = /bbc|radio 1|capital|kiss|sirius|sxm|diplo|defected|toolroom|ministry|triple j|nrj|fun radio|1live|radio fg|ibiza global|apple music 1|heart dance|1xtra|q-dance|slam|538|data transmission|magic|global|sunshine live|los 40/i;
   function inPer(d, P) { if (P.mode === 'since') return false; var x = C.parseDate(d); return x != null && x >= P.s && x <= P.e; }
   function itemsHtml(key, rows, n) {
     var open = state.ui.open[key], shown = open ? rows : rows.slice(0, n);
@@ -720,14 +809,16 @@ body.wide .wrap{max-width:1320px}
   }
 
   // notes text for the clipboard: Artist 'Title' - LABEL, links, period header, bullets. New points bold in the rich copy.
-  function notesFor(isrc) {
-    var i = (state.ui._infos || []).filter(function (x) { return x.ctx.isrc === isrc; })[0];
+  function notesFor(gk) {
+    var id = state.ui.trackView[gk] || gk, i = infoById(id);
     if (!i) return null;
-    var ctx = i.ctx, tk = state.ui.tick[isrc] || {}, items = [];
+    var ctx = i.ctx, tk = state.ui.tick[id] || {}, items = [];
     i.notes.forEach(function (g, gi) { g.items.forEach(function (it, ii) { if (tk[gi + '_' + ii]) items.push(it); }); });
     if (!items.length) return null;
     var titleTxt = ctx.artist + ' \'' + ctx.track + '\'' + (ctx.label ? ' - ' + ctx.label.toUpperCase() : '');
-    var lk = LINK_ORDER.filter(function (l) { return linkOf(ctx, l[0]); }).map(function (l) { return linkOf(ctx, l[0]); });
+    var lk = [];
+    LINK_ORDER.forEach(function (l) { var v = (ctx.links || {})[l[0]]; if (!v) return; (Array.isArray(v) ? (ctx.group ? v : [v[0]]) : [v]).forEach(function (u) { if (lk.indexOf(u) < 0) lk.push(u); }); });
+    if (ctx.group) lk = lk.filter(function (u) { return /spotify\.com/.test(u); }).concat(lk.filter(function (u) { return !/spotify\.com/.test(u); }).slice(0, 2));
     var plain = titleTxt + '\n' + (lk.length ? 'STREAM: ' + lk.join(' | ') + '\n' : '') + '\n' + i.P.header + '\n' + items.map(function (it) { return '- ' + it.text; }).join('\n');
     var html = '<p><b>' + esc(titleTxt) + '</b><br>' + (lk.length ? 'STREAM: ' + lk.map(function (u) { return '<a href="' + esc(u) + '">' + esc(u) + '</a>'; }).join(' | ') : '') + '</p>' +
       '<p><u>' + esc(i.P.header) + '</u></p><ul>' + items.map(function (it) { return '<li>' + (it.fresh ? '<b>' + esc(it.text) + '</b>' : esc(it.text)) + '</li>'; }).join('') + '</ul>';
@@ -1108,14 +1199,16 @@ body.wide .wrap{max-width:1320px}
     toggleOpen: function (el) { var k = el.dataset.k; state.ui.open[k] = !state.ui.open[k]; var y = window.scrollY; render(); window.scrollTo(0, y); },
     copyNotes: function (el) { var n = notesFor(el.dataset.isrc); if (n) copyRich([n]); else toast('Tick the points you want first', true); },
     tickSet: function (el) {
-      var id = el.dataset.isrc, w = el.dataset.w, i = (state.ui._infos || []).filter(function (x) { return x.ctx.isrc === id; })[0];
+      var id = el.dataset.isrc, w = el.dataset.w, i = infoById(id);
       if (!i) return;
       var tk = state.ui.tick[id] = {};
       if (w !== 'none') i.notes.forEach(function (g, gi) { g.items.forEach(function (it, ii) { if (w === 'all' || it.fresh) tk[gi + '_' + ii] = 1; }); });
-      document.querySelectorAll('#sheet-' + id + ' .nck').forEach(function (c) { c.checked = !!tk[c.dataset.k]; });
+      document.querySelectorAll('.nck[data-isrc="' + id + '"]').forEach(function (c) { c.checked = !!tk[c.dataset.k]; });
     },
+    viewTrack: function (el) { var g = el.dataset.g; if (el.dataset.t) state.ui.trackView[g] = el.dataset.t; else delete state.ui.trackView[g]; var y = window.scrollY; render(); window.scrollTo(0, y); },
+    setChart: function (el) { state.ui.chartKey[el.dataset.g] = el.dataset.m; var y = window.scrollY; render(); window.scrollTo(0, y); },
     copySelected: function () {
-      var order = (state.ui._infos || []).map(function (i) { return i.ctx.isrc; });
+      var order = (state.ui._infos || []).map(function (i) { return i.group ? i.group.key : i.ctx.isrc; });
       var ids = order.filter(function (id) { return state.ui.sel.indexOf(id) >= 0; });
       var parts = ids.map(notesFor).filter(Boolean);
       if (!parts.length) { toast('Tick the points you want in each record first', true); return; }

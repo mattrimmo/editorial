@@ -872,6 +872,112 @@
     };
   }
 
+
+  // ---------------------------------------------------------------- releases: tracks from the same release pitched together
+  // Same label and same release day = one release (an EP, or a single with remixes). Each track can still be looked at alone.
+  function normKey(s) { return String(s || '').toLowerCase().replace(/[^a-z0-9]/g, ''); }
+  function releaseKey(ctx) {
+    if (ctx.groupKey) return ctx.groupKey;
+    if (ctx.release == null) return 'one-' + ctx.isrc;
+    // same release day and same label (or, before the label is known, the same lead artist)
+    var who = ctx.label ? normKey(ctx.label) : normKey(String(ctx.artist || '').split(',')[0]);
+    return who ? 'rel-' + who + '-' + iso(ctx.release) : 'one-' + ctx.isrc;
+  }
+  function mergeSeries(list) {
+    list = list.filter(function (s) { return s && s.length; });
+    if (!list.length) return [];
+    if (list.length === 1) return list[0];
+    var maps = list.map(function (s) { var m = {}; s.forEach(function (r) { m[r.date] = r; }); return m; });
+    var ends = list.map(function (s) { var e = null; s.forEach(function (r) { if (r.daily != null && (e == null || r.date > e)) e = r.date; }); return e; }).filter(Boolean);
+    var end = ends.length ? ends.sort()[0] : null;   // stop at the earliest "last reported" day so a lagging track doesn't look like a drop
+    var dates = {}; list.forEach(function (s) { s.forEach(function (r) { dates[r.date] = 1; }); });
+    var last = list.map(function () { return null; });
+    return Object.keys(dates).sort().map(function (d) {
+      var tot = null, daily = null;
+      maps.forEach(function (m, i) {
+        var r = m[d];
+        if (r && r.total != null) last[i] = r.total;
+        if (last[i] != null) tot = (tot || 0) + last[i];
+        if (r && r.daily != null) daily = (daily || 0) + r.daily;
+      });
+      if (end != null && d > end) daily = null;
+      return { date: d, daily: daily, total: tot };
+    });
+  }
+  function mergeCtx(key, list, today) {
+    if (list.length === 1) return list[0];
+    var first = list[0], artists = [];
+    list.forEach(function (c) { String(c.artist || '').split(/\s*,\s*/).forEach(function (a) { if (a && artists.indexOf(a) < 0) artists.push(a); }); });
+    var pls = {}, out = [];
+    list.forEach(function (c) {
+      (c.placements || []).forEach(function (p) {
+        var k = p.dsp + ':' + p.id;
+        if (!pls[k]) { pls[k] = Object.assign({}, p, { spans: (p.spans || []).slice(), tracks: [c.track] }); out.push(pls[k]); }
+        else { pls[k].spans = pls[k].spans.concat(p.spans || []); if (pls[k].tracks.indexOf(c.track) < 0) pls[k].tracks.push(c.track); }
+      });
+    });
+    var charts = {};
+    list.forEach(function (c) { Object.keys(c.charts || {}).forEach(function (d) { charts[d] = (charts[d] || []).concat(c.charts[d] || []); }); });
+    var more = {};
+    list.forEach(function (c) { Object.keys(c.more || {}).forEach(function (k) { more[k] = (more[k] || []).concat([c.more[k]]); }); });
+    Object.keys(more).forEach(function (k) { more[k] = mergeSeries(more[k]); });
+    var sup = { radio: { plays: 0, stations: [] }, dj_sets: [], dj_total: 0, dj_unique: 0, tracklist_charts: [],
+      beatport: { charts: [], dj_charts: [] }, soundcloud: { editorial: [], charts: [] }, traxsource: { charts: [] } };
+    var st = {}, djc = {}, tl = [], bpc = [], txc = [];
+    list.forEach(function (c) {
+      var s = c.support || {}, r = s.radio || {};
+      sup.radio.plays += r.plays || 0;
+      (r.stations || []).forEach(function (x) {
+        var k = normKey(x.name);
+        if (!st[k]) { st[k] = Object.assign({}, x); sup.radio.stations.push(st[k]); }
+        else { st[k].plays = (st[k].plays || 0) + (x.plays || 0); if (x.first && (!st[k].first || x.first < st[k].first)) st[k].first = x.first; }
+      });
+      (s.dj_sets || []).forEach(function (x) { sup.dj_sets.push(Object.assign({ track: c.track }, x)); });
+      sup.dj_total += s.dj_total || 0; sup.dj_unique += s.dj_unique || 0;
+      (s.tracklist_charts || []).forEach(function (x) { tl.push(Object.assign({ track: c.track }, x)); });
+      ((s.beatport || {}).charts || []).forEach(function (x) { bpc.push(Object.assign({ track: c.track }, x)); });
+      ((s.beatport || {}).dj_charts || []).forEach(function (x) { var k = (x.owner || '') + '|' + (x.name || ''); if (!djc[k]) { djc[k] = 1; sup.beatport.dj_charts.push(x); } });
+      ((s.soundcloud || {}).editorial || []).forEach(function (x) { sup.soundcloud.editorial.push(x); });
+      ((s.traxsource || {}).charts || []).forEach(function (x) { txc.push(Object.assign({ track: c.track }, x)); });
+    });
+    // a release chart (e.g. Beatport "House Releases") shows every track at the same spot: keep it once, without a track name
+    function collapse(rows) {
+      var by = {}, out2 = [];
+      rows.forEach(function (x) { (by[x.name] = by[x.name] || []).push(x); });
+      Object.keys(by).forEach(function (n) {
+        var g = by[n], same = g.every(function (x) { return x.position === g[0].position && x.removed_at === g[0].removed_at; });
+        if (same && g.length > 1) out2.push(Object.assign({}, g[0], { track: null }));
+        else g.forEach(function (x) { out2.push(Object.assign({}, x, { name: x.name + ' (' + x.track + ')' })); });
+      });
+      return out2;
+    }
+    sup.tracklist_charts = collapse(tl); sup.beatport.charts = collapse(bpc); sup.traxsource.charts = collapse(txc);
+    sup.radio.stations.sort(function (a, b) { return (b.plays || 0) - (a.plays || 0); });
+    sup.radio.stations_total = sup.radio.stations.length;
+    sup.dj_sets.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+    sup.beatport.dj_charts.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+    var rel = Math.min.apply(null, list.map(function (c) { return c.release != null ? c.release : 9e15; }));
+    var links = {};
+    LINK_KEYS_ORDER.forEach(function (k) { var u = list.map(function (c) { return (c.links || {})[k]; }).filter(Boolean); if (u.length) links[k] = u.length === 1 ? u[0] : u; });
+    var ctx = {
+      isrc: key, group: true, members: list, groupKey: key,
+      artist: artists.join(', '), track: list.map(function (c) { return c.track; }).join(' / '),
+      artwork: first.artwork, label: first.label, hook: list.map(function (c) { return c.hook; }).filter(Boolean)[0] || '',
+      release: rel < 9e15 ? rel : null, links: links, placements: out, charts: charts, more: more, support: sup,
+      streams: mergeSeries(list.map(function (c) { return c.streams; })), shazams: mergeSeries(list.map(function (c) { return c.shazams; })),
+      errors: [].concat.apply([], list.map(function (c) { return c.errors || []; })), syncedAt: first.syncedAt, today: today
+    };
+    ctx.weeks = ctx.release != null ? weeklyTable(ctx.placements, ctx.release, today, 12) : [];
+    ctx.defaultWeek = ctx.release != null ? defaultReportWeek(ctx.release, today) : 1;
+    return ctx;
+  }
+  var LINK_KEYS_ORDER = ['spotify', 'apple', 'deezer', 'amazon', 'youtube', 'beatport', 'soundcloud'];
+  function groupReleases(ctxs, today) {
+    var by = {}, order = [];
+    ctxs.forEach(function (c) { var k = releaseKey(c); if (!by[k]) { by[k] = []; order.push(k); } by[k].push(c); });
+    return order.map(function (k) { return { key: k, tracks: by[k], ctx: mergeCtx(k, by[k], today) }; });
+  }
+
   // ---------------------------------------------------------------- build a record context
   // Spot On Track gives a running lifetime "total" alongside "daily". The daily rows can start late or have gaps,
   // so adding them up understates the real figure. Prefer the reported total, never go below the daily sum.
@@ -941,6 +1047,6 @@
     chartLabel: chartLabel, chartMoves: chartMoves, bestChartMove: bestChartMove,
     streamsBullet: streamsBullet, momentumBullet: momentumBullet, supportBullets: supportBullets, fmtCompact: fmtCompact, highlights: highlights, leadStats: leadStats, totalStreams: totalStreams, allBullets: allBullets, monitor: monitor, trendOf: trendOf, changeFeed: changeFeed, buildPitch: buildPitch, buildMultiPitch: buildMultiPitch, followUps: followUps,
     buildContext: buildContext, nameList: nameList, normalizeLink: normalizeLink,
-    periodFor: periodFor, metricWin: metricWin, stripFor: stripFor, notes: notes, periodNews: periodNews, placementLine: placementLine, bestPos: bestPos, STRIP: STRIP
+    groupReleases: groupReleases, mergeSeries: mergeSeries, periodFor: periodFor, metricWin: metricWin, stripFor: stripFor, notes: notes, periodNews: periodNews, placementLine: placementLine, bestPos: bestPos, STRIP: STRIP
   };
 }));
